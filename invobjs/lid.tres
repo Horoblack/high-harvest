@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://baocont6w2uiu"]
+
+[ext_resource type="Texture2D" uid="uid://5ugmaj75oe1q" path="res://sprites/itemicons/lid.png" id="1_gqf7n"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_duear"]
+
+[resource]
+script = ExtResource("2_duear")
+name = "Box lid"
+weight = 0.5
+icon = ExtResource("1_gqf7n")
+description = "Used to close a box."
+objaddress = "boxlid"
+customproperties = {}

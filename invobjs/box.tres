@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://c43qflvbrhxy7"]
+
+[ext_resource type="Texture2D" uid="uid://bckg73777aun0" path="res://sprites/itemicons/box.png" id="1_6quap"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_4i1c4"]
+
+[resource]
+script = ExtResource("2_4i1c4")
+name = "Box"
+weight = 1.0
+icon = ExtResource("1_6quap")
+description = "Put things in it."
+objaddress = "box"
+customproperties = {
+"lid": true
+}

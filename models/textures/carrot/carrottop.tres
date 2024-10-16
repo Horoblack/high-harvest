@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://m55cy7l1bi1l"]
+
+[ext_resource type="Shader" path="res://ybillboard.gdshader" id="1_ix4dw"]
+[ext_resource type="Texture2D" uid="uid://bdwln1evlv1jk" path="res://models/textures/carrot/carrottop.png" id="2_dlerh"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_ix4dw")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("2_dlerh")

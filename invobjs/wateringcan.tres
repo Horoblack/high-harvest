@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cp0vqognoxt5d"]
+
+[ext_resource type="Texture2D" uid="uid://io0pt16h3rgs" path="res://sprites/itemicons/wateringcan.png" id="1_cgf7g"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_2ugny"]
+
+[resource]
+script = ExtResource("2_2ugny")
+name = "Watering can"
+weight = 1.0
+icon = ExtResource("1_cgf7g")
+description = "To water crops."
+objaddress = "wateringcan"
+customproperties = {}

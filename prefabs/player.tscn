@@ -1,0 +1,294 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwi170efjq44q"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_uppgx"]
+[ext_resource type="Script" path="res://scripts/playercam.gd" id="2_vgmbu"]
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="3_w0mcb"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i14eu"]
+radius = 0.45
+
+[node name="player" type="CharacterBody3D"]
+script = ExtResource("1_uppgx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_i14eu")
+
+[node name="cam" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+script = ExtResource("2_vgmbu")
+
+[node name="RayCast3D" type="RayCast3D" parent="cam"]
+target_position = Vector3(0, 0, -4)
+collision_mask = 8388609
+
+[node name="grabpos" type="Marker3D" parent="cam"]
+
+[node name="heldpos" type="Marker3D" parent="cam"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, -0.5, -0.7)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="cam"]
+
+[node name="ColorRect" type="ColorRect" parent="cam/CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0.392157)
+
+[node name="inventory" type="Control" parent="cam/CanvasLayer"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -208.0
+offset_top = -200.0
+offset_right = 207.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_w0mcb")
+
+[node name="ColorRect" type="ColorRect" parent="cam/CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14902, 0.14902, 0.14902, 1)
+
+[node name="list" type="ColorRect" parent="cam/CanvasLayer/inventory"]
+clip_children = 2
+layout_mode = 2
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 225.0
+offset_bottom = 325.0
+mouse_filter = 2
+color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="cam/CanvasLayer/inventory/list"]
+layout_mode = 1
+offset_right = 200.0
+offset_bottom = 300.0
+mouse_filter = 2
+
+[node name="picturebox" type="ColorRect" parent="cam/CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -175.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 175.0
+grow_horizontal = 0
+mouse_filter = 2
+color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[node name="itemicon" type="TextureRect" parent="cam/CanvasLayer/inventory/picturebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 4
+
+[node name="descbox" type="ColorRect" parent="cam/CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_top = -210.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[node name="item name" type="Label" parent="cam/CanvasLayer/inventory/descbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 18
+vertical_alignment = 1
+
+[node name="item desc" type="Label" parent="cam/CanvasLayer/inventory/descbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 42.0
+offset_right = -4.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="label" type="Label" parent="cam/CanvasLayer/inventory/descbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 159.0
+offset_right = -5.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_font_sizes/font_size = 12
+text = "Weight:
+"
+vertical_alignment = 1
+
+[node name="itemweight" type="Label" parent="cam/CanvasLayer/inventory/descbox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 55.0
+offset_top = 159.0
+offset_right = -8.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.592157, 0.592157, 0.592157, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="weightbox" type="ColorRect" parent="cam/CanvasLayer/inventory"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = -60.0
+offset_right = 225.0
+offset_bottom = -25.0
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[node name="Label" type="Label" parent="cam/CanvasLayer/inventory/weightbox"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 7.0
+offset_top = -11.5
+offset_right = 66.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "Weight:"
+vertical_alignment = 1
+
+[node name="totalweight" type="Label" parent="cam/CanvasLayer/inventory/weightbox"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -11.5
+offset_right = -4.0
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "0 / 20.0
+"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="grabbedinfobox" type="MarginContainer" parent="cam/CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="info" type="ColorRect" parent="cam/CanvasLayer/grabbedinfobox"]
+layout_mode = 2
+color = Color(0.486275, 0.486275, 0.486275, 0.392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="cam/CanvasLayer/grabbedinfobox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="infolabel" type="Label" parent="cam/CanvasLayer/grabbedinfobox/MarginContainer"]
+layout_mode = 2
+
+[node name="heldinfobox" type="MarginContainer" parent="cam/CanvasLayer"]
+visible = false
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -196.0
+offset_top = -112.0
+offset_right = -156.0
+offset_bottom = -72.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="info" type="ColorRect" parent="cam/CanvasLayer/heldinfobox"]
+layout_mode = 2
+color = Color(0.486275, 0.486275, 0.486275, 0.392157)
+
+[node name="MarginContainer" type="MarginContainer" parent="cam/CanvasLayer/heldinfobox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="infolabel" type="Label" parent="cam/CanvasLayer/heldinfobox/MarginContainer"]
+layout_mode = 2
+
+[node name="coyoteTime" type="Timer" parent="."]
+
+[node name="ceilingcheck" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, 1.8, 0)

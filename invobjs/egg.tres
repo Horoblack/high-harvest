@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://b15cmyub318qj"]
+
+[ext_resource type="Texture2D" uid="uid://bja0qt0eean5i" path="res://sprites/itemicons/egg.png" id="1_fiwip"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_yumge"]
+
+[resource]
+script = ExtResource("2_yumge")
+name = "Egg"
+weight = 0.1
+icon = ExtResource("1_fiwip")
+description = "Hatches into a chicken or rooster."
+objaddress = "egg"
+customproperties = {}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dpe1nny1qjhj"]
+
+[ext_resource type="Texture2D" uid="uid://ck1u8c2y1p7q2" path="res://sprites/itemicons/carrotseed.png" id="1_lwut6"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_qvg5p"]
+
+[resource]
+script = ExtResource("2_qvg5p")
+name = "Carrot Seed"
+weight = 0.1
+icon = ExtResource("1_lwut6")
+description = "Plant in a hole to grow carrots."
+objaddress = "carrotseed"
+customproperties = {}

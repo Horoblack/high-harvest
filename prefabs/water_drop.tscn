@@ -1,0 +1,84 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxleb5q7si8cb"]
+
+[ext_resource type="Script" path="res://scripts/water_drop.gd" id="1_1ub6p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7nk38"]
+radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k0jd"]
+shading_mode = 0
+albedo_color = Color(0, 0.615686, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_uujey"]
+material = SubResource("StandardMaterial3D_6k0jd")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="Animation" id="Animation_pi1ev"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_40nw2"]
+resource_name = "dieout"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1, 1, 1), Vector3(1, 1, 1), Vector3(0.1, 0.1, 0.1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a4872"]
+_data = {
+"RESET": SubResource("Animation_pi1ev"),
+"dieout": SubResource("Animation_40nw2")
+}
+
+[node name="water drop" type="RigidBody3D"]
+max_contacts_reported = 2
+contact_monitor = true
+script = ExtResource("1_1ub6p")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_7nk38")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_uujey")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a4872")
+}
+autoplay = "dieout"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

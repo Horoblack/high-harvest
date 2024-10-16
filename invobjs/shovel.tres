@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://b3hnag15w435e"]
+
+[ext_resource type="Texture2D" uid="uid://btnuoqy4l7erp" path="res://sprites/itemicons/shovel.png" id="1_8tvoh"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_cmky7"]
+
+[resource]
+script = ExtResource("2_cmky7")
+name = "shovel"
+weight = 1.0
+icon = ExtResource("1_8tvoh")
+description = "Can be used to dig holes for crops or to uproot grown crops."
+objaddress = "shovel"
+customproperties = {}
