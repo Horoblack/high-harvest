@@ -63,6 +63,7 @@ skeleton = NodePath("")
 shape = SubResource("BoxShape3D_1omna")
 
 [node name="textstuff" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="textstuff"]
 anchors_preset = 15

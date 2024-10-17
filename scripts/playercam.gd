@@ -77,7 +77,7 @@ func _input(event):
 		if(grabbed && is_instance_valid(grabbed)):
 			grabbed.apply_impulse(-global_basis.z * 20)
 			letgoofgrabbed()
-		elif(held != null && held.has_method("trigger")):
+		elif(held != null && held.has_method("trigger") && !camfrozen):
 			held.trigger(self)
 	if event.is_action_pressed("rightclick") && grabbed:
 		rotating = true

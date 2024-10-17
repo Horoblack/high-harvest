@@ -24,6 +24,9 @@ func _on_timer_timeout():
 				for i in n.buyingselection:
 					for q in n.buyingselection[i]:
 						bx.inventory.append(i)
+				get_tree().current_scene.add_child(bx)
+				bx.global_position = boxspawn.global_position
+				bx.global_rotation = boxspawn.global_rotation
 				n.queue_free()
 		
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=29 format=3 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://p8i6qatvd1wv" path="res://prefabs/carrotseed.tscn" id="14_2a70t"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
 [ext_resource type="PackedScene" uid="uid://cerdx7rxbbvir" path="res://prefabs/bankstatement.tscn" id="17_aa7ob"]
+[ext_resource type="PackedScene" uid="uid://c77kbxy3msedv" path="res://prefabs/storeflyer.tscn" id="18_hefch"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -200,3 +201,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024045, 0, -5.08832)
 
 [node name="paper" parent="." instance=ExtResource("17_aa7ob")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34531, 0, -2.09547)
+
+[node name="flyer" parent="." instance=ExtResource("18_hefch")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67774, 0, -2.39627)
