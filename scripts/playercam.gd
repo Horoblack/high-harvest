@@ -78,7 +78,7 @@ func _input(event):
 			grabbed.apply_impulse(-global_basis.z * 20)
 			letgoofgrabbed()
 		elif(held != null && held.has_method("trigger")):
-			held.trigger()
+			held.trigger(self)
 	if event.is_action_pressed("rightclick") && grabbed:
 		rotating = true
 	if event.is_action_released("rightclick"):

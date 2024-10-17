@@ -21,6 +21,6 @@ func deserializeall():
 		get_tree().current_scene.add_child(obj)
 		obj.global_position = n[0]
 		obj.global_rotation = n[1]
-		var data = obj.get_meta("obj")
+		var data = obj.get_meta("obj").duplicate()
 		data.customproperties = n[3]
 		obj.set_meta("obj", data)

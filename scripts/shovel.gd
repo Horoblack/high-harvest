@@ -8,7 +8,9 @@ const hole = preload("res://prefabs/hole.tscn")
 func hold(holder):
 	pl = holder
 
-func trigger():
+func trigger(pl):
+	if(pl.inventory.visible):
+		return
 	anim.play("dig")
 
 func dig():

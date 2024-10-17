@@ -9,19 +9,20 @@ var objs : Dictionary = {
 	"boxlid":load("res://prefabs/lid.tscn"),
 	"chicken":load("res://prefabs/chicken.tscn"),
 	"rooster":load("res://prefabs/rooster.tscn"),
-	"egg":load("res://prefabs/egg.tscn")
+	"egg":load("res://prefabs/egg.tscn"),
+	"bankstatement":load("res://prefabs/bankstatement.tscn")
 }
 
 var invobjs : Dictionary = {
-	"shovel":load("res://invobjs/shovel.tscn"),
-	"carrot":load("res://invobjs/carrot.tscn"),
-	"carrotseed":load("res://invobjs/carrotseed.tscn"),
-	"wateringcan":load("res://invobjs/wateringcan.tscn"),
-	"box":load("res://invobjs/box.tscn"),
-	"boxlid":load("res://invobjs/lid.tscn"),
-	"chicken":load("res://invobjs/chicken.tscn"),
-	"rooster":load("res://invobjs/rooster.tscn"),
-	"egg":load("res://invobjs/egg.tscn")
+	"shovel":load("res://invobjs/shovel.tres"),
+	"carrot":load("res://invobjs/carrot.tres"),
+	"carrotseed":load("res://invobjs/carrotseed.tres"),
+	"wateringcan":load("res://invobjs/wateringcan.tres"),
+	"box":load("res://invobjs/box.tres"),
+	"boxlid":load("res://invobjs/lid.tres"),
+	"chicken":load("res://invobjs/chicken.tres"),
+	"rooster":load("res://invobjs/rooster.tres"),
+	"egg":load("res://invobjs/egg.tres")
 }
 
 const crops : Dictionary = {

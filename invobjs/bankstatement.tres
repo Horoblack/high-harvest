@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cgxa6dqneh2ac"]
+
+[ext_resource type="Texture2D" uid="uid://v76g7mg0gp6r" path="res://sprites/itemicons/chicken.png" id="1_34o2e"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_50e5n"]
+
+[resource]
+script = ExtResource("2_50e5n")
+name = "Bank Statement"
+weight = 0.1
+icon = ExtResource("1_34o2e")
+description = ""
+objaddress = "bankstatement"
+customproperties = {}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=28 format=3 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://h6i33ynhwb80" path="res://prefabs/chicken.tscn" id="13_wp035"]
 [ext_resource type="PackedScene" uid="uid://p8i6qatvd1wv" path="res://prefabs/carrotseed.tscn" id="14_2a70t"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
+[ext_resource type="PackedScene" uid="uid://cerdx7rxbbvir" path="res://prefabs/bankstatement.tscn" id="17_aa7ob"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -196,3 +197,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50876, 0, 2.59048)
 
 [node name="mailbox" parent="." instance=ExtResource("16_mypgb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024045, 0, -5.08832)
+
+[node name="paper" parent="." instance=ExtResource("17_aa7ob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34531, 0, -2.09547)

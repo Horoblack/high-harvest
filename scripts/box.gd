@@ -1,4 +1,5 @@
 extends RigidBody3D
+class_name box
 
 @onready var lidcheck = $lidcheck
 @onready var grabarea = $grabarea
@@ -25,7 +26,7 @@ func _ready():
 	set_meta("obj", data)
 
 func _on_insidebox_body_entered(body):
-	if(body != self && body.has_meta("obj") && !body is boxlid && body != removeditem):
+	if(body != self && body.has_meta("obj") && !body is boxlid && body != removeditem && !body is box):
 		var obj = body.get_meta("obj")
 		if(getcurweight() + obj.weight <= maxweight):
 			inventory.append(obj)
