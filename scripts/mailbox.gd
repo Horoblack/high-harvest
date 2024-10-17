@@ -3,6 +3,7 @@ extends Node3D
 @onready var flag = $flag
 @onready var area = $Area3D
 @onready var letterspawn = $letterspawn
+@onready var boxspawn = $boxspawn
 
 const box = preload("res://prefabs/box.tscn")
 
@@ -18,6 +19,12 @@ func _on_timer_timeout():
 			if(!ignore.has(n) && n is box): #.is_in_group("pickup") && !n.is_in_group("heavy")
 				n.queue_free()
 				spawnletter()
+			if(!ignore.has(n) && n is storeflyer && !n.buyingselection.is_empty()):
+				var bx : box = Library.objs["box"].instantiate()
+				for i in n.buyingselection:
+					for q in n.buyingselection[i]:
+						bx.inventory.append(i)
+				n.queue_free()
 		
 
 func spawnletter():

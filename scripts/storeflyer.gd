@@ -1,8 +1,11 @@
 extends RigidBody3D
+class_name storeflyer
 
 @onready var textstuff = $textstuff
 
 @export var slots : Array[Control]
+
+var buyingselection : Dictionary
 
 var plref
 var data : InventoryObject
@@ -14,6 +17,7 @@ func _ready():
 	set_meta("obj", data)
 	
 	for n in slots:
+		n.setup(Library.invobjs[Library.purchasables.keys().pick_random()])
 		n.mouse_entered.connect(func(): hovered = n)
 		n.mouse_exited.connect(func(): hovered = null)
 
@@ -34,6 +38,25 @@ func _input(event):
 		plref.camfrozen = false
 		textstuff.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	if(hovered && event.is_action_pressed("leftclick")):
+		addpurchase(hovered.itemobj)
+	if(hovered && event.is_action_pressed("rightclick")):
+		removepurchase(hovered.itemobj)
+
+func addpurchase(item):
+	if(!buyingselection.has(item)):
+		buyingselection[item] = 0
+	buyingselection[item] += 1
+	hovered.numb(buyingselection[item])
+
+func removepurchase(item):
+	if(buyingselection.has(item)):
+		buyingselection[item] -= 1
+		buyingselection[item] = clampi(buyingselection[item], 0, 99)
+		hovered.numb(buyingselection[item])
+	else:
+		hovered.numb(0)
 
 func updatedata():
 	if(data == null):

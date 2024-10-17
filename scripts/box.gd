@@ -17,9 +17,9 @@ func _ready():
 	grabarea.grabbed.connect(removeitem)
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
-	if(data.customproperties.has("inventory")):
+	if(data.customproperties.has("inventory") && inventory.is_empty()):
 		inventory = data.customproperties["inventory"]
-	if(data.customproperties.has("lid") && data.customproperties["lid"] == true):
+	if((data.customproperties.has("lid") && data.customproperties["lid"] == true) || !data.customproperties.has("lid")):
 		var l = Library.objs["boxlid"].instantiate()
 		get_tree().current_scene.add_child(l)
 		_on_lidcheck_body_entered(l)

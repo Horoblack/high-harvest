@@ -25,6 +25,13 @@ var invobjs : Dictionary = {
 	"egg":load("res://invobjs/egg.tres")
 }
 
+var purchasables : Dictionary = {
+	"carrotseed" = 10,
+	"shovel" = 9,
+	"wateringcan" = 8,
+	"egg" = 17
+}
+
 const crops : Dictionary = {
 	"carrotseed":preload("res://prefabs/carrotcrop.tscn")
 }
