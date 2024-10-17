@@ -125,7 +125,8 @@ func grabobj(obj):
 		if(obj.has_method("info")):
 			grabbedinfobox.visible = true
 		#holddistance = 2
-		grabpos.global_rotation = obj.global_rotation
+		if(obj.is_inside_tree()):
+			grabpos.global_rotation = obj.global_rotation
 		grabbed = obj
 
 func letgoofgrabbed():
