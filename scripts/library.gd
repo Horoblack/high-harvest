@@ -3,7 +3,9 @@ extends Node
 var objs : Dictionary = {
 	"shovel":load("res://prefabs/shovel.tscn"),
 	"carrot":load("res://prefabs/carrot.tscn"),
-	"carrotseed":load("res://prefabs/carrotseed.tscn"),
+	"carrotseed":load("res://prefabs/seedstuff/carrotseed.tscn"),
+	"carrotseedbag":load("res://prefabs/seedstuff/carrotseedbag.tscn"),
+	"tomatoseed":load("res://prefabs/seedstuff/tomatoseed.tscn"),
 	"wateringcan":load("res://prefabs/watering_can.tscn"),
 	"box":load("res://prefabs/box.tscn"),
 	"boxlid":load("res://prefabs/lid.tscn"),
@@ -17,12 +19,13 @@ var invobjs : Dictionary = {
 	"shovel":load("res://invobjs/shovel.tres"),
 	"carrot":load("res://invobjs/carrot.tres"),
 	"carrotseed":load("res://invobjs/carrotseed.tres"),
+	"tomatoseed":load("res://invobjs/tomatoseed.tres"),
 	"wateringcan":load("res://invobjs/wateringcan.tres"),
 	"box":load("res://invobjs/box.tres"),
 	"boxlid":load("res://invobjs/lid.tres"),
 	"chicken":load("res://invobjs/chicken.tres"),
 	"rooster":load("res://invobjs/rooster.tres"),
-	"egg":load("res://invobjs/egg.tres")
+	"egg":load("res://invobjs/egg.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -33,5 +36,6 @@ var purchasables : Dictionary = {
 }
 
 const crops : Dictionary = {
-	"carrotseed":preload("res://prefabs/carrotcrop.tscn")
+	"carrotseed":preload("res://prefabs/crops/carrotcrop.tscn"),
+	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn")
 }

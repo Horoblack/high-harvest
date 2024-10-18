@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://02lxjgmce4k6"]
 
-[ext_resource type="Script" path="res://scripts/crophole.gd" id="1_smrb0"]
+[ext_resource type="Script" path="res://scripts/crophole.gd" id="1_kyb0m"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8sel5"]
 radius = 0.15
@@ -69,7 +69,7 @@ shadow_mesh = SubResource("ArrayMesh_mh0re")
 radius = 0.1
 
 [node name="hole" type="StaticBody3D" groups=["diggable", "hole"]]
-script = ExtResource("1_smrb0")
+script = ExtResource("1_kyb0m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_8sel5")

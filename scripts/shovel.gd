@@ -3,14 +3,12 @@ extends RigidBody3D
 var pl : PlayerCam
 @onready var anim = $AnimationPlayer
 
-const hole = preload("res://prefabs/hole.tscn")
+const hole = preload("res://prefabs/crops/hole.tscn")
 
 func hold(holder):
 	pl = holder
 
 func trigger(pl):
-	if(pl.inventory.visible):
-		return
 	anim.play("dig")
 
 func dig():

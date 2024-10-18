@@ -1,16 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://p8i6qatvd1wv"]
+[gd_scene load_steps=6 format=3 uid="uid://p8i6qatvd1wv"]
 
-[ext_resource type="Texture2D" uid="uid://ck1u8c2y1p7q2" path="res://sprites/itemicons/carrotseed.png" id="1_pq854"]
-[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_2xd88"]
-
-[sub_resource type="Resource" id="Resource_75ydm"]
-script = ExtResource("2_2xd88")
-name = "Carrot Seed"
-weight = 0.1
-icon = ExtResource("1_pq854")
-description = "Plant in a hole to grow carrots."
-objaddress = "carrotseed"
-customproperties = {}
+[ext_resource type="Resource" uid="uid://dpe1nny1qjhj" path="res://invobjs/carrotseed.tres" id="1_ryqrl"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ycuwm"]
 radius = 0.1
@@ -54,7 +44,7 @@ shadow_mesh = SubResource("ArrayMesh_yuubb")
 mass = 0.5
 linear_damp = 2.0
 angular_damp = 2.0
-metadata/obj = SubResource("Resource_75ydm")
+metadata/obj = ExtResource("1_ryqrl")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_ycuwm")

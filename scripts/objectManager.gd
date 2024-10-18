@@ -3,6 +3,7 @@ extends Node
 func _ready():
 	deserializeall()
 
+### CROPS AREN'T GETTING SAVED AND LOADED BECAUSE THEY'RE NOT PICKUPS. FIX LATER
 func serializeall():
 	var list : Array
 	var allobjs = get_tree().get_nodes_in_group("pickup")

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://o5u4k5rvb78i"]
+
+[ext_resource type="Texture2D" uid="uid://ck1u8c2y1p7q2" path="res://sprites/itemicons/carrotseed.png" id="1_qcaik"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_xhrbf"]
+
+[resource]
+script = ExtResource("2_xhrbf")
+name = "Tomato Seed"
+weight = 0.1
+icon = ExtResource("1_qcaik")
+description = "Plant in a hole to grow tomatoes."
+objaddress = "tomatoseed"
+customproperties = {}

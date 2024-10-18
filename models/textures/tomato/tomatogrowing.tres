@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://6budde3k8ht6"]
+
+[ext_resource type="Shader" path="res://ybillboard.gdshader" id="1_41e34"]
+[ext_resource type="Texture2D" uid="uid://cvgw4f8awgnjy" path="res://models/textures/tomato/tomatogrowing.png" id="2_xulha"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_41e34")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("2_xulha")
