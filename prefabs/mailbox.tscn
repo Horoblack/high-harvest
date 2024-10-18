@@ -134,7 +134,7 @@ shadow_mesh = SubResource("ArrayMesh_3gxdc")
 points = PackedVector3Array(0.037619, 0.346733, 0.212555, 0.037619, 0.453303, 0.106236, 0, 0.346733, 0.212555, 0.037619, 0, 0.212555, 0, 0.453303, 0.106236, 0.037619, 0.471103, -4.1604e-05, 0, 0, 0.212555, 0.037619, 0, -0.212555, 0, 0.471103, -4.1604e-05, 0.037619, 0.453303, -0.106319, 0, 0, -0.212555, 0.037619, 0.346733, -0.212555, 0, 0.453303, -0.106319, 0, 0.346733, -0.212555)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1mjb"]
-size = Vector3(3, 1.5, 3)
+size = Vector3(2, 2, 2)
 
 [node name="mailbox" type="Node3D"]
 script = ExtResource("1_sihdd")
@@ -179,6 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 shape = SubResource("BoxShape3D_o1mjb")
 
 [node name="Timer" type="Timer" parent="."]
