@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bsdd76kxaxjec"]
+
+[ext_resource type="Texture2D" uid="uid://bxonl4ica8weg" path="res://sprites/itemicons/tomato.png" id="1_ijmkw"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_fwmrk"]
+
+[resource]
+script = ExtResource("2_fwmrk")
+name = "Tomato"
+weight = 0.5
+icon = ExtResource("1_ijmkw")
+description = "It's a tomato."
+objaddress = "tomato"
+customproperties = {}

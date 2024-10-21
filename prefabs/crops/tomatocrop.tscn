@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://cxbbgjcaa82t0"]
 
 [ext_resource type="Script" path="res://scripts/crop.gd" id="1_4xc76"]
-[ext_resource type="Material" uid="uid://bvhumd36uy18w" path="res://models/textures/carrot/carrotsprout.tres" id="2_y7rwl"]
-[ext_resource type="Material" uid="uid://o0feq43d1no6" path="res://models/textures/carrot/carrotgrowing.tres" id="3_ahr3b"]
-[ext_resource type="Material" uid="uid://m55cy7l1bi1l" path="res://models/textures/carrot/carrottop.tres" id="4_eepqj"]
+[ext_resource type="Material" uid="uid://btx6tcpqt5y6m" path="res://models/textures/tomato/tomatosprout.tres" id="2_a4nrm"]
+[ext_resource type="Material" uid="uid://6budde3k8ht6" path="res://models/textures/tomato/tomatogrowing.tres" id="3_xed1s"]
+[ext_resource type="Material" uid="uid://brwg1u5ykq02f" path="res://models/textures/tomato/tomatofull.tres" id="4_cv0lg"]
 [ext_resource type="Material" uid="uid://xaak1g5ddbis" path="res://models/textures/dirt/dirtdry.tres" id="5_1ks33"]
 [ext_resource type="Material" uid="uid://cf48ebeko8eqo" path="res://models/textures/empty.tres" id="6_su0kj"]
 
@@ -51,7 +51,7 @@ size = Vector2(2, 4)
 script = ExtResource("1_4xc76")
 maxgrowtime = 20.0
 dryrate = 0.5
-stages = Array[Material]([ExtResource("2_y7rwl"), ExtResource("3_ahr3b"), ExtResource("4_eepqj")])
+stages = Array[Material]([ExtResource("2_a4nrm"), ExtResource("3_xed1s"), ExtResource("4_cv0lg")])
 stalk = NodePath("coveredhole/stalk")
 dropaddress = "tomato"
 seedaddress = "tomatoseed"

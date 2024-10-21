@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://c6uj076ki612u"]
 
-[ext_resource type="Texture2D" uid="uid://lbysxsfn7wv0" path="res://sprites/itemicons/chick.png" id="1_pocic"]
+[ext_resource type="Texture2D" uid="uid://b25728cygiouh" path="res://sprites/itemicons/rooster.png" id="1_3j7kb"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_0wua1"]
 
 [resource]
 script = ExtResource("2_0wua1")
 name = "Rooster"
 weight = 1.0
-icon = ExtResource("1_pocic")
+icon = ExtResource("1_3j7kb")
 description = "Fertilizes the chickens."
 objaddress = "rooster"
 customproperties = {}

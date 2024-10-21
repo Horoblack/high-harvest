@@ -16,8 +16,12 @@ func _ready():
 	data = get_meta("obj").duplicate()
 	set_meta("obj", data)
 	
+	var curpurs = Library.purchasables.duplicate()
+	
 	for n in slots:
-		n.setup(Library.invobjs[Library.purchasables.keys().pick_random()])
+		var pur = curpurs.keys().pick_random()
+		curpurs.erase(pur)
+		n.setup(Library.invobjs[pur])
 		n.mouse_entered.connect(func(): hovered = n)
 		n.mouse_exited.connect(func(): hovered = null)
 

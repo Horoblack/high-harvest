@@ -2,8 +2,8 @@
 
 [ext_resource type="Resource" uid="uid://o5u4k5rvb78i" path="res://invobjs/tomatoseed.tres" id="1_rpqje"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_ycuwm"]
-radius = 0.1
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycntu"]
+radius = 0.09
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ei3r1"]
 albedo_color = Color(0.921569, 0.682353, 0.027451, 1)
@@ -32,7 +32,7 @@ angular_damp = 2.0
 metadata/obj = ExtResource("1_rpqje")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_ycuwm")
+shape = SubResource("SphereShape3D_ycntu")
 
 [node name="tomatoseed" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_k1e8t")

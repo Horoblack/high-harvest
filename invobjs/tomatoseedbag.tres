@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cqi5q1uoyqx8i"]
+
+[ext_resource type="Texture2D" uid="uid://dbu20l0ku6pei" path="res://sprites/itemicons/tomatoseedbag.png" id="1_xronl"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_80hh6"]
+
+[resource]
+script = ExtResource("2_80hh6")
+name = "Tomato seed bag"
+weight = 0.5
+icon = ExtResource("1_xronl")
+description = "A bag full of seeds."
+objaddress = "tomatoseedbag"
+customproperties = {}

@@ -75,7 +75,7 @@ func _input(event):
 		camfrozen = true
 	if(event.is_action_pressed("leftclick")):
 		if(grabbed && is_instance_valid(grabbed)):
-			grabbed.apply_impulse(-global_basis.z * 20)
+			grabbed.apply_impulse(-global_basis.z * 50 * grabbed.mass)
 			letgoofgrabbed()
 		elif(held != null && held.has_method("trigger") && !camfrozen && !inventory.visible):
 			held.trigger(self)
