@@ -4,6 +4,7 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odwk6"]
 albedo_color = Color(0.325593, 0.431166, 0.357572, 1)
+metallic_specular = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_j5xpd"]
 _surfaces = [{

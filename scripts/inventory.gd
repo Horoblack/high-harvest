@@ -83,11 +83,12 @@ func display(obj : InventoryObject):
 		item_desc.text = obj.description
 		if(!obj.customproperties.is_empty()):
 			for n in obj.customproperties:
-				item_desc.text += "\n" + str(n) + ": "
 				if(obj.customproperties[n] is float):
-					item_desc.text += ("%.1f" % obj.customproperties[n])
+					item_desc.text += "\n" + str(n) + ": " + ("%.1f" % obj.customproperties[n])
 				elif(obj.customproperties[n] is int):
-					item_desc.text += str(obj.customproperties[n])
+					item_desc.text += "\n" + str(n) + ": " + str(obj.customproperties[n])
+				elif(obj.customproperties[n] is bool):
+					item_desc.text += "\n" + str(n) + ": " + ("yes" if (obj.customproperties[n]) else "no")
 		itemweight.text = "%.1f" % obj.weight
 	else:
 		itemicon.texture = null

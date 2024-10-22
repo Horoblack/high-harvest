@@ -27,7 +27,6 @@ func _on_body_entered(body):
 		bag = true
 		bagmodel.visible = true
 		fillamount = 0
-		print(fillamount)
 		updatedata()
 	elif(body.has_meta("obj") && body.get_meta("obj").objaddress == "trashbag" && body != removed):
 		bag = true

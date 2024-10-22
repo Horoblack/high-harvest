@@ -6,13 +6,19 @@ extends WorldEnvironment
 
 @onready var sun = $DirectionalLight3D
 
+var curtick = 0
 func _process(delta):
 	if(simulate):
 		timeofday += rateoftime
-	if(timeofday == 2400):
+		if(timeofday >= curtick + 1):
+			curtick = curtick + 1
+			tick.emit()
+	if(timeofday >= 2400):
 		passday()
 	sun.light_energy = 1 if timeofday > 800 && timeofday < 1900 else 0
 	sun.rotation_degrees.x = lerp(90,-270, timeofday / 2400)
+
+signal tick
 
 signal day
 func passday():

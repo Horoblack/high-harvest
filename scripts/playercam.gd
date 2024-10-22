@@ -59,7 +59,7 @@ func _input(event):
 					inventory.UpdateList()
 					grabbed.queue_free()
 					grabbed = null
-		elif (held != null):
+		elif (held != null && (!held.has_method("candrop") || held.candrop() == true)):
 			if(held.has_meta("obj")):
 				var objweight = held.get_meta("obj").weight
 				if(inventory.currentweight + objweight <= inventory.maxweight):
@@ -108,7 +108,7 @@ func holdobj():
 		for n in held.find_children("*", "CollisionShape3D", true, false):
 			if(n.get_parent() is RigidBody3D):
 				n.disabled = true
-	elif(held != null):
+	elif(held != null && (!held.has_method("candrop") || held.candrop() == true)):
 		body.remove_collision_exception_with(held)
 		held.reparent(get_tree().current_scene)
 		if(cast.is_colliding()):
@@ -186,6 +186,18 @@ func _process(delta):
 	
 	var vel = body.velocity * body.global_transform.basis
 	vel = Vector3(clamp(vel.y-vel.z if abs(vel.y-vel.z) > 2 else 0, -.1, .1), 0, clamp(vel.x if abs(vel.x) > 4 else 0, -.1, .1))
+
+func getplayeraim():	
+	var origin = global_position
+	var end = origin + -global_basis.z * 100
+	
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	var intersection = get_world_3d().direct_space_state.intersect_ray(query)
+	
+	if not intersection.is_empty():
+		return intersection.position
+	else:
+		return end
 
 func CameraLook(Movement: Vector2):
 	CameraRotation += Movement

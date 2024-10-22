@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bel182l2gvsdc"]
 
 [ext_resource type="Texture2D" uid="uid://xmh8o3q0tv11" path="res://sprites/eggdecal.png" id="1_x1goy"]
-[ext_resource type="Script" path="res://scripts/eggdecal.gd" id="2_gnybm"]
+[ext_resource type="Script" path="res://scripts/decalfade.gd" id="2_gnybm"]
 
 [node name="eggdecal" type="Node3D"]
 

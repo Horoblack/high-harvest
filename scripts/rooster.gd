@@ -11,6 +11,9 @@ extends RigidBody3D
 @onready var midshape = $midshape
 
 @onready var oldskeleton = $oldskeleton
+@onready var adultmodel = $oldskeleton/adultmodel
+@onready var oldmodel = $oldskeleton/oldmodel
+
 @onready var oldshape = $oldshape
 
 @export var chickthumbnail : Texture2D
@@ -100,6 +103,8 @@ func agecheck():
 		baseweight = 1
 		oldskeleton.scale = Vector3.ONE * (weight+1)
 		oldskeleton.visible = true
+		adultmodel.visible = true
+		oldmodel.visible = false
 		oldshape.disabled = false
 		midskeleton.visible = false
 		midshape.disabled = true
@@ -108,7 +113,22 @@ func agecheck():
 		var shape : BoxShape3D = oldshape.shape.duplicate()
 		shape.size *= 1.1
 		floorcast.shape = shape
-	elif(age >= 50):
+	elif(age >= 50 && age < 70 && agestage != 3):
+		agestage = 3
+		baseweight = 1
+		oldskeleton.scale = Vector3.ONE * (weight+1)
+		oldskeleton.visible = true
+		adultmodel.visible = false
+		oldmodel.visible = true
+		oldshape.disabled = false
+		midskeleton.visible = false
+		midshape.disabled = true
+		chickmodel.visible = false
+		chickshape.disabled = true
+		var shape : BoxShape3D = oldshape.shape.duplicate()
+		shape.size *= 1.1
+		floorcast.shape = shape
+	elif(age >= 70):
 		queue_free() #FUCKING DIE OF OLD AGE
 
 func updatedata():

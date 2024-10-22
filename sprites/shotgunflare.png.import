@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5fcs3wy2u0sj"
-path="res://.godot/imported/roosterfeathers.png-ccd654611bfc30e76568008d13071afa.ctex"
+uid="uid://cjy70n2ooinfi"
+path.s3tc="res://.godot/imported/shotgunflare.png-103ee901935e15fed1f34081a7963aba.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://models/textures/chicken/roosterfeathers.png"
-dest_files=["res://.godot/imported/roosterfeathers.png-ccd654611bfc30e76568008d13071afa.ctex"]
+source_file="res://sprites/shotgunflare.png"
+dest_files=["res://.godot/imported/shotgunflare.png-103ee901935e15fed1f34081a7963aba.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

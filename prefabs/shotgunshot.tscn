@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5f4yg3octuo"]
+
+[ext_resource type="Script" path="res://scripts/shotgunshot.gd" id="1_v00iq"]
+
+[node name="shotgunshot" type="RayCast3D"]
+target_position = Vector3(0, 0, -10)
+script = ExtResource("1_v00iq")

@@ -11,6 +11,9 @@ func hold(holder):
 func trigger(pl):
 	anim.play("dig")
 
+func candrop() -> bool:
+	return !anim.is_playing()
+
 func dig():
 	if(pl.cast.is_colliding()):
 		if(pl.cast.get_collider().is_in_group("diggable")):

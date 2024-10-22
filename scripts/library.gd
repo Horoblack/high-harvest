@@ -17,7 +17,10 @@ var objs : Dictionary = {
 	"storeflyer":load("res://prefabs/storeflyer.tscn"),
 	"trashcan":load("res://prefabs/trashcan.tscn"),
 	"trashbag":load("res://prefabs/trashbag.tscn"),
-	"newtrashbag":load("res://prefabs/newtrashbag.tscn")
+	"newtrashbag":load("res://prefabs/newtrashbag.tscn"),
+	"shotgun":load("res://prefabs/shotgun.tscn"),
+	"ammobox":load("res://prefabs/ammobox.tscn"),
+	"chickenmeat":load("res://prefabs/chickenmeat.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -35,7 +38,10 @@ var invobjs : Dictionary = {
 	"egg":load("res://invobjs/egg.tres"),
 	"trashcan":load("res://invobjs/trashcan.tres"),
 	"trashbag":load("res://invobjs/trashbag.tres"),
-	"newtrashbag":load("res://invobjs/newtrashbag.tres")
+	"newtrashbag":load("res://invobjs/newtrashbag.tres"),
+	"shotgun":load("res://invobjs/shotgun.tres"),
+	"ammobox":load("res://invobjs/ammobox.tres"),
+	"chickenmeat":load("res://invobjs/chickenmeat.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -47,6 +53,8 @@ var purchasables : Dictionary = {
 	"rooster" = 20.0,
 	"newtrashbag" = 5.0,
 	"trashcan" = 10.0,
+	"shotgun" = 30.0,
+	"ammobox" = 5.0
 }
 
 var sellvalues : Dictionary = {
@@ -54,6 +62,10 @@ var sellvalues : Dictionary = {
 	"tomato" = 5.0,
 	"egg" = 5.0,
 	"trashbag" = 1.0,
+	"ammobox" = 5.0,
+	"used ammobox" = 0.99,
+	"chickenmeat" = 10.0,
+	"rotten meat" = 0.00
 }
 
 const crops : Dictionary = {

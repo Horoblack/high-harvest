@@ -11,6 +11,9 @@ extends RigidBody3D
 @onready var midskeleton = $midskeleton
 @onready var midshape = $midshape
 
+@onready var adultmodel = $oldskeleton/adultmodel
+@onready var oldmodel = $oldskeleton/oldmodel
+
 @onready var oldskeleton = $oldskeleton
 @onready var oldshape = $oldshape
 
@@ -28,6 +31,9 @@ var agestage : int = -1
 var age : float = 0
 var fertility : int = 0
 var data : InventoryObject
+
+#var eggtimer : int = 30
+#var actiontimer : int = 30
 
 func _ready():
 	await get_tree().process_frame
@@ -110,6 +116,11 @@ func _on_agetimer_timeout():
 	updatedata()
 	agecheck()
 
+func timetick():
+	age += .1
+	updatedata()
+	agecheck()
+
 func agecheck():
 	if(age < 10 && agestage != 0):
 		eggtimer.stop()
@@ -144,6 +155,8 @@ func agecheck():
 		baseweight = 1
 		oldskeleton.scale = Vector3.ONE * (weight+1)
 		oldskeleton.visible = true
+		adultmodel.visible = true
+		oldmodel.visible = false
 		oldshape.disabled = false
 		midskeleton.visible = false
 		midshape.disabled = true
@@ -152,8 +165,34 @@ func agecheck():
 		var shape : BoxShape3D = oldshape.shape.duplicate()
 		shape.size *= 1.1
 		floorcast.shape = shape
-	elif(age >= 50):
-		queue_free() #FUCKING DIE OF OLD AGE
+	elif(age >= 50 && age < 70 && agestage != 3):
+		eggtimer.stop()
+		agestage = 3
+		baseweight = 1
+		oldskeleton.scale = Vector3.ONE * (weight+1)
+		oldskeleton.visible = true
+		adultmodel.visible = false
+		oldmodel.visible = true
+		oldshape.disabled = false
+		midskeleton.visible = false
+		midshape.disabled = true
+		chickmodel.visible = false
+		chickshape.disabled = true
+		var shape : BoxShape3D = oldshape.shape.duplicate()
+		shape.size *= 1.1
+		floorcast.shape = shape
+	elif(age >= 70):
+		die() #FUCKING DIE OF OLD AGE
+
+func murder():
+	die()
+
+func die():
+	var meat = Library.objs["chickenmeat"].instantiate()
+	get_tree().current_scene.add_child(meat)
+	meat.global_position = global_position
+	meat.global_rotation = global_rotation
+	queue_free() 
 
 func updatedata():
 	if(data == null):

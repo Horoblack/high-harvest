@@ -40,6 +40,8 @@ func _on_timer_timeout():
 					bx.global_position = boxspawn.global_position
 					bx.global_rotation = boxspawn.global_rotation
 					n.queue_free()
+			elif(n is storeflyer):
+				usedturn = true
 	if(!usedturn):
 		flag.rotation_degrees = Vector3(0,0,90)
 		lid.rotation_degrees = Vector3.ZERO
@@ -50,15 +52,19 @@ func spawnletter(solditems : Array):
 	flag.rotation_degrees = Vector3.ZERO
 	var itemamounts : Dictionary
 	for n : InventoryObject in solditems:
-		if(!itemamounts.has(n.name.to_lower())):
-			itemamounts[n.name.to_lower()] = 0
-		itemamounts[n.name.to_lower()] += 1
+		if(!itemamounts.has(n)):
+			itemamounts[n] = 0
+		itemamounts[n] += 1
 	
 	var str = "Thank you for your contribution.\n\n\n"
 	for n in itemamounts:
-		var amt : float = Library.sell(n,itemamounts[n])
+		var pp = n.name.to_lower()
+		if(n.customproperties.has("sellmod")):
+			pp = n.customproperties["sellmod"]
+		
+		var amt : float = Library.sell(pp,itemamounts[n])
 		for b in itemamounts[n]:
-			str += "%s : $%.2f\n" % [n, amt]
+			str += "%s : $%.2f\n" % [pp, amt]
 		str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
 	
 	var letter : bankstatement = Library.objs["bankstatement"].instantiate()
