@@ -38,6 +38,8 @@ func deserializeall():
 			"crop":
 				var obj = Library.crops[n[3]].instantiate()
 				get_tree().current_scene.add_child(obj)
+				if(obj is crop):
+					obj.curtime = n[4]
 				obj.global_position = n[1]
 				obj.global_rotation = n[2]
 		

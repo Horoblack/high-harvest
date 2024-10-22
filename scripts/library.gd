@@ -44,12 +44,16 @@ var purchasables : Dictionary = {
 	"shovel" = 9.0,
 	"wateringcan" = 8.0,
 	"chicken" = 17.0,
-	"rooster" = 20.0
+	"rooster" = 20.0,
+	"newtrashbag" = 5.0,
+	"trashcan" = 10.0,
 }
 
 var sellvalues : Dictionary = {
-	"carrot" : 5.0,
-	"tomato" : 5.0,
+	"carrot" = 5.0,
+	"tomato" = 5.0,
+	"egg" = 5.0,
+	"trashbag" = 1.0,
 }
 
 const crops : Dictionary = {
