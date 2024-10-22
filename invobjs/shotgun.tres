@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://j0m65oq2101n"]
+
+[ext_resource type="Texture2D" uid="uid://solgep4neb3n" path="res://sprites/itemicons/shotgun.png" id="1_40b03"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_0jpof"]
+
+[resource]
+script = ExtResource("2_0jpof")
+name = "Shotgun"
+weight = 1.0
+icon = ExtResource("1_40b03")
+description = "Shoot stuff."
+objaddress = "shotgun"
+customproperties = {}

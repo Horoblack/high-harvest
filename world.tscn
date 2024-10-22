@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=28 format=3 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://bkdtgcbc7jorn" path="res://prefabs/carrot.tscn" id="15_w4ctl"]
 [ext_resource type="PackedScene" uid="uid://cmbvic53mh3al" path="res://prefabs/shotgun.tscn" id="16_2ptil"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
+[ext_resource type="PackedScene" uid="uid://cuvoaydo3b52p" path="res://prefabs/ammobox.tscn" id="17_ldv4v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -185,3 +186,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.6201, 0, -6)
 
 [node name="shovel2" parent="." instance=ExtResource("16_2ptil")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67951, 0, -0.456287)
+
+[node name="ammobox" parent="." instance=ExtResource("17_ldv4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97685, 0, 0.67706)

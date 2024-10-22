@@ -79,8 +79,11 @@ func _input(event):
 			letgoofgrabbed()
 		elif(held != null && held.has_method("trigger") && !camfrozen && !inventory.visible):
 			held.trigger(self)
-	if event.is_action_pressed("rightclick") && grabbed:
-		rotating = true
+	if event.is_action_pressed("rightclick"):
+		if(grabbed && is_instance_valid(grabbed)):
+			rotating = true
+		elif(held != null && held.has_method("sectrigger") && !camfrozen && !inventory.visible):
+			held.sectrigger(self)
 	if event.is_action_released("rightclick"):
 		rotating = false
 	if event.is_action_released("MWU"):

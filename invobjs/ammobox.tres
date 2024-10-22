@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bx5o8u58umvow"]
+
+[ext_resource type="Texture2D" uid="uid://dlafvbulw0lm1" path="res://sprites/itemicons/ammobox.png" id="1_2rvxp"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_lj68e"]
+
+[resource]
+script = ExtResource("2_lj68e")
+name = "Ammobox"
+weight = 0.1
+icon = ExtResource("1_2rvxp")
+description = "Ammo for a shotgun."
+objaddress = "ammobox"
+customproperties = {}
