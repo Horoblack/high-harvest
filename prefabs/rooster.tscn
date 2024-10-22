@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bkfdf5bdom8c7"]
+[gd_scene load_steps=40 format=3 uid="uid://bkfdf5bdom8c7"]
 
 [ext_resource type="Script" path="res://scripts/rooster.gd" id="1_ayfqu"]
 [ext_resource type="Texture2D" uid="uid://lbysxsfn7wv0" path="res://sprites/itemicons/chick.png" id="2_6ngl3"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ymde1p7rs3mg" path="res://models/textures/chicken/chick.png" id="6_37q4n"]
 [ext_resource type="Texture2D" uid="uid://bdphkwyx3cddy" path="res://models/textures/chicken/rooster.png" id="7_m076v"]
 [ext_resource type="Texture2D" uid="uid://5fcs3wy2u0sj" path="res://models/textures/chicken/oldroosterfeathers.png" id="8_5bv76"]
+[ext_resource type="Texture2D" uid="uid://cd35ucod4gtib" path="res://models/textures/chicken/roosterfeathers.png" id="8_nq3w3"]
 [ext_resource type="Texture2D" uid="uid://cww4q1q3olxg6" path="res://models/textures/chicken/oldrooster.png" id="9_8vhru"]
 [ext_resource type="Texture2D" uid="uid://bojgvuuhsf3rv" path="res://models/textures/chicken/midchick.png" id="9_h36xh"]
 [ext_resource type="Texture2D" uid="uid://c6cpr25nhd1x" path="res://models/textures/chicken/midfeathers.png" id="10_l1uad"]
@@ -69,7 +70,7 @@ specular_mode = 1
 albedo_texture = ExtResource("7_m076v")
 texture_filter = 2
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_txg17"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8uug"]
 transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
@@ -77,7 +78,7 @@ cull_mode = 2
 shading_mode = 2
 diffuse_mode = 3
 specular_mode = 1
-albedo_texture = ExtResource("8_5bv76")
+albedo_texture = ExtResource("8_nq3w3")
 texture_filter = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oq5k2"]
@@ -109,7 +110,7 @@ _surfaces = [{
 "format": 34359745559,
 "index_count": 72,
 "index_data": PackedByteArray(1, 0, 8, 0, 6, 0, 1, 0, 3, 0, 8, 0, 2, 0, 5, 0, 7, 0, 2, 0, 0, 0, 5, 0, 4, 0, 7, 0, 9, 0, 4, 0, 2, 0, 7, 0, 0, 0, 6, 0, 5, 0, 0, 0, 1, 0, 6, 0, 14, 0, 13, 0, 11, 0, 14, 0, 15, 0, 13, 0, 10, 0, 15, 0, 14, 0, 10, 0, 12, 0, 15, 0, 17, 0, 8, 0, 3, 0, 17, 0, 20, 0, 8, 0, 18, 0, 19, 0, 16, 0, 18, 0, 21, 0, 19, 0, 4, 0, 21, 0, 18, 0, 4, 0, 9, 0, 21, 0, 16, 0, 20, 0, 17, 0, 16, 0, 19, 0, 20, 0, 26, 0, 25, 0, 27, 0, 26, 0, 23, 0, 25, 0, 22, 0, 27, 0, 24, 0, 22, 0, 26, 0, 27, 0),
-"material": SubResource("StandardMaterial3D_txg17"),
+"material": SubResource("StandardMaterial3D_j8uug"),
 "primitive": 3,
 "skin_data": PackedByteArray(3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 127, 255, 127, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0),
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -753,6 +754,7 @@ mesh = SubResource("ArrayMesh_vl873")
 skin = SubResource("Skin_o6ffl")
 
 [node name="oldmodel" type="MeshInstance3D" parent="oldskeleton"]
+visible = false
 mesh = SubResource("ArrayMesh_ydrii")
 skin = SubResource("Skin_o6ffl")
 
