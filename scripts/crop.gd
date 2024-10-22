@@ -1,4 +1,5 @@
 extends Node3D
+class_name crop
 
 @export var maxgrowtime : float = 10
 @export var dryrate : float = 1
@@ -17,12 +18,8 @@ var wetstages : Array = [
 
 var curstage : int = 0
 var curtime : float = 0
-var curwetness : float = 3
+var curwetness : float = 15
 
-func _ready():
-	curwetness = 15
-	curstage = 0
-	curtime = 0
 
 func _process(delta):
 	curwetness -= delta * dryrate

@@ -13,7 +13,8 @@ var objs : Dictionary = {
 	"chicken":load("res://prefabs/chicken.tscn"),
 	"rooster":load("res://prefabs/rooster.tscn"),
 	"egg":load("res://prefabs/egg.tscn"),
-	"bankstatement":load("res://prefabs/bankstatement.tscn")
+	"bankstatement":load("res://prefabs/bankstatement.tscn"),
+	"storeflyer":load("res://prefabs/storeflyer.tscn")
 }
 
 var invobjs : Dictionary = {
@@ -32,15 +33,41 @@ var invobjs : Dictionary = {
 }
 
 var purchasables : Dictionary = {
-	"carrotseedbag" = 10,
-	"tomatoseedbag" = 10,
-	"shovel" = 9,
-	"wateringcan" = 8,
-	"chicken" = 17,
-	"rooster" = 20
+	"carrotseedbag" = 10.0,
+	"tomatoseedbag" = 10.0,
+	"shovel" = 9.0,
+	"wateringcan" = 8.0,
+	"chicken" = 17.0,
+	"rooster" = 20.0
+}
+
+var sellvalues : Dictionary = {
+	"carrot" : 5.0,
+	"tomato" : 5.0,
 }
 
 const crops : Dictionary = {
+	"crophole":preload("res://prefabs/crops/hole.tscn"),
 	"carrotseed":preload("res://prefabs/crops/carrotcrop.tscn"),
 	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn")
 }
+
+func sell(item : String, amount : int) -> float:
+	if(Library.sellvalues.has(item)):
+		if(Savedata.gamedata["stocks"].has(item)):
+			var returnvalue = Library.sellvalues[item] * Savedata.gamedata["stocks"][item]
+			returnvalue = snapped(returnvalue,.01)
+			Savedata.gamedata["money"] += returnvalue * amount
+			Savedata.gamedata["stocks"][item] = clamp(Savedata.gamedata["stocks"][item] - (0.05 * amount),0.5,2)
+			return returnvalue
+		else:
+			return Library.sellvalues[item]
+	elif(Library.purchasables.has(item)):
+		return Library.purchasables[item]
+	else:
+		return 0
+
+func marketmutate():
+	for n in Savedata.gamedata["stocks"]:
+		var rng = randi_range(-3,5) / 10
+		Savedata.gamedata["stocks"][n] = clamp(Savedata.gamedata["stocks"][n] + rng,0.5,2)

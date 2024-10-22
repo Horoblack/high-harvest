@@ -38,15 +38,15 @@ func trigger(pl):
 		plref = null
 
 func _input(event):
-	if(plref && textstuff.visible && (event.is_action_pressed("inventory") || event.is_action_pressed("grab"))):
+	if(plref && textstuff.visible && (event.is_action_pressed("inventory") || event.is_action_pressed("grab") || event.is_action_pressed("hold"))):
 		plref.camfrozen = false
 		textstuff.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 	if(hovered && event.is_action_pressed("leftclick")):
-		addpurchase(hovered.itemobj)
+		addpurchase(hovered.itemobj.objaddress)
 	if(hovered && event.is_action_pressed("rightclick")):
-		removepurchase(hovered.itemobj)
+		removepurchase(hovered.itemobj.objaddress)
 
 func addpurchase(item):
 	if(!buyingselection.has(item)):

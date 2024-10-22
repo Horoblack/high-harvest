@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://c77kbxy3msedv"]
+[gd_scene load_steps=12 format=3 uid="uid://c77kbxy3msedv"]
 
 [ext_resource type="Script" path="res://scripts/storeflyer.gd" id="1_s5pk1"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_4i31p"]
 [ext_resource type="Texture2D" uid="uid://bas342gv45aln" path="res://sprites/itemicons/carrot.png" id="2_5phji"]
 [ext_resource type="Script" path="res://scripts/flyerslot.gd" id="3_8fem0"]
+[ext_resource type="Texture2D" uid="uid://0rp5b0pohowo" path="res://models/textures/flyer.png" id="3_diqfw"]
 [ext_resource type="Texture2D" uid="uid://dmgssif5kumw3" path="res://sprites/flyermarker.png" id="5_2nlyp"]
 
 [sub_resource type="Resource" id="Resource_a2sgj"]
@@ -15,6 +16,8 @@ objaddress = ""
 customproperties = {}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_julhk"]
+albedo_texture = ExtResource("3_diqfw")
+texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_k62gd"]
 _surfaces = [{

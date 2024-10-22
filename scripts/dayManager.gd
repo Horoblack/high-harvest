@@ -17,4 +17,5 @@ func _process(delta):
 signal day
 func passday():
 	timeofday = 0
+	Library.marketmutate()
 	day.emit()

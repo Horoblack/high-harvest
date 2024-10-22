@@ -140,7 +140,7 @@ size = Vector3(2, 2, 2)
 script = ExtResource("1_sihdd")
 
 [node name="flag" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194325, 1.0317, -0.215075)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.194325, 1.0317, -0.215075)
 mesh = SubResource("ArrayMesh_t21ba")
 skeleton = NodePath("")
 

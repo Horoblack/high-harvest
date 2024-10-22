@@ -1,9 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=23 format=3 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
 [ext_resource type="PackedScene" uid="uid://ks7cknofd1u4" path="res://prefabs/truck.tscn" id="3_dbq6e"]
-[ext_resource type="PackedScene" uid="uid://bkdtgcbc7jorn" path="res://prefabs/carrot.tscn" id="5_lksf8"]
 [ext_resource type="PackedScene" uid="uid://d2fi3tglbmqdh" path="res://prefabs/shovel.tscn" id="6_3njt8"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="6_fsqvd"]
 [ext_resource type="PackedScene" uid="uid://4aye4jw7f20a" path="res://prefabs/box.tscn" id="8_m68m6"]
@@ -12,12 +11,7 @@
 [ext_resource type="Shader" path="res://sky.gdshader" id="11_apr85"]
 [ext_resource type="Script" path="res://scripts/dayManager.gd" id="11_ipscs"]
 [ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="12_ejm6i"]
-[ext_resource type="PackedScene" uid="uid://h6i33ynhwb80" path="res://prefabs/chicken.tscn" id="13_wp035"]
-[ext_resource type="PackedScene" uid="uid://p8i6qatvd1wv" path="res://prefabs/seedstuff/carrotseed.tscn" id="14_2a70t"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
-[ext_resource type="PackedScene" uid="uid://dnqivnfoo6iju" path="res://prefabs/seedstuff/carrotseedbag.tscn" id="17_7hwf0"]
-[ext_resource type="PackedScene" uid="uid://c77kbxy3msedv" path="res://prefabs/storeflyer.tscn" id="18_hefch"]
-[ext_resource type="PackedScene" uid="uid://cckxtp51e3aww" path="res://prefabs/seedstuff/tomatoseed.tscn" id="18_vsn76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -136,17 +130,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 [node name="farm truck" parent="." instance=ExtResource("3_dbq6e")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.2056, 0.51054, -11.2115)
 
-[node name="carrot" parent="." instance=ExtResource("5_lksf8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9072, 0, -0.213525)
-
 [node name="shovel" parent="." instance=ExtResource("6_3njt8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.20821, 0, -1.09507)
 
 [node name="box" parent="." instance=ExtResource("8_m68m6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43894, 0, -2.29751)
-
-[node name="box2" parent="." instance=ExtResource("8_m68m6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43894, 0, -3.79751)
 
 [node name="watering can" parent="." instance=ExtResource("9_p6crl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.889102, 0, 1.27034)
@@ -170,35 +158,5 @@ simulate = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="day manager"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7, 0)
 
-[node name="chicken" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="chicken2" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="chicken3" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="chicken4" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="chicken5" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="chicken6" parent="." instance=ExtResource("13_wp035")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4635, 0, -2.70388)
-
-[node name="carrotseed" parent="." instance=ExtResource("14_2a70t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50876, 0, 2.59048)
-
 [node name="mailbox" parent="." instance=ExtResource("16_mypgb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024045, 0, -5.08832)
-
-[node name="flyer" parent="." instance=ExtResource("18_hefch")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.14786, 0, -4.6015)
-
-[node name="carrotseedbag" parent="." instance=ExtResource("17_7hwf0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2.25)
-
-[node name="tomatoseed" parent="." instance=ExtResource("18_vsn76")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, -1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -46.024, 0, -5.08832)

@@ -1,4 +1,5 @@
 extends StaticBody3D
+class_name crophole
 
 func uproot():
 	queue_free()

@@ -68,7 +68,7 @@ shadow_mesh = SubResource("ArrayMesh_mh0re")
 [sub_resource type="SphereShape3D" id="SphereShape3D_ks85n"]
 radius = 0.1
 
-[node name="hole" type="StaticBody3D" groups=["diggable", "hole"]]
+[node name="hole" type="StaticBody3D" groups=["diggable", "hole", "serialize"]]
 script = ExtResource("1_kyb0m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

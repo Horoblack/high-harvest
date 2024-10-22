@@ -10,7 +10,15 @@ func serializeall():
 	for n in allobjs:
 		if(n.has_meta("obj")):
 			var data : InventoryObject = n.get_meta("obj")
-			list.append([n.global_position, n.global_rotation, data.objaddress, data.customproperties])
+			list.append(["pickup", n.global_position, n.global_rotation, data.objaddress, data.customproperties])
+	
+	var serquests = get_tree().get_nodes_in_group("serialize")
+	for n in serquests:
+		if(n is crop):
+			list.append(["crop", n.global_position, n.global_rotation, n.seedaddress, n.curtime])
+		if(n is crophole):
+			list.append(["crop", n.global_position, n.global_rotation, "crophole"])
+	
 	Savedata.gamedata["objects"] = list
 	Savedata.save_data()
 
@@ -18,10 +26,18 @@ func deserializeall():
 	Savedata.load_data()
 	var list = Savedata.gamedata["objects"].duplicate()
 	for n in list:
-		var obj = Library.objs[n[2]].instantiate()
-		get_tree().current_scene.add_child(obj)
-		obj.global_position = n[0]
-		obj.global_rotation = n[1]
-		var data = obj.get_meta("obj").duplicate()
-		data.customproperties = n[3]
-		obj.set_meta("obj", data)
+		match(n[0]):
+			"pickup":
+				var obj = Library.objs[n[3]].instantiate()
+				get_tree().current_scene.add_child(obj)
+				obj.global_position = n[1]
+				obj.global_rotation = n[2]
+				var data = obj.get_meta("obj").duplicate()
+				data.customproperties = n[4]
+				obj.set_meta("obj", data)
+			"crop":
+				var obj = Library.crops[n[3]].instantiate()
+				get_tree().current_scene.add_child(obj)
+				obj.global_position = n[1]
+				obj.global_rotation = n[2]
+		

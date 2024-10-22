@@ -47,7 +47,7 @@ resource_local_to_scene = true
 material = ExtResource("6_su0kj")
 size = Vector2(2, 4)
 
-[node name="tomatocrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable"]]
+[node name="tomatocrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
 script = ExtResource("1_4xc76")
 maxgrowtime = 20.0
 dryrate = 0.5

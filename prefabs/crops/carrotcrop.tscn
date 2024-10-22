@@ -47,7 +47,7 @@ resource_local_to_scene = true
 material = ExtResource("6_noknb")
 size = Vector2(2, 2)
 
-[node name="carrotcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable"]]
+[node name="carrotcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
 script = ExtResource("1_ouebp")
 maxgrowtime = 20.0
 dryrate = 0.5

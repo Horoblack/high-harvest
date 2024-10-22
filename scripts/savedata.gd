@@ -13,14 +13,18 @@ func load_data():
 		gamedata = file.get_var()
 	else:
 		gamedata = {
-			"money": 0,
+			"money": 50,
 			"objects": [
 				#[Vector3(0, 1.75, -4.25), Vector3(0, 0, 0), "shovel", {  }], 
 				#[Vector3(-2.25, 0.5, -4.5), Vector3(0, 0, 0), "carrot", {  }], 
 				#[Vector3(-2.43005, 0, -2.17649), Vector3(0, 0, 0), "carrotseed", {  }], 
 				#[Vector3(-2.50922, 0, -1.41715), Vector3(0, 0, 0), "carrotseed", {  }], 
 				#[Vector3(-1.5, 0.25, 0), Vector3(0, 0, 0), "wateringcan", {  }]
-				]
+				],
+			"stocks": {
+					"carrot":1,
+					"tomato":1,
+				}
 		}
 	return gamedata
 
