@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://v4q37i6jkcdq"]
+
+[ext_resource type="Texture2D" uid="uid://bdsc4yyl8j6d0" path="res://sprites/itemicons/trashbag.png" id="1_v3ymh"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_nx8qe"]
+
+[resource]
+script = ExtResource("2_nx8qe")
+name = "Trashbag"
+weight = 0.5
+icon = ExtResource("1_v3ymh")
+description = "A bag full of trash."
+objaddress = "trashbag"
+customproperties = {}

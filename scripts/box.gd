@@ -83,7 +83,7 @@ func removeitem(bod : Player):
 		get_tree().current_scene.add_child(physitem)
 		physitem.global_position = global_position
 		updatedata()
-		await get_tree().create_timer(.1).timeout
+		await get_tree().create_timer(.2).timeout
 		removeditem = null
 
 func updatedata():
