@@ -22,7 +22,8 @@ extends RigidBody3D
 @export var oldthumbnail : Texture2D
 
 var EGG = load("res://prefabs/egg.tscn")
-
+const BLOOD = preload("res://prefabs/bloodsplatter.tscn")
+const BLOOD2 = preload("res://prefabs/bloodparticles.tscn")
 var state : int = 0
 
 var baseweight : float = .1
@@ -192,6 +193,16 @@ func die():
 	get_tree().current_scene.add_child(meat)
 	meat.global_position = global_position
 	meat.global_rotation = global_rotation
+	var splatter = BLOOD.instantiate()
+	get_tree().current_scene.add_child(splatter)
+	splatter.global_position = global_position
+	splatter.global_rotation = global_rotation
+	splatter.rotation_degrees.y = randi_range(-180,180)
+	var bloo = BLOOD2.instantiate()
+	get_tree().current_scene.add_child(bloo)
+	bloo.global_position = global_position
+	bloo.global_rotation = global_rotation
+	bloo.rotation_degrees.y = randi_range(-180,180)
 	queue_free() 
 
 func updatedata():

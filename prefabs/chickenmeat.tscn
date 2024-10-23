@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba567mx0wrbpe"]
+[gd_scene load_steps=8 format=3 uid="uid://ba567mx0wrbpe"]
 
 [ext_resource type="Script" path="res://scripts/chickenmeat.gd" id="1_7qcj5"]
 [ext_resource type="Resource" uid="uid://07vdcqer3fu5" path="res://invobjs/chickenmeat.tres" id="1_mda7f"]
@@ -40,6 +40,9 @@ shadow_mesh = SubResource("ArrayMesh_e4x2y")
 radius = 0.1
 height = 0.3
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_calu0"]
+radius = 0.25
+
 [node name="chickenmeat" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_7qcj5")
 metadata/obj = ExtResource("1_mda7f")
@@ -54,5 +57,18 @@ shape = SubResource("CapsuleShape3D_arp3o")
 
 [node name="agingtimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Area3D" type="ShapeCast3D" parent="."]
+enabled = false
+shape = SubResource("SphereShape3D_calu0")
+target_position = Vector3(0, 0, 0)
+collision_mask = 8
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="floorcheck" type="ShapeCast3D" parent="."]
+enabled = false
+shape = SubResource("SphereShape3D_calu0")
+target_position = Vector3(0, 0, 0)
 
 [connection signal="timeout" from="agingtimer" to="." method="_on_agingtimer_timeout"]

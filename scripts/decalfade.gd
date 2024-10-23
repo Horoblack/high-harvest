@@ -1,5 +1,6 @@
-extends Decal
+extends Node3D
 
+@onready var decal = $decal
 @export var lifetime : float = 10
 var lftm
 
@@ -8,6 +9,6 @@ func _ready():
 
 func _process(delta):
 	lftm -= delta
-	modulate.a = lftm / (lifetime/2)
+	decal.modulate.a = lftm / (lifetime/2)
 	if(lftm <= 0):
 		queue_free()

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://brnlmh65xos0e"]
+
+[ext_resource type="Texture2D" uid="uid://bns17ueeksk23" path="res://sprites/bloodsplatter.png" id="2_6mqnq"]
+[ext_resource type="Script" path="res://scripts/decalfade.gd" id="2_aeagx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7qail"]
+radius = 0.25
+
+[node name="blooddecal" type="Node3D"]
+script = ExtResource("2_aeagx")
+
+[node name="decal" type="Decal" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(1, 1, 1)
+texture_albedo = ExtResource("2_6mqnq")
+upper_fade = 1e-05
+lower_fade = 1e-05
+cull_mask = 1048574
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 8
+collision_mask = 8
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_7qail")

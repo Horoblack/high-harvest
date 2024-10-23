@@ -18,7 +18,7 @@ func incubate(delta):
 		hatchtime -= delta
 		if(hatchtime <= 0 && hatchtime > -20):
 			hatchtime = -20
-			var ch = roost.instantiate() if randi_range(0,5)==0 else chick.instantiate()
+			var ch = roost.instantiate() if randi_range(0,3)==0 else chick.instantiate()
 			get_tree().current_scene.add_child(ch)
 			ch.global_position = global_position
 			queue_free()
