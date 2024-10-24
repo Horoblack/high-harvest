@@ -76,7 +76,7 @@ func spawnletter(solditems : Array):
 
 func spawnflyer():
 	var flyer : storeflyer = Library.objs["storeflyer"].instantiate()
-	ignore.append(flyer)
+	#ignore.append(flyer)
 	get_tree().current_scene.add_child(flyer)
 	flyer.global_position = letterspawn.global_position
 	flyer.global_rotation = letterspawn.global_rotation

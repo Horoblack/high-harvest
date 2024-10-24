@@ -23,6 +23,7 @@ var held = null
 var camfrozen : bool = false
 
 func _ready():
+	cast.add_exception(body)
 	var rot = body.transform.basis.get_euler()
 	CameraLook(Vector2(-rot.y, -rot.x))
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -170,7 +171,6 @@ func _physics_process(delta):
 			grabpos.rotate(basis.y,MouseEvent.x * clamp(2-(grabbed.mass*.1), 0.01,1))
 			grabpos.rotate(basis.x,MouseEvent.y * clamp(2-(grabbed.mass*.1), 0.01,1))
 
-
 func _process(delta):
 	if(is_instance_valid(held) && held.has_method("info")):
 		heldinfobox.visible = true
@@ -187,13 +187,13 @@ func _process(delta):
 	var vel = body.velocity * body.global_transform.basis
 	vel = Vector3(clamp(vel.y-vel.z if abs(vel.y-vel.z) > 2 else 0, -.1, .1), 0, clamp(vel.x if abs(vel.x) > 4 else 0, -.1, .1))
 
-func getplayeraim():	
+func getplayeraim():
 	var origin = global_position
 	var end = origin + -global_basis.z * 100
 	
 	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.exclude = [body]
 	var intersection = get_world_3d().direct_space_state.intersect_ray(query)
-	
 	if not intersection.is_empty():
 		return intersection.position
 	else:
