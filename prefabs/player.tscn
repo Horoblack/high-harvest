@@ -21,6 +21,7 @@ script = ExtResource("2_vgmbu")
 [node name="RayCast3D" type="RayCast3D" parent="cam"]
 target_position = Vector3(0, 0, -4)
 collision_mask = 8388609
+hit_back_faces = false
 debug_shape_custom_color = Color(0, 0.694118, 1, 0.054902)
 
 [node name="grabpos" type="Marker3D" parent="cam"]
