@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=31 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
 [ext_resource type="PackedScene" uid="uid://cuvoaydo3b52p" path="res://prefabs/ammobox.tscn" id="17_ldv4v"]
 [ext_resource type="PackedScene" uid="uid://h6i33ynhwb80" path="res://prefabs/chicken.tscn" id="18_0m5ru"]
+[ext_resource type="PackedScene" uid="uid://cek5e1xtxsmjx" path="res://prefabs/egg.tscn" id="19_24cj1"]
+[ext_resource type="PackedScene" uid="uid://dnqivnfoo6iju" path="res://prefabs/seedstuff/carrotseedbag.tscn" id="20_03enf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -71,8 +73,8 @@ data = PackedVector3Array(-8.991, 7.1862, -0.0165, -0.0001, 5.1862, -6.4473, -0.
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
 shader = ExtResource("11_apr85")
-shader_parameter/day_top_color = Color(0.101961, 0.12549, 1, 1)
-shader_parameter/day_bottom_color = Color(0.4, 0.8, 1, 1)
+shader_parameter/day_top_color = Color(1, 0.709844, 0.518027, 1)
+shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
 shader_parameter/night_top_color = Color(0, 0, 0, 1)
@@ -165,7 +167,7 @@ script = ExtResource("11_ipscs")
 simulate = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="day manager"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 7, 0)
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 7, 0)
 
 [node name="mailbox" parent="." instance=ExtResource("16_mypgb")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -46.024, 0, -5.08832)
@@ -196,3 +198,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97685, 0, 0.67706)
 
 [node name="chicken" parent="." instance=ExtResource("18_0m5ru")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8026, 0, -3.19689)
+
+[node name="egg" parent="." instance=ExtResource("19_24cj1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10247, -4.76837e-07, 2.96988)
+
+[node name="carrotseedbag" parent="." instance=ExtResource("20_03enf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.697258, 0, 5.54606)
