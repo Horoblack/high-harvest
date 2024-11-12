@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhb7rpsgnbvo"
-path.s3tc="res://.godot/imported/adult.png-4508cc0ee4e92e6eab3c275195c49fe8.s3tc.ctex"
+uid="uid://dt7uo3jr8fekv"
+path.s3tc="res://.godot/imported/old.png-19d8696eaf4e64c186e00d9cedf9c402.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://models/textures/pig/adult.png"
-dest_files=["res://.godot/imported/adult.png-4508cc0ee4e92e6eab3c275195c49fe8.s3tc.ctex"]
+source_file="res://models/textures/pig/old.png"
+dest_files=["res://.godot/imported/old.png-19d8696eaf4e64c186e00d9cedf9c402.s3tc.ctex"]
 
 [params]
 

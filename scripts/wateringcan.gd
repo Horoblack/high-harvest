@@ -37,6 +37,7 @@ func _on_timer_timeout():
 		get_tree().current_scene.add_child(drop)
 		drop.global_position = nozzlepos.global_position - (nozzlepos.global_basis.z*.1)
 		drop.apply_central_impulse(-nozzlepos.global_basis.z * 10)
+		add_collision_exception_with(drop)
 	else:
 		watercount = 0
 

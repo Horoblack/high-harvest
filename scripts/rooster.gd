@@ -184,3 +184,7 @@ func getclosestchicken():
 		if((ch == null || global_position.distance_to(ch.global_position) > global_position.distance_to(n.global_position)) && n.fertility <= 1):
 			ch = n
 	return ch
+
+func info() -> String:
+	var ret : String = "Age: %s\nMale" % [age]
+	return ret

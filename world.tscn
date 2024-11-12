@@ -73,14 +73,14 @@ data = PackedVector3Array(-8.991, 7.1862, -0.0165, -0.0001, 5.1862, -6.4473, -0.
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
 shader = ExtResource("11_apr85")
-shader_parameter/day_top_color = Color(1, 0.709844, 0.518027, 1)
+shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
 shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
 shader_parameter/night_top_color = Color(0, 0, 0, 1)
 shader_parameter/night_bottom_color = Color(0.00392157, 0, 0.0941176, 1)
-shader_parameter/horizon_color = Color(0, 0.027451, 0, 1)
-shader_parameter/horizon_blur = 0.05
+shader_parameter/horizon_color = Color(1, 0.513726, 0, 1)
+shader_parameter/horizon_blur = 0.04
 shader_parameter/sun_color = Color(10, 8, 1, 1)
 shader_parameter/sun_sunset_color = Color(10, 0.666667, 0, 1)
 shader_parameter/sun_size = 0.1

@@ -243,3 +243,7 @@ func _on_eggtimer_timeout():
 	get_tree().current_scene.add_child(eg)
 	eg.global_position = global_position
 	eggtimer.start(randf_range(26,39))
+
+func info() -> String:
+	var ret : String = "Age: %s\nFemale" % [age]
+	return ret
