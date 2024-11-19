@@ -113,11 +113,6 @@ func _on_actiontimer_timeout():
 				anim.play("idle")
 
 func _on_agetimer_timeout():
-	age += .2
-	updatedata()
-	agecheck()
-
-func timetick():
 	age += .1
 	updatedata()
 	agecheck()

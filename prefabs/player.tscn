@@ -289,6 +289,22 @@ theme_override_constants/margin_bottom = 5
 [node name="infolabel" type="Label" parent="cam/CanvasLayer/heldinfobox/MarginContainer"]
 layout_mode = 2
 
+[node name="stats" type="RichTextLabel" parent="cam/CanvasLayer"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -113.0
+offset_right = 156.0
+grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[color=#ff8400]100.0[/color]
+[color=#00aaff]100.0[/color]"
+scroll_active = false
+
 [node name="coyoteTime" type="Timer" parent="."]
 
 [node name="ceilingcheck" type="RayCast3D" parent="."]

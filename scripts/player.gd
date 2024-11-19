@@ -1,6 +1,12 @@
 extends CharacterBody3D
 class_name Player
 
+@onready var coyote_time = $coyoteTime
+@onready var cam = $cam
+@onready var shape = $CollisionShape3D
+@onready var ceilingcheck = $ceilingcheck
+@onready var stats: RichTextLabel = $cam/CanvasLayer/stats
+
 var curspeed
 const SPEED = 120
 const JUMP_VELOCITY = 600
@@ -14,10 +20,8 @@ var npcspeak : bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-@onready var coyote_time = $coyoteTime
-@onready var cam = $cam
-@onready var shape = $CollisionShape3D
-@onready var ceilingcheck = $ceilingcheck
+var hunger : float = 50
+var energy : float = 50
 
 func _ready():
 	curspeed = 100
@@ -112,6 +116,13 @@ func _physics_process(delta):
 			col.get_collider().apply_central_impulse(-col.get_normal() * 0.6)
 			#col.get_collider().apply_impulse(-col.get_normal() * 0.03, col.get_position())
 
+func _process(delta: float) -> void:
+	hunger -= delta * .01
+	hunger = clamp(hunger,0,100)
+	energy -= delta * .005
+	energy = clamp(energy,0,100)
+	stats.text = "[color=#ff8400]%s[/color]\n[color=#00aaff]%s[/color]" % [str(hunger).pad_decimals(1),str(energy).pad_decimals(1)]
+
 var crouched : bool = false
 func crouchheight(down : bool = true):
 	if(!down && ceilingcheck.is_colliding()):
@@ -120,3 +131,7 @@ func crouchheight(down : bool = true):
 	shape.shape.height = 1.5 if down else 2
 	shape.position.y = .75 if down else 1
 	cam.position.y = .90 if down else 1.8
+
+func feed(amt : float):
+	hunger += amt
+	hunger = clamp(hunger,0,100)

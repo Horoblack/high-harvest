@@ -22,7 +22,7 @@ var curwetness : float = 15
 
 
 func _process(delta):
-	curwetness -= delta * dryrate
+	curwetness -= delta * dryrate * .1
 	if(curwetness <= 0 && curtime < maxgrowtime):
 		queue_free()
 	
