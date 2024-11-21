@@ -24,4 +24,5 @@ signal day
 func passday():
 	timeofday = 0
 	Library.marketmutate()
+	Savedata.gamedata["day"] += 1
 	day.emit()

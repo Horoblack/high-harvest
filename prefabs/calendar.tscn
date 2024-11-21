@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=4 uid="uid://c3xypcs8c5ye3"]
+
+[ext_resource type="Texture2D" uid="uid://nw7k626x1or0" path="res://models/textures/calendar.png" id="1_5xqu2"]
+[ext_resource type="Script" path="res://scripts/calendar.gd" id="1_ebxrp"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_e1e8h"]
+[ext_resource type="Texture2D" uid="uid://craq8fmhj8u0x" path="res://sprites/itemicons/calendar.png" id="2_wpoaa"]
+
+[sub_resource type="Resource" id="Resource_wcct8"]
+script = ExtResource("2_e1e8h")
+name = "Calendar"
+weight = 0.1
+icon = ExtResource("2_wpoaa")
+description = "Knowing the current date is important for your sanity."
+objaddress = "calendar"
+customproperties = {}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_adp6x"]
+margin = 0.1
+size = Vector3(0.8, 0.6, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8v6vq"]
+albedo_texture = ExtResource("1_5xqu2")
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oif8c"]
+_surfaces = [{
+"aabb": AABB(-0.409199, -0.303995, -0.020246, 0.818398, 0.607989, 0.0404919),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAA/v8AAAAA///+/wAA//8AAP//AAD///////8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_uyioy"]
+resource_name = "calendar_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.409199, -0.303995, -0.020246, 0.818398, 0.607989, 0.0404919),
+"attribute_data": PackedByteArray("AAB6AgAAhQ8AAIUP//96Av//hQ///4UPAACFDwAAegIAAHoC//+FD///egL//3oCBwD9////hQ8AAHoCBwDYQQAAhQ///3oC+//9////egIAAIUP+//YQQAAegL//4UP"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAAJAAMAAAAGAAkACAAXAAsACAAUABcAEgAPABUAEgAMAA8ADgAFABEADgACAAUABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_8v6vq"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAAAAAACqKgAAAAAAAKoqAAD//wAAAAAAAP//AACqKgAA//8AAKoq//8AAAAAAAD//wAAAACqKv//AAAAAKoq/////wAAAAD/////AACqKv////8AAKoqAAAAAP7/AIAAAAAA/v+qKgAAAAD+/6oqAAD///7/AIAAAP///v+qKgAA///+/6oq//8AAP//AID//wAA//+qKv//AAD//6oq////////AID///////+qKv///////6oq/7//v6oqVNVU1VTV/7//v1TVqipU1VTV/7//v6oqVNWqKqoq/7//v1TVqiqqKqoq/3///6oqVNVU1VTV/3///1TVqipU1VTV/3///6oqVNWqKqoq/3///1TVqiqqKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_oif8c")
+
+[node name="calendar" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_ebxrp")
+metadata/obj = SubResource("Resource_wcct8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_adp6x")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_uyioy")
+skeleton = NodePath("")
