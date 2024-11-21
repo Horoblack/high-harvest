@@ -312,3 +312,13 @@ shape = SubResource("BoxShape3D_xhvkp")
 
 [node name="adultshape" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_qtcwg")
+
+[node name="agetimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="actiontimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="agetimer" to="." method="_on_agetimer_timeout"]
+[connection signal="timeout" from="actiontimer" to="." method="_on_actiontimer_timeout"]

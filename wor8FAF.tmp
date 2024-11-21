@@ -165,7 +165,6 @@ shape = SubResource("ConcavePolygonShape3D_3itco")
 unique_name_in_owner = true
 environment = SubResource("Environment_il6hq")
 script = ExtResource("11_ipscs")
-timeofday = 0.0
 simulate = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="day manager"]

@@ -7,6 +7,7 @@ extends RigidBody3D
 @onready var adultskeleton: Node3D = $adult
 @onready var adultmodel: MeshInstance3D = $adult/Skeleton3D/pig
 @onready var oldmodel: MeshInstance3D = $adult/Skeleton3D/oldpig
+
 const BLOOD = preload("res://prefabs/bloodsplatter.tscn")
 const BLOOD2 = preload("res://prefabs/bloodparticles.tscn")
 
@@ -101,6 +102,9 @@ func agecheck():
 			adultmodel.visible = false
 			oldmodel.visible = true
 
+func _on_actiontimer_timeout():
+	pass # Replace with function body.
+	
 func updatedata():
 	if(data == null):
 		data = get_meta("obj").duplicate()

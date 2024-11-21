@@ -7,7 +7,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i14eu"]
 radius = 0.45
 
-[node name="player" type="CharacterBody3D"]
+[node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_uppgx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
