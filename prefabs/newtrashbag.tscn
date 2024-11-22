@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dyy7gi1murhh5"]
+[gd_scene load_steps=6 format=4 uid="uid://dyy7gi1murhh5"]
 
 [ext_resource type="Resource" uid="uid://cm6t4uxr7ks43" path="res://invobjs/newtrashbag.tres" id="1_kx41b"]
 
@@ -10,11 +10,11 @@ _surfaces = [{
 "aabb": AABB(-0.114932, -0.0314692, -0.114932, 0.229864, 0.0629385, 0.229874),
 "format": 34896613377,
 "index_count": 36,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 252, 255, 0, 0, 0, 0, 255, 255, 252, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 252, 255, 0, 0, 255, 255, 255, 255, 252, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+"vertex_data": PackedByteArray("AAAAAPz/AAAAAP///P8AAAAAAAAAAAAAAAD//wAAAAD//wAA/P8AAP/////8/wAA//8AAAAAAAD/////AAAAAA==")
 }]
 blend_shape_mode = 0
 
@@ -22,15 +22,15 @@ blend_shape_mode = 0
 resource_name = "trashcanstuff_Cube_002"
 _surfaces = [{
 "aabb": AABB(-0.114932, -0.0314692, -0.114932, 0.229864, 0.0629385, 0.229874),
-"attribute_data": PackedByteArray(198, 158, 255, 57, 130, 148, 67, 68, 130, 148, 67, 68, 130, 148, 255, 57, 130, 148, 255, 57, 130, 148, 255, 57, 191, 100, 255, 57, 4, 111, 67, 68, 4, 111, 67, 68, 4, 111, 255, 57, 4, 111, 255, 57, 4, 111, 255, 57, 198, 158, 129, 20, 130, 148, 194, 105, 130, 148, 61, 10, 130, 148, 129, 20, 130, 148, 129, 20, 130, 148, 129, 20, 191, 100, 129, 20, 4, 111, 194, 105, 4, 111, 61, 10, 4, 111, 129, 20, 4, 111, 129, 20, 4, 111, 129, 20),
+"attribute_data": PackedByteArray("xp7/OYKUQ0SClENEgpT/OYKU/zmClP85v2T/OQRvQ0QEb0NEBG//OQRv/zkEb/85xp6BFIKUwmmClD0KgpSBFIKUgRSClIEUv2SBFARvwmkEbz0KBG+BFARvgRQEb4EU"),
 "format": 34896613399,
 "index_count": 36,
-"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
 "material": SubResource("StandardMaterial3D_000bw"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 24,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 252, 255, 255, 191, 0, 0, 0, 0, 252, 255, 84, 213, 0, 0, 0, 0, 252, 255, 255, 191, 0, 0, 255, 255, 252, 255, 255, 191, 0, 0, 255, 255, 252, 255, 84, 213, 0, 0, 255, 255, 252, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 191, 255, 255, 0, 0, 252, 255, 255, 191, 255, 255, 0, 0, 252, 255, 84, 213, 255, 255, 0, 0, 252, 255, 255, 255, 255, 255, 255, 255, 252, 255, 255, 191, 255, 255, 255, 255, 252, 255, 84, 213, 255, 255, 255, 255, 252, 255, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 127, 255, 127, 170, 42, 84, 213, 255, 127, 255, 255, 255, 127, 255, 127, 170, 170, 170, 170, 255, 127, 255, 255, 255, 191, 255, 191, 170, 42, 84, 213, 255, 127, 254, 255, 255, 191, 255, 191, 170, 170, 170, 170, 255, 127, 254, 255, 255, 127, 255, 127, 170, 42, 84, 213, 255, 191, 255, 127, 255, 127, 255, 127, 170, 170, 170, 170, 255, 191, 255, 127, 255, 191, 255, 191, 170, 42, 84, 213, 255, 191, 255, 127, 255, 191, 255, 191, 170, 170, 170, 170, 255, 191, 255, 127)
+"vertex_data": PackedByteArray("AAAAAPz//78AAAAA/P9U1QAAAAD8//+/AAD///z//78AAP///P9U1QAA///8//+/AAAAAAAA//8AAAAAAABU1QAAAAAAAP+/AAD//wAA//8AAP//AABU1QAA//8AAP+///8AAPz//7///wAA/P9U1f//AAD8//////////z//7///////P9U1f/////8//////8AAAAA/////wAAAABU1f//AAAAAP///////wAA////////AABU1f////8AAP///3//f6oqVNX/f////3//f6qqqqr/f////7//v6oqVNX/f/7//7//v6qqqqr/f/7//3//f6oqVNX/v/9//3//f6qqqqr/v/9//7//v6oqVNX/v/9//7//v6qqqqr/v/9/")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7es0a")
@@ -39,6 +39,7 @@ shadow_mesh = SubResource("ArrayMesh_7es0a")
 size = Vector3(0.226563, 0.0654297, 0.229492)
 
 [node name="newtrashbag" type="RigidBody3D" groups=["pickup"]]
+mass = 0.1
 metadata/obj = ExtResource("1_kx41b")
 
 [node name="newbag" type="MeshInstance3D" parent="."]

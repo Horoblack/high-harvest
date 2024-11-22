@@ -75,11 +75,11 @@ func _input(event):
 		body.frozen = true
 		camfrozen = true
 	if(event.is_action_pressed("leftclick")):
-		if(grabbed && is_instance_valid(grabbed)):
+		if(held != null && held.has_method("trigger") && !camfrozen && !inventory.visible):
+			held.trigger(self)
+		elif(grabbed && is_instance_valid(grabbed)):
 			grabbed.apply_impulse(-global_basis.z * 50 * grabbed.mass)
 			letgoofgrabbed()
-		elif(held != null && held.has_method("trigger") && !camfrozen && !inventory.visible):
-			held.trigger(self)
 	if event.is_action_pressed("rightclick"):
 		if(grabbed && is_instance_valid(grabbed)):
 			rotating = true
@@ -110,19 +110,7 @@ func holdobj():
 			if(n.get_parent() is RigidBody3D):
 				n.disabled = true
 	elif(held != null && (!held.has_method("candrop") || held.candrop() == true)):
-		body.remove_collision_exception_with(held)
-		held.reparent(get_tree().current_scene)
-		if(cast.is_colliding()):
-			held.global_position = cast.get_collision_point()
-		else:
-			held.global_position = global_position - global_basis.z
-		if(held.has_method("hold")):
-			held.hold(null)
-		held.freeze = false
-		for n in held.find_children("*", "CollisionShape3D", true, false):
-			if(n.get_parent() is RigidBody3D):
-				n.disabled = false
-		held = null
+		letgoofheld()
 
 func grabobj(obj):
 	if(obj.is_in_group("pickup") && obj is RigidBody3D):
@@ -141,6 +129,21 @@ func letgoofgrabbed():
 			grabbed.sleeping = false
 		grabbed = null
 
+func letgoofheld():
+	body.remove_collision_exception_with(held)
+	held.reparent(get_tree().current_scene)
+	if(cast.is_colliding()):
+		held.global_position = cast.get_collision_point()
+	else:
+		held.global_position = global_position - global_basis.z
+	if(held.has_method("hold")):
+		held.hold(null)
+	held.freeze = false
+	for n in held.find_children("*", "CollisionShape3D", true, false):
+		if(n.get_parent() is RigidBody3D):
+			n.disabled = false
+	held = null
+
 func dropobj(ob : InventoryObject):
 	var o = Library.objs[ob.objaddress].instantiate()
 	o.set_meta("obj", ob)
@@ -158,8 +161,8 @@ func _physics_process(delta):
 		grabbed.apply_central_force(force)
 		#heldpos.global_rotation = lerp(heldpos.global_rotation, heldobj.global_rotation, .2)
 		
-		var strt = Quaternion(grabpos.global_basis)
-		var trgt = Quaternion(grabbed.global_basis)
+		var strt = Quaternion(grabpos.global_basis.orthonormalized())
+		var trgt = Quaternion(grabbed.global_basis.orthonormalized())
 		var sler2 = trgt.slerp(strt, .8 / clamp(grabbed.mass*grabbed.mass, 1, 100))
 		grabbed.global_basis = Basis(sler2)
 		var sler = strt.slerp(trgt, .2 / clamp(grabbed.mass*grabbed.mass, 1, 100))
