@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dfv836fnylgg0"]
+
+[ext_resource type="Texture2D" uid="uid://c7moivt68k8ln" path="res://sprites/itemicons/nail.png" id="1_yxbjl"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_2d5pg"]
+
+[resource]
+script = ExtResource("2_2d5pg")
+name = "Nail"
+weight = 0.1
+icon = ExtResource("1_yxbjl")
+description = "Attach things together."
+objaddress = "nail"
+customproperties = {}

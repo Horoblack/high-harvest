@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=35 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
 [ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqivnfoo6iju" path="res://prefabs/seedstuff/carrotseedbag.tscn" id="20_03enf"]
 [ext_resource type="PackedScene" uid="uid://c3xypcs8c5ye3" path="res://prefabs/calendar.tscn" id="22_l4hnd"]
 [ext_resource type="PackedScene" uid="uid://bqdchr1mm61g2" path="res://prefabs/nail.tscn" id="23_laifv"]
+[ext_resource type="PackedScene" uid="uid://d3a0rifxqvh0b" path="res://prefabs/scarecrow.tscn" id="24_s77de"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
 albedo_texture = ExtResource("2_7gmrh")
@@ -218,3 +219,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.35, 2.15, -24.2801)
 
 [node name="nail" parent="." instance=ExtResource("23_laifv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3457, 2.37781, -24.2257)
+
+[node name="scarecrow" parent="." instance=ExtResource("24_s77de")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.91955, 0.7, 2.1403)

@@ -45,6 +45,8 @@ var invobjs : Dictionary = {
 	"shotgun":load("res://invobjs/shotgun.tres"),
 	"ammobox":load("res://invobjs/ammobox.tres"),
 	"chickenmeat":load("res://invobjs/chickenmeat.tres"),
+	"calendar":load("res://invobjs/calendar.tres"),
+	"nail":load("res://invobjs/nail.tres"),
 }
 
 var purchasables : Dictionary = {

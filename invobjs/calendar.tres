@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bfc11txg1oj5k"]
+
+[ext_resource type="Texture2D" uid="uid://craq8fmhj8u0x" path="res://sprites/itemicons/calendar.png" id="1_v85vg"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_xd2yr"]
+
+[resource]
+script = ExtResource("2_xd2yr")
+name = "Calendar"
+weight = 0.1
+icon = ExtResource("1_v85vg")
+description = "Knowing the current date is important for your sanity."
+objaddress = "calendar"
+customproperties = {}
