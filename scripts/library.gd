@@ -22,6 +22,8 @@ var objs : Dictionary = {
 	"shotgun":load("res://prefabs/shotgun.tscn"),
 	"ammobox":load("res://prefabs/ammobox.tscn"),
 	"chickenmeat":load("res://prefabs/chickenmeat.tscn"),
+	"calendar":load("res://prefabs/calendar.tscn"),
+	"nail":load("res://prefabs/nail.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -55,7 +57,9 @@ var purchasables : Dictionary = {
 	"newtrashbag" = 5.0,
 	"trashcan" = 10.0,
 	"shotgun" = 30.0,
-	"ammobox" = 5.0
+	"ammobox" = 5.0,
+	"nail" = 1.0,
+	"calendar" = 10.0,
 }
 
 var sellvalues : Dictionary = {
