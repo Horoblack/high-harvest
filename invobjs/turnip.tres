@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dqbwgu64o7h32"]
+
+[ext_resource type="Texture2D" uid="uid://b4rll7kh07lhh" path="res://sprites/itemicons/turnip.png" id="1_62o8i"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_xhcha"]
+
+[resource]
+script = ExtResource("2_xhcha")
+name = "Turnip"
+weight = 0.5
+icon = ExtResource("1_62o8i")
+description = "A turnip."
+objaddress = "turnip"
+customproperties = {}

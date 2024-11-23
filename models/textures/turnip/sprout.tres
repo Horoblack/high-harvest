@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dslrsddy4x2ei"]
+
+[ext_resource type="Shader" path="res://ybillboard.gdshader" id="1_cicpp"]
+[ext_resource type="Texture2D" uid="uid://ob7cjgje86m" path="res://models/textures/turnip/sprout.png" id="2_vvm0h"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_cicpp")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 0.0
+shader_parameter/roughness = null
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = null
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("2_vvm0h")

@@ -39,12 +39,12 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y -= gravity * delta * gravvel
 		
-		if(gravvel < 4):
-			gravvel += delta * gravvel * 7
+		if(gravvel < 7):
+			gravvel += delta * gravvel * 10
 		
 		if(curjumpvel > 0):
 			if(Input.is_action_pressed("ui_accept")):
-				curjumpvel -= delta * 40 * 100
+				curjumpvel -= delta * 3000
 			else:
 				curjumpvel = 0
 	else:

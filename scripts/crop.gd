@@ -44,16 +44,15 @@ func water():
 
 func uproot():
 	if(curtime >= maxgrowtime):
+		var c : RigidBody3D = Library.objs[dropaddress].instantiate()
+		get_tree().current_scene.add_child(c)
+		c.global_position = global_position
+		c.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)))
 		for n in randi_range(1,2):
-			var c : RigidBody3D = Library.objs[dropaddress].instantiate()
-			get_tree().current_scene.add_child(c)
-			c.global_position = global_position
-			c.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)))
-		for n in randi_range(1,2):
-			var c = Library.objs[seedaddress].instantiate()
-			get_tree().current_scene.add_child(c)
-			c.global_position = global_position
-			c.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)))
+			var b = Library.objs[seedaddress].instantiate()
+			get_tree().current_scene.add_child(b)
+			b.global_position = global_position
+			b.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)))
 	else:
 		var c = Library.objs[seedaddress].instantiate()
 		get_tree().current_scene.add_child(c)

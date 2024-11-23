@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://253m25a4inw0"]
+
+[ext_resource type="Texture2D" uid="uid://bu6i8lrp5x614" path="res://sprites/itemicons/turnipseed.png" id="1_u5v7y"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_xgnvl"]
+
+[resource]
+script = ExtResource("2_xgnvl")
+name = "Turnip Seed"
+weight = 0.1
+icon = ExtResource("1_u5v7y")
+description = "Plant in a hole to grow turnips."
+objaddress = "turnipseed"
+customproperties = {}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cpa4rr7yhu1vi"]
+
+[ext_resource type="Texture2D" uid="uid://e2ueahjh1jb8" path="res://sprites/itemicons/turnipseedbag.png" id="1_tg1bq"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_mxs2j"]
+
+[resource]
+script = ExtResource("2_mxs2j")
+name = "Turnip seed bag"
+weight = 0.5
+icon = ExtResource("1_tg1bq")
+description = "A bag full of seeds."
+objaddress = "turnipseedbag"
+customproperties = {}

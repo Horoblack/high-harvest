@@ -5,9 +5,12 @@ var objs : Dictionary = {
 	"carrot":load("res://prefabs/carrot.tscn"),
 	"carrotseed":load("res://prefabs/seedstuff/carrotseed.tscn"),
 	"carrotseedbag":load("res://prefabs/seedstuff/carrotseedbag.tscn"),
-	"tomatoseedbag":load("res://prefabs/seedstuff/tomatoseedbag.tscn"),
-	"tomatoseed":load("res://prefabs/seedstuff/tomatoseed.tscn"),
 	"tomato":load("res://prefabs/tomato.tscn"),
+	"tomatoseed":load("res://prefabs/seedstuff/tomatoseed.tscn"),
+	"tomatoseedbag":load("res://prefabs/seedstuff/tomatoseedbag.tscn"),
+	"turnip":load("res://prefabs/turnip.tscn"),
+	"turnipseed":load("res://prefabs/seedstuff/turnipseed.tscn"),
+	"turnipseedbag":load("res://prefabs/seedstuff/turnipseedbag.tscn"),
 	"wateringcan":load("res://prefabs/watering_can.tscn"),
 	"box":load("res://prefabs/box.tscn"),
 	"boxlid":load("res://prefabs/lid.tscn"),
@@ -31,8 +34,12 @@ var invobjs : Dictionary = {
 	"carrot":load("res://invobjs/carrot.tres"),
 	"carrotseed":load("res://invobjs/carrotseed.tres"),
 	"carrotseedbag":load("res://invobjs/carrotseedbag.tres"),
+	"tomato":load("res://invobjs/tomato.tres"),
 	"tomatoseed":load("res://invobjs/tomatoseed.tres"),
 	"tomatoseedbag":load("res://invobjs/tomatoseedbag.tres"),
+	"turnip":load("res://invobjs/turnip.tres"),
+	"turnipseed":load("res://invobjs/turnipseed.tres"),
+	"turnipseedbag":load("res://invobjs/turnipseedbag.tres"),
 	"wateringcan":load("res://invobjs/wateringcan.tres"),
 	"box":load("res://invobjs/box.tres"),
 	"boxlid":load("res://invobjs/lid.tres"),
@@ -52,6 +59,7 @@ var invobjs : Dictionary = {
 var purchasables : Dictionary = {
 	"carrotseedbag" = 10.0,
 	"tomatoseedbag" = 10.0,
+	"turnipseedbag" = 10.0,
 	"shovel" = 9.0,
 	"wateringcan" = 8.0,
 	"chicken" = 17.0,
@@ -67,6 +75,7 @@ var purchasables : Dictionary = {
 var sellvalues : Dictionary = {
 	"carrot" = 5.0,
 	"tomato" = 5.0,
+	"turnip" = 5.0,
 	"egg" = 5.0,
 	"trashbag" = 1.0,
 	"ammobox" = 5.0,
@@ -78,7 +87,8 @@ var sellvalues : Dictionary = {
 const crops : Dictionary = {
 	"crophole":preload("res://prefabs/crops/hole.tscn"),
 	"carrotseed":preload("res://prefabs/crops/carrotcrop.tscn"),
-	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn")
+	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn"),
+	"turnipseed":preload("res://prefabs/crops/turnipcrop.tscn"),
 }
 
 func sell(item : String, amount : int) -> float:

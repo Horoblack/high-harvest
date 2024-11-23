@@ -1,11 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cxbbgjcaa82t0"]
+[gd_scene load_steps=11 format=4 uid="uid://c7otxr3c58xdf"]
 
-[ext_resource type="Script" path="res://scripts/crop.gd" id="1_4xc76"]
-[ext_resource type="Material" uid="uid://btx6tcpqt5y6m" path="res://models/textures/tomato/tomatosprout.tres" id="2_a4nrm"]
-[ext_resource type="Material" uid="uid://6budde3k8ht6" path="res://models/textures/tomato/tomatogrowing.tres" id="3_xed1s"]
-[ext_resource type="Material" uid="uid://brwg1u5ykq02f" path="res://models/textures/tomato/tomatofull.tres" id="4_cv0lg"]
-[ext_resource type="Material" uid="uid://xaak1g5ddbis" path="res://models/textures/dirt/dirtdry.tres" id="5_1ks33"]
-[ext_resource type="Material" uid="uid://cf48ebeko8eqo" path="res://models/textures/empty.tres" id="6_su0kj"]
+[ext_resource type="Script" path="res://scripts/crop.gd" id="1_1ucg0"]
+[ext_resource type="Material" uid="uid://dslrsddy4x2ei" path="res://models/textures/turnip/sprout.tres" id="2_cffqy"]
+[ext_resource type="Material" uid="uid://cocpupwfcluoc" path="res://models/textures/turnip/growing.tres" id="3_t3djf"]
+[ext_resource type="Material" uid="uid://dy4ejvgykwreu" path="res://models/textures/turnip/top.tres" id="4_xg4yc"]
+[ext_resource type="Material" uid="uid://xaak1g5ddbis" path="res://models/textures/dirt/dirtdry.tres" id="5_c526g"]
+[ext_resource type="Material" uid="uid://cf48ebeko8eqo" path="res://models/textures/empty.tres" id="6_x8o10"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f6fna"]
 radius = 0.2
@@ -33,7 +33,7 @@ _surfaces = [{
 "index_count": 324,
 "index_data": PackedByteArray("SQAHACkASQBAAAcAPgARADEAPgAMABEAJgAVAB8AJgAPABUARQADACEARQA1AAMAJAAQABwAJAAOABAAPAAUADkAPAALABQALAALADwALAABAAsAIQAOACQAIQADAA4AGAAPACYAGAAGAA8ANAAMAD4ANAAJAAwAQAATAAcAQAAyABMAKAAQAAIAKAAcABAAKgAWAAQAKgAgABYAQgAUAAAAQgA6ABQABwAeACkABwATAB4AKQAgACoAKQAeACAAAAAbACcAAAAUABsAJwAcACgAJwAbABwACgAlAA0ACgAaACUAGgAmACUAGgAYACYAAQAjAAsAAQAiACMAIgAkACMAIgAhACQACwAbABQACwAjABsAIwAcABsAIwAkABwAKwAiAAEAKwBDACIAQwAhACIAQwBFACEADQAdABIADQAlAB0AJQAfAB0AJQAmAB8AQQAqAAQAQQBHACoARwApACoARwBJACkAJwBKAEgAJwAoAEoASABJAEcASABKAEkAAABIAEIAAAAnAEgAQgBHAEEAQgBIAEcAFwBGAEQAFwAZAEYARABFAEMARABGAEUABQBEAC0ABQAXAEQALQBDACsALQBEAEMABAA4AEEABAAWADgAQQA6AEIAQQA4ADoAAgAwAD8AAgAQADAAPwAyAEAAPwAwADIAAwA9AA4AAwA2AD0ANgA+AD0ANgA0AD4ABgA7AA8ABgAuADsALgA8ADsALgAsADwADwA3ABUADwA7ADcAOwA5ADcAOwA8ADkAGQAzAEYAGQAIADMARgA1AEUARgAzADUADgAvABAADgA9AC8APQAxAC8APQA+ADEAKAA/AEoAKAACAD8ASgBAAEkASgA/AEAA"),
 "lods": [0.0969076, PackedByteArray("1wARADEA1wCpABEAzQCpANcArQDXADEArQAxAC8ArQAvABAAugCtAMAAwACtABAAvgDAAKgAvgC8AMEApQDAABAApQAQABQAxgClANUA1QClABQAAgAUABAAAgAQADAAAgAwADIA1QAUADkA0wDVADkAywDVANMA0wA5ADcAsQDTADcAogDTALEAsQA3ABUAtACxAMMAwgCxABUAwgAVAB8ArADCAB8AuADCAKwArAAfAB0ArAAdABIABAA6ABQABAA4ADoABAAWADgABAAgABYAFAACAAQABAAeACAAAgAHAAQABwAeAAQAAgAyAAcABwATAB4ABwAyABMA3ACeALkA3ADPAJ4A2gDcALkA2gC5AL8A3QDPANwA3QDMAM8AtgDMAN0AtgAIAMwAswC2AN0A2wDdANwAswDdANsA2wDcANoAoACzANsAoADbAMkAyQDbANoAyQDaAMUAxQDaAL0AxQC9AJ0AnQC9AKcAxwCdAKYAuwCfAK4AnwDQAK8AtQChALIAoQDKANQAygDIANYAtwC1AMQApAC3AKsAzgCjAKoA0gDOANkA0QDYALAA"), 0.285626, PackedByteArray("fQARAJQAdwB9AJQAdgCUAIgAiwBzAIgAiwCIABMAiAAwABMAiwATADgAEwAeADgAOAA6AIsAggA3AB0AggA5ADcAgQCCAB0AgQAdABIAhwAUADkAjgCDAIEAmwCVAHEAmQCbAHEAmQB0AHAAnACVAJsAjACVAJwAjAAIAJUAeACMAJwAmgCcAJsAeACcAJoAmgCbAJgAeACaAJAAkACaAJgAkACYAG8AkQBtAIkAkwCJAIYAlgB7AH4AfACNAIAAjwB5AIQAbgByAIoAlwB/AHUAegCSAIUA"), 0.285628, PackedByteArray("XQARAGUAVABdAGUAUwBlAGMASwBmAFAAVgBmAEsATABkAGoAZAATADgAZAAwABMAZABiADAATQBiAGQATgBRAGIAaABbAF4AXABXAGAAWABrAGEAYQBrABIAaQBfAFIAWQBPAGwAVQBaAGcA")],
-"material": ExtResource("5_1ks33"),
+"material": ExtResource("5_c526g"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 222,
@@ -42,19 +42,19 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fy4ct")
 
-[sub_resource type="QuadMesh" id="QuadMesh_bv2jx"]
+[sub_resource type="QuadMesh" id="QuadMesh_3135y"]
 resource_local_to_scene = true
-material = ExtResource("6_su0kj")
-size = Vector2(2, 4)
+material = ExtResource("6_x8o10")
+size = Vector2(2, 2)
 
-[node name="tomatocrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
-script = ExtResource("1_4xc76")
-maxgrowtime = 20.0
+[node name="turnipcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
+script = ExtResource("1_1ucg0")
+maxgrowtime = 200.0
 dryrate = 0.1
-stages = Array[Material]([ExtResource("2_a4nrm"), ExtResource("3_xed1s"), ExtResource("4_cv0lg")])
+stages = Array[Material]([ExtResource("2_cffqy"), ExtResource("3_t3djf"), ExtResource("4_xg4yc")])
 stalk = NodePath("coveredhole/stalk")
-dropaddress = "tomato"
-seedaddress = "tomatoseed"
+dropaddress = "turnip"
+seedaddress = "turnipseed"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_f6fna")
@@ -65,5 +65,5 @@ mesh = SubResource("ArrayMesh_gk7x7")
 skeleton = NodePath("")
 
 [node name="stalk" type="MeshInstance3D" parent="coveredhole"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
-mesh = SubResource("QuadMesh_bv2jx")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("QuadMesh_3135y")
