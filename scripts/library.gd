@@ -27,6 +27,12 @@ var objs : Dictionary = {
 	"chickenmeat":load("res://prefabs/chickenmeat.tscn"),
 	"calendar":load("res://prefabs/calendar.tscn"),
 	"nail":load("res://prefabs/nail.tscn"),
+	"dice":load("res://prefabs/dice.tscn"),
+	"knife":load("res://prefabs/knife.tscn"),
+	"bowl":load("res://prefabs/bowl.tscn"),
+	"dicedcarrot":load("res://prefabs/dicedcarrot.tscn"),
+	"dicedtomato":load("res://prefabs/dicedtomato.tscn"),
+	"dicedturnip":load("res://prefabs/dicedturnip.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -54,6 +60,12 @@ var invobjs : Dictionary = {
 	"chickenmeat":load("res://invobjs/chickenmeat.tres"),
 	"calendar":load("res://invobjs/calendar.tres"),
 	"nail":load("res://invobjs/nail.tres"),
+	"dice":load("res://invobjs/dice.tres"),
+	"knife":load("res://invobjs/knife.tres"),
+	"bowl":load("res://invobjs/bowl.tres"),
+	"dicedcarrot":load("res://invobjs/dicedcarrot.tres"),
+	"dicedtomato":load("res://invobjs/dicedtomato.tres"),
+	"dicedturnip":load("res://invobjs/dicedturnip.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -70,6 +82,7 @@ var purchasables : Dictionary = {
 	"ammobox" = 5.0,
 	"nail" = 1.0,
 	"calendar" = 10.0,
+	"dice" = 1.0,
 }
 
 var sellvalues : Dictionary = {

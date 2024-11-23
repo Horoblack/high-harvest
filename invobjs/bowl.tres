@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://d0wyhfce0drwa"]
+
+[ext_resource type="Texture2D" uid="uid://d3nqe2nf186rr" path="res://sprites/itemicons/bowl.png" id="1_wq87g"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_mwuw8"]
+
+[resource]
+script = ExtResource("2_mwuw8")
+name = "Bowl"
+weight = 0.5
+icon = ExtResource("1_wq87g")
+description = "Put vegetables in to make a meal."
+objaddress = "bowl"
+customproperties = {}

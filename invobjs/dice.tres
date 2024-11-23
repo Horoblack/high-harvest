@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://wbru4oesafmt"]
+
+[ext_resource type="Texture2D" uid="uid://d1h45iap4sxg4" path="res://sprites/itemicons/dice.png" id="1_cq2ht"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_cdumf"]
+
+[resource]
+script = ExtResource("2_cdumf")
+name = "Dice"
+weight = 0.1
+icon = ExtResource("1_cq2ht")
+description = "Have fun with it."
+objaddress = "dice"
+customproperties = {}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://8so1ki7t05ls"]
+
+[ext_resource type="Texture2D" uid="uid://bw58w7tuh3rfi" path="res://sprites/itemicons/dicedcarrot.png" id="1_qqpxe"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_py2to"]
+
+[resource]
+script = ExtResource("2_py2to")
+name = "Diced carrot"
+weight = 0.1
+icon = ExtResource("1_qqpxe")
+description = "Carrot cube."
+objaddress = "dicedcarrot"
+customproperties = {}

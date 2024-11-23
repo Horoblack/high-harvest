@@ -2,7 +2,7 @@ extends Camera3D
 class_name PlayerCam
 
 @onready var body : Player = get_parent()
-@onready var cast = $RayCast3D
+@onready var cast : RayCast3D = $RayCast3D
 @onready var grabpos = $grabpos
 @onready var heldpos = $heldpos
 @onready var grabbedinfobox = $CanvasLayer/grabbedinfobox

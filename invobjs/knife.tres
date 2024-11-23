@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dwbgdthd0krt8"]
+
+[ext_resource type="Texture2D" uid="uid://buht4yet8ydes" path="res://sprites/itemicons/knife.png" id="1_g4orm"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_061dy"]
+
+[resource]
+script = ExtResource("2_061dy")
+name = "Knife"
+weight = 0.5
+icon = ExtResource("1_g4orm")
+description = "Cut vegetables."
+objaddress = "knife"
+customproperties = {}

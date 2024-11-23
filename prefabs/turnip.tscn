@@ -81,6 +81,7 @@ mass = 0.5
 script = ExtResource("1_vbp5k")
 fillamount = 15.0
 metadata/obj = ExtResource("2_xdafr")
+metadata/diced = "dicedturnip"
 
 [node name="turnip" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_gafae")

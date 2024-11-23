@@ -90,6 +90,7 @@ angular_damp = 2.0
 script = ExtResource("1_oeylc")
 fillamount = 10.0
 metadata/obj = SubResource("Resource_8ja8q")
+metadata/diced = "dicedcarrot"
 
 [node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_6lbpc")
