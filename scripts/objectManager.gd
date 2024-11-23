@@ -1,15 +1,19 @@
 extends Node
 
-func _ready():
-	deserializeall()
-
-### CROPS AREN'T GETTING SAVED AND LOADED BECAUSE THEY'RE NOT PICKUPS. FIX LATER
 func serializeall():
 	var list : Array
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var plinventory = []
+	for n : InventoryObject in player.cam.inventory.invlist:
+		plinventory.append([n.objaddress, n.customproperties])
+	list.append(["player", player.global_position, player.global_rotation, plinventory])
+	
 	var allobjs = get_tree().get_nodes_in_group("pickup")
 	for n in allobjs:
 		if(n.has_meta("obj")):
 			var data : InventoryObject = n.get_meta("obj")
+			if(data.objaddress == ""):
+				return
 			list.append(["pickup", n.global_position, n.global_rotation, data.objaddress, data.customproperties])
 	
 	var serquests = get_tree().get_nodes_in_group("serialize")
@@ -24,9 +28,20 @@ func serializeall():
 
 func deserializeall():
 	Savedata.load_data()
+	
 	var list = Savedata.gamedata["objects"].duplicate()
 	for n in list:
 		match(n[0]):
+			"player":
+				var player : Player = get_tree().get_first_node_in_group("player")
+				var plinventory = []
+				for i in n[3]:
+					var data : InventoryObject = Library.invobjs[i[0]].duplicate()
+					data.customproperties = i[1]
+					plinventory.append(data)
+				player.global_position = n[1]
+				player.global_rotation = n[2]
+				player.cam.inventory.invlist = plinventory
 			"pickup":
 				var obj = Library.objs[n[3]].instantiate()
 				get_tree().current_scene.add_child(obj)

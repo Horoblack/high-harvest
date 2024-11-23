@@ -7,13 +7,15 @@ extends RigidBody3D
 @onready var adultskeleton: Node3D = $adult
 @onready var adultmodel: MeshInstance3D = $adult/Skeleton3D/pig
 @onready var oldmodel: MeshInstance3D = $adult/Skeleton3D/oldpig
+@onready var floorcast : ShapeCast3D = $floorcast
+@onready var anim = $AnimationPlayer
 
 const BLOOD = preload("res://prefabs/bloodsplatter.tscn")
 const BLOOD2 = preload("res://prefabs/bloodparticles.tscn")
 
 var baseweight : float = .1
 var weight : float = 0
-var agestage : int = -1
+var agestage : int = 0
 var age : float = 0
 var sexmale : bool = false
 var data : InventoryObject
@@ -26,15 +28,19 @@ func _ready():
 	updatedata()
 	agecheck()
 
+func _physics_process(delta):
+	if(curdir != Vector3.ZERO && global_basis.y.dot(Vector3.UP) > 0.1):
+		sleeping = false
+		apply_force(curdir * 30, (-basis.y*.2)+(-basis.z*.5))
+
 func straighten():
-	apply_central_impulse(Vector3.UP*3)
-	#global_rotation.x = 0
-	#global_rotation.z = 0
+	anim.play("idle")
+	apply_central_impulse(Vector3.UP*5)
 	var strength = 1
 	match agestage:
-		0: strength = .2
-		1: strength = .5
-		2: strength = 1
+		0: strength = .4
+		1: strength = .7
+		2: strength = 1.1
 	apply_torque_impulse((global_basis.x * (-global_rotation.x))*strength)
 	apply_torque_impulse((global_basis.z * (-global_rotation.z))*strength)
 
@@ -60,10 +66,22 @@ func die():
 
 func _on_agetimer_timeout():
 	age += .2
+	#age += 10
 	updatedata()
 	agecheck()
 
 func agecheck():
+	if(age < 10 && agestage != 0):
+		agestage = 0
+	elif(age >= 10 && age < 20 && agestage != 1):
+		agestage = 1
+	elif(age >= 20 && age < 50 && agestage != 2):
+		agestage = 2
+	elif(age >= 50 && age < 70 && agestage != 3):
+		agestage = 3
+	elif(age >= 70):
+		die() #FUCKING DIE OF OLD AGE
+	
 	match agestage:
 		0:
 			childshape.disabled = false
@@ -74,6 +92,9 @@ func agecheck():
 			adultskeleton.visible = false
 			adultmodel.visible = false
 			oldmodel.visible = false
+			var shape : BoxShape3D = childshape.shape.duplicate()
+			shape.size *= 1.1
+			floorcast.shape = shape
 		1:
 			childshape.disabled = true
 			childmodel.visible = false
@@ -83,6 +104,9 @@ func agecheck():
 			adultskeleton.visible = false
 			adultmodel.visible = false
 			oldmodel.visible = false
+			var shape : BoxShape3D = teenagershape.shape.duplicate()
+			shape.size *= 1.1
+			floorcast.shape = shape
 		2:
 			childshape.disabled = true
 			childmodel.visible = false
@@ -92,6 +116,9 @@ func agecheck():
 			adultskeleton.visible = true
 			adultmodel.visible = true
 			oldmodel.visible = false
+			var shape : BoxShape3D = adultshape.shape.duplicate()
+			shape.size *= 1.1
+			floorcast.shape = shape
 		3:
 			childshape.disabled = true
 			childmodel.visible = false
@@ -101,10 +128,28 @@ func agecheck():
 			adultskeleton.visible = true
 			adultmodel.visible = false
 			oldmodel.visible = true
+			var shape : BoxShape3D = adultshape.shape.duplicate()
+			shape.size *= 1.1
+			floorcast.shape = shape
 
+var curdir = Vector3.ZERO
 func _on_actiontimer_timeout():
-	pass # Replace with function body.
+	if(!floorcast.is_colliding()):
+		anim.play("idle")
+		curdir = Vector3.ZERO
+		return
 	
+	if(curdir != Vector3.ZERO):
+		anim.play("idle")
+		curdir = Vector3.ZERO
+	else:
+		if(global_basis.y.dot(Vector3.UP) < 0.1):
+			straighten()
+		else:
+			anim.play("walk")
+			curdir = -global_basis.z.rotated(Vector3.UP, randf_range(-1,1)).normalized()
+			#curdir = Vector3(randf_range(-1,1),0,randf_range(-1,1)).normalized()
+		
 func updatedata():
 	if(data == null):
 		data = get_meta("obj").duplicate()

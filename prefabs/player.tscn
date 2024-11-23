@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwi170efjq44q"]
+[gd_scene load_steps=6 format=3 uid="uid://cwi170efjq44q"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_uppgx"]
 [ext_resource type="Script" path="res://scripts/playercam.gd" id="2_vgmbu"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="3_w0mcb"]
+[ext_resource type="PackedScene" uid="uid://bvy82pls5kkcr" path="res://scenes/pause.tscn" id="4_1tgxg"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i14eu"]
 radius = 0.45
@@ -310,3 +311,5 @@ scroll_active = false
 [node name="ceilingcheck" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 target_position = Vector3(0, 1.8, 0)
+
+[node name="pause" parent="." instance=ExtResource("4_1tgxg")]

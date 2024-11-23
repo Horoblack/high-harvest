@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rp5b0pohowo"
-path="res://.godot/imported/flyer.png-57d15bb5e199a45a49074f6b1e4238ce.ctex"
+uid="uid://dy85joob4u5eo"
+path="res://.godot/imported/potato.png-e4349845888fc6c7c34e5ca133b3a40f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/textures/flyer.png"
-dest_files=["res://.godot/imported/flyer.png-57d15bb5e199a45a49074f6b1e4238ce.ctex"]
+source_file="res://sprites/itemicons/potato.png"
+dest_files=["res://.godot/imported/potato.png-e4349845888fc6c7c34e5ca133b3a40f.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

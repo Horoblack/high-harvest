@@ -1,46 +1,18 @@
-[gd_scene load_steps=36 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=21 format=4 uid="uid://1x2qqvrpl61i"]
 
-[ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_abkmk"]
-[ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="2_7gmrh"]
-[ext_resource type="PackedScene" uid="uid://ks7cknofd1u4" path="res://prefabs/truck.tscn" id="3_dbq6e"]
-[ext_resource type="PackedScene" uid="uid://bokm5dev6rmi4" path="res://prefabs/bowl.tscn" id="4_aoqne"]
-[ext_resource type="PackedScene" uid="uid://d2fi3tglbmqdh" path="res://prefabs/shovel.tscn" id="6_3njt8"]
-[ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="6_fsqvd"]
-[ext_resource type="PackedScene" uid="uid://4aye4jw7f20a" path="res://prefabs/box.tscn" id="8_m68m6"]
-[ext_resource type="PackedScene" uid="uid://ce2u481dtnu6y" path="res://prefabs/watering_can.tscn" id="9_p6crl"]
-[ext_resource type="Texture2D" uid="uid://dfnmfdq2ak10r" path="res://models/textures/farmhouse.png" id="9_tc6xt"]
-[ext_resource type="Shader" path="res://sky.gdshader" id="11_apr85"]
-[ext_resource type="Script" path="res://scripts/dayManager.gd" id="11_ipscs"]
-[ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="12_ejm6i"]
-[ext_resource type="Script" path="res://scripts/eventmanager.gd" id="12_qyri6"]
-[ext_resource type="PackedScene" uid="uid://b545uuwmnumvp" path="res://prefabs/trashcan.tscn" id="13_oq68v"]
-[ext_resource type="PackedScene" uid="uid://dyy7gi1murhh5" path="res://prefabs/newtrashbag.tscn" id="14_xgsqj"]
-[ext_resource type="PackedScene" uid="uid://cmbvic53mh3al" path="res://prefabs/shotgun.tscn" id="16_2ptil"]
-[ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="16_mypgb"]
-[ext_resource type="PackedScene" uid="uid://cuvoaydo3b52p" path="res://prefabs/ammobox.tscn" id="17_ldv4v"]
-[ext_resource type="PackedScene" uid="uid://h6i33ynhwb80" path="res://prefabs/chicken.tscn" id="18_0m5ru"]
-[ext_resource type="PackedScene" uid="uid://cek5e1xtxsmjx" path="res://prefabs/egg.tscn" id="19_24cj1"]
-[ext_resource type="PackedScene" uid="uid://dnqivnfoo6iju" path="res://prefabs/seedstuff/carrotseedbag.tscn" id="20_03enf"]
-[ext_resource type="PackedScene" uid="uid://c3xypcs8c5ye3" path="res://prefabs/calendar.tscn" id="22_l4hnd"]
-[ext_resource type="PackedScene" uid="uid://bqdchr1mm61g2" path="res://prefabs/nail.tscn" id="23_laifv"]
-[ext_resource type="PackedScene" uid="uid://d3a0rifxqvh0b" path="res://prefabs/scarecrow.tscn" id="24_s77de"]
-[ext_resource type="PackedScene" uid="uid://dj7v7cddr5sik" path="res://prefabs/knife.tscn" id="25_jttpb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
-albedo_texture = ExtResource("2_7gmrh")
-metallic_specular = 0.0
-texture_filter = 2
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ih3dh"]
-material = SubResource("StandardMaterial3D_gys5l")
-size = Vector2(900, 300)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4w7f7"]
-margin = 0.08
-size = Vector3(200, 1, 200)
+[ext_resource type="Texture2D" uid="uid://dfnmfdq2ak10r" path="res://models/textures/farmhouse.png" id="1_5ap52"]
+[ext_resource type="Shader" path="res://sky.gdshader" id="2_e6wh3"]
+[ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="3_md3hi"]
+[ext_resource type="Script" path="res://scripts/dayManager.gd" id="4_7nwgi"]
+[ext_resource type="Script" path="res://scripts/eventmanager.gd" id="5_l1g36"]
+[ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
+[ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
+[ext_resource type="Texture2D" uid="uid://bi6jh5fy5gq20" path="res://sprites/farm layout.png" id="8_i2rdp"]
+[ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
+[ext_resource type="PackedScene" uid="uid://ks7cknofd1u4" path="res://prefabs/truck.tscn" id="10_4ftj0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vs0f"]
-albedo_texture = ExtResource("9_tc6xt")
+albedo_texture = ExtResource("1_5ap52")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_hykg7"]
 _surfaces = [{
@@ -78,7 +50,7 @@ data = PackedVector3Array(-8.991, 7.1862, -0.0165, -0.0001, 5.1862, -6.4473, -0.
 backface_collision = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
-shader = ExtResource("11_apr85")
+shader = ExtResource("2_e6wh3")
 shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
 shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
@@ -106,7 +78,7 @@ shader_parameter/clouds_fuzziness = 0.0
 shader_parameter/clouds_weight = 0.0
 shader_parameter/clouds_blur = 1.0
 shader_parameter/stars_speed = 0.01
-shader_parameter/stars_texture = ExtResource("12_ejm6i")
+shader_parameter/stars_texture = ExtResource("3_md3hi")
 shader_parameter/overwritten_time = 0.0
 
 [sub_resource type="Sky" id="Sky_n5ujh"]
@@ -126,35 +98,20 @@ fog_sky_affect = 0.178
 volumetric_fog_density = 0.02
 volumetric_fog_sky_affect = 0.5
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gys5l"]
+albedo_texture = ExtResource("8_i2rdp")
+metallic_specular = 0.0
+texture_filter = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ih3dh"]
+material = SubResource("StandardMaterial3D_gys5l")
+size = Vector2(900, 300)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4w7f7"]
+margin = 0.08
+size = Vector3(200, 1, 200)
+
 [node name="Node3D" type="Node3D"]
-
-[node name="player" parent="." instance=ExtResource("1_abkmk")]
-
-[node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.509, 0, 0.00862646)
-layers = 2
-mesh = SubResource("PlaneMesh_ih3dh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
-shape = SubResource("BoxShape3D_4w7f7")
-
-[node name="tap" parent="." instance=ExtResource("6_fsqvd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
-
-[node name="farm truck" parent="." instance=ExtResource("3_dbq6e")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.2056, 0.51054, -11.2115)
-
-[node name="shovel" parent="." instance=ExtResource("6_3njt8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.20821, 0, -1.09507)
-
-[node name="box" parent="." instance=ExtResource("8_m68m6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.43894, 0, -5.39751)
-
-[node name="watering can" parent="." instance=ExtResource("9_p6crl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.889102, 0, 1.27034)
 
 [node name="farmhouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2888, 0, -18.5467)
@@ -170,50 +127,33 @@ shape = SubResource("ConcavePolygonShape3D_3itco")
 [node name="day manager" type="WorldEnvironment" parent="."]
 unique_name_in_owner = true
 environment = SubResource("Environment_il6hq")
-script = ExtResource("11_ipscs")
+script = ExtResource("4_7nwgi")
 simulate = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="day manager"]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 0, 7, 0)
 
 [node name="eventmanager" type="Node" parent="day manager"]
-script = ExtResource("12_qyri6")
+script = ExtResource("5_l1g36")
 
-[node name="mailbox" parent="." instance=ExtResource("16_mypgb")]
+[node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -46.024, 0, -5.08832)
 
-[node name="trashcan" parent="." instance=ExtResource("13_oq68v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.6911, 0, -2.04465)
+[node name="player" parent="." instance=ExtResource("7_7xdn7")]
 
-[node name="newtrashbag" parent="." instance=ExtResource("14_xgsqj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.62011, 0, -1)
+[node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
-[node name="shotgun" parent="." instance=ExtResource("16_2ptil")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.67951, 0, -0.456287)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.509, 0, 0.00862646)
+layers = 2
+mesh = SubResource("PlaneMesh_ih3dh")
 
-[node name="ammobox" parent="." instance=ExtResource("17_ldv4v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.97685, 0, 0.67706)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_4w7f7")
 
-[node name="chicken" parent="." instance=ExtResource("18_0m5ru")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8026, 0, -3.19689)
+[node name="tap" parent="." instance=ExtResource("9_oox23")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
 
-[node name="egg" parent="." instance=ExtResource("19_24cj1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.10247, -4.76837e-07, 2.96988)
-
-[node name="carrotseedbag" parent="." instance=ExtResource("20_03enf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.697258, 0, 5.54606)
-
-[node name="calendar" parent="." instance=ExtResource("22_l4hnd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.35, 2.15, -24.2801)
-
-[node name="nail" parent="." instance=ExtResource("23_laifv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3457, 2.37781, -24.2257)
-
-[node name="scarecrow" parent="." instance=ExtResource("24_s77de")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.91955, 0.7, 2.1403)
-
-[node name="knife" parent="." instance=ExtResource("25_jttpb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.915746, -4.76837e-07, -2.2651)
-
-[node name="bowl" parent="." instance=ExtResource("4_aoqne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.03424, -2.38419e-07, -1.55821)
+[node name="farm truck" parent="." instance=ExtResource("10_4ftj0")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.2056, 0.51054, -11.2115)

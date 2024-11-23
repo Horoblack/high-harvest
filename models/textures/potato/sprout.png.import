@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0rp5b0pohowo"
-path="res://.godot/imported/flyer.png-57d15bb5e199a45a49074f6b1e4238ce.ctex"
+uid="uid://ciqdwvx6mdv3d"
+path="res://.godot/imported/sprout.png-2a18f2ea81a754d91d2e41c9275f0d02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://models/textures/flyer.png"
-dest_files=["res://.godot/imported/flyer.png-57d15bb5e199a45a49074f6b1e4238ce.ctex"]
+source_file="res://models/textures/potato/sprout.png"
+dest_files=["res://.godot/imported/sprout.png-2a18f2ea81a754d91d2e41c9275f0d02.ctex"]
 
 [params]
 

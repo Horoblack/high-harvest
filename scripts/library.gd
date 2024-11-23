@@ -2,6 +2,7 @@ extends Node
 
 var objs : Dictionary = {
 	"shovel":load("res://prefabs/shovel.tscn"),
+	"potato":load("res://prefabs/potato.tscn"),
 	"carrot":load("res://prefabs/carrot.tscn"),
 	"carrotseed":load("res://prefabs/seedstuff/carrotseed.tscn"),
 	"carrotseedbag":load("res://prefabs/seedstuff/carrotseedbag.tscn"),
@@ -33,10 +34,12 @@ var objs : Dictionary = {
 	"dicedcarrot":load("res://prefabs/dicedcarrot.tscn"),
 	"dicedtomato":load("res://prefabs/dicedtomato.tscn"),
 	"dicedturnip":load("res://prefabs/dicedturnip.tscn"),
+	"dicedpotato":load("res://prefabs/dicedpotato.tscn"),
 }
 
 var invobjs : Dictionary = {
 	"shovel":load("res://invobjs/shovel.tres"),
+	"potato":load("res://invobjs/potato.tres"),
 	"carrot":load("res://invobjs/carrot.tres"),
 	"carrotseed":load("res://invobjs/carrotseed.tres"),
 	"carrotseedbag":load("res://invobjs/carrotseedbag.tres"),
@@ -47,6 +50,7 @@ var invobjs : Dictionary = {
 	"turnipseed":load("res://invobjs/turnipseed.tres"),
 	"turnipseedbag":load("res://invobjs/turnipseedbag.tres"),
 	"wateringcan":load("res://invobjs/wateringcan.tres"),
+	"storeflyer":load("res://invobjs/storeflyer.tres"),
 	"box":load("res://invobjs/box.tres"),
 	"boxlid":load("res://invobjs/lid.tres"),
 	"chicken":load("res://invobjs/chicken.tres"),
@@ -66,6 +70,7 @@ var invobjs : Dictionary = {
 	"dicedcarrot":load("res://invobjs/dicedcarrot.tres"),
 	"dicedtomato":load("res://invobjs/dicedtomato.tres"),
 	"dicedturnip":load("res://invobjs/dicedturnip.tres"),
+	"dicedpotato":load("res://invobjs/dicedpotato.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -102,6 +107,7 @@ const crops : Dictionary = {
 	"carrotseed":preload("res://prefabs/crops/carrotcrop.tscn"),
 	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn"),
 	"turnipseed":preload("res://prefabs/crops/turnipcrop.tscn"),
+	"dicedpotato":preload("res://prefabs/crops/potatocrop.tscn"),
 }
 
 func sell(item : String, amount : int) -> float:

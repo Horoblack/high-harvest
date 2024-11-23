@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cbj0gkm83nlep"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nuwk6"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+Button/font_sizes/font_size = 36
+Button/styles/normal = SubResource("StyleBoxFlat_nuwk6")

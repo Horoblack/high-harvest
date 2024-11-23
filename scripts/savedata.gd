@@ -1,26 +1,37 @@
 extends Node
 
-const SAVEFILE = "user://SAVEFILE.save"
+const SAVEFILE = "user://SAVEFILE%s.save"
 
 var gamedata = {}
+
+var curfile = 0
 
 func _ready():
 	load_data()
 
+func datacount():
+	var testfile = 0
+	while true:
+		if(FileAccess.file_exists(SAVEFILE % testfile)):
+			testfile += 1
+		else:
+			break
+	return testfile
+
 func load_data():
-	if(FileAccess.file_exists(SAVEFILE)):
-		var file = FileAccess.open(SAVEFILE, FileAccess.READ)
+	if(curfile == -1):
+		return
+	
+	if(FileAccess.file_exists(SAVEFILE%curfile)):
+		var file = FileAccess.open(SAVEFILE%curfile, FileAccess.READ)
 		gamedata = file.get_var()
 	else:
 		gamedata = {
 			"day": 0,
 			"money": 50,
 			"objects": [
-				#[Vector3(0, 1.75, -4.25), Vector3(0, 0, 0), "shovel", {  }], 
-				#[Vector3(-2.25, 0.5, -4.5), Vector3(0, 0, 0), "carrot", {  }], 
-				#[Vector3(-2.43005, 0, -2.17649), Vector3(0, 0, 0), "carrotseed", {  }], 
-				#[Vector3(-2.50922, 0, -1.41715), Vector3(0, 0, 0), "carrotseed", {  }], 
-				#[Vector3(-1.5, 0.25, 0), Vector3(0, 0, 0), "wateringcan", {  }]
+				["pickup",Vector3(-18, 2.15, -24.28), Vector3(0, 0, 0), "calendar", {  }], 
+				["pickup",Vector3(-18, 2.4, -24.25), Vector3(0, 0, 0), "nail", {  }], 
 				],
 			"stocks": {
 					"carrot":1,
@@ -32,15 +43,11 @@ func load_data():
 		}
 	return gamedata
 
-func _input(event):
-	if(event is InputEventKey):
-		if(event.keycode == KEY_DELETE):
-			delete_data()
-
 func save_data():
-	var file = FileAccess.open(SAVEFILE, FileAccess.WRITE)
-	file.store_var(gamedata)
+	if(curfile != -1):
+		var file = FileAccess.open(SAVEFILE % curfile, FileAccess.WRITE)
+		file.store_var(gamedata)
 
 func delete_data():
-	if(FileAccess.file_exists(SAVEFILE)):
-		DirAccess.remove_absolute(SAVEFILE)
+	if(FileAccess.file_exists(SAVEFILE%curfile)):
+		DirAccess.remove_absolute(SAVEFILE%curfile)

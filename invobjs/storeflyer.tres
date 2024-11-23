@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://clbdu2u3llx2x"]
+
+[ext_resource type="Texture2D" uid="uid://cjb8t8507hwap" path="res://sprites/itemicons/storeflyer.png" id="1_ok2hf"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_c73lj"]
+
+[resource]
+script = ExtResource("2_c73lj")
+name = "Shopping flyer"
+weight = 0.1
+icon = ExtResource("1_ok2hf")
+description = "Use to buy stuff. Send by mail."
+objaddress = "storeflyer"
+customproperties = {}

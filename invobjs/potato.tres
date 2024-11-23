@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://buwunecjbaisv"]
+
+[ext_resource type="Texture2D" uid="uid://dy85joob4u5eo" path="res://sprites/itemicons/potato.png" id="1_p57oj"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_wdf8n"]
+
+[resource]
+script = ExtResource("2_wdf8n")
+name = "Potato"
+weight = 0.1
+icon = ExtResource("1_p57oj")
+description = "A common potato."
+objaddress = "potato"
+customproperties = {}

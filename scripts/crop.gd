@@ -22,9 +22,8 @@ var curwetness : float = 15
 
 
 func _process(delta):
-	curwetness -= delta * dryrate * .1
-	if(curwetness <= 0 && curtime < maxgrowtime):
-		queue_free()
+	if(curwetness >= 0):
+		curwetness -= delta * dryrate * .1
 	
 	if(curwetness > 20):
 		coveredhole.set_surface_override_material(0, wetstages[2])
@@ -33,7 +32,7 @@ func _process(delta):
 	else:
 		coveredhole.set_surface_override_material(0, wetstages[0])
 	
-	if(curtime < maxgrowtime):
+	if(curtime < maxgrowtime && curwetness > 0):
 		curtime += delta
 		if(curtime > (maxgrowtime/stages.size()) * (curstage+1) && curstage < stages.size()):
 			curstage += 1

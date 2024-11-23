@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://b2v3eb73jfa0r"]
+
+[ext_resource type="Texture2D" uid="uid://3tkiv0nx7gui" path="res://sprites/itemicons/dicedpotato.png" id="1_2j1cj"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_s2wk3"]
+
+[resource]
+script = ExtResource("2_s2wk3")
+name = "Diced potato"
+weight = 0.1
+icon = ExtResource("1_2j1cj")
+description = "Potato cube. May be planted for more potatoes."
+objaddress = "dicedpotato"
+customproperties = {}

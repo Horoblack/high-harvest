@@ -37,3 +37,6 @@ func grabtrigger(bod):
 	reparent(get_tree().current_scene)
 	pinjoint.node_a = NodePath("")
 	pinjoint.node_b = NodePath("")
+	cast.enabled = false
+	await get_tree().create_timer(.2).timeout
+	cast.enabled = true

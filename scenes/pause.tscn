@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvy82pls5kkcr"]
+
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_d6edb"]
+[ext_resource type="Theme" uid="uid://cbj0gkm83nlep" path="res://ui.tres" id="2_ouoiv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_741qt"]
+font_size = 36
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="pause" type="Control"]
+process_mode = 3
+z_index = 128
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d6edb")
+
+[node name="ps" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.509804)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ps"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0406667
+anchor_top = 0.540074
+anchor_right = 0.197
+anchor_bottom = 0.937741
+offset_left = 0.919998
+offset_top = -0.280029
+offset_right = 0.759979
+offset_bottom = 0.23999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="resumebutton" type="Button" parent="ps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_ouoiv")
+text = "RESUME"
+
+[node name="quickloadbutton" type="Button" parent="ps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_ouoiv")
+text = "QUICK LOAD"
+
+[node name="savebutton" type="Button" parent="ps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_ouoiv")
+text = "SAVE"
+
+[node name="quitbutton" type="Button" parent="ps/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("2_ouoiv")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 11.0
+offset_right = 69.0
+offset_bottom = 45.0
+text = "Hold..."
+label_settings = SubResource("LabelSettings_741qt")
+
+[connection signal="pressed" from="ps/VBoxContainer/resumebutton" to="." method="unpausegame"]
+[connection signal="pressed" from="ps/VBoxContainer/quickloadbutton" to="." method="quickload"]
+[connection signal="pressed" from="ps/VBoxContainer/savebutton" to="." method="save"]
+[connection signal="pressed" from="ps/VBoxContainer/quitbutton" to="." method="quitgame"]
