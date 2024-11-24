@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://xihg4pj7a381"]
+[gd_scene load_steps=3 format=3 uid="uid://xihg4pj7a381"]
+
+[ext_resource type="Theme" uid="uid://cbj0gkm83nlep" path="res://ui.tres" id="1_543x5"]
+[ext_resource type="Script" path="res://scripts/mainmenu.gd" id="1_uqd6q"]
 
 [node name="main menu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,100 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_uqd6q")
+
+[node name="mainscreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainscreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -170.0
+offset_right = 150.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="start" type="Button" parent="mainscreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("1_543x5")
+text = "START"
+
+[node name="options" type="Button" parent="mainscreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("1_543x5")
+disabled = true
+text = "OPTIONS"
+
+[node name="quit" type="Button" parent="mainscreen/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("1_543x5")
+text = "QUIT"
+
+[node name="saves" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back" type="Button" parent="saves"]
+custom_minimum_size = Vector2(150, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.863
+anchor_right = 0.098
+anchor_bottom = 0.956
+offset_left = -0.400002
+offset_top = -0.0400391
+offset_right = -0.160004
+offset_bottom = -0.47998
+theme = ExtResource("1_543x5")
+text = "BACK"
+
+[node name="ColorRect" type="ColorRect" parent="saves"]
+clip_children = 1
+custom_minimum_size = Vector2(1500, 700)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -750.0
+offset_top = -350.0
+offset_right = 750.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="saves/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[connection signal="pressed" from="mainscreen/VBoxContainer/start" to="." method="startbutton"]
+[connection signal="pressed" from="mainscreen/VBoxContainer/options" to="." method="optionsbutton"]
+[connection signal="pressed" from="mainscreen/VBoxContainer/quit" to="." method="quitbutton"]
+[connection signal="pressed" from="saves/back" to="." method="backtomain"]

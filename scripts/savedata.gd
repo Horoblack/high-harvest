@@ -1,6 +1,6 @@
 extends Node
 
-const SAVEFILE = "user://SAVEFILE%s.save"
+const SAVEFILE = "user://saves/SAVEFILE%s.save"
 
 var gamedata = {}
 
@@ -19,6 +19,8 @@ func datacount():
 	return testfile
 
 func load_data():
+	if(!DirAccess.dir_exists_absolute("user://saves")):
+		DirAccess.make_dir_absolute("user://saves")
 	if(curfile == -1):
 		return
 	
@@ -27,7 +29,9 @@ func load_data():
 		gamedata = file.get_var()
 	else:
 		gamedata = {
+			"playtime":0.0,
 			"day": 0,
+			"timeofday": 0,
 			"money": 50,
 			"objects": [
 				["pickup",Vector3(-18, 2.15, -24.28), Vector3(0, 0, 0), "calendar", {  }], 
@@ -48,6 +52,16 @@ func save_data():
 		var file = FileAccess.open(SAVEFILE % curfile, FileAccess.WRITE)
 		file.store_var(gamedata)
 
-func delete_data():
-	if(FileAccess.file_exists(SAVEFILE%curfile)):
-		DirAccess.remove_absolute(SAVEFILE%curfile)
+func loadonce(dat : int):
+	if(FileAccess.file_exists(SAVEFILE%dat)):
+		return FileAccess.open(SAVEFILE%dat, FileAccess.READ).get_var()
+	else:
+		return null
+
+func delete_data(dat : int):
+	if(FileAccess.file_exists(SAVEFILE%dat)):
+		DirAccess.remove_absolute(SAVEFILE%dat)
+		var list = DirAccess.get_files_at("user://saves")
+		for n in list.size():
+			DirAccess.rename_absolute("user://saves/"+list[n], SAVEFILE%n)
+			

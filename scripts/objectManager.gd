@@ -29,6 +29,7 @@ func serializeall():
 func deserializeall():
 	#Savedata.delete_data()
 	Savedata.load_data()
+	get_tree().current_scene.get_node("%day manager").timeofday = Savedata.gamedata["timeofday"]
 	
 	var list = Savedata.gamedata["objects"].duplicate()
 	for n in list:
@@ -58,4 +59,3 @@ func deserializeall():
 					obj.curtime = n[4]
 				obj.global_position = n[1]
 				obj.global_rotation = n[2]
-		

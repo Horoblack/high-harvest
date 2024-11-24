@@ -15,6 +15,8 @@ func _process(delta):
 			tick.emit()
 	if(timeofday >= 2400):
 		passday()
+	Savedata.gamedata["timeofday"] = timeofday
+	Savedata.gamedata["playtime"] += delta
 	sun.light_energy = 1 if timeofday > 800 && timeofday < 1900 else 0
 	sun.rotation_degrees.x = lerp(90,-270, timeofday / 2400)
 
