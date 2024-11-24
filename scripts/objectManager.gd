@@ -6,7 +6,7 @@ func serializeall():
 	var plinventory = []
 	for n : InventoryObject in player.cam.inventory.invlist:
 		plinventory.append([n.objaddress, n.customproperties])
-	list.append(["player", player.global_position, player.global_rotation, plinventory])
+	list.append(["player", player.global_position, player.global_basis, plinventory])
 	
 	var allobjs = get_tree().get_nodes_in_group("pickup")
 	for n in allobjs:
@@ -27,6 +27,7 @@ func serializeall():
 	Savedata.save_data()
 
 func deserializeall():
+	#Savedata.delete_data()
 	Savedata.load_data()
 	
 	var list = Savedata.gamedata["objects"].duplicate()
@@ -40,7 +41,7 @@ func deserializeall():
 					data.customproperties = i[1]
 					plinventory.append(data)
 				player.global_position = n[1]
-				player.global_rotation = n[2]
+				player.global_basis = n[2]
 				player.cam.inventory.invlist = plinventory
 			"pickup":
 				var obj = Library.objs[n[3]].instantiate()

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b4ddfjng1rcoa"
-path="res://.godot/imported/farm truck.glb-2ae2c8f72c7095b5335c0a22bc5f5f69.scn"
+uid="uid://ctcr51fuo5qpy"
+path="res://.godot/imported/edgecircle.glb-87c906520a9a8dff4f095d331ad3db20.scn"
 
 [deps]
 
-source_file="res://models/farm truck.glb"
-dest_files=["res://.godot/imported/farm truck.glb-2ae2c8f72c7095b5335c0a22bc5f5f69.scn"]
+source_file="res://models/edgecircle.glb"
+dest_files=["res://.godot/imported/edgecircle.glb-87c906520a9a8dff4f095d331ad3db20.scn"]
 
 [params]
 

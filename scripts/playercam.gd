@@ -78,7 +78,7 @@ func _input(event):
 		if(held != null && held.has_method("trigger") && !camfrozen && !inventory.visible):
 			held.trigger(self)
 		elif(grabbed && is_instance_valid(grabbed)):
-			grabbed.apply_impulse(-global_basis.z * 50 * grabbed.mass)
+			grabbed.apply_impulse(-global_basis.z * 20 * grabbed.mass)
 			letgoofgrabbed()
 	if event.is_action_pressed("rightclick"):
 		if(grabbed && is_instance_valid(grabbed)):
