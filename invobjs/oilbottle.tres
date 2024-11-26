@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://d1n6m3qjf438j"]
+
+[ext_resource type="Texture2D" uid="uid://btyaef1ervhv7" path="res://sprites/itemicons/oilbottleempty.png" id="1_85j8f"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_dw6xx"]
+
+[resource]
+script = ExtResource("2_dw6xx")
+name = "Oil bottle"
+weight = 0.2
+icon = ExtResource("1_85j8f")
+description = "To refill your lantern or furnace."
+objaddress = "oilbottle"
+customproperties = {}

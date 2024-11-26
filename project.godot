@@ -156,3 +156,7 @@ common/physics_ticks_per_second=120
 textures/canvas_textures/default_texture_filter=3
 textures/default_filters/use_nearest_mipmap_filter=true
 textures/decals/filter=2
+lights_and_shadows/positional_shadow/atlas_quadrant_0_subdiv=3
+lights_and_shadows/positional_shadow/atlas_quadrant_1_subdiv=3
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=4
+lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=5

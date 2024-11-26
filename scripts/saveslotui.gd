@@ -5,6 +5,9 @@ var file : int = 0
 @onready var label2 = $Label2
 
 func _ready():
+	refresh()
+
+func refresh():
 	label.text = "SAVE " + str(file+1)
 	var data = Savedata.loadonce(file)
 	if(data != null):
@@ -12,6 +15,7 @@ func _ready():
 
 func deletesave():
 	Savedata.delete_data(file)
+	queue_free()
 
 func timetransition(t : float) -> String:
 	var minute = str(floor(t/60)).pad_zeros(2).pad_decimals(0)

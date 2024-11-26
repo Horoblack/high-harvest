@@ -8,6 +8,8 @@ const NEWGAME = preload("res://prefabs/uistuff/newgame_ui.tscn")
 const SAVESLOT = preload("res://prefabs/uistuff/save_slot_ui.tscn")
 @onready var savecontainer = $saves/ColorRect/VBoxContainer
 
+var saveslots = []
+
 func _ready():
 	backtomain()
 	for n in Savedata.datacount():
@@ -15,10 +17,15 @@ func _ready():
 		sl.file = n
 		savecontainer.add_child(sl)
 		sl.clicked.connect(loadgame)
+		saveslots.append(sl)
 	var ng = NEWGAME.instantiate()
 	ng.gui_input.connect(newgame)
 	savecontainer.add_child(ng)
-	
+
+func updateslots():
+	for n in saveslots.size():
+		saveslots[n].file = n
+		saveslots[n].refresh() 
 
 func loadgame(id:int):
 	Savedata.curfile = id

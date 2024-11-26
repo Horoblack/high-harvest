@@ -475,7 +475,7 @@ _data = {
 "walk": SubResource("Animation_remjb")
 }
 
-[node name="pig" type="RigidBody3D" groups=["heavy", "pickup"]]
+[node name="pig" type="RigidBody3D" groups=["heavy", "pickup", "pig"]]
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_i3gw2")

@@ -13,7 +13,6 @@ grow_vertical = 2
 script = ExtResource("1_uqd6q")
 
 [node name="mainscreen" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,6 +55,7 @@ theme = ExtResource("1_543x5")
 text = "QUIT"
 
 [node name="saves" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

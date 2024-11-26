@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bgejg2uxtyqto"]
+
+[ext_resource type="Texture2D" uid="uid://c664lun3jo2nk" path="res://sprites/itemicons/pigmeat.png" id="1_cpw18"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_4l2fr"]
+
+[resource]
+script = ExtResource("2_4l2fr")
+name = "Pig meat"
+weight = 1.0
+icon = ExtResource("1_cpw18")
+description = "The meat of a pig."
+objaddress = "pigmeat"
+customproperties = {}

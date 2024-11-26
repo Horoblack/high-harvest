@@ -51,7 +51,9 @@ func shoot():
 		sh.ignore = ignore
 		get_tree().current_scene.add_child(sh)
 		sh.global_position = bulletpos.global_position
-		var offset = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1)).normalized() * .2
+		var offset = Vector3.ZERO
+		if(n != 0):
+			offset = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1)).normalized() * .2
 		sh.look_at(sh.global_position + direction + offset)
 		sh.execute()
 	updatedata()

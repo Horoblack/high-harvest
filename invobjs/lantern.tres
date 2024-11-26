@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://b1oafrm4we3a"]
+
+[ext_resource type="Texture2D" uid="uid://ds3r5wj6ptqfa" path="res://sprites/itemicons/lantern.png" id="1_j1oo3"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_yju88"]
+
+[resource]
+script = ExtResource("2_yju88")
+name = "Lantern"
+weight = 0.5
+icon = ExtResource("1_j1oo3")
+description = "To light the darkness."
+objaddress = "lantern"
+customproperties = {}

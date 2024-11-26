@@ -1,9 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://ba567mx0wrbpe"]
+[gd_scene load_steps=9 format=4 uid="uid://ddg52q3co036u"]
 
-[ext_resource type="Script" path="res://scripts/meat.gd" id="1_7qcj5"]
-[ext_resource type="Resource" uid="uid://07vdcqer3fu5" path="res://invobjs/chickenmeat.tres" id="1_mda7f"]
-[ext_resource type="Material" uid="uid://dxq4yqc8q6mpc" path="res://models/textures/chicken/meat/rottenchickenmeat.tres" id="3_13jsc"]
-[ext_resource type="Material" uid="uid://b6ugoj03pwb24" path="res://models/textures/chicken/meat/chickenmeat.tres" id="3_g5cbb"]
+[ext_resource type="Script" path="res://scripts/meat.gd" id="1_6nxfs"]
+[ext_resource type="Material" uid="uid://blkor3oxdy0ik" path="res://models/textures/pig/meat/meat.tres" id="2_acxiv"]
+[ext_resource type="Material" uid="uid://bd86bpggulbi2" path="res://models/textures/pig/meat/rottenmeat.tres" id="3_p2vjp"]
+[ext_resource type="Resource" uid="uid://bgejg2uxtyqto" path="res://invobjs/pigmeat.tres" id="4_0ryi0"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4x2y"]
 _surfaces = [{
@@ -19,7 +19,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_3iu31"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_me8we"]
 resource_name = "chickenmeat_Cube_001"
 _surfaces = [{
 "aabb": AABB(-0.102639, -0.106807, -0.175318, 0.205279, 0.213614, 0.350637),
@@ -28,7 +28,7 @@ _surfaces = [{
 "index_count": 324,
 "index_data": PackedByteArray("SwADABMASwAUAAMARwANAB0ARwAfAA0AQwAHACYAQwApAAcAPwABADIAPwARAAEAOwAFACIAOwAvAAUANwABABIANwAzAAEAJwAxADUAJwAIADEANQAzADcANQAxADMADAA0ABwADAAlADQAJQA1ADQAJQAnADUAHAA2ABoAHAA0ADYANAA3ADYANAA1ADcAGgATAAMAGgA2ABMANgASABMANgA3ABIADwAtADkADwAAAC0AOQAvADsAOQAtAC8AAgA4ABgAAgAOADgADgA5ADgADgAPADkAGAA6ABYAGAA4ADoAOAA7ADoAOAA5ADsAFgAjAAkAFgA6ACMAOgAiACMAOgA7ACIALAAQAD0ALAAAABAAPQARAD8APQAQABEABAA8ACoABAAuADwALgA9ADwALgAsAD0AKgA+ACgAKgA8AD4APAA/AD4APAA9AD8AKAAwAAYAKAA+ADAAPgAyADAAPgA/ADIAIgArAEEAIgAFACsAQQApAEMAQQArACkACQBAACAACQAjAEAAIwBBAEAAIwAiAEEAIABCAB4AIABAAEIAQABDAEIAQABBAEMAHgAkAAsAHgBCACQAQgAmACQAQgBDACYAFwAhAEUAFwAKACEARQAfAEcARQAhAB8AAgBEABUAAgAZAEQAGQBFAEQAGQAXAEUAFQBGABQAFQBEAEYARABHAEYARABFAEcAFAAbAAMAFABGABsARgAdABsARgBHAB0ADgAVAEkADgACABUASQAUAEsASQAVABQAAABIABAAAAAPAEgADwBJAEgADwAOAEkAEABKABEAEABIAEoASABLAEoASABJAEsAEQASAAEAEQBKABIASgATABIASgBLABMA"),
 "lods": [0.0190555, PackedByteArray("SgCYAJQAmACcAJQAmACvAJwArwCdAJwArwCwAJ0AsAANAJ0AsACeAA0ArgCeALAArgCfAJ4AmQCfAK4AmQAKAJ8AmwCZAK4ArQCuALAAmwCuAK0ArQCwAK8AAgCbAK0AFQCtAK8AAgCtABUAFQCvAJgASQAVAJgAAgAVAEkASQCYAEoAAAACAEkAlgBJAEoAAABJAJYAogAAAJYAAgAAADkAAAAtADkAAgA5AJoAOQAtAKQAmgA5ADoAOQCkADoAmgA6ABYAOgCkAJUAFgA6AAkAOgCVAAkACQCVAEEAlQArAEEACQBBACAAQQArACkAIABBAEIAQQApAEIAQgApAAcAQgAHACYAIABCAB4AQgAmACQAHgBCACQAHgAkAAsArAABAKYAqwCsAKYAqwCmAKUAoACrAKUAoAClAAYAoQCrAKAAoQCoAKsAqACsAKsABACoAKEABACjAKgAowCqAKgAqACpAKwAowCiAKkAogCWAKkAqQCXAKwAqQCWAJcArACXAAEAlgBKAJcAlwBKAAEASgCUAAEANgABAJQAGgA2AJQANgCnAAEAHAA2ABoANQCnADYAHAA1ADYADAA1ABwADAAlADUANQAxAKcAJQAnADUAJwAxADUAJwAIADEA"), 0.0491134, PackedByteArray("ggANAIAAdwCCAIAAfQCEAHcAfQB6AIMAegAhAIMAegAKACEAJAAHACYAhgCJAAcAdACJAIYAHgCGAAsAhQCGAB4AhQBzAIYAdQBzAIUAjQBzAHUAeQCNAHUAewCNAHkAcACNAHsAcABsAI0AbAAtAI0AkABrAG4AigBrAJAAiwCKAJIAawB2AG8AcgCLAI4AcgCOAIgAiACOAAYAcQB8AHYAbQBxAHYAdgADAG4AfgBuAAMAfgCTAG4AeAB/AAMAeACBAH8AhwCTAH4AhwAxAJMAhwAIADEAHACHAH4ADACHABwADAAlACcAjACRAI8A"), 0.0655178, PackedByteArray("XQANAFkAXwBhAAcAXABhAF8AXABfAFcAZgBiAFwAZwBMAE4AYwBMAGgAWABOAFMAWABqAE4AJwBqAFgAJwAIAGoADAAnAFgAUABlAFsAUABNAGUATQBWAE8ATQBSAFYAYABkAGkAYABpAAYAUQBeAFQAVQBeAFoA")],
-"material": ExtResource("3_g5cbb"),
+"material": ExtResource("2_acxiv"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 177,
@@ -44,14 +44,14 @@ height = 0.3
 [sub_resource type="SphereShape3D" id="SphereShape3D_calu0"]
 radius = 0.25
 
-[node name="chickenmeat" type="RigidBody3D" groups=["pickup"]]
-script = ExtResource("1_7qcj5")
-mat = ExtResource("3_g5cbb")
-rotmat = ExtResource("3_13jsc")
-metadata/obj = ExtResource("1_mda7f")
+[node name="pigmeat" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_6nxfs")
+mat = ExtResource("2_acxiv")
+rotmat = ExtResource("3_p2vjp")
+metadata/obj = ExtResource("4_0ryi0")
 
 [node name="model" type="MeshInstance3D" parent="."]
-mesh = SubResource("ArrayMesh_3iu31")
+mesh = SubResource("ArrayMesh_me8we")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

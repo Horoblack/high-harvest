@@ -31,12 +31,17 @@ func load_data():
 		gamedata = {
 			"playtime":0.0,
 			"day": 0,
-			"timeofday": 0,
+			"timeofday": 1200,
 			"money": 50,
-			"objects": [
+			"playerscene":0,
+			"objects0": [
 				["pickup",Vector3(-18, 2.15, -24.28), Vector3(0, 0, 0), "calendar", {  }], 
 				["pickup",Vector3(-18, 2.4, -24.25), Vector3(0, 0, 0), "nail", {  }], 
+				["pickup",Vector3(-11.5, 2.57, -12), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
 				],
+			"objects1": [
+				
+			],
 			"stocks": {
 					"carrot":1,
 					"tomato":1,

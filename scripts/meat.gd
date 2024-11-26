@@ -4,8 +4,8 @@ var data : InventoryObject
 
 var age : float = 0
 
-const mat = preload("res://models/textures/chicken/meat/chickenmeat.tres")
-const rotmat = preload("res://models/textures/chicken/meat/rottenchickenmeat.tres")
+@export var mat : Material
+@export var rotmat : Material
 const splatter = preload("res://prefabs/bloodsplatter.tscn")
 @onready var model = $model
 @onready var area = $Area3D

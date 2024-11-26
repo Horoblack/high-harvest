@@ -2,20 +2,21 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vx4fy6dygq0x"
-path="res://.godot/imported/grass.png-5da09f226914061e5276f1797892a714.ctex"
+uid="uid://dwbiy5e3oww4b"
+path.s3tc="res://.godot/imported/crowmeat.png-7b0996c1821b12fe23af8517f87dab1c.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 
 [deps]
 
-source_file="res://models/textures/grass.png"
-dest_files=["res://.godot/imported/grass.png-5da09f226914061e5276f1797892a714.ctex"]
+source_file="res://sprites/itemicons/crowmeat.png"
+dest_files=["res://.godot/imported/crowmeat.png-7b0996c1821b12fe23af8517f87dab1c.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

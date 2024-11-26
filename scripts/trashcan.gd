@@ -34,7 +34,7 @@ func _on_body_entered(body):
 		fillamount = body.get_meta("obj").customproperties["fillamount"]
 		body.queue_free()
 		updatedata()
-	elif(bag && fillamount < maxfill):
+	elif(bag && fillamount < maxfill && body.get_meta("obj").objaddress != "trashbag"):
 		if(body != self && body.has_meta("obj") && !body is trashcan):
 			fillamount += 1
 			body.queue_free()

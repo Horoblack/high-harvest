@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://c77kbxy3msedv"]
+[gd_scene load_steps=12 format=4 uid="uid://c77kbxy3msedv"]
 
 [ext_resource type="Script" path="res://scripts/storeflyer.gd" id="1_s5pk1"]
 [ext_resource type="Resource" uid="uid://clbdu2u3llx2x" path="res://invobjs/storeflyer.tres" id="2_3v06a"]
@@ -44,12 +44,18 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k62gd")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1omna"]
-margin = 0.08
-size = Vector3(0.375, 0.5, 0.03)
+margin = 0.1
+size = Vector3(0.375, 0.5, 0.04)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7pnjm"]
+font_size = 76
+font_color = Color(0.178865, 0.418018, 0.454504, 1)
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
 
 [node name="flyer" type="RigidBody3D" node_paths=PackedStringArray("slots") groups=["pickup"]]
 script = ExtResource("1_s5pk1")
-slots = [NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot2"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot3"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot4"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot5"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot6")]
+slots = [NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot2"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot3"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot4"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot5"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot6"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot7"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot8"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot9"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot10"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot11"), NodePath("textstuff/ColorRect/ColorRect/GridContainer/slot12")]
 metadata/obj = ExtResource("2_3v06a")
 
 [node name="paper" type="MeshInstance3D" parent="."]
@@ -60,7 +66,6 @@ skeleton = NodePath("")
 shape = SubResource("BoxShape3D_1omna")
 
 [node name="textstuff" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="textstuff"]
 anchors_preset = 15
@@ -92,33 +97,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -235.0
-offset_top = -164.0
-offset_right = 235.0
-offset_bottom = 356.0
+offset_left = -215.0
+offset_top = -214.0
+offset_right = 215.0
+offset_bottom = 351.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/h_separation = 10
 theme_override_constants/v_separation = 20
-columns = 3
+columns = 4
 
 [node name="slot" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -126,25 +125,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -165,12 +159,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -194,52 +188,44 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
 
 [node name="slot2" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -247,25 +233,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -286,12 +267,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -315,52 +296,44 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot2/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
 
 [node name="slot3" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -368,25 +341,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -407,12 +375,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -436,52 +404,44 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot3/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
 
 [node name="slot4" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -489,25 +449,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -528,12 +483,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -557,52 +512,44 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot4/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
 
 [node name="slot5" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -610,25 +557,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -649,12 +591,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -678,52 +620,44 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot5/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
 
 [node name="slot6" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
-custom_minimum_size = Vector2(150, 250)
+custom_minimum_size = Vector2(100, 175)
 layout_mode = 2
 script = ExtResource("3_8fem0")
 
 [node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6"]
-custom_minimum_size = Vector2(150, 150)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -731,25 +665,20 @@ color = Color(1, 1, 1, 0.392157)
 
 [node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6/texturebox"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_5phji")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 4
 
 [node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_right = 1.0
+anchor_bottom = 0.16
 grow_horizontal = 2
 mouse_filter = 1
 color = Color(1, 1, 1, 0.392157)
@@ -770,12 +699,12 @@ autowrap_mode = 2
 clip_text = true
 
 [node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6"]
-custom_minimum_size = Vector2(150, 40)
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = -1
+anchor_top = 0.84
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.52588e-05
 grow_horizontal = 2
 grow_vertical = 0
 mouse_filter = 1
@@ -799,31 +728,695 @@ clip_text = true
 [node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6"]
 modulate = Color(0.960784, 0, 0, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -75.0
-offset_top = -75.0
-offset_right = 75.0
-offset_bottom = 75.0
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot6/selectcircle"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = -19.0
-offset_bottom = 15.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "x10"
 vertical_alignment = 1
+
+[node name="slot7" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot7/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="slot8" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot8/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="slot9" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot9/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="slot10" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot10/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="slot11" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot11/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="slot12" type="Control" parent="textstuff/ColorRect/ColorRect/GridContainer"]
+custom_minimum_size = Vector2(100, 175)
+layout_mode = 2
+script = ExtResource("3_8fem0")
+
+[node name="texturebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12/texturebox"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5phji")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="namebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.16
+grow_horizontal = 2
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12/namebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMNAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="pricebox" type="ColorRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 1
+color = Color(1, 1, 1, 0.392157)
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12/pricebox"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "ITEMPRICE: 50"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+clip_text = true
+
+[node name="selectcircle" type="TextureRect" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12"]
+modulate = Color(0.960784, 0, 0, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.2
+anchor_right = 1.0
+anchor_bottom = 0.8
+offset_left = -2.0
+offset_right = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_2nlyp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="amounttxt" type="Label" parent="textstuff/ColorRect/ColorRect/GridContainer/slot12/selectcircle"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.727
+anchor_top = 0.873
+anchor_right = 1.0
+anchor_bottom = 1.1
+offset_left = -0.0500107
+offset_top = 0.0500031
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "x10"
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="textstuff/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.137
+anchor_top = 0.05
+anchor_right = 0.863
+anchor_bottom = 0.196
+offset_left = -0.200005
+offset_right = 0.199951
+offset_bottom = 0.199982
+grow_horizontal = 2
+grow_vertical = 2
+text = "SALE!!"
+label_settings = SubResource("LabelSettings_7pnjm")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

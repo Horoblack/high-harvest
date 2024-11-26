@@ -12,6 +12,7 @@ var data : InventoryObject
 var hovered
 
 func _ready():
+	textstuff.visible = false
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	set_meta("obj", data)

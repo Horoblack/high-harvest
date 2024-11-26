@@ -5,8 +5,8 @@ class_name PlayerCam
 @onready var cast : RayCast3D = $RayCast3D
 @onready var grabpos = $grabpos
 @onready var heldpos = $heldpos
-@onready var grabbedinfobox = $CanvasLayer/grabbedinfobox
-@onready var grabbedinfolabel = $CanvasLayer/grabbedinfobox/MarginContainer/infolabel
+@onready var hoveredinfobox = $CanvasLayer/grabbedinfobox
+@onready var hoveredinfolabel = $CanvasLayer/grabbedinfobox/MarginContainer/infolabel
 @onready var heldinfobox = $CanvasLayer/heldinfobox
 @onready var heldinfolabel = $CanvasLayer/heldinfobox/MarginContainer/infolabel
 
@@ -39,10 +39,12 @@ func _input(event):
 		var obj = cast.get_collider()
 		if(obj.has_method("grabtrigger")):
 			obj.grabtrigger(body)
+		if(obj is pickupproxy):
+			if(obj.source.has_method("grabtrigger")):
+				obj.source.grabtrigger(body)
 		if(obj is PhysicsBody3D):
 			grabobj(obj)
 	if event.is_action_released("grab"):
-		grabbedinfobox.visible = false
 		if(is_instance_valid(grabbed) && grabbed.has_method("endgrabtrigger")):
 			grabbed.endgrabtrigger(body)
 		letgoofgrabbed()
@@ -50,15 +52,18 @@ func _input(event):
 		holdobj()
 	if(event.is_action_pressed("store")):
 		if(grabbed != null):
-			if(grabbed.has_meta("obj")):
-				var objweight = grabbed.get_meta("obj").weight
+			var intent = grabbed
+			if(grabbed is pickupproxy):
+				intent = grabbed.source
+			if(intent.has_meta("obj")):
+				var objweight = intent.get_meta("obj").weight
 				if(inventory.currentweight + objweight <= inventory.maxweight):
-					if(grabbed.has_method("updatedata")):
-						grabbed.updatedata()
+					if(intent.has_method("updatedata")):
+						intent.updatedata()
 					
-					inventory.invlist.append(grabbed.get_meta("obj"))
+					inventory.invlist.append(intent.get_meta("obj"))
 					inventory.UpdateList()
-					grabbed.queue_free()
+					intent.queue_free()
 					grabbed = null
 		elif (held != null && (!held.has_method("candrop") || held.candrop() == true)):
 			if(held.has_meta("obj")):
@@ -95,9 +100,13 @@ func _input(event):
 		grabbeddistance = clamp(grabbeddistance, 1,3)
 
 func holdobj():
-	if(grabbed != null && !grabbed.is_in_group("heavy") && held == null):
+	var intent = grabbed
+	if(grabbed is pickupproxy):
+		intent = grabbed.source
+	
+	if(intent != null && !intent.is_in_group("heavy") && held == null):
 		heldinfobox.visible = true
-		held = grabbed
+		held = intent
 		body.add_collision_exception_with(held)
 		grabbed = null
 		held.reparent(heldpos)
@@ -114,9 +123,6 @@ func holdobj():
 
 func grabobj(obj):
 	if(obj.is_in_group("pickup") && obj is RigidBody3D):
-		if(obj.has_method("info")):
-			grabbedinfobox.visible = true
-		#holddistance = 2
 		if(obj.is_inside_tree()):
 			grabpos.global_rotation = obj.global_rotation
 		grabbed = obj
@@ -158,8 +164,8 @@ func _physics_process(delta):
 			return
 		
 		var force = ((grabpos.global_position - grabbed.global_position) * 100) - (grabbed.linear_velocity * 10)
+		#var strength = clamp(,.1,1)
 		grabbed.apply_central_force(force)
-		#heldpos.global_rotation = lerp(heldpos.global_rotation, heldobj.global_rotation, .2)
 		
 		var strt = Quaternion(grabpos.global_basis.orthonormalized())
 		var trgt = Quaternion(grabbed.global_basis.orthonormalized())
@@ -167,8 +173,6 @@ func _physics_process(delta):
 		grabbed.global_basis = Basis(sler2)
 		var sler = strt.slerp(trgt, .2 / clamp(grabbed.mass*grabbed.mass, 1, 100))
 		grabpos.global_basis = Basis(sler)
-		
-		#grabbed.global_rotation = grabpos.global_rotation
 		
 		if(grabbed && rotating):
 			grabpos.rotate(basis.y,MouseEvent.x * clamp(2-(grabbed.mass*.1), 0.01,1))
@@ -181,11 +185,12 @@ func _process(delta):
 	else:
 		heldinfobox.visible = false
 	
-	if(is_instance_valid(grabbed) && grabbed.has_method("info")):
-		grabbedinfobox.visible = true
-		grabbedinfolabel.text = grabbed.info()
+	var intersc = getaimcollision()
+	if(intersc.has("collider") && intersc.collider.has_method("info")):
+		hoveredinfobox.visible = true
+		hoveredinfolabel.text = intersc.collider.info()
 	else:
-		grabbedinfobox.visible = false
+		hoveredinfobox.visible = false
 	
 	var vel = body.velocity * body.global_transform.basis
 	vel = Vector3(clamp(vel.y-vel.z if abs(vel.y-vel.z) > 2 else 0, -.1, .1), 0, clamp(vel.x if abs(vel.x) > 4 else 0, -.1, .1))
@@ -201,6 +206,15 @@ func getplayeraim():
 		return intersection.position
 	else:
 		return end
+
+func getaimcollision():
+	var origin = global_position
+	var end = origin + -global_basis.z * 100
+	var query = PhysicsRayQueryParameters3D.create(origin, end)
+	query.exclude = [body]
+	var intersection = get_world_3d().direct_space_state.intersect_ray(query)
+	intersection
+	return intersection
 
 func CameraLook(Movement: Vector2):
 	CameraRotation += Movement

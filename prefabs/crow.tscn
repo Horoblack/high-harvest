@@ -1,6 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://nd13bro7u5qn"]
+[gd_scene load_steps=16 format=4 uid="uid://nd13bro7u5qn"]
 
+[ext_resource type="Script" path="res://scripts/crow.gd" id="1_nf4ca"]
 [ext_resource type="Texture2D" uid="uid://dd2cabn0s8fb6" path="res://models/textures/crow.png" id="1_o3w3w"]
+[ext_resource type="Resource" uid="uid://cjity7hmo53xi" path="res://invobjs/crow.tres" id="2_3r5fn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hpv8"]
 diffuse_mode = 3
@@ -329,18 +331,82 @@ tracks/2/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton3D:head")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.198905, 6.01929e-18, -3.51951e-16, 0.980019)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton3D:head")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, -1.32349e-23, 0.316256, 7.45058e-09)
+
+[sub_resource type="Animation" id="Animation_qyck1"]
+resource_name = "peck"
+length = 0.1
+step = 0.1
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton3D:R wing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.612372, 0.353553, 0.612372, 0.353553, 0.1, 1, 0.612373, 0.353553, 0.612373, 0.353553)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton3D:L wing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0.612372, -0.353553, -0.612372, 0.353553, 0.1, 1, 0.612373, -0.353553, -0.612373, 0.353553)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton3D/legs:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton3D:head")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.662266, 1.47089e-16, -2.9616e-16, 0.749269, 0.1, 1, -0.198905, 6.01929e-18, -3.51951e-16, 0.980019)
+tracks/4/type = "position_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton3D:head")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 2.01626e-17, 0.342003, -0.038631, 0.1, 1, -1.32349e-23, 0.316256, 7.45058e-09)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8stsl"]
 _data = {
 "RESET": SubResource("Animation_52it6"),
 "flap": SubResource("Animation_7e4fd"),
 "hover": SubResource("Animation_ccctg"),
-"idle": SubResource("Animation_gc48o")
+"idle": SubResource("Animation_gc48o"),
+"peck": SubResource("Animation_qyck1")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5axn"]
+size = Vector3(0.15, 0.31, 0.57)
 
-[node name="crow" type="RigidBody3D"]
+[node name="crow" type="RigidBody3D" groups=["pickup"]]
+mass = 0.2
+script = ExtResource("1_nf4ca")
+metadata/obj = ExtResource("2_3r5fn")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "body"
@@ -386,4 +452,14 @@ libraries = {
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0363618, 0)
 shape = SubResource("BoxShape3D_g5axn")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Timer2" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="checkscare"]
+[connection signal="timeout" from="Timer2" to="." method="act"]

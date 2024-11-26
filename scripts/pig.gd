@@ -20,11 +20,16 @@ var age : float = 0
 var sexmale : bool = false
 var data : InventoryObject
 
+var canfuck : int = 20
+
 func _ready():
+	sexmale = [true,false].pick_random()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("age")):
 		age = data.customproperties["age"]
+	if(data.customproperties.has("sex")):
+		sexmale = data.customproperties["sex"]
 	updatedata()
 	agecheck()
 
@@ -48,7 +53,7 @@ func murder():
 	die()
 
 func die():
-	var meat = Library.objs["chickenmeat"].instantiate()
+	var meat = Library.objs["pigmeat"].instantiate()
 	get_tree().current_scene.add_child(meat)
 	meat.global_position = global_position
 	meat.global_rotation = global_rotation
@@ -66,6 +71,8 @@ func die():
 
 func _on_agetimer_timeout():
 	age += .2
+	if(canfuck > 0):
+		canfuck -= 1
 	#age += 10
 	updatedata()
 	agecheck()
@@ -119,6 +126,7 @@ func agecheck():
 			var shape : BoxShape3D = adultshape.shape.duplicate()
 			shape.size *= 1.1
 			floorcast.shape = shape
+			add_to_group("heavy")
 		3:
 			childshape.disabled = true
 			childmodel.visible = false
@@ -146,17 +154,40 @@ func _on_actiontimer_timeout():
 		if(global_basis.y.dot(Vector3.UP) < 0.1):
 			straighten()
 		else:
-			anim.play("walk")
-			curdir = -global_basis.z.rotated(Vector3.UP, randf_range(-1,1)).normalized()
+			var pig = getclosestpig()
+			if(pig == null || canfuck > 0 || agestage != 2 || sexmale != false):
+				anim.play("walk")
+				curdir = -global_basis.z.rotated(Vector3.UP, randf_range(-1,1)).normalized()
+			else:
+				fuck(pig)
 			#curdir = Vector3(randf_range(-1,1),0,randf_range(-1,1)).normalized()
-		
+
 func updatedata():
 	if(data == null):
 		data = get_meta("obj").duplicate()
 	data.customproperties["age"] = age
+	data.customproperties["sex"] = sexmale
 	data.weight = baseweight + weight
 	set_meta("obj", data)
 
 func info() -> String:
 	var ret : String = "Age: %s\n%s" % [age, "Male" if sexmale else "Female"]
 	return ret
+
+func getclosestpig():
+	var ch
+	var list : Array = get_tree().get_nodes_in_group("pig")
+	list = list.filter(func(a): return a.sexmale != sexmale && a.canfuck == 0 && a.agestage == 2 && a.global_position.distance_to(global_position) < 10)
+	if(list.is_empty()):
+		return null
+	for n in list:
+		if((ch == null || global_position.distance_to(ch.global_position) > global_position.distance_to(n.global_position))):
+			ch = n
+	return ch
+
+func fuck(tg):
+	canfuck = 20
+	tg.canfuck = 20
+	var kid = load("res://prefabs/pig.tscn").instantiate()
+	get_tree().current_scene.add_child(kid)
+	kid.global_position = tg.global_position - global_position

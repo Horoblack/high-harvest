@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cjity7hmo53xi"]
+
+[ext_resource type="Texture2D" uid="uid://b3r218w1vtvln" path="res://sprites/itemicons/crow.png" id="1_dsfad"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_u67s1"]
+
+[resource]
+script = ExtResource("2_u67s1")
+name = "Crow"
+weight = 0.1
+icon = ExtResource("1_dsfad")
+description = "How did you even catch it?"
+objaddress = "crow"
+customproperties = {}
