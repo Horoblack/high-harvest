@@ -24,8 +24,7 @@ var camfrozen : bool = false
 
 func _ready():
 	cast.add_exception(body)
-	var rot = body.transform.basis.get_euler()
-	CameraLook(Vector2(-rot.y, -rot.x))
+	forceupdaterotation()
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	inventory.spawn.connect(dropobj)
 
@@ -34,7 +33,13 @@ func _input(event):
 		MouseEvent = event.relative * MouseSensitivity
 		if(!rotating):
 			CameraLook(MouseEvent)
-
+	if(body.ragdolled):
+		if(grabbed != null):
+			letgoofgrabbed()
+		if(held != null):
+			letgoofheld()
+		return
+	
 	if(event.is_action_pressed("grab") && cast.is_colliding()):
 		var obj = cast.get_collider()
 		if(obj.has_method("grabtrigger")):
@@ -216,12 +221,16 @@ func getaimcollision():
 	intersection
 	return intersection
 
+func forceupdaterotation():
+	var rot = body.transform.basis.get_euler()
+	CameraLook(Vector2(-rot.y, -rot.x))
+
 func CameraLook(Movement: Vector2):
 	CameraRotation += Movement
 	CameraRotation.y = clamp(CameraRotation.y, -1.5, 1.6)
 	
-	body.transform.basis = Basis()
+	if(!body.ragdolled):
+		body.transform.basis = Basis()
+		body.rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
 	transform.basis = Basis()
-	
-	body.rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
 	rotate_object_local(Vector3(1,0,0), -CameraRotation.y)

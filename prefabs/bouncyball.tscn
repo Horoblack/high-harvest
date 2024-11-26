@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://btteqgx3hwmp"]
+
+[ext_resource type="Resource" uid="uid://rvuemdw4tbg5" path="res://invobjs/bouncyball.tres" id="1_xnch4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xouqx"]
+friction = 0.5
+bounce = 0.8
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_crnfw"]
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_88d4c"]
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.86, 0, 0.0430002, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4hru8"]
+material = SubResource("StandardMaterial3D_88d4c")
+radius = 0.2
+height = 0.4
+
+[node name="bouncyball" type="RigidBody3D" groups=["pickup"]]
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_xouqx")
+metadata/obj = ExtResource("1_xnch4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_crnfw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_4hru8")

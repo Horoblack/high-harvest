@@ -44,7 +44,9 @@ height = 0.4
 
 [node name="potato" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_oyp4s")
+mats = Array[Material]([SubResource("StandardMaterial3D_pepa8")])
 fillamount = 10.0
+maxage = -1.0
 metadata/obj = ExtResource("2_ojw2h")
 metadata/diced = "dicedpotato"
 

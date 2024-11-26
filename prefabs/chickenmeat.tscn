@@ -46,8 +46,9 @@ radius = 0.25
 
 [node name="chickenmeat" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_7qcj5")
-mat = ExtResource("3_g5cbb")
-rotmat = ExtResource("3_13jsc")
+mats = Array[Material]([ExtResource("3_g5cbb")])
+rotmats = Array[Material]([ExtResource("3_13jsc")])
+fillamount = 20.0
 metadata/obj = ExtResource("1_mda7f")
 
 [node name="model" type="MeshInstance3D" parent="."]

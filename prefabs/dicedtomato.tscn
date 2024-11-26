@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://clop4ykyke5cd"]
+[gd_scene load_steps=8 format=4 uid="uid://clop4ykyke5cd"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_vhkwt"]
 [ext_resource type="Resource" uid="uid://bf4ul6krlbijs" path="res://invobjs/dicedtomato.tres" id="2_82dyp"]
@@ -7,6 +7,9 @@
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.71, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4d22"]
+albedo_color = Color(1, 0.416667, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jerki"]
 _surfaces = [{
@@ -45,6 +48,8 @@ size = Vector3(0.18, 0.18, 0.18)
 [node name="dicedtomato" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
 script = ExtResource("1_vhkwt")
+mats = Array[Material]([SubResource("StandardMaterial3D_2dxmf")])
+rotmats = Array[Material]([SubResource("StandardMaterial3D_l4d22")])
 fillamount = 5.0
 metadata/obj = ExtResource("2_82dyp")
 
@@ -54,3 +59,8 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_xglv7")
+
+[node name="agingtimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="agingtimer" to="." method="_on_agingtimer_timeout"]

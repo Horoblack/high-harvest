@@ -46,8 +46,9 @@ radius = 0.25
 
 [node name="pigmeat" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_6nxfs")
-mat = ExtResource("2_acxiv")
-rotmat = ExtResource("3_p2vjp")
+mats = Array[Material]([ExtResource("2_acxiv")])
+rotmats = Array[Material]([ExtResource("3_p2vjp")])
+fillamount = 20.0
 metadata/obj = ExtResource("4_0ryi0")
 
 [node name="model" type="MeshInstance3D" parent="."]

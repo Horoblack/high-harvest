@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
-[ext_resource type="PackedScene" uid="uid://ks7cknofd1u4" path="res://prefabs/truck.tscn" id="10_4ftj0"]
+[ext_resource type="PackedScene" uid="uid://btteqgx3hwmp" path="res://prefabs/bouncyball.tscn" id="10_65lak"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vs0f"]
@@ -100,10 +100,10 @@ background_mode = 2
 background_color = Color(0.180392, 0.501961, 0.505882, 1)
 sky = SubResource("Sky_n5ujh")
 ambient_light_source = 2
-ambient_light_color = Color(0.678431, 0.694118, 0.894118, 1)
-ambient_light_energy = 0.1
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
 ssao_enabled = true
-ssao_radius = 0.87
+ssao_radius = 0.76
 glow_strength = 0.3
 fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
 fog_sky_affect = 0.178
@@ -201,6 +201,7 @@ unique_name_in_owner = true
 environment = SubResource("Environment_il6hq")
 script = ExtResource("4_7nwgi")
 simulate = true
+rateoftime = 0.05
 sunlightcurve = SubResource("Curve_ij7l7")
 moonlightcurve = SubResource("Curve_x85pj")
 
@@ -221,6 +222,7 @@ script = ExtResource("5_l1g36")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -46.024, 0, -5.08832)
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, -18)
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
@@ -234,9 +236,6 @@ shape = SubResource("BoxShape3D_4w7f7")
 
 [node name="tap" parent="." instance=ExtResource("9_oox23")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
-
-[node name="farm truck" parent="." instance=ExtResource("10_4ftj0")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -35.2056, 0.51054, -11.2115)
 
 [node name="edgecircle" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -307,3 +306,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="edgecircle"]
 shape = SubResource("ConcavePolygonShape3D_o3pp0")
+
+[node name="bouncyball" parent="." instance=ExtResource("10_65lak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2016, 1.40523, -18.2882)

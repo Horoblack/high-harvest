@@ -6,6 +6,9 @@ class_name Player
 @onready var shape = $CollisionShape3D
 @onready var ceilingcheck = $ceilingcheck
 @onready var stats: RichTextLabel = $cam/CanvasLayer/stats
+@onready var shadow: RigidBody3D = $shadow
+@onready var shadowshape: CollisionShape3D = $shadow/CollisionShape3D
+@onready var normalshape: CollisionShape3D = $CollisionShape3D
 
 var curspeed
 const SPEED = 120
@@ -23,7 +26,13 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var hunger : float = 50
 var energy : float = 50
 
+var ragdolled : bool = false
+@onready var ragdolltime: Timer = $ragdolltime
+
 func _ready():
+	shadow.call_deferred("reparent",get_tree().current_scene)
+	add_collision_exception_with(shadow)
+	shadow.add_collision_exception_with(self)
 	curspeed = 100
 
 func resetjump():
@@ -57,7 +66,7 @@ func _physics_process(delta):
 	query.exclude = [self]
 	var head = get_world_3d().direct_space_state.intersect_ray(query)
 	
-	if(!frozen):
+	if(!frozen && !ragdolled):
 		# handle jump
 		if Input.is_action_just_pressed("jump") && (is_on_floor() || !coyote_time.is_stopped()):
 			curjumpvel = JUMP_VELOCITY
@@ -106,7 +115,13 @@ func _physics_process(delta):
 	velocity *= drag
 	
 	wasonfloor = is_on_floor()
-	move_and_slide()
+	if(!ragdolled):
+		move_and_slide()
+		shadow.global_position = global_position
+		shadow.global_basis = global_basis
+	else:
+		global_position = shadow.global_position
+		global_basis = shadow.global_basis
 	if wasonfloor && !is_on_floor():
 		coyote_time.start()
 		
@@ -121,6 +136,9 @@ func _process(delta: float) -> void:
 	hunger = clamp(hunger,0,100)
 	energy -= delta * .005
 	energy = clamp(energy,0,100)
+	if(hunger < 15 || energy < 15) && ragdolltime.is_stopped():
+		ragdolltime.start(10)
+	
 	stats.text = "[color=#ff8400]%s[/color]\n[color=#00aaff]%s[/color]" % [str(hunger).pad_decimals(1),str(energy).pad_decimals(1)]
 
 var crouched : bool = false
@@ -135,3 +153,21 @@ func crouchheight(down : bool = true):
 func feed(amt : float):
 	hunger += amt
 	hunger = clamp(hunger,0,100)
+
+func ragdoll():
+	ragdolled = true
+	shadow.freeze = false
+	normalshape.disabled = true
+	shadowshape.disabled = false
+	shadow.linear_velocity = -global_basis.z*3 if velocity.is_zero_approx() else velocity*3
+	shadow.angular_velocity = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1))
+	velocity = Vector3.ZERO
+	await get_tree().create_timer(3).timeout
+	crouchheight(true)
+	ragdolled = false
+	shadow.freeze = true
+	normalshape.disabled = false
+	shadowshape.disabled = true
+
+func _on_ragdolltime_timeout() -> void:
+	ragdoll()

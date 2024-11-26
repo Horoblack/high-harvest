@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://wn65b5hfbytg"]
+[gd_scene load_steps=8 format=4 uid="uid://wn65b5hfbytg"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_rsslo"]
 [ext_resource type="Resource" uid="uid://cqxk47mbpmsmd" path="res://invobjs/dicedturnip.tres" id="2_37ei2"]
@@ -7,6 +7,11 @@
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.537707, 0.3408, 0.71, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8p5a0"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.71, 0.3408, 0.346953, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jerki"]
 _surfaces = [{
@@ -45,6 +50,8 @@ size = Vector3(0.18, 0.18, 0.18)
 [node name="dicedturnip" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
 script = ExtResource("1_rsslo")
+mats = Array[Material]([SubResource("StandardMaterial3D_fg46d")])
+rotmats = Array[Material]([SubResource("StandardMaterial3D_8p5a0")])
 fillamount = 5.0
 metadata/obj = ExtResource("2_37ei2")
 
@@ -54,3 +61,8 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_xglv7")
+
+[node name="agingtimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="agingtimer" to="." method="_on_agingtimer_timeout"]

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://rvuemdw4tbg5"]
+
+[ext_resource type="Texture2D" uid="uid://dsrarovqmn2pe" path="res://sprites/itemicons/bouncyball.png" id="1_o4uuw"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_eueak"]
+
+[resource]
+script = ExtResource("2_eueak")
+name = "Bouncy ball"
+weight = 0.1
+icon = ExtResource("1_o4uuw")
+description = "To bounce around."
+objaddress = "bouncyball"
+customproperties = {}

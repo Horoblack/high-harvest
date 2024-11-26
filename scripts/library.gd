@@ -40,6 +40,8 @@ var objs : Dictionary = {
 	"crow":load("res://prefabs/crow.tscn"),
 	"lantern":load("res://prefabs/lantern.tscn"),
 	"oilbottle":load("res://prefabs/oilbottle.tscn"),
+	"scythe":load("res://prefabs/scythe.tscn"),
+	"bouncyball":load("res://prefabs/bouncyball.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -81,12 +83,15 @@ var invobjs : Dictionary = {
 	"crow":load("res://invobjs/crow.tres"),
 	"lantern":load("res://invobjs/lantern.tres"),
 	"oilbottle":load("res://invobjs/oilbottle.tres"),
+	"scythe":load("res://invobjs/scythe.tres"),
+	"bouncyball":load("res://invobjs/bouncyball.tres"),
 }
 
 var purchasables : Dictionary = {
 	"carrotseedbag" = 10.0,
 	"tomatoseedbag" = 10.0,
 	"turnipseedbag" = 10.0,
+	"potato" = 5.0,
 	"shovel" = 9.0,
 	"wateringcan" = 8.0,
 	"chicken" = 17.0,
@@ -100,6 +105,8 @@ var purchasables : Dictionary = {
 	"dice" = 1.0,
 	"lantern" = 40.0,
 	"oilbottle" = 10.0,
+	"scythe" = 100.0,
+	"bouncyball" = 1.0,
 }
 
 var sellvalues : Dictionary = {
@@ -113,7 +120,8 @@ var sellvalues : Dictionary = {
 	"chickenmeat" = 10.0,
 	"crowmeat" = 6.0,
 	"pigmeat" = 10.0,
-	"rotten meat" = 0.00
+	"rotten meat" = 0.00,
+	"spoiled food" = 0.00,
 }
 
 const crops : Dictionary = {
@@ -122,6 +130,11 @@ const crops : Dictionary = {
 	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn"),
 	"turnipseed":preload("res://prefabs/crops/turnipcrop.tscn"),
 	"dicedpotato":preload("res://prefabs/crops/potatocrop.tscn"),
+}
+
+const others : Dictionary = {
+	"table":preload("res://prefabs/table.tscn"),
+	"truck":preload("res://prefabs/truck.tscn"),
 }
 
 func sell(item : String, amount : int) -> float:

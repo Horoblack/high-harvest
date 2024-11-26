@@ -731,11 +731,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f12df")
 
-[node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup"]]
+[node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
 mass = 100.0
 linear_damp = 4.0
 angular_damp = 4.0
 script = ExtResource("1_mpxah")
+metadata/objaddress = "truck"
 
 [node name="rightdoorhinge" type="JoltHingeJoint3D" parent="."]
 limit_enabled = true

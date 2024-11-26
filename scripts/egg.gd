@@ -38,6 +38,10 @@ func _on_body_entered(body):
 		dec.scale = Vector3.ONE
 		queue_free()
 
+func trigger(pl):
+	pl.body.feed(5)
+	queue_free()
+
 func align_up(node_basis, normal):
 	var result = Basis()
 	result.x = normal.cross(node_basis.z)

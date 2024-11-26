@@ -158,4 +158,4 @@ shape = SubResource("BoxShape3D_qbrxv")
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 visible = false
 light_color = Color(1, 0.8525, 0.41, 1)
-omni_range = 10.0
+omni_range = 20.0

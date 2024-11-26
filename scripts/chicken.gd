@@ -242,3 +242,8 @@ func _on_eggtimer_timeout():
 func info() -> String:
 	var ret : String = "Age: %s\nFemale" % [age]
 	return ret
+
+func trigger(pl : PlayerCam):
+	if(agestage == 0):
+		pl.body.feed(10)
+		queue_free()

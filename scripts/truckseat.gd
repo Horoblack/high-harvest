@@ -11,6 +11,7 @@ func grabtrigger(pl : Player):
 	seated = pl
 	pl.global_position = seatpos.global_position
 	pl.global_rotation = global_rotation
+	pl.cam.forceupdaterotation()
 	#add_collision_exception_with(seated)
 
 func _input(event):

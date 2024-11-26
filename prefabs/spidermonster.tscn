@@ -563,4 +563,6 @@ autoplay = "run"
 [node name="respawntimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="timeout" from="respawntimer" to="." method="spawn"]

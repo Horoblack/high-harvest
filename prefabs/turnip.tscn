@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bbtk1vfb0aaxg"]
+[gd_scene load_steps=12 format=4 uid="uid://bbtk1vfb0aaxg"]
 
 [ext_resource type="Texture2D" uid="uid://dpdc3bjshfceh" path="res://models/textures/turnip/colors.png" id="1_g0m62"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_vbp5k"]
@@ -19,6 +19,25 @@ cull_mode = 2
 shading_mode = 2
 diffuse_mode = 3
 specular_mode = 2
+albedo_texture = ExtResource("2_6s1qr")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlnwn"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(1, 0.936667, 0.62, 1)
+albedo_texture = ExtResource("1_g0m62")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pneqv"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(1, 0.283333, 0, 1)
 albedo_texture = ExtResource("2_6s1qr")
 texture_filter = 0
 
@@ -79,6 +98,8 @@ height = 0.498517
 [node name="turnip" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
 script = ExtResource("1_vbp5k")
+mats = Array[Material]([SubResource("StandardMaterial3D_i2451"), SubResource("StandardMaterial3D_nsy41")])
+rotmats = Array[Material]([SubResource("StandardMaterial3D_dlnwn"), SubResource("StandardMaterial3D_pneqv")])
 fillamount = 15.0
 metadata/obj = ExtResource("2_xdafr")
 metadata/diced = "dicedturnip"
@@ -90,3 +111,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0212323, 0)
 shape = SubResource("CapsuleShape3D_nqems")
+
+[node name="agingtimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="agingtimer" to="." method="_on_agingtimer_timeout"]

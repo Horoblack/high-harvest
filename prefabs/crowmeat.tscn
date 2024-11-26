@@ -47,8 +47,9 @@ radius = 0.25
 [node name="crowmeat" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
 script = ExtResource("1_i16q6")
-mat = ExtResource("2_1i28a")
-rotmat = ExtResource("3_djpr7")
+mats = Array[Material]([ExtResource("2_1i28a")])
+rotmats = Array[Material]([ExtResource("3_djpr7")])
+fillamount = 20.0
 metadata/obj = ExtResource("4_ca56b")
 
 [node name="model" type="MeshInstance3D" parent="."]

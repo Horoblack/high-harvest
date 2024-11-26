@@ -7,7 +7,7 @@ class_name box
 
 var lid
 
-var inventory : Array[InventoryObject]
+var inventory : Array
 
 var data : InventoryObject
 

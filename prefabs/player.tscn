@@ -313,3 +313,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 target_position = Vector3(0, 1.8, 0)
 
 [node name="pause" parent="." instance=ExtResource("4_1tgxg")]
+
+[node name="shadow" type="RigidBody3D" parent="."]
+freeze = true
+linear_damp = 10.0
+angular_damp = 10.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shadow"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_i14eu")
+disabled = true
+
+[node name="ragdolltime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ragdolltime" to="." method="_on_ragdolltime_timeout"]

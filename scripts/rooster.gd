@@ -188,3 +188,8 @@ func getclosestchicken():
 func info() -> String:
 	var ret : String = "Age: %s\nMale" % [age]
 	return ret
+
+func trigger(pl : PlayerCam):
+	if(agestage == 0):
+		pl.body.feed(10)
+		queue_free()

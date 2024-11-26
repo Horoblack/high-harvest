@@ -45,7 +45,9 @@ size = Vector3(0.18, 0.18, 0.18)
 [node name="dicedpotato" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
 script = ExtResource("1_bt3ec")
+mats = Array[Material]([SubResource("StandardMaterial3D_aw8aw")])
 fillamount = 5.0
+maxage = -1.0
 metadata/obj = ExtResource("2_3dd3r")
 
 [node name="Cube" type="MeshInstance3D" parent="."]

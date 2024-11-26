@@ -1,18 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkdtgcbc7jorn"]
+[gd_scene load_steps=13 format=4 uid="uid://bkdtgcbc7jorn"]
 
 [ext_resource type="Texture2D" uid="uid://bdwln1evlv1jk" path="res://models/textures/carrot/carrottop.png" id="1_43whk"]
 [ext_resource type="Texture2D" uid="uid://bas342gv45aln" path="res://sprites/itemicons/carrot.png" id="1_f547w"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_oeylc"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_5onab"]
-
-[sub_resource type="Resource" id="Resource_8ja8q"]
-script = ExtResource("2_5onab")
-name = "Carrot"
-weight = 0.5
-icon = ExtResource("1_f547w")
-description = "Carrot!"
-objaddress = "carrot"
-customproperties = {}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjldv"]
 albedo_color = Color(1, 0.537255, 0, 1)
@@ -26,6 +17,29 @@ shading_mode = 2
 diffuse_mode = 3
 albedo_texture = ExtResource("1_43whk")
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4d7a"]
+albedo_color = Color(1, 0.833333, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pl63"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+albedo_color = Color(1, 0.35, 0.35, 1)
+albedo_texture = ExtResource("1_43whk")
+texture_filter = 0
+
+[sub_resource type="Resource" id="Resource_8ja8q"]
+script = ExtResource("2_5onab")
+name = "Carrot"
+weight = 0.5
+icon = ExtResource("1_f547w")
+description = "Carrot!"
+objaddress = "carrot"
+customproperties = {}
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_exf8j"]
 _surfaces = [{
@@ -88,6 +102,8 @@ mass = 0.5
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_oeylc")
+mats = Array[Material]([SubResource("StandardMaterial3D_xjldv"), SubResource("StandardMaterial3D_8h165")])
+rotmats = Array[Material]([SubResource("StandardMaterial3D_s4d7a"), SubResource("StandardMaterial3D_3pl63")])
 fillamount = 10.0
 metadata/obj = SubResource("Resource_8ja8q")
 metadata/diced = "dicedcarrot"
@@ -99,3 +115,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("CapsuleShape3D_buy8c")
+
+[node name="agingtimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="agingtimer" to="." method="_on_agingtimer_timeout"]

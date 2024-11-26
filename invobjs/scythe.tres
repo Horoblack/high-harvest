@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bd84r322fvlup"]
+
+[ext_resource type="Texture2D" uid="uid://d1rf1qseynn8a" path="res://sprites/itemicons/scythe.png" id="1_do4mp"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_0udti"]
+
+[resource]
+script = ExtResource("2_0udti")
+name = "Scythe"
+weight = 1.0
+icon = ExtResource("1_do4mp")
+description = "For fast reaping."
+objaddress = "scythe"
+customproperties = {}

@@ -4,6 +4,7 @@ extends Node3D
 @onready var eyes = $Skeleton3D/eyes
 @onready var anim = $AnimationPlayer
 @onready var respawntimer = $respawntimer
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 var pl
 
@@ -20,6 +21,7 @@ func _ready():
 func spawn():
 	if(distance == 20):
 		queue_free()
+	audio.play()
 	var randpos = pl.basis.z * distance
 	global_position = pl.global_position + Vector3(randpos.x,0,randpos.z)
 	active = true
