@@ -62,7 +62,7 @@ func _physics_process(delta):
 	#getacceleration(br_tire_cast)
 	#getacceleration(bl_tire_cast)
 	
-	if(Input.is_action_pressed("run")):
+	if(Input.is_action_pressed("shift")):
 		brake(fl_tire_cast,delta)
 		brake(fr_tire_cast,delta)
 
@@ -77,7 +77,7 @@ func getsuspension(cast : RayCast3D, wheel):
 		
 		var vel = dir.dot(tirevel)
 		
-		var force : float = (-offset * 2500) - (vel * 200)
+		var force : float = (-offset * 3500) - (vel * 300)
 		
 		apply_force(dir * force, (cast.global_position - global_position))
 	else:
@@ -103,7 +103,7 @@ func getacceleration(cast : RayCast3D):
 			#var carspeed = global_basis.z.dot(linear_velocity)
 			#var normspeed = clamp(abs(carspeed), 0,1)
 			#var torque = clamp(normspeed,0.5, 1) * accelinput
-			apply_force(dir * accelinput * 4000, (cast.global_position - global_position))
+			apply_force(dir * accelinput * 5000, (cast.global_position - global_position))
 			#apply_central_force(dir*torque*1000)
 
 func brake(cast : RayCast3D, delta):

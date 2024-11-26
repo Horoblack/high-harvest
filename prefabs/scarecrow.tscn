@@ -56,9 +56,10 @@ radius = 0.1
 [sub_resource type="SphereShape3D" id="SphereShape3D_gg85q"]
 radius = 0.15
 
-[node name="scarecrow" type="RigidBody3D" groups=["heavy", "pickup", "scarecrow"]]
+[node name="scarecrow" type="RigidBody3D" groups=["heavy", "pickup", "scarecrow", "serialize"]]
 mass = 2.0
 script = ExtResource("1_2u5t4")
+metadata/objaddress = "scarecrow"
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "body"
@@ -73,7 +74,7 @@ bones/1/parent = 0
 bones/1/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34815, 0)
 bones/1/enabled = true
 bones/1/position = Vector3(2.66454e-15, 1.34815, -3.55271e-15)
-bones/1/rotation = Quaternion(-6.3619e-43, -1.27055e-21, 1.67037e-22, 1)
+bones/1/rotation = Quaternion(0, -1.27055e-21, 1.67037e-22, 1)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/name = "L hand"
 bones/2/parent = 0

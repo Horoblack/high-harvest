@@ -18,13 +18,15 @@ func _ready():
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("age")):
 		age = data.customproperties["age"]
-	if(age > maxage):
+	if(age >= maxage):
 		data.name = "Spoiled food"
 	updatedata()
-	updatemats()
+	updatemats(age >= maxage)
 
 func trigger(pl : PlayerCam):
-	pl.body.feed(fillamount)
+	pl.body.feed(fillamount if age < maxage else -1)
+	if(age >= maxage):
+		pl.body.ragdoll()
 	queue_free()
 
 func updatedata():
@@ -43,4 +45,5 @@ func _on_agingtimer_timeout():
 	if(age < maxage):
 		age += .5
 	elif(maxage != -1):
+		updatemats(true)
 		data.name = "Spoiled food"

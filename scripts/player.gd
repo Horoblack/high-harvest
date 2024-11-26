@@ -11,7 +11,7 @@ class_name Player
 @onready var normalshape: CollisionShape3D = $CollisionShape3D
 
 var curspeed
-const SPEED = 120
+const SPEED = 160
 const JUMP_VELOCITY = 600
 const drag = .87
 
@@ -87,9 +87,6 @@ func _physics_process(delta):
 				curspeed += 10
 			else:
 				curspeed -= 3
-			
-			if(Input.is_action_pressed("run")):
-				direction *= 2
 			
 			velocity.x += direction.x * curspeed * delta
 			velocity.z += direction.z * curspeed * delta

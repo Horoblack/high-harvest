@@ -135,6 +135,8 @@ const crops : Dictionary = {
 const others : Dictionary = {
 	"table":preload("res://prefabs/table.tscn"),
 	"truck":preload("res://prefabs/truck.tscn"),
+	"bedframe":preload("res://prefabs/bedframe.tscn"),
+	"scarecrow":preload("res://prefabs/scarecrow.tscn"),
 }
 
 func sell(item : String, amount : int) -> float:

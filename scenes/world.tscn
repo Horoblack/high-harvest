@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=43 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="Texture2D" uid="uid://dfnmfdq2ak10r" path="res://models/textures/farmhouse.png" id="1_5ap52"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_e6wh3"]
@@ -8,8 +8,92 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
-[ext_resource type="PackedScene" uid="uid://btteqgx3hwmp" path="res://prefabs/bouncyball.tscn" id="10_65lak"]
+[ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
+
+[sub_resource type="Curve3D" id="Curve3D_7b6fw"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, -40, 0, 0, 0, 0, 0, 0, 40, 0, -40, 0, 0, 0, 0, 0, 0, 40, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, 0, 0, -0.1),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_seqmw"]
+albedo_color = Color(0.45, 0.354375, 0.2205, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_qp1gt"]
+_surfaces = [{
+"aabb": AABB(-0.125, -0.25, -2.125, 0.25, 1, 2.25),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEACAALAAkACAAKAAsACgAPAAsACgAOAA8ADgANAA8ADgAMAA0ADAAJAA0ADAAIAAkACgAMAA4ACgAIAAwADwAJAAsADwANAAkAEAATABEAEAASABMAEgAXABMAEgAWABcAFgAVABcAFgAUABUAFAARABUAFAAQABEAEgAUABYAEgAQABQAFwARABMAFwAVABEAGAAbABkAGAAaABsAGgAfABsAGgAeAB8AHgAdAB8AHgAcAB0AHAAZAB0AHAAYABkAGgAcAB4AGgAYABwAHwAZABsAHwAdABkA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAACN4wAAAAD//43jAAD//wAA//8AAP///////wAA//8AAI3jAAD/////jeMAAAAAAABxHAAAAAD//3EcAAAAAAAAAAAAAAAA//8AAAAA//8AAHEcAAD/////cRwAAP//AAAAAAAA/////wAAAADMTGiyxvEAAMxMm+XG8QAAzExosjgOAADMTJvlOA4AADKzaLLG8QAAMrOb5cbxAAAys2iyOA4AADKzm+U4DgAAzEzkX8bxAADMTBeTxvEAAMxM5F84DgAAzEwXkzgOAAAys+RfxvEAADKzF5PG8QAAMrPkXzgOAAAysxeTOA4AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_r3jyk"]
+resource_name = "fence_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.125, -0.25, -2.125, 0.25, 1, 2.25),
+"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9/"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQAGgAjAB0AGgAgACMAHgAtACEAHgAqAC0ALAApAC8ALAAmACkAJAAbACcAJAAYABsAHwAlACsAHwAZACUALgAcACIALgAoABwAMgA7ADUAMgA4ADsANgBFADkANgBCAEUARABBAEcARAA+AEEAPAAzAD8APAAwADMANwA9AEMANwAxAD0ARgA0ADoARgBAADQASgBTAE0ASgBQAFMATgBdAFEATgBaAF0AXABZAF8AXABWAFkAVABLAFcAVABIAEsATwBVAFsATwBJAFUAXgBMAFIAXgBYAEwA"),
+"material": SubResource("StandardMaterial3D_seqmw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 96,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA////vwAAAAD//1TVAAD//////78AAP///////wAA/////1TVAAAAAI3j//8AAAAAjeP/vwAAAACN41TVAAD//43j//8AAP//jeP//wAA//+N41TV//8AAP///7///wAA////v///AAD//1TV/////////7///////////////////1TV//8AAI3j/////wAAjeP/v///AACN41TV/////43j////////jeP///////+N41TVAAAAAHEc/78AAAAAcRz/vwAAAABxHFTVAAD//3Ec/78AAP//cRz//wAA//9xHFTVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//wAA//8AAP//AAD//wAA//8AAFTV//8AAHEc/7///wAAcRz/v///AABxHFTV/////3Ec/7//////cRz///////9xHFTV//8AAAAA/////wAAAAD/v///AAAAAFTV/////wAA////////AAD///////8AAFTVzExossbx/7/MTGiyxvH/v8xMaLLG8VTVzEyb5cbx/7/MTJvlxvH//8xMm+XG8VTVzExosjgO///MTGiyOA7/v8xMaLI4DlTVzEyb5TgO///MTJvlOA7//8xMm+U4DlTVMrNossbx/78ys2iyxvH/vzKzaLLG8VTVMrOb5cbx/78ys5vlxvH//zKzm+XG8VTVMrNosjgO//8ys2iyOA7/vzKzaLI4DlTVMrOb5TgO//8ys5vlOA7//zKzm+U4DlTVzEzkX8bx/7/MTORfxvH/v8xM5F/G8VTVzEwXk8bx/7/MTBeTxvH//8xMF5PG8VTVzEzkXzgO///MTORfOA7/v8xM5F84DlTVzEwXkzgO///MTBeTOA7//8xMF5M4DlTVMrPkX8bx/78ys+RfxvH/vzKz5F/G8VTVMrMXk8bx/78ysxeTxvH//zKzF5PG8VTVMrPkXzgO//8ys+RfOA7/vzKz5F84DlTVMrMXkzgO//8ysxeTOA7//zKzF5M4DlTV/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_qp1gt")
+
+[sub_resource type="MultiMesh" id="MultiMesh_oms00"]
+transform_format = 1
+instance_count = 115
+mesh = SubResource("ArrayMesh_r3jyk")
+buffer = PackedFloat32Array(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -10, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -11.9995, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -13.9998, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -15.9999, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -17.9999, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -22, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -24, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -26, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -28, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -30, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -32.0001, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -34.0001, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -36.0002, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -38.0005, 0.00631168, 0, -0.99998, 0, 0, 1, 0, 0, 0.99998, 0, 0.00631168, -40, 0, 0, -1, 1.9997, 0, 1, 0, 0, 1, 0, 0, -40, 3.81691e-05, 0, -1, 3.99988, 0, 1, 0, 0, 1, 0, 3.81691e-05, -40, 0, 0, -1, 5.99977, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 7.9998, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 9.99998, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 12, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 14, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 16, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 18, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 20, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 22, 0, 1, 0, 0, 1, 0, 0, -40, -3.81483e-05, 0, -1, 24, 0, 1, 0, 0, 1, 0, -3.81483e-05, -40, 0, 0, -1, 26, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 28, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 30, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 32.0002, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 34.0003, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 36.0001, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, 38.0003, 0, 1, 0, 0, 1, 0, 0, -40, -1, 0, 0.000327829, 40, 0, 1, 0, 0, -0.000327829, 0, -1, -40, -1, 0, -3.82205e-05, 40, 0, 1, 0, 0, 3.82205e-05, 0, -1, -38.0003, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -36.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -34, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -32.0001, -1, 0, -3.81497e-05, 40, 0, 1, 0, 0, 3.81497e-05, 0, -1, -30.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -28, -1, 0, 3.8125e-05, 40, 0, 1, 0, 0, -3.8125e-05, 0, -1, -26.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -24, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -21.9979, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -20, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -18, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -16, -1, 0, -7.62944e-05, 40, 0, 1, 0, 0, 7.62944e-05, 0, -1, -14, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -12, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -9.99997, -1, 0, 3.81472e-05, 40, 0, 1, 0, 0, -3.81472e-05, 0, -1, -7.99996, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -5.99996, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -3.99994, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, -1.99995, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 5.34058e-05, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 2.00005, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 4.00005, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 6.00006, -1, 0, 3.81468e-05, 40, 0, 1, 0, 0, -3.81468e-05, 0, -1, 8.00006, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 10.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 12.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 14.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 16.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 18.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 20.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 21.9981, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 24.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 26.0002, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 28.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 30.0002, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 32.0002, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 34.0001, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 36.0002, -1, 0, 0, 40, 0, 1, 0, 0, 0, 0, -1, 38.0004, -0.004246, 0, 0.999991, 40, 0, 1, 0, 0, -0.999991, 0, -0.004246, 40, 0, 0, 1, 38.0003, 0, 1, 0, 0, -1, 0, 0, 40, -3.81694e-05, 0, 1, 36, 0, 1, 0, 0, -1, 0, -3.81694e-05, 40, 0, 0, 1, 34.0002, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 32.0001, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 30, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 28, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 26, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 23.9999, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 22, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 20, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 18, 0, 1, 0, 0, -1, 0, 0, 40, 3.81436e-05, 0, 1, 16, 0, 1, 0, 0, -1, 0, 3.81436e-05, 40, 0, 0, 1, 14, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 12, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 9.99994, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 7.99975, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 5.99972, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 3.99981, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, 1.99963, 0, 1, 0, 0, -1, 0, 0, 40, 0.999965, 0, 0.0083201, -3.04084e-05, 0, 1, 0, 0, -0.0083201, 0, 0.999965, 40, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 38.0003, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 36, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 34.0002, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 32.0002, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 30, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 28, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 26, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 24, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 22, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 20, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 18, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 16, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 14, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 12, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 9.99999, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 7.99995, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 5.99995, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 3.99977, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1.9997)
+
+[sub_resource type="Curve3D" id="Curve3D_4o4yt"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, 0, -40, 0, 40, 0, 0, 0, 0, 0, 0, -40, 0, 0, 0, 0, 0, 0, 0, 0, -40.1637, -0.0617535, 1.02174),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="MultiMesh" id="MultiMesh_4h2t5"]
+transform_format = 1
+instance_count = 40
+mesh = SubResource("ArrayMesh_r3jyk")
+buffer = PackedFloat32Array(0, 0, 1, 0, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -1.9997, 0, 1, 0, 0, -1, 0, 0, 40, -3.81688e-05, 0, 1, -3.99988, 0, 1, 0, 0, -1, 0, -3.81688e-05, 40, 0, 0, 1, -5.99977, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -7.9998, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -9.99999, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -12, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -14, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -16, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -18, 0, 1, 0, 0, -1, 0, 0, 40, -3.81483e-05, 0, 1, -20, 0, 1, 0, 0, -1, 0, -3.81483e-05, 40, 0, 0, 1, -22, 0, 1, 0, 0, -1, 0, 0, 40, 3.81483e-05, 0, 1, -24, 0, 1, 0, 0, -1, 0, 3.81483e-05, 40, 0, 0, 1, -26, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -28, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -30, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -32.0002, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -34.0002, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -36.0001, 0, 1, 0, 0, -1, 0, 0, 40, 0, 0, 1, -38.0003, 0, 1, 0, 0, -1, 0, 0, 40, 0.999965, 0, 0.00841551, -40, 0, 1, 0, 0, -0.00841551, 0, 0.999965, 40, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 38.0003, 1, 0, 3.81723e-05, -40, 0, 1, 0, 0, -3.81723e-05, 0, 1, 36.0001, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 34.0002, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 32.0002, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 30, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 28, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 26, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 24, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 22, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 20, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 18, 1, 0, -3.81494e-05, -40, 0, 1, 0, 0, 3.81494e-05, 0, 1, 16, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 14, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 12, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 9.99998, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 7.9998, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 5.99976, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 3.99987, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, 1.99969)
+
+[sub_resource type="Curve3D" id="Curve3D_spgvg"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -40, 0, -10, 0, 0, 0, 0, 0, 0, -40, 0, -40, 0, 0, 0, 0, 0, 0, 1, 0, -40),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="MultiMesh" id="MultiMesh_qiwcd"]
+transform_format = 1
+instance_count = 35
+mesh = SubResource("ArrayMesh_r3jyk")
+buffer = PackedFloat32Array(1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -10, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -11.9995, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -13.9998, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -15.9999, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -17.9999, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -20, 1, 0, -3.81526e-05, -40, 0, 1, 0, 0, 3.81526e-05, 0, 1, -22, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -24, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -26, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -28, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -30, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -32.0001, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -34.0001, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -36.0002, 1, 0, 0, -40, 0, 1, 0, 0, 0, 0, 1, -38.0005, 0.00841688, 0, -0.999965, -40, 0, 1, 0, 0, 0.999965, 0, 0.00841688, -40, 0, 0, -1, -38.0002, 0, 1, 0, 0, 1, 0, 0, -40, -3.80851e-05, 0, -1, -36.0003, 0, 1, 0, 0, 1, 0, -3.80851e-05, -40, 0, 0, -1, -34.0002, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -32.0002, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -30, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -28, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -26, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -24, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -22, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -20, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -18, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -16, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -14, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -12, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -9.99998, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -8, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -5.99984, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -3.99985, 0, 1, 0, 0, 1, 0, 0, -40, 0, 0, -1, -1.99971, 0, 1, 0, 0, 1, 0, 0, -40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g05fb"]
+size = Vector3(0.2, 1.4, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ue1y"]
+size = Vector3(80, 1.4, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_reb5p"]
+size = Vector3(0.2, 1.4, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ubxeu"]
+size = Vector3(0.2, 1.4, 30)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vs0f"]
 diffuse_mode = 3
@@ -176,8 +260,60 @@ data = PackedVector3Array(-0.0015, -1, -98.5, 49.2493, 31, -85.3035, 49.2493, -1
 
 [node name="Node3D" type="Node3D"]
 
+[node name="fence" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
+
+[node name="path" type="Path3D" parent="fence"]
+curve = SubResource("Curve3D_7b6fw")
+script = ExtResource("11_ffdrj")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="fence/path"]
+multimesh = SubResource("MultiMesh_oms00")
+
+[node name="path2" type="Path3D" parent="fence"]
+curve = SubResource("Curve3D_4o4yt")
+script = ExtResource("11_ffdrj")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="fence/path2"]
+multimesh = SubResource("MultiMesh_4h2t5")
+
+[node name="path3" type="Path3D" parent="fence"]
+curve = SubResource("Curve3D_spgvg")
+script = ExtResource("11_ffdrj")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="fence/path3"]
+multimesh = SubResource("MultiMesh_qiwcd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 0)
+shape = SubResource("BoxShape3D_g05fb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 40)
+shape = SubResource("BoxShape3D_3ue1y")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -40)
+shape = SubResource("BoxShape3D_3ue1y")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, 20)
+shape = SubResource("BoxShape3D_reb5p")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -25)
+shape = SubResource("BoxShape3D_ubxeu")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+shape = SubResource("BoxShape3D_reb5p")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+shape = SubResource("BoxShape3D_ubxeu")
+
 [node name="farmhouse" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2888, 0, -18.5467)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2888, 0, -23.5467)
 layers = 2
 mesh = SubResource("ArrayMesh_c83j5")
 skeleton = NodePath("")
@@ -219,10 +355,10 @@ shadow_enabled = true
 script = ExtResource("5_l1g36")
 
 [node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -46.024, 0, -5.08832)
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, -18)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, -23)
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
@@ -235,7 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4w7f7")
 
 [node name="tap" parent="." instance=ExtResource("9_oox23")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 1)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9, 0, -17)
 
 [node name="edgecircle" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -307,5 +443,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="edgecircle"]
 shape = SubResource("ConcavePolygonShape3D_o3pp0")
 
-[node name="bouncyball" parent="." instance=ExtResource("10_65lak")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.2016, 1.40523, -18.2882)
+[connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
+[connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]
+[connection signal="curve_changed" from="fence/path3" to="fence/path3" method="_on_curve_changed"]

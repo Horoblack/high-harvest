@@ -35,12 +35,13 @@ func load_data():
 			"money": 50,
 			"playerscene":0,
 			"objects0": [
-				["player", Vector3(-19,0.5,-18), Vector3(0,deg_to_rad(180),0), 50,50,[], [],[]],
-				["pickup",Vector3(-18, 2.15, -24.28), Vector3(0, 0, 0), "calendar", {  }], 
-				["pickup",Vector3(-18, 2.4, -24.25), Vector3(0, 0, 0), "nail", {  }], 
-				["pickup",Vector3(-11.5, 2.57, -12), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
-				["other", "table", Vector3(-12.1, 1.4, -23), Vector3(0, 0, 0)], 
-				["other", "truck", Vector3(-35, .5, -12), Vector3(0, deg_to_rad(90), 0)], 
+				["player", Vector3(-19,0.5,-23), Vector3(0,deg_to_rad(180),0), 50,50,[], [],[]],
+				["pickup",Vector3(-18, 2.15, -29.28), Vector3(0, 0, 0), "calendar", {  }], 
+				["pickup",Vector3(-18, 2.4, -29.25), Vector3(0, 0, 0), "nail", {  }], 
+				["pickup",Vector3(-11.5, 2.57, -17), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
+				["other", "table", Vector3(-12.1, 1.4, -28), Vector3(0, 0, 0)], 
+				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
+				["other", "bedframe", Vector3(-26.6, 1.1, -20.6), Vector3(0, deg_to_rad(90), 0)], 
 				],
 			"objects1": [
 				
