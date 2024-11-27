@@ -47,7 +47,7 @@ func uproot():
 		get_tree().current_scene.add_child(c)
 		c.global_position = global_position
 		c.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)))
-		for n in randi_range(1,2):
+		for n in randi_range(-1,2):
 			var b = Library.objs[seedaddress].instantiate()
 			get_tree().current_scene.add_child(b)
 			b.global_position = global_position
