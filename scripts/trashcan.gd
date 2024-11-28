@@ -8,7 +8,7 @@ var data : InventoryObject
 
 var maxfill : int = 20
 var fillamount : int = 0
-var bag : bool = true
+var bag : bool = false
 
 func _ready():
 	grabarea.grabbed.connect(grabbag)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bbtk1vfb0aaxg"]
+[gd_scene load_steps=16 format=4 uid="uid://bbtk1vfb0aaxg"]
 
 [ext_resource type="Texture2D" uid="uid://dpdc3bjshfceh" path="res://models/textures/turnip/colors.png" id="1_g0m62"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_vbp5k"]
@@ -38,6 +38,40 @@ shading_mode = 2
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(1, 0.283333, 0, 1)
+albedo_texture = ExtResource("2_6s1qr")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81mrx"]
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(1, 0.53, 0.53, 1)
+albedo_texture = ExtResource("1_g0m62")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a4ck0"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0.943, 0.62, 1, 1)
+albedo_texture = ExtResource("2_6s1qr")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_verlc"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sqk1h"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 2
+albedo_color = Color(0, 0, 0, 1)
 albedo_texture = ExtResource("2_6s1qr")
 texture_filter = 0
 
@@ -100,11 +134,14 @@ mass = 0.5
 script = ExtResource("1_vbp5k")
 mats = Array[Material]([SubResource("StandardMaterial3D_i2451"), SubResource("StandardMaterial3D_nsy41")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_dlnwn"), SubResource("StandardMaterial3D_pneqv")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_81mrx"), SubResource("StandardMaterial3D_a4ck0")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_verlc"), SubResource("StandardMaterial3D_sqk1h")])
 fillamount = 15.0
+cookedfillamount = 20.0
 metadata/obj = ExtResource("2_xdafr")
 metadata/diced = "dicedturnip"
 
-[node name="turnip" type="MeshInstance3D" parent="."]
+[node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_gafae")
 skeleton = NodePath("")
 

@@ -42,6 +42,7 @@ func load_data():
 				["other", "table", Vector3(-12.1, 1.4, -28), Vector3(0, 0, 0)], 
 				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
 				["other", "bedframe", Vector3(-26.5, 1.1, -20.7), Vector3(0, deg_to_rad(90), 0)], 
+				["other", "stove", Vector3(-27, 1, -27), Vector3(0, deg_to_rad(-90), 0),{"fuel":5.5}], 
 				],
 			"objects1": [
 				

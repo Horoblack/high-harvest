@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bkdtgcbc7jorn"]
+[gd_scene load_steps=16 format=4 uid="uid://bkdtgcbc7jorn"]
 
 [ext_resource type="Texture2D" uid="uid://bdwln1evlv1jk" path="res://models/textures/carrot/carrottop.png" id="1_43whk"]
 [ext_resource type="Texture2D" uid="uid://bas342gv45aln" path="res://sprites/itemicons/carrot.png" id="1_f547w"]
@@ -31,6 +31,23 @@ diffuse_mode = 3
 albedo_color = Color(1, 0.35, 0.35, 1)
 albedo_texture = ExtResource("1_43whk")
 texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5yn0"]
+albedo_color = Color(1, 0.283333, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg1tu"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 2
+diffuse_mode = 3
+albedo_color = Color(0.69, 1, 0.870833, 1)
+albedo_texture = ExtResource("1_43whk")
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd5wr"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_8ja8q"]
 script = ExtResource("2_5onab")
@@ -104,7 +121,10 @@ angular_damp = 2.0
 script = ExtResource("1_oeylc")
 mats = Array[Material]([SubResource("StandardMaterial3D_xjldv"), SubResource("StandardMaterial3D_8h165")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_s4d7a"), SubResource("StandardMaterial3D_3pl63")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_l5yn0"), SubResource("StandardMaterial3D_hg1tu")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_fd5wr")])
 fillamount = 10.0
+cookedfillamount = 15.0
 maxage = 45.0
 metadata/obj = SubResource("Resource_8ja8q")
 metadata/diced = "dicedcarrot"

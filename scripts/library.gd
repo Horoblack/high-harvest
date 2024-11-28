@@ -137,6 +137,7 @@ const others : Dictionary = {
 	"truck":preload("res://prefabs/truck.tscn"),
 	"bedframe":preload("res://prefabs/bedframe.tscn"),
 	"scarecrow":preload("res://prefabs/scarecrow.tscn"),
+	"stove":preload("res://prefabs/stove.tscn"),
 }
 
 func sell(item : String, amount : int) -> float:

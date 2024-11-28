@@ -7,7 +7,7 @@ class_name box
 
 var lid
 
-var inventory : Array
+var inventory : Array[InventoryObject]
 
 var data : InventoryObject
 
@@ -18,7 +18,7 @@ func _ready():
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("inventory") && inventory.is_empty()):
-		inventory = data.customproperties["inventory"]
+		inventory = deserializeinventory(data.customproperties["inventory"])
 	if((data.customproperties.has("lid") && data.customproperties["lid"] == true) || !data.customproperties.has("lid")):
 		var l = Library.objs["boxlid"].instantiate()
 		get_tree().current_scene.add_child(l)
@@ -89,7 +89,7 @@ func removeitem(bod : Player):
 func updatedata():
 	if(data == null):
 		data = get_meta("obj").duplicate()
-	data.customproperties["inventory"] = inventory
+	data.customproperties["inventory"] = serializeinventory()
 	data.weight = getcurweight()
 	data.customproperties["lid"] = lid != null
 	if(lid != null):
@@ -108,4 +108,18 @@ func info() -> String:
 	else:
 		ret += "empty\n"
 	ret += "\nWeight: " + ("%.1f" % getcurweight()) + " / " + ("%.1f" % maxweight)
+	return ret
+
+func serializeinventory():
+	var ret = []
+	for n in inventory:
+		ret.append([n.objaddress,n.customproperties])
+	return ret
+
+func deserializeinventory(t:Array[Array]):
+	var ret = []
+	for n in t:
+		var obj = Library.invobjs[n[0]].duplicate()
+		obj.customproperties = n[1]
+		ret.append(obj)
 	return ret

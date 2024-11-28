@@ -131,6 +131,8 @@ func grabobj(obj):
 		if(obj.is_inside_tree()):
 			grabpos.global_rotation = obj.global_rotation
 		grabbed = obj
+		if(obj.has_method("grabbed")):
+			obj.grabbed(self)
 
 func letgoofgrabbed():
 	if(grabbed != null):
@@ -138,6 +140,8 @@ func letgoofgrabbed():
 		rotating = false
 		if(is_instance_valid(grabbed) && grabbed is RigidBody3D):
 			grabbed.sleeping = false
+		if(grabbed.has_method("grabbed")):
+			grabbed.grabbed(null)
 		grabbed = null
 
 func letgoofheld():

@@ -1,9 +1,15 @@
-[gd_scene load_steps=9 format=4 uid="uid://ba567mx0wrbpe"]
+[gd_scene load_steps=11 format=4 uid="uid://ba567mx0wrbpe"]
 
 [ext_resource type="Script" path="res://scripts/meat.gd" id="1_7qcj5"]
 [ext_resource type="Resource" uid="uid://07vdcqer3fu5" path="res://invobjs/chickenmeat.tres" id="1_mda7f"]
 [ext_resource type="Material" uid="uid://dxq4yqc8q6mpc" path="res://models/textures/chicken/meat/rottenchickenmeat.tres" id="3_13jsc"]
 [ext_resource type="Material" uid="uid://b6ugoj03pwb24" path="res://models/textures/chicken/meat/chickenmeat.tres" id="3_g5cbb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_id50n"]
+albedo_color = Color(0.39, 0.235365, 0.1521, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7x4he"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_e4x2y"]
 _surfaces = [{
@@ -48,7 +54,10 @@ radius = 0.25
 script = ExtResource("1_7qcj5")
 mats = Array[Material]([ExtResource("3_g5cbb")])
 rotmats = Array[Material]([ExtResource("3_13jsc")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_id50n")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_7x4he")])
 fillamount = 20.0
+cookedfillamount = 30.0
 metadata/obj = ExtResource("1_mda7f")
 
 [node name="model" type="MeshInstance3D" parent="."]

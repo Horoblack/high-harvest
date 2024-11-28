@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://2qae7y1j7pkh"]
+[gd_scene load_steps=15 format=4 uid="uid://2qae7y1j7pkh"]
 
 [ext_resource type="Texture2D" uid="uid://bxonl4ica8weg" path="res://sprites/itemicons/tomato.png" id="1_ce8ed"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_j8jgc"]
@@ -15,6 +15,15 @@ albedo_color = Color(1, 0.416667, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vjn6l"]
 albedo_color = Color(0.741375, 0.634601, 3.85046e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6i3d"]
+albedo_color = Color(0.77, 0.0847, 0.256025, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0mus2"]
+albedo_color = Color(0, 0.82, 0.41, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcduu"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Resource" id="Resource_ulgwh"]
 script = ExtResource("2_ivfge")
@@ -89,7 +98,10 @@ angular_damp = 2.0
 script = ExtResource("1_j8jgc")
 mats = Array[Material]([SubResource("StandardMaterial3D_w1osy"), SubResource("StandardMaterial3D_0yejn")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_7sb2v"), SubResource("StandardMaterial3D_vjn6l")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_n6i3d"), SubResource("StandardMaterial3D_0mus2")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_bcduu"), SubResource("StandardMaterial3D_bcduu")])
 fillamount = 10.0
+cookedfillamount = 15.0
 metadata/obj = SubResource("Resource_ulgwh")
 metadata/diced = "dicedtomato"
 

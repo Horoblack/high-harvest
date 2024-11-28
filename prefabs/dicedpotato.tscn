@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://djqttan4gua03"]
+[gd_scene load_steps=9 format=4 uid="uid://djqttan4gua03"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_bt3ec"]
 [ext_resource type="Resource" uid="uid://b2v3eb73jfa0r" path="res://invobjs/dicedpotato.tres" id="2_3dd3r"]
@@ -7,6 +7,12 @@
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.53, 0.43354, 0.2544, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76ioi"]
+albedo_color = Color(0.36, 0.29514, 0.1908, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0qdkk"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jerki"]
 _surfaces = [{
@@ -46,11 +52,14 @@ size = Vector3(0.18, 0.18, 0.18)
 mass = 0.1
 script = ExtResource("1_bt3ec")
 mats = Array[Material]([SubResource("StandardMaterial3D_aw8aw")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_76ioi")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_0qdkk")])
 fillamount = 5.0
+cookedfillamount = 8.0
 maxage = -1.0
 metadata/obj = ExtResource("2_3dd3r")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_lot5u")
 skeleton = NodePath("")
 

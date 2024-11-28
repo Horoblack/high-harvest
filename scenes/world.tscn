@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=46 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="Texture2D" uid="uid://dfnmfdq2ak10r" path="res://models/textures/farmhouse.png" id="1_5ap52"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="2_e6wh3"]
@@ -8,8 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
+[ext_resource type="Script" path="res://scripts/eventClass.gd" id="11_c465g"]
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
+[ext_resource type="PackedScene" uid="uid://dtu7p8202h2mb" path="res://prefabs/spidermonster.tscn" id="12_qwtm0"]
 
 [sub_resource type="Curve3D" id="Curve3D_7b6fw"]
 _data = {
@@ -258,6 +260,12 @@ shadow_mesh = SubResource("ArrayMesh_0wpe1")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o3pp0"]
 data = PackedVector3Array(-0.0015, -1, -98.5, 49.2493, 31, -85.3035, 49.2493, -1, -85.3035, -0.0015, -1, -98.5, -0.0015, 31, -98.5, 49.2493, 31, -85.3035, 49.2493, -1, -85.3035, 85.3005, 31, -49.2523, 85.3005, -1, -49.2523, 49.2493, -1, -85.3035, 49.2493, 31, -85.3035, 85.3005, 31, -49.2523, 85.3005, -1, -49.2523, 98.5, 31, -0.0015, 98.5, -1, -0.0015, 85.3005, -1, -49.2523, 85.3005, 31, -49.2523, 98.5, 31, -0.0015, 98.5, -1, -0.0015, 85.3005, 31, 49.2493, 85.3005, -1, 49.2493, 98.5, -1, -0.0015, 98.5, 31, -0.0015, 85.3005, 31, 49.2493, 85.3005, -1, 49.2493, 49.2493, 31, 85.3005, 49.2493, -1, 85.3005, 85.3005, -1, 49.2493, 85.3005, 31, 49.2493, 49.2493, 31, 85.3005, 49.2493, -1, 85.3005, -0.0015, 31, 98.5, -0.0015, -1, 98.5, 49.2493, -1, 85.3005, 49.2493, 31, 85.3005, -0.0015, 31, 98.5, -0.0015, -1, 98.5, -49.2523, 31, 85.3005, -49.2523, -1, 85.3005, -0.0015, -1, 98.5, -0.0015, 31, 98.5, -49.2523, 31, 85.3005, -49.2523, -1, 85.3005, -85.3035, 31, 49.2493, -85.3035, -1, 49.2493, -49.2523, -1, 85.3005, -49.2523, 31, 85.3005, -85.3035, 31, 49.2493, -85.3035, -1, 49.2493, -98.5, 31, -0.0015, -98.5, -1, -0.0015, -85.3035, -1, 49.2493, -85.3035, 31, 49.2493, -98.5, 31, -0.0015, -98.5, -1, -0.0015, -85.3035, 31, -49.2523, -85.3035, -1, -49.2523, -98.5, -1, -0.0015, -98.5, 31, -0.0015, -85.3035, 31, -49.2523, -85.3035, -1, -49.2523, -49.2523, 31, -85.3035, -49.2523, -1, -85.3035, -85.3035, -1, -49.2523, -85.3035, 31, -49.2523, -49.2523, 31, -85.3035, -49.2523, -1, -85.3035, -0.0015, 31, -98.5, -0.0015, -1, -98.5, -49.2523, -1, -85.3035, -49.2523, 31, -85.3035, -0.0015, 31, -98.5)
 
+[sub_resource type="Resource" id="Resource_t1tb4"]
+script = ExtResource("11_c465g")
+eventname = "spider"
+singletime = true
+object = ExtResource("12_qwtm0")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="fence" type="StaticBody3D" parent="."]
@@ -442,6 +450,10 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="edgecircle"]
 shape = SubResource("ConcavePolygonShape3D_o3pp0")
+
+[node name="eventmanager" type="Node" parent="."]
+script = ExtResource("5_l1g36")
+events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4")])
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

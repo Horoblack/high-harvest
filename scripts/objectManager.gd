@@ -40,7 +40,10 @@ func serializeall():
 		if(n is crophole):
 			list.append(["crop", n.global_position, n.global_rotation, "crophole"])
 		if(n.has_meta("objaddress")):
-			list.append(["other", n.get_meta("objaddress"),n.global_position,n.global_rotation])
+			var props = {}
+			if(n.has_meta("customproperties")):
+				props = n.get_meta("customproperties")
+			list.append(["other", n.get_meta("objaddress"),n.global_position,n.global_rotation,props])
 	Savedata.gamedata["objects%s"%Savedata.gamedata["playerscene"]] = list
 	#Savedata.save_data()
 
@@ -100,7 +103,9 @@ func deserializeall():
 				obj.global_position = n[1]
 				obj.global_rotation = n[2]
 			"other":
-				var obj = Library.others[n[1]].instantiate()
+				var obj :Node3D = Library.others[n[1]].instantiate()
 				get_tree().current_scene.add_child(obj)
 				obj.global_position = n[2]
 				obj.global_rotation = n[3]
+				if(n.size() > 4 && !n[4].is_empty()):
+					obj.set_meta("customproperties", n[4])

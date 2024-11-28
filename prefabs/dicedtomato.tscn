@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://clop4ykyke5cd"]
+[gd_scene load_steps=10 format=4 uid="uid://clop4ykyke5cd"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_vhkwt"]
 [ext_resource type="Resource" uid="uid://bf4ul6krlbijs" path="res://invobjs/dicedtomato.tres" id="2_82dyp"]
@@ -10,6 +10,12 @@ albedo_color = Color(0.71, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l4d22"]
 albedo_color = Color(1, 0.416667, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1q4lu"]
+albedo_color = Color(0.77, 0.0847, 0.256025, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7swrk"]
+albedo_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jerki"]
 _surfaces = [{
@@ -50,10 +56,13 @@ mass = 0.1
 script = ExtResource("1_vhkwt")
 mats = Array[Material]([SubResource("StandardMaterial3D_2dxmf")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_l4d22")])
+cookedmats = Array[Material]([SubResource("StandardMaterial3D_1q4lu")])
+burntmats = Array[Material]([SubResource("StandardMaterial3D_7swrk")])
 fillamount = 5.0
+cookedfillamount = 8.0
 metadata/obj = ExtResource("2_82dyp")
 
-[node name="Cube" type="MeshInstance3D" parent="."]
+[node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_xudxv")
 skeleton = NodePath("")
 
