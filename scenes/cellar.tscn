@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4oecj68xoyd7"]
+
+[ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_fkk1i"]
+[ext_resource type="Script" path="res://scripts/dayManager.gd" id="2_g20cd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rg4qs"]
+size = Vector3(10, 1, 10)
+
+[node name="cellar" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_rg4qs")
+
+[node name="player" parent="." instance=ExtResource("1_fkk1i")]
+
+[node name="day manager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_g20cd")
+simulate = true
+rateoftime = 0.05

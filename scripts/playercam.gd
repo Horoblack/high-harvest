@@ -175,14 +175,8 @@ func _physics_process(delta):
 		var force = ((grabpos.global_position - grabbed.global_position) * 100) - (grabbed.linear_velocity * 10)
 		#var strength = clamp(,.1,1)
 		grabbed.apply_central_force(force)
-		
-		var strt = Quaternion(grabpos.global_basis.orthonormalized())
-		var trgt = Quaternion(grabbed.global_basis.orthonormalized())
-		var sler2 = trgt.slerp(strt, .8 / clamp(grabbed.mass*grabbed.mass, 1, 100))
-		grabbed.global_basis = Basis(sler2)
-		var sler = strt.slerp(trgt, .2 / clamp(grabbed.mass*grabbed.mass, 1, 100))
-		grabpos.global_basis = Basis(sler)
-		
+		var torque = calc_angular_velocity(grabbed.global_basis,grabpos.global_basis)
+		grabbed.apply_torque(torque * grabbed.mass * 10)
 		if(grabbed && rotating):
 			grabpos.rotate(basis.y,MouseEvent.x * clamp(2-(grabbed.mass*.1), 0.01,1))
 			grabpos.rotate(basis.x,MouseEvent.y * clamp(2-(grabbed.mass*.1), 0.01,1))
@@ -238,3 +232,28 @@ func CameraLook(Movement: Vector2):
 		body.rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
 	transform.basis = Basis()
 	rotate_object_local(Vector3(1,0,0), -CameraRotation.y)
+
+func calc_angular_velocity(from_basis: Basis, to_basis: Basis) -> Vector3:
+	var q1 = from_basis.get_rotation_quaternion()
+	var q2 = to_basis.get_rotation_quaternion()
+
+	# Quaternion that transforms q1 into q2
+	var qt = q2 * q1.inverse()
+
+	# Angle from quaternion
+	var angle = 2 * acos(qt.w)
+
+	# There are two distinct quaternions for any orientation.
+	# Ensure we use the representation with the smallest angle.
+	if angle > PI:
+		qt = -qt
+		angle = TAU - angle
+
+	# Prevent divide by zero
+	if angle < 0.0001:
+		return Vector3.ZERO
+
+	# Axis from quaternion
+	var axis = Vector3(qt.x, qt.y, qt.z) / sqrt(1-qt.w*qt.w)
+
+	return axis * angle

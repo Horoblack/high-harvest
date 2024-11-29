@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://tvp3hye6uxd5"]
+
+[ext_resource type="Texture2D" uid="uid://cj7mg4r5s87ka" path="res://sprites/itemicons/pillow.png" id="1_5hesm"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_lx6vf"]
+
+[resource]
+script = ExtResource("2_lx6vf")
+name = "Pillow"
+weight = 0.5
+icon = ExtResource("1_5hesm")
+description = "For comfort."
+objaddress = "pillow"
+customproperties = {}

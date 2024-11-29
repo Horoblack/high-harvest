@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_3kh3s")
-name = "Fresh trashbag"
+name = "Fresh bag"
 weight = 0.5
 icon = ExtResource("1_r4du6")
 description = "To be put over a trashcan."

@@ -193,4 +193,5 @@ transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1.0
 [node name="boxspawn" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09278e-08, 0.25, -1)
 
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

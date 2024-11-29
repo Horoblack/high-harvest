@@ -42,6 +42,10 @@ var objs : Dictionary = {
 	"oilbottle":load("res://prefabs/oilbottle.tscn"),
 	"scythe":load("res://prefabs/scythe.tscn"),
 	"bouncyball":load("res://prefabs/bouncyball.tscn"),
+	"gramophone":load("res://prefabs/gramophone.tscn"),
+	"pillow":load("res://prefabs/pillow.tscn"),
+	"lock":load("res://prefabs/lock.tscn"),
+	"key":load("res://prefabs/key.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -85,6 +89,10 @@ var invobjs : Dictionary = {
 	"oilbottle":load("res://invobjs/oilbottle.tres"),
 	"scythe":load("res://invobjs/scythe.tres"),
 	"bouncyball":load("res://invobjs/bouncyball.tres"),
+	"gramophone":load("res://invobjs/gramophone.tres"),
+	"pillow":load("res://invobjs/gramophone.tres"),
+	"lock":load("res://invobjs/lock.tres"),
+	"key":load("res://invobjs/key.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -98,7 +106,7 @@ var purchasables : Dictionary = {
 	"rooster" = 20.0,
 	"newtrashbag" = 5.0,
 	"trashcan" = 10.0,
-	"shotgun" = 30.0,
+	#"shotgun" = 30.0,
 	"ammobox" = 5.0,
 	"nail" = 1.0,
 	"calendar" = 10.0,
@@ -107,6 +115,7 @@ var purchasables : Dictionary = {
 	"oilbottle" = 10.0,
 	"scythe" = 100.0,
 	"bouncyball" = 1.0,
+	"key" = 30.0,
 }
 
 var sellvalues : Dictionary = {
@@ -138,7 +147,13 @@ const others : Dictionary = {
 	"bedframe":preload("res://prefabs/bedframe.tscn"),
 	"scarecrow":preload("res://prefabs/scarecrow.tscn"),
 	"stove":preload("res://prefabs/stove.tscn"),
+	"mattress":preload("res://prefabs/mattress.tscn"),
 }
+
+const scenes : Array = [
+	"res://scenes/world.tscn", #0
+	"res://scenes/cellar.tscn", #1
+]
 
 func sell(item : String, amount : int) -> float:
 	if(Library.sellvalues.has(item)):

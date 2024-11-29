@@ -6,20 +6,22 @@ extends Node3D
 @onready var respawntimer = $respawntimer
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
-var pl
+var pl : Player
 
 var active : bool = true
 
-var targettransparency
+var targettransparency = 1
 
 var distance = 40
 
 func _ready():
 	pl = get_tree().get_first_node_in_group("player")
+	model.transparency = 1
+	eyes.transparency = 1
 	spawn()
 
 func spawn():
-	if(distance == 20):
+	if(distance == 10):
 		queue_free()
 	audio.play()
 	var randpos = pl.basis.z * distance
@@ -32,6 +34,9 @@ func spawn():
 
 func _process(delta):
 	var dir = global_position.direction_to(pl.global_position)
+	if(global_position.distance_to(pl.global_position) < 1):
+		pl.ragdoll()
+		queue_free()
 	basis = basis.looking_at(-dir)
 	global_position += dir * delta * 6
 	if(active):

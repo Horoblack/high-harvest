@@ -30,7 +30,8 @@ func updateslots():
 func loadgame(id:int):
 	Savedata.curfile = id
 	Savedata.load_data()
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	var scn = Library.scenes[Savedata.gamedata["playerscene"]]
+	get_tree().change_scene_to_file(scn)
 
 func newgame(event):
 	if(event.is_action_pressed("leftclick")):

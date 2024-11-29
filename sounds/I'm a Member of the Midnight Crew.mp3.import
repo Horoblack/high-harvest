@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlwu0nd6qi0ie"
+path="res://.godot/imported/I'm a Member of the Midnight Crew.mp3-0e9f6bae6fcad9a0d60f931aa232bc99.mp3str"
+
+[deps]
+
+source_file="res://sounds/I'm a Member of the Midnight Crew.mp3"
+dest_files=["res://.godot/imported/I'm a Member of the Midnight Crew.mp3-0e9f6bae6fcad9a0d60f931aa232bc99.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

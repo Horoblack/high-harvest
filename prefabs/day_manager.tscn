@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://tihuvtjmxi4p"]
+
+[ext_resource type="Shader" path="res://sky.gdshader" id="1_7vbnq"]
+[ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="2_lrmd5"]
+[ext_resource type="Script" path="res://scripts/dayManager.gd" id="3_mrgqb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
+shader = ExtResource("1_7vbnq")
+shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
+shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
+shader_parameter/night_top_color = Color(0, 0, 0, 1)
+shader_parameter/night_bottom_color = Color(0.00392157, 0, 0.0941176, 1)
+shader_parameter/horizon_color = Color(0.318666, 0.199505, 0.0984537, 1)
+shader_parameter/horizon_blur = 0.13
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0.666667, 0, 1)
+shader_parameter/sun_size = 0.1
+shader_parameter/sun_blur = 0.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.01
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.41
+shader_parameter/clouds_cutoff = 0.65
+shader_parameter/clouds_fuzziness = 0.0
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 1.0
+shader_parameter/stars_speed = 0.01
+shader_parameter/stars_texture = ExtResource("2_lrmd5")
+shader_parameter/overwritten_time = 0.0
+
+[sub_resource type="Sky" id="Sky_n5ujh"]
+sky_material = SubResource("ShaderMaterial_88cxw")
+
+[sub_resource type="Environment" id="Environment_il6hq"]
+background_mode = 2
+background_color = Color(0.180392, 0.501961, 0.505882, 1)
+sky = SubResource("Sky_n5ujh")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
+ssao_enabled = true
+ssao_radius = 0.76
+glow_strength = 0.3
+fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
+fog_sky_affect = 0.178
+volumetric_fog_density = 0.02
+volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="Curve" id="Curve_ij7l7"]
+_data = [Vector2(0.302013, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.701342, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_x85pj"]
+max_value = 0.5
+_data = [Vector2(0, 0.298969), 0.0, 0.0, 0, 0, Vector2(0.197987, 0), 0.0, 0.0, 0, 0, Vector2(0.802013, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.298969), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="day manager" type="WorldEnvironment" node_paths=PackedStringArray("sun", "moon")]
+environment = SubResource("Environment_il6hq")
+script = ExtResource("3_mrgqb")
+simulate = true
+rateoftime = 0.05
+sunlightcurve = SubResource("Curve_ij7l7")
+moonlightcurve = SubResource("Curve_x85pj")
+sun = NodePath("sun")
+moon = NodePath("sun/moon")
+
+[node name="sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0, 7, 0)
+shadow_enabled = true
+
+[node name="moon" type="DirectionalLight3D" parent="sun"]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
+light_color = Color(2.31028e-06, 0.373134, 0.505084, 1)
+light_energy = 0.1
+shadow_enabled = true

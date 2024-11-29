@@ -31,7 +31,7 @@ var aimpos
 var pla : PlayerCam
 func trigger(pl : PlayerCam):
 	pla = pl
-	if(!open && !anim.is_playing() ):#&& loaded
+	if(!open && !anim.is_playing() && loaded):
 		aimpos = pl.getplayeraim()
 		anim.play("shoot")
 

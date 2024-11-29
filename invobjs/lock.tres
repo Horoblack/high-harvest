@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://chd4fdjcx8ulu"]
+
+[ext_resource type="Texture2D" uid="uid://4wr7aofbntiy" path="res://sprites/itemicons/lock.png" id="1_cp1s1"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_f25n5"]
+
+[resource]
+script = ExtResource("2_f25n5")
+name = "Lock"
+weight = 0.3
+icon = ExtResource("1_cp1s1")
+description = "An open lock. The key is jammed in too hard to take out."
+objaddress = "lock"
+customproperties = {}

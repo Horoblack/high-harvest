@@ -18,8 +18,9 @@ func serializeall():
 		excludegrabbed = player.cam.grabbed
 		var data : InventoryObject = player.cam.grabbed.get_meta("obj")
 		playergrabbed = [data.objaddress,data.customproperties]
-
-	list.append(["player", player.global_position, player.global_rotation, player.energy,player.hunger,plinventory, playerhand,playergrabbed])
+	#var plscene = Savedata.gamedata["player"][0]
+	Savedata.gamedata["player"] = [player.global_position,player.global_rotation,player.energy,player.hunger,plinventory, playerhand,playergrabbed]
+	#list.append(["player", player.global_position, player.global_rotation, player.energy,player.hunger,plinventory, playerhand,playergrabbed])
 	
 	var allobjs = get_tree().get_nodes_in_group("pickup")
 	if(excludehand != null):
@@ -49,8 +50,39 @@ func serializeall():
 
 func deserializeall():
 	#Savedata.delete_data()
-	Savedata.load_data()
+	if(Savedata.gamedata.is_empty()):
+		Savedata.load_data()
 	get_tree().current_scene.get_node("%day manager").timeofday = Savedata.gamedata["timeofday"]
+	
+	var plinfo = Savedata.gamedata["player"]
+	var player : Player = get_tree().get_first_node_in_group("player")
+	var plinventory = []
+	for i in plinfo[4]:
+		var data : InventoryObject = Library.invobjs[i[0]].duplicate()
+		data.customproperties = i[1]
+		plinventory.append(data)
+	player.global_position = plinfo[0]
+	player.global_rotation = plinfo[1]
+	player.energy = plinfo[2]
+	player.hunger = plinfo[3]
+	player.cam.forceupdaterotation()
+	player.cam.inventory.invlist = plinventory
+	if(!plinfo[5].is_empty()):
+		var obj = Library.objs[plinfo[5][0]].instantiate()
+		var data = obj.get_meta("obj").duplicate()
+		data.customproperties = plinfo[5][1]
+		obj.set_meta("obj", data)
+		get_tree().current_scene.add_child(obj)
+		player.cam.grabbed = obj
+		player.cam.holdobj()
+	if(!plinfo[6].is_empty()):
+		var obj = Library.objs[plinfo[6][0]].instantiate()
+		var data = obj.get_meta("obj").duplicate()
+		data.customproperties = plinfo[6][1]
+		obj.set_meta("obj", data)
+		get_tree().current_scene.add_child(obj)
+		obj.global_position = player.global_position + -player.global_basis.z
+		player.cam.grabobj(obj)
 	
 	if(!Savedata.gamedata.has("objects%s"%Savedata.gamedata["playerscene"])):
 		return
@@ -58,35 +90,6 @@ func deserializeall():
 	var list = Savedata.gamedata["objects%s"%Savedata.gamedata["playerscene"]].duplicate()
 	for n in list:
 		match(n[0]):
-			"player":
-				var player : Player = get_tree().get_first_node_in_group("player")
-				var plinventory = []
-				for i in n[5]:
-					var data : InventoryObject = Library.invobjs[i[0]].duplicate()
-					data.customproperties = i[1]
-					plinventory.append(data)
-				player.global_position = n[1]
-				player.global_rotation = n[2]
-				player.energy = n[3]
-				player.hunger = n[4]
-				player.cam.forceupdaterotation()
-				player.cam.inventory.invlist = plinventory
-				if(!n[6].is_empty()):
-					var obj = Library.objs[n[6][0]].instantiate()
-					var data = obj.get_meta("obj").duplicate()
-					data.customproperties = n[6][1]
-					obj.set_meta("obj", data)
-					get_tree().current_scene.add_child(obj)
-					player.cam.grabbed = obj
-					player.cam.holdobj()
-				if(!n[7].is_empty()):
-					var obj = Library.objs[n[7][0]].instantiate()
-					var data = obj.get_meta("obj").duplicate()
-					data.customproperties = n[7][1]
-					obj.set_meta("obj", data)
-					get_tree().current_scene.add_child(obj)
-					obj.global_position = player.global_position + -player.global_basis.z
-					player.cam.grabobj(obj)
 			"pickup":
 				var obj = Library.objs[n[3]].instantiate()
 				get_tree().current_scene.add_child(obj)

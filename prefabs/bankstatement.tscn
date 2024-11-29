@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cerdx7rxbbvir"]
+[gd_scene load_steps=7 format=4 uid="uid://cerdx7rxbbvir"]
 
 [ext_resource type="Script" path="res://scripts/bankstatement.gd" id="1_3jeh6"]
 [ext_resource type="Resource" uid="uid://cgxa6dqneh2ac" path="res://invobjs/bankstatement.tres" id="2_xt41d"]
@@ -10,11 +10,11 @@ _surfaces = [{
 "aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
 "format": 34896613377,
 "index_count": 12,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 6, 0, 4, 0, 5, 0, 7, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 18, 251, 0, 0, 255, 255, 0, 0, 18, 251, 0, 0, 0, 0, 255, 255, 20, 251, 0, 0, 255, 255, 255, 255, 20, 251, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 2, 0, 0, 0, 255, 255, 255, 255, 2, 0, 0, 0)
+"vertex_data": PackedByteArray("AAAAABL7AAD//wAAEvsAAAAA//8U+wAA/////xT7AAAAAAAAAAAAAP//AAAAAAAAAAD//wIAAAD/////AgAAAA==")
 }]
 blend_shape_mode = 0
 
@@ -22,15 +22,15 @@ blend_shape_mode = 0
 resource_name = "paper_Plane"
 _surfaces = [{
 "aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
-"attribute_data": PackedByteArray(7, 128, 247, 255, 247, 255, 247, 255, 7, 128, 97, 85, 247, 255, 97, 85, 247, 127, 247, 255, 7, 0, 247, 255, 247, 127, 97, 85, 7, 0, 97, 85),
+"attribute_data": PackedByteArray("B4D3//f/9/8HgGFV9/9hVfd/9/8HAPf/939hVQcAYVU="),
 "format": 34896613399,
 "index_count": 12,
-"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 4, 0, 7, 0, 6, 0, 4, 0, 5, 0, 7, 0),
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
 "material": SubResource("StandardMaterial3D_julhk"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray(0, 0, 0, 0, 18, 251, 255, 127, 255, 255, 0, 0, 18, 251, 255, 127, 0, 0, 255, 255, 20, 251, 255, 127, 255, 255, 255, 255, 20, 251, 255, 127, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 2, 0, 255, 255, 255, 255, 255, 255, 2, 0, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 254, 255, 255, 127, 254, 255, 255, 127, 254, 255, 255, 127, 254, 255)
+"vertex_data": PackedByteArray("AAAAABL7/3///wAAEvv/fwAA//8U+/9//////xT7/38AAAAAAAD/////AAAAAP//AAD//wIA////////AgD///9/////f////3////9/////f/7//3/+//9//v//f/7/")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_k62gd")

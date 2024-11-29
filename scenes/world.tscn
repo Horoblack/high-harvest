@@ -1,9 +1,7 @@
 [gd_scene load_steps=46 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="Texture2D" uid="uid://dfnmfdq2ak10r" path="res://models/textures/farmhouse.png" id="1_5ap52"]
-[ext_resource type="Shader" path="res://sky.gdshader" id="2_e6wh3"]
-[ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="3_md3hi"]
-[ext_resource type="Script" path="res://scripts/dayManager.gd" id="4_7nwgi"]
+[ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
 [ext_resource type="Script" path="res://scripts/eventmanager.gd" id="5_l1g36"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
@@ -12,6 +10,9 @@
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
 [ext_resource type="PackedScene" uid="uid://dtu7p8202h2mb" path="res://prefabs/spidermonster.tscn" id="12_qwtm0"]
+[ext_resource type="PackedScene" uid="uid://bxfvggdjia5in" path="res://prefabs/gramophone.tscn" id="13_cyqij"]
+[ext_resource type="PackedScene" uid="uid://d2fi3tglbmqdh" path="res://prefabs/shovel.tscn" id="13_g3dd3"]
+[ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 
 [sub_resource type="Curve3D" id="Curve3D_7b6fw"]
 _data = {
@@ -97,6 +98,39 @@ size = Vector3(0.2, 1.4, 40)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ubxeu"]
 size = Vector3(0.2, 1.4, 30)
 
+[sub_resource type="ArrayMesh" id="ArrayMesh_lgw6f"]
+_surfaces = [{
+"aabb": AABB(-0.125, -0.25, -4.475, 0.25, 1, 4.6),
+"format": 34896613377,
+"index_count": 144,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEACAALAAkACAAKAAsACgAPAAsACgAOAA8ADgANAA8ADgAMAA0ADAAJAA0ADAAIAAkACgAMAA4ACgAIAAwADwAJAAsADwANAAkAEAATABEAEAASABMAEgAXABMAEgAWABcAFgAVABcAFgAUABUAFAARABUAFAAQABEAEgAUABYAEgAQABQAFwARABMAFwAVABEAGAAbABkAGAAaABsAGgAfABsAGgAeAB8AHgAdAB8AHgAcAB0AHAAZAB0AHAAYABkAGgAcAB4AGgAYABwAHwAZABsAHwAdABkA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 32,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAV8gAAAAD//xXyAAD//wAA//8AAP///////wAA//8AABXyAAD/////FfIAACNHwlcbCgAAI0cA7RsKAAAjR8JXAAAAACNHAO0AAAAA27jCVxsKAADbuADtGwoAANu4wlcAAAAA27gA7QAAAADMTGiyCvkAAMxMm+UK+QAAzExosvQGAADMTJvl9AYAADKzaLIK+QAAMrOb5Qr5AAAys2iy9AYAADKzm+X0BgAAzEzkXwr5AADMTBeTCvkAAMxM5F/0BgAAzEwXk/QGAAAys+RfCvkAADKzF5MK+QAAMrPkX/QGAAAysxeT9AYAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_x33q1"]
+resource_name = "fencegate_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.125, -0.25, -4.475, 0.25, 1, 4.6),
+"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9//18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9/"),
+"format": 34896613399,
+"index_count": 144,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQAGgAjAB0AGgAgACMAHgAtACEAHgAqAC0ALAApAC8ALAAmACkAJAAbACcAJAAYABsAHwAlACsAHwAZACUALgAcACIALgAoABwAMgA7ADUAMgA4ADsANgBFADkANgBCAEUARABBAEcARAA+AEEAPAAzAD8APAAwADMANwA9AEMANwAxAD0ARgA0ADoARgBAADQASgBTAE0ASgBQAFMATgBdAFEATgBaAF0AXABZAF8AXABWAFkAVABLAFcAVABIAEsATwBVAFsATwBJAFUAXgBMAFIAXgBYAEwA"),
+"material": SubResource("StandardMaterial3D_seqmw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 96,
+"vertex_data": PackedByteArray("AAAAAP///78AAAAA////vwAAAAD//1TVAAD//////78AAP///////wAA/////1TVAAAAABXy//8AAAAAFfL/vwAAAAAV8lTVAAD//xXy//8AAP//FfL//wAA//8V8lTV//8AAP///7///wAA////v///AAD//1TV/////////7///////////////////1TV//8AABXy/////wAAFfL/v///AAAV8lTV/////xXy////////FfL///////8V8lTVI0fCVxsK/78jR8JXGwr/vyNHwlcbClTVI0cA7RsK/78jRwDtGwr//yNHAO0bClTVI0fCVwAA//8jR8JXAAD/vyNHwlcAAFTVI0cA7QAA//8jRwDtAAD//yNHAO0AAFTV27jCVxsK/7/buMJXGwr/v9u4wlcbClTV27gA7RsK/7/buADtGwr//9u4AO0bClTV27jCVwAA///buMJXAAD/v9u4wlcAAFTV27gA7QAA///buADtAAD//9u4AO0AAFTVzExosgr5/7/MTGiyCvn/v8xMaLIK+VTVzEyb5Qr5/7/MTJvlCvn//8xMm+UK+VTVzExosvQG///MTGiy9Ab/v8xMaLL0BlTVzEyb5fQG///MTJvl9Ab//8xMm+X0BlTVMrNosgr5/78ys2iyCvn/vzKzaLIK+VTVMrOb5Qr5/78ys5vlCvn//zKzm+UK+VTVMrNosvQG//8ys2iy9Ab/vzKzaLL0BlTVMrOb5fQG//8ys5vl9Ab//zKzm+X0BlTVzEzkXwr5/7/MTORfCvn/v8xM5F8K+VTVzEwXkwr5/7/MTBeTCvn//8xMF5MK+VTVzEzkX/QG///MTORf9Ab/v8xM5F/0BlTVzEwXk/QG///MTBeT9Ab//8xMF5P0BlTVMrPkXwr5/78ys+RfCvn/vzKz5F8K+VTVMrMXkwr5/78ysxeTCvn//zKzF5MK+VTVMrPkX/QG//8ys+Rf9Ab/vzKz5F/0BlTVMrMXk/QG//8ysxeT9Ab//zKzF5P0BlTV/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_lgw6f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odeyq"]
+size = Vector3(0.2, 1, 4.5)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2vs0f"]
 diffuse_mode = 3
 albedo_texture = ExtResource("1_5ap52")
@@ -145,65 +179,6 @@ albedo_color = Color(0.33, 0.33, 0.33, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_s2lke"]
 material = SubResource("StandardMaterial3D_6fkmu")
 size = Vector3(0.1, 0.1, 1)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
-shader = ExtResource("2_e6wh3")
-shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
-shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
-shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
-shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
-shader_parameter/night_top_color = Color(0, 0, 0, 1)
-shader_parameter/night_bottom_color = Color(0.00392157, 0, 0.0941176, 1)
-shader_parameter/horizon_color = Color(0.318666, 0.199505, 0.0984537, 1)
-shader_parameter/horizon_blur = 0.13
-shader_parameter/sun_color = Color(10, 8, 1, 1)
-shader_parameter/sun_sunset_color = Color(10, 0.666667, 0, 1)
-shader_parameter/sun_size = 0.1
-shader_parameter/sun_blur = 0.0
-shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
-shader_parameter/moon_size = 0.06
-shader_parameter/moon_blur = 0.01
-shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
-shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
-shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
-shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
-shader_parameter/clouds_speed = 2.0
-shader_parameter/clouds_direction = 0.2
-shader_parameter/clouds_scale = 1.41
-shader_parameter/clouds_cutoff = 0.65
-shader_parameter/clouds_fuzziness = 0.0
-shader_parameter/clouds_weight = 0.0
-shader_parameter/clouds_blur = 1.0
-shader_parameter/stars_speed = 0.01
-shader_parameter/stars_texture = ExtResource("3_md3hi")
-shader_parameter/overwritten_time = 0.0
-
-[sub_resource type="Sky" id="Sky_n5ujh"]
-sky_material = SubResource("ShaderMaterial_88cxw")
-
-[sub_resource type="Environment" id="Environment_il6hq"]
-background_mode = 2
-background_color = Color(0.180392, 0.501961, 0.505882, 1)
-sky = SubResource("Sky_n5ujh")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.2
-ssao_enabled = true
-ssao_radius = 0.76
-glow_strength = 0.3
-fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
-fog_sky_affect = 0.178
-volumetric_fog_density = 0.02
-volumetric_fog_sky_affect = 0.5
-
-[sub_resource type="Curve" id="Curve_ij7l7"]
-_data = [Vector2(0.302013, 0), 0.0, 0.0, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(0.701342, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_x85pj"]
-max_value = 0.5
-_data = [Vector2(0, 0.298969), 0.0, 0.0, 0, 0, Vector2(0.197987, 0), 0.0, 0.0, 0, 0, Vector2(0.802013, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.298969), 0.0, 0.0, 0, 0]
-point_count = 4
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo085"]
 diffuse_mode = 3
@@ -265,6 +240,16 @@ script = ExtResource("11_c465g")
 eventname = "spider"
 singletime = true
 object = ExtResource("12_qwtm0")
+timerange = Vector2(1700, 2300)
+position = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_d6yf1"]
+script = ExtResource("11_c465g")
+eventname = "gramophone"
+singletime = true
+object = ExtResource("13_cyqij")
+timerange = Vector2(0, 2400)
+position = Vector3(-19, 0.5, -31)
 
 [node name="Node3D" type="Node3D"]
 
@@ -320,6 +305,90 @@ shape = SubResource("BoxShape3D_reb5p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
 shape = SubResource("BoxShape3D_ubxeu")
 
+[node name="fencegate" type="RigidBody3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, -0.5)
+gravity_scale = 0.0
+angular_damp = 3.0
+
+[node name="HingeJoint3D" type="JoltHingeJoint3D" parent="fence/fencegate"]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -1.5708
+motor_target_velocity = 0.174533
+node_a = NodePath("..")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="gate" type="MeshInstance3D" parent="fence/fencegate"]
+mesh = SubResource("ArrayMesh_x33q1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/fencegate"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
+shape = SubResource("BoxShape3D_odeyq")
+
+[node name="fencegate2" type="RigidBody3D" parent="fence"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.01, -9.5)
+gravity_scale = 0.0
+angular_damp = 3.0
+
+[node name="HingeJoint3D" type="JoltHingeJoint3D" parent="fence/fencegate2"]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -1.5708
+motor_target_velocity = 0.174533
+node_a = NodePath("..")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="gate" type="MeshInstance3D" parent="fence/fencegate2"]
+mesh = SubResource("ArrayMesh_x33q1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/fencegate2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
+shape = SubResource("BoxShape3D_odeyq")
+
+[node name="fencegate3" type="RigidBody3D" parent="fence"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0.01, -0.5)
+gravity_scale = 0.0
+angular_damp = 3.0
+
+[node name="HingeJoint3D" type="JoltHingeJoint3D" parent="fence/fencegate3"]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -1.5708
+motor_target_velocity = 0.174533
+node_a = NodePath("..")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="gate" type="MeshInstance3D" parent="fence/fencegate3"]
+mesh = SubResource("ArrayMesh_x33q1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/fencegate3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
+shape = SubResource("BoxShape3D_odeyq")
+
+[node name="fencegate4" type="RigidBody3D" parent="fence"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40, 0.01, -9.5)
+gravity_scale = 0.0
+angular_damp = 3.0
+
+[node name="HingeJoint3D" type="JoltHingeJoint3D" parent="fence/fencegate4"]
+limit_enabled = true
+limit_upper = 1.5708
+limit_lower = -1.5708
+motor_target_velocity = 0.174533
+node_a = NodePath("..")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="gate" type="MeshInstance3D" parent="fence/fencegate4"]
+mesh = SubResource("ArrayMesh_x33q1")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fence/fencegate4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
+shape = SubResource("BoxShape3D_odeyq")
+
 [node name="farmhouse" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2888, 0, -23.5467)
 layers = 2
@@ -340,27 +409,8 @@ shape = SubResource("BoxShape3D_kwhdr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="farmhouse/lanternholder"]
 mesh = SubResource("BoxMesh_s2lke")
 
-[node name="day manager" type="WorldEnvironment" parent="."]
+[node name="day manager" parent="." instance=ExtResource("3_72js4")]
 unique_name_in_owner = true
-environment = SubResource("Environment_il6hq")
-script = ExtResource("4_7nwgi")
-simulate = true
-rateoftime = 0.05
-sunlightcurve = SubResource("Curve_ij7l7")
-moonlightcurve = SubResource("Curve_x85pj")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="day manager"]
-transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0, 7, 0)
-shadow_enabled = true
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="day manager/DirectionalLight3D"]
-transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
-light_color = Color(2.31028e-06, 0.373134, 0.505084, 1)
-light_energy = 0.1
-shadow_enabled = true
-
-[node name="eventmanager" type="Node" parent="day manager"]
-script = ExtResource("5_l1g36")
 
 [node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
@@ -453,7 +503,13 @@ shape = SubResource("ConcavePolygonShape3D_o3pp0")
 
 [node name="eventmanager" type="Node" parent="."]
 script = ExtResource("5_l1g36")
-events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4")])
+events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4"), SubResource("Resource_d6yf1")])
+
+[node name="cellardoor" parent="." instance=ExtResource("14_1i0y2")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.3471, 0, -31.4158)
+
+[node name="shovel" parent="." instance=ExtResource("13_g3dd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.418, 2.12306, -26.3758)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

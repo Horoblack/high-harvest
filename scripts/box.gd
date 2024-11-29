@@ -83,7 +83,9 @@ func removeitem(bod : Player):
 		get_tree().current_scene.add_child(physitem)
 		physitem.global_position = global_position
 		updatedata()
-		await get_tree().create_timer(.2).timeout
+		add_collision_exception_with(removeditem)
+		await get_tree().create_timer(.3).timeout
+		remove_collision_exception_with(removeditem)
 		removeditem = null
 
 func updatedata():

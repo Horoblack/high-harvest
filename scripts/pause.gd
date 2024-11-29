@@ -12,6 +12,7 @@ func resettarget():
 	targethold = .2
 
 func _ready():
+	#await get_tree().process_frame
 	ObjectManager.call_deferred("deserializeall")
 	ps.visible = false
 

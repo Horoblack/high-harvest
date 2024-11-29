@@ -1,4 +1,4 @@
-extends WorldEnvironment
+extends Node
 
 @export_range(0,2400,1) var timeofday : float = 1200.0
 @export var simulate : bool = false
@@ -6,13 +6,16 @@ extends WorldEnvironment
 @export var sunlightcurve : Curve
 @export var moonlightcurve : Curve
 
-@onready var sun = $DirectionalLight3D
-@onready var moon = $DirectionalLight3D/DirectionalLight3D2
+@export var sun : DirectionalLight3D
+@export var moon  : DirectionalLight3D
 
 var curtick = 0
 
 var sunenergy
 var moonenergy
+
+func _ready() -> void:
+	timeofday = Savedata.gamedata["timeofday"]
 
 func _process(delta):
 	if(simulate):
@@ -22,9 +25,11 @@ func _process(delta):
 	Savedata.gamedata["timeofday"] = timeofday
 	Savedata.gamedata["playtime"] += delta
 	
-	sun.light_energy = sunlightcurve.sample(timeofday/2400)
-	moon.light_energy = moonlightcurve.sample(timeofday/2400)
-	sun.rotation_degrees.x = lerp(90,-270, timeofday / 2400)
+	if(sun != null):
+		sun.light_energy = sunlightcurve.sample(timeofday/2400)
+		sun.rotation_degrees.x = lerp(90,-270, timeofday / 2400)
+	if(moon != null):
+		moon.light_energy = moonlightcurve.sample(timeofday/2400)
 
 signal day
 func passday():

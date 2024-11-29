@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dh5yx04ksyxsi"]
+
+[ext_resource type="Texture2D" uid="uid://x6wqnhomul23" path="res://sprites/itemicons/gramophone.png" id="1_0k1c1"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_bachj"]
+
+[resource]
+script = ExtResource("2_bachj")
+name = "Gramophone"
+weight = 1.0
+icon = ExtResource("1_0k1c1")
+description = "Plays music."
+objaddress = "gramophone"
+customproperties = {}

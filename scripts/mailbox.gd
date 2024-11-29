@@ -45,7 +45,6 @@ func _on_timer_timeout():
 	if(!usedturn):
 		flag.rotation_degrees = Vector3(0,0,90)
 		lid.rotation_degrees = Vector3.ZERO
-		ignore.clear()
 		spawnflyer()
 
 func spawnletter(solditems : Array):
@@ -64,7 +63,7 @@ func spawnletter(solditems : Array):
 		
 		var amt : float = Library.sell(pp,itemamounts[n])
 		for b in itemamounts[n]:
-			str += "%s : $%.2f\n" % [pp, amt]
+			str += "\n%s : $%.2f\n" % [pp, amt]
 		str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
 	
 	var letter : bankstatement = Library.objs["bankstatement"].instantiate()
@@ -80,3 +79,7 @@ func spawnflyer():
 	get_tree().current_scene.add_child(flyer)
 	flyer.global_position = letterspawn.global_position
 	flyer.global_rotation = letterspawn.global_rotation
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	ignore.erase(body)

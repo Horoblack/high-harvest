@@ -2,6 +2,7 @@ extends RigidBody3D
 
 var pl : PlayerCam
 @onready var anim = $AnimationPlayer
+@onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 const hole = preload("res://prefabs/crops/hole.tscn")
 
@@ -32,3 +33,4 @@ func dig():
 			var hol = hole.instantiate()
 			get_tree().current_scene.add_child(hol)
 			hol.global_position = point
+			audio.play()

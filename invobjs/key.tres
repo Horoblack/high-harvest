@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dlocmfx413jaf"]
+
+[ext_resource type="Texture2D" uid="uid://deygrafxv2ese" path="res://sprites/itemicons/key.png" id="1_21d74"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_7bib5"]
+
+[resource]
+script = ExtResource("2_7bib5")
+name = "Key"
+weight = 0.1
+icon = ExtResource("1_21d74")
+description = "To unlock locks."
+objaddress = "key"
+customproperties = {}
