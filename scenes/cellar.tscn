@@ -16,7 +16,7 @@ shape = SubResource("BoxShape3D_rg4qs")
 
 [node name="player" parent="." instance=ExtResource("1_fkk1i")]
 
-[node name="day manager" type="Node" parent="."]
+[node name="day manager" type="Node" parent="." groups=["daymanager"]]
 unique_name_in_owner = true
 script = ExtResource("2_g20cd")
 simulate = true

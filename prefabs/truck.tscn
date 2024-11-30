@@ -794,7 +794,6 @@ limit_spring_enabled = true
 limit_spring_frequency = 100.0
 node_a = NodePath("..")
 node_b = NodePath("beddoor")
-exclude_nodes_from_collision = false
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29524, 3.75087)
 
 [node name="beddoor" type="RigidBody3D" parent="beddoorhinge" groups=["heavy", "pickup"]]

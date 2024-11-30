@@ -1,4 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://drxrss5gc1bmn"]
+[gd_scene load_steps=9 format=4 uid="uid://drxrss5gc1bmn"]
+
+[ext_resource type="Script" path="res://scripts/grabarea.gd" id="1_35dli"]
+[ext_resource type="Script" path="res://scripts/mattress.gd" id="1_yu34n"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wl7h6"]
 
@@ -34,8 +37,15 @@ bind/1/pose = Transform3D(-7.54979e-08, 1, 8.42937e-08, 6.364e-15, -8.42937e-08,
 [sub_resource type="BoxShape3D" id="BoxShape3D_uymr6"]
 size = Vector3(1.25, 0.25, 1.1)
 
+[sub_resource type="LabelSettings" id="LabelSettings_3c5nc"]
+font_size = 76
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bk6t"]
+size = Vector3(0.5, 0.3, 0.5)
+
 [node name="mattress" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
 mass = 2.0
+script = ExtResource("1_yu34n")
 metadata/objaddress = "mattress"
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
@@ -84,3 +94,40 @@ limit_lower = -0.785398
 node_a = NodePath("..")
 node_b = NodePath("../RigidBody3D")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00:00"
+label_settings = SubResource("LabelSettings_3c5nc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="grabarea" type="Area3D" parent="."]
+script = ExtResource("1_35dli")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="grabarea"]
+shape = SubResource("BoxShape3D_7bk6t")
+
+[connection signal="grabbed" from="grabarea" to="." method="_on_grabarea_grabbed"]

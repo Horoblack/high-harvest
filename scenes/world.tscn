@@ -10,8 +10,8 @@
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
 [ext_resource type="PackedScene" uid="uid://dtu7p8202h2mb" path="res://prefabs/spidermonster.tscn" id="12_qwtm0"]
+[ext_resource type="PackedScene" uid="uid://c8hdfqhj8j4yr" path="res://prefabs/wickerman.tscn" id="13_3ychb"]
 [ext_resource type="PackedScene" uid="uid://bxfvggdjia5in" path="res://prefabs/gramophone.tscn" id="13_cyqij"]
-[ext_resource type="PackedScene" uid="uid://d2fi3tglbmqdh" path="res://prefabs/shovel.tscn" id="13_g3dd3"]
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 
 [sub_resource type="Curve3D" id="Curve3D_7b6fw"]
@@ -305,7 +305,7 @@ shape = SubResource("BoxShape3D_reb5p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
 shape = SubResource("BoxShape3D_ubxeu")
 
-[node name="fencegate" type="RigidBody3D" parent="fence"]
+[node name="fencegate" type="RigidBody3D" parent="fence" groups=["heavy", "pickup"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, -0.5)
 gravity_scale = 0.0
 angular_damp = 3.0
@@ -326,7 +326,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
 shape = SubResource("BoxShape3D_odeyq")
 
-[node name="fencegate2" type="RigidBody3D" parent="fence"]
+[node name="fencegate2" type="RigidBody3D" parent="fence" groups=["heavy", "pickup"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.01, -9.5)
 gravity_scale = 0.0
 angular_damp = 3.0
@@ -347,7 +347,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
 shape = SubResource("BoxShape3D_odeyq")
 
-[node name="fencegate3" type="RigidBody3D" parent="fence"]
+[node name="fencegate3" type="RigidBody3D" parent="fence" groups=["heavy", "pickup"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0.01, -0.5)
 gravity_scale = 0.0
 angular_damp = 3.0
@@ -368,7 +368,7 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
 shape = SubResource("BoxShape3D_odeyq")
 
-[node name="fencegate4" type="RigidBody3D" parent="fence"]
+[node name="fencegate4" type="RigidBody3D" parent="fence" groups=["heavy", "pickup"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -40, 0.01, -9.5)
 gravity_scale = 0.0
 angular_damp = 3.0
@@ -409,8 +409,9 @@ shape = SubResource("BoxShape3D_kwhdr")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="farmhouse/lanternholder"]
 mesh = SubResource("BoxMesh_s2lke")
 
-[node name="day manager" parent="." instance=ExtResource("3_72js4")]
+[node name="day manager" parent="." groups=["daymanager"] instance=ExtResource("3_72js4")]
 unique_name_in_owner = true
+rateoftime = 5.0
 
 [node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
@@ -508,8 +509,8 @@ events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4"), SubResou
 [node name="cellardoor" parent="." instance=ExtResource("14_1i0y2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.3471, 0, -31.4158)
 
-[node name="shovel" parent="." instance=ExtResource("13_g3dd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.418, 2.12306, -26.3758)
+[node name="wickerman" parent="." instance=ExtResource("13_3ychb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.453, 1.6, -14.6676)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

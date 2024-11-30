@@ -2,7 +2,7 @@ extends Node
 
 @export_range(0,2400,1) var timeofday : float = 1200.0
 @export var simulate : bool = false
-@export_range(0,1,.05) var rateoftime : float = .1
+@export_range(0,100,1) var rateoftime : float = .1
 @export var sunlightcurve : Curve
 @export var moonlightcurve : Curve
 
@@ -19,7 +19,7 @@ func _ready() -> void:
 
 func _process(delta):
 	if(simulate):
-		timeofday += rateoftime
+		timeofday += rateoftime * delta
 	if(timeofday >= 2400):
 		passday()
 	Savedata.gamedata["timeofday"] = timeofday
@@ -37,3 +37,9 @@ func passday():
 	Library.marketmutate()
 	Savedata.gamedata["day"] += 1
 	day.emit()
+
+func timetransition(t : float) -> String:
+	var minutes = str(floor(t/60)).pad_zeros(2).pad_decimals(0)
+	var seconds = str(fmod(t, 60)).pad_zeros(2).pad_decimals(0)
+	
+	return minutes + ":" + seconds

@@ -131,6 +131,7 @@ func grabobj(obj):
 		if(obj.is_inside_tree()):
 			grabpos.global_rotation = obj.global_rotation
 		grabbed = obj
+		#body.add_collision_exception_with(grabbed)
 		if(obj.has_method("grabbed")):
 			obj.grabbed(self)
 
@@ -142,6 +143,7 @@ func letgoofgrabbed():
 			grabbed.sleeping = false
 		if(grabbed.has_method("grabbed")):
 			grabbed.grabbed(null)
+		#body.remove_collision_exception_with(grabbed)
 		grabbed = null
 
 func letgoofheld():
@@ -168,14 +170,14 @@ func dropobj(ob : InventoryObject):
 func _physics_process(delta):
 	grabpos.position.z = -grabbeddistance
 	if(grabbed != null):
-		if(global_position.distance_to(grabbed.global_position) > 4):
+		if(global_position.distance_to(grabbed.global_position) > 7):
 			letgoofgrabbed()
 			return
 		
 		var force = ((grabpos.global_position - grabbed.global_position) * 100) - (grabbed.linear_velocity * 10)
 		#var strength = clamp(,.1,1)
 		grabbed.apply_central_force(force)
-		var torque = calc_angular_velocity(grabbed.global_basis,grabpos.global_basis)
+		var torque = Library.calc_angular_velocity(grabbed.global_basis,grabpos.global_basis)
 		grabbed.apply_torque(torque * grabbed.mass * 10)
 		if(grabbed && rotating):
 			grabpos.rotate(basis.y,MouseEvent.x * clamp(2-(grabbed.mass*.1), 0.01,1))
@@ -232,28 +234,3 @@ func CameraLook(Movement: Vector2):
 		body.rotate_object_local(Vector3(0,1,0), -CameraRotation.x)
 	transform.basis = Basis()
 	rotate_object_local(Vector3(1,0,0), -CameraRotation.y)
-
-func calc_angular_velocity(from_basis: Basis, to_basis: Basis) -> Vector3:
-	var q1 = from_basis.get_rotation_quaternion()
-	var q2 = to_basis.get_rotation_quaternion()
-
-	# Quaternion that transforms q1 into q2
-	var qt = q2 * q1.inverse()
-
-	# Angle from quaternion
-	var angle = 2 * acos(qt.w)
-
-	# There are two distinct quaternions for any orientation.
-	# Ensure we use the representation with the smallest angle.
-	if angle > PI:
-		qt = -qt
-		angle = TAU - angle
-
-	# Prevent divide by zero
-	if angle < 0.0001:
-		return Vector3.ZERO
-
-	# Axis from quaternion
-	var axis = Vector3(qt.x, qt.y, qt.z) / sqrt(1-qt.w*qt.w)
-
-	return axis * angle

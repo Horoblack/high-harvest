@@ -78,7 +78,8 @@ func getsuspension(cast : RayCast3D, wheel):
 		var vel = dir.dot(tirevel)
 		
 		var force : float = (-offset * 3500) - (vel * 300)
-		
+		dir.x = 0 if abs(dir.x)<.01 else dir.x
+		dir.z = 0 if abs(dir.z)<.01 else dir.z
 		apply_force(dir * force, (cast.global_position - global_position))
 	else:
 		wheel.global_position = cast.global_position

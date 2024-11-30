@@ -9,6 +9,7 @@ class_name Player
 @onready var shadow: RigidBody3D = $shadow
 @onready var shadowshape: CollisionShape3D = $shadow/CollisionShape3D
 @onready var normalshape: CollisionShape3D = $CollisionShape3D
+@onready var injury = $cam/CanvasLayer/injury
 
 var curspeed
 const SPEED = 160
@@ -121,7 +122,6 @@ func _physics_process(delta):
 		global_basis = shadow.global_basis
 	if wasonfloor && !is_on_floor():
 		coyote_time.start()
-		
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)
 		if col.get_collider() is RigidBody3D:
@@ -129,6 +129,7 @@ func _physics_process(delta):
 			#col.get_collider().apply_impulse(-col.get_normal() * 0.03, col.get_position())
 
 func _process(delta: float) -> void:
+	#print("%s/%s" % [Engine.time_scale,delta])
 	hunger -= delta * .01
 	hunger = clamp(hunger,0,100)
 	energy -= delta * .005
@@ -151,7 +152,9 @@ func feed(amt : float):
 	hunger += amt
 	hunger = clamp(hunger,0,100)
 
-func ragdoll():
+func ragdoll(violent : bool = false):
+	if(violent):
+		injury.play("hurt")
 	ragdolled = true
 	shadow.freeze = false
 	normalshape.disabled = true

@@ -10,6 +10,12 @@ func trigger(pl : PlayerCam):
 	p = pl
 	use()
 
+func grabtrigger(bod):
+	reset()
+	cast.enabled = false
+	await get_tree().create_timer(.2).timeout
+	cast.enabled = true
+
 func use():
 	if(p.cast.is_colliding() && p.cast.get_collider().has_meta("diced")):
 		var col = p.cast.get_collider()
@@ -31,9 +37,15 @@ func _physics_process(delta):
 			anchored = true
 			gravity_scale = 0
 			global_position += global_basis.y * .1
+			add_collision_exception_with(col)
 			
 	if(!cast.is_colliding() && anchored):
-		reparent(get_tree().current_scene)
-		freeze = false
-		anchored = false
-		gravity_scale = 1
+		reset()
+
+func reset():
+	reparent(get_tree().current_scene)
+	freeze = false
+	anchored = false
+	gravity_scale = 1
+	for n in get_collision_exceptions():
+		remove_collision_exception_with(n)
