@@ -40,6 +40,7 @@ func _on_area_exited(body,ar):
 
 func togglefire(body,id : int):
 	fires[id].emitting = !fires[id].emitting
+	print(id)
 	for n in heated[id]:
 		if(n.has_method("heat")):
 			n.heat(fires[id].emitting)

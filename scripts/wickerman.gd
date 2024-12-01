@@ -29,11 +29,14 @@ func _ready():
 		leftfootgrounded.add_exception(n)
 		rightfootgrounded.add_exception(n)
 		raycast.add_exception(n)
+		#for i in limbs:
+			#n.add_collision_exception_with(i)
 	
 	await get_tree().process_frame
 	props = get_meta("customproperties")
 	if(props.has("limbs")):
 		for n in limbs.size():
+			#limbs[n].position = props["limbs"][n][0]
 			limbs[n].rotation = props["limbs"][n]
 	else:
 		props["limbs"] = []
@@ -43,6 +46,9 @@ func _ready():
 func _physics_process(delta):
 	if(props && props["limbs"]):
 		for n in limbs.size():
+			#props["limbs"][n] = []
+			#props["limbs"][n].resize(2)
+			#props["limbs"][n][0] = limbs[n].position 
 			props["limbs"][n] = limbs[n].rotation 
 	if(!active):
 		return

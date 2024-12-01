@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://co4wr4nayuts0"]
+
+[ext_resource type="Texture2D" uid="uid://bexaiway1gmeo" path="res://sprites/itemicons/pot.png" id="1_bpv66"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_rkn0i"]
+
+[resource]
+script = ExtResource("2_rkn0i")
+name = "Pot"
+weight = 0.5
+icon = ExtResource("1_bpv66")
+description = "A pot to boil soup with water and diced vegetables."
+objaddress = "pot"
+customproperties = {}

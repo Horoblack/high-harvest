@@ -59,6 +59,7 @@ burntmats = Array[Material]([SubResource("StandardMaterial3D_7x4he")])
 fillamount = 20.0
 cookedfillamount = 30.0
 metadata/obj = ExtResource("1_mda7f")
+metadata/diced = "dicedchickenmeat"
 
 [node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_3iu31")

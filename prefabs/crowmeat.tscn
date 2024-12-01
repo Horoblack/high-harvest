@@ -60,6 +60,7 @@ burntmats = Array[Material]([SubResource("StandardMaterial3D_scors")])
 fillamount = 20.0
 cookedfillamount = 30.0
 metadata/obj = ExtResource("4_ca56b")
+metadata/diced = "dicedcrowmeat"
 
 [node name="model" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

@@ -106,7 +106,7 @@ func _input(event):
 
 func holdobj():
 	var intent = grabbed
-	if(grabbed is pickupproxy):
+	if(grabbed != null && is_instance_valid(grabbed) && grabbed is pickupproxy):
 		intent = grabbed.source
 	
 	if(intent != null && !intent.is_in_group("heavy") && held == null):

@@ -30,8 +30,11 @@ var objs : Dictionary = {
 	"shotgun":load("res://prefabs/shotgun.tscn"),
 	"ammobox":load("res://prefabs/ammobox.tscn"),
 	"chickenmeat":load("res://prefabs/chickenmeat.tscn"),
+	"dicedchickenmeat":load("res://prefabs/dicedchickenmeat.tscn"),
 	"crowmeat":load("res://prefabs/crowmeat.tscn"),
+	"dicedcrowmeat":load("res://prefabs/dicedcrowmeat.tscn"),
 	"pigmeat":load("res://prefabs/pigmeat.tscn"),
+	"dicedpigmeat":load("res://prefabs/dicedpigmeat.tscn"),
 	"calendar":load("res://prefabs/calendar.tscn"),
 	"nail":load("res://prefabs/nail.tscn"),
 	"dice":load("res://prefabs/dice.tscn"),
@@ -46,6 +49,8 @@ var objs : Dictionary = {
 	"pillow":load("res://prefabs/pillow.tscn"),
 	"lock":load("res://prefabs/lock.tscn"),
 	"key":load("res://prefabs/key.tscn"),
+	"pan":load("res://prefabs/pan.tscn"),
+	"pot":load("res://prefabs/pot.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -77,8 +82,11 @@ var invobjs : Dictionary = {
 	"shotgun":load("res://invobjs/shotgun.tres"),
 	"ammobox":load("res://invobjs/ammobox.tres"),
 	"chickenmeat":load("res://invobjs/chickenmeat.tres"),
+	"dicedchickenmeat":load("res://invobjs/dicedchickenmeat.tres"),
 	"crowmeat":load("res://invobjs/crowmeat.tres"),
+	"dicedcrowmeat":load("res://invobjs/dicedcrowmeat.tres"),
 	"pigmeat":load("res://invobjs/pigmeat.tres"),
+	"dicedpigmeat":load("res://invobjs/dicedpigmeat.tres"),
 	"calendar":load("res://invobjs/calendar.tres"),
 	"nail":load("res://invobjs/nail.tres"),
 	"dice":load("res://invobjs/dice.tres"),
@@ -93,6 +101,8 @@ var invobjs : Dictionary = {
 	"pillow":load("res://invobjs/gramophone.tres"),
 	"lock":load("res://invobjs/lock.tres"),
 	"key":load("res://invobjs/key.tres"),
+	"pan":load("res://invobjs/pan.tres"),
+	"pot":load("res://invobjs/pot.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -115,8 +125,9 @@ var purchasables : Dictionary = {
 	"oilbottle" = 10.0,
 	"scythe" = 100.0,
 	"bouncyball" = 1.0,
-	"key" = 30.0,
+	"key" = 50.0,
 	"knife" = 15.0,
+	"pot" = 20.0,
 }
 
 var sellvalues : Dictionary = {

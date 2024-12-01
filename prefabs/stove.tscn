@@ -120,7 +120,9 @@ color_ramp = SubResource("GradientTexture1D_4k6je")
 size = Vector2(0.1, 0.1)
 
 [node name="stove" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
-mass = 3.0
+mass = 5.0
+linear_damp = 5.0
+angular_damp = 5.0
 script = ExtResource("1_kujsf")
 metadata/objaddress = "stove"
 
@@ -191,13 +193,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.65, -0.21)
 shape = SubResource("BoxShape3D_fqtr6")
 
 [node name="Area2" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.65, -0.21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.65, 0.29)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area2"]
 shape = SubResource("BoxShape3D_fqtr6")
 
 [node name="Area3" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0.65, 0.29)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0.65, -0.21)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3"]
 shape = SubResource("BoxShape3D_fqtr6")

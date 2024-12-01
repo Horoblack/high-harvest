@@ -1,6 +1,5 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm45mt5ysxrxr"]
+[gd_scene load_steps=7 format=3 uid="uid://dj63r5r300vvh"]
 
-[ext_resource type="Texture2D" uid="uid://bns17ueeksk23" path="res://sprites/bloodsplatter.png" id="1_k08mk"]
 [ext_resource type="Script" path="res://scripts/particles.gd" id="2_0ins2"]
 
 [sub_resource type="Curve" id="Curve_boj40"]
@@ -10,7 +9,7 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_4lhin"]
 curve = SubResource("Curve_boj40")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3pv8k"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8wybk"]
 lifetime_randomness = 0.5
 direction = Vector3(0, 1, 0)
 initial_velocity_min = 1.0
@@ -19,24 +18,26 @@ gravity = Vector3(0, -9, 0)
 scale_min = 0.5
 scale_curve = SubResource("CurveTexture_4lhin")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ok0t0"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1byr3"]
 transparency = 1
 shading_mode = 0
-albedo_texture = ExtResource("1_k08mk")
+albedo_color = Color(0, 0.532, 0.84, 1)
 texture_filter = 2
 billboard_mode = 1
 billboard_keep_scale = true
 
-[sub_resource type="QuadMesh" id="QuadMesh_derya"]
-material = SubResource("StandardMaterial3D_ok0t0")
+[sub_resource type="QuadMesh" id="QuadMesh_ubet4"]
+material = SubResource("StandardMaterial3D_1byr3")
+size = Vector2(0.5, 0.5)
 
 [node name="bloodparticles" type="GPUParticles3D"]
 emitting = false
+amount = 16
 lifetime = 0.5
 one_shot = true
 explosiveness = 0.9
-process_material = SubResource("ParticleProcessMaterial_3pv8k")
-draw_pass_1 = SubResource("QuadMesh_derya")
+process_material = SubResource("ParticleProcessMaterial_8wybk")
+draw_pass_1 = SubResource("QuadMesh_ubet4")
 script = ExtResource("2_0ins2")
 
 [connection signal="finished" from="." to="." method="end"]

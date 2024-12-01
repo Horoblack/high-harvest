@@ -41,6 +41,7 @@ func load_data():
 				["pickup",Vector3(-11.5, 2.57, -17), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
 				["pickup",Vector3(-27.3, 1.6, -20.7), Vector3(0, deg_to_rad(90), 0), "pillow", {  }], 
 				["pickup",Vector3(-27.908, 0.923, -31.43), Vector3(deg_to_rad(-60), deg_to_rad(-90), 0), "lock", {  }], 
+				["pickup",Vector3(-26.8, 1.6, -26.8), Vector3(0, 0, 0), "pan", {  }], 
 				["other", "table", Vector3(-12.1, 1.4, -28), Vector3(0, 0, 0)], 
 				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
 				["other", "bedframe", Vector3(-26.5, 1.1, -20.7), Vector3(0, deg_to_rad(90), 0)], 
