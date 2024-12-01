@@ -40,8 +40,8 @@ size = Vector3(1.25, 0.25, 1.1)
 [sub_resource type="LabelSettings" id="LabelSettings_3c5nc"]
 font_size = 76
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7bk6t"]
-size = Vector3(0.5, 0.3, 0.5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_x0103"]
+size = Vector3(1, 0.328369, 0.722656)
 
 [node name="mattress" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
 mass = 2.0
@@ -124,10 +124,12 @@ label_settings = SubResource("LabelSettings_3c5nc")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="grabarea" type="Area3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 8388608
+collision_mask = 8388608
 script = ExtResource("1_35dli")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="grabarea"]
-shape = SubResource("BoxShape3D_7bk6t")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_x0103")
 
-[connection signal="grabbed" from="grabarea" to="." method="_on_grabarea_grabbed"]
+[connection signal="grabbed" from="StaticBody3D" to="." method="_on_grabarea_grabbed"]

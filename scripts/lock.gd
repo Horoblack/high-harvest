@@ -7,12 +7,13 @@ extends RigidBody3D
 var data : InventoryObject
 
 func _ready() -> void:
+	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("unlocked") && data.customproperties["unlocked"]):
 		unlock()
 
 func unlock():
-	add_to_group("pickup")
+	remove_from_group("heavy")
 	key.visible = true
 	topshape.position = Vector3(0,.55,0)
 	openshape.disabled = true

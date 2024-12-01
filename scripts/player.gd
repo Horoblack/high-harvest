@@ -26,6 +26,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var hunger : float = 50
 var energy : float = 50
+var damage : float = 0
 
 var ragdolled : bool = false
 @onready var ragdolltime: Timer = $ragdolltime
@@ -42,10 +43,14 @@ func resetjump():
 
 func _input(event):
 	if(event.is_action_pressed("crouch")):
+		#ragdoll(20)
 		crouchheight(!crouched)
 
 var gravvel : float = .1
 func _physics_process(delta):
+	if(damage > 0 && damage < 100):
+		damage -= delta * 10
+	injury.color.a = damage/100
 	if !is_on_floor():
 		velocity.y -= gravity * delta * gravvel
 		
@@ -152,9 +157,8 @@ func feed(amt : float):
 	hunger += amt
 	hunger = clamp(hunger,0,100)
 
-func ragdoll(violent : bool = false):
-	if(violent):
-		injury.play("hurt")
+func ragdoll(dmg : float = 0):
+	damage += dmg
 	ragdolled = true
 	shadow.freeze = false
 	normalshape.disabled = true
@@ -171,3 +175,7 @@ func ragdoll(violent : bool = false):
 
 func _on_ragdolltime_timeout() -> void:
 	ragdoll()
+
+func heat(b):
+	if(b):
+		ragdoll(20)

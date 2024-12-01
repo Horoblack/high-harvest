@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends Node3D
 
 @export var targetscene : int
 @export var targetposition : Vector3

@@ -92,12 +92,12 @@ func deserializeall():
 		match(n[0]):
 			"pickup":
 				var obj = Library.objs[n[3]].instantiate()
-				get_tree().current_scene.add_child(obj)
-				obj.global_position = n[1]
-				obj.global_rotation = n[2]
 				var data = obj.get_meta("obj").duplicate()
 				data.customproperties = n[4]
 				obj.set_meta("obj", data)
+				get_tree().current_scene.add_child(obj)
+				obj.global_position = n[1]
+				obj.global_rotation = n[2]
 			"crop":
 				var obj = Library.crops[n[3]].instantiate()
 				get_tree().current_scene.add_child(obj)

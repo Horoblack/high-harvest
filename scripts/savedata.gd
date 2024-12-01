@@ -46,9 +46,11 @@ func load_data():
 				["other", "bedframe", Vector3(-26.5, 1.1, -20.7), Vector3(0, deg_to_rad(90), 0)], 
 				["other", "mattress", Vector3(-26.5, 1.5, -20.7), Vector3(0, deg_to_rad(90), 0)], 
 				["other", "stove", Vector3(-27, 1, -27), Vector3(0, deg_to_rad(-90), 0),{"fuel":5.5}], 
+				["other", "wickerman1", Vector3(-5, 1.7, -5), Vector3(0, deg_to_rad(-180), 0)], 
 				],
 			"objects1": [
-				
+				["pickup",Vector3(0.7, 0.68, -5.82), Vector3(0, 0, 0), "lock", {  }], 
+				["other", "wickerman1", Vector3(3.8, 2, -5), Vector3(0, deg_to_rad(170), 0)], 
 			],
 			"stocks": {
 					"carrot":1,

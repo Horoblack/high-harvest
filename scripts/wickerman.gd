@@ -21,14 +21,29 @@ var movementdirection : Vector3 = Vector3(0,0,1)
 
 var player
 
+var props
+
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
 	for n in limbs:
 		leftfootgrounded.add_exception(n)
 		rightfootgrounded.add_exception(n)
 		raycast.add_exception(n)
+	
+	await get_tree().process_frame
+	props = get_meta("customproperties")
+	if(props.has("limbs")):
+		for n in limbs.size():
+			limbs[n].rotation = props["limbs"][n]
+	else:
+		props["limbs"] = []
+		props["limbs"].resize(limbs.size())
+	set_meta("customproperties",props)
 
 func _physics_process(delta):
+	if(props && props["limbs"]):
+		for n in limbs.size():
+			props["limbs"][n] = limbs[n].rotation 
 	if(!active):
 		return
 	movementdirection = global_position.direction_to(player.global_position)
