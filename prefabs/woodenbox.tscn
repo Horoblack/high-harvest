@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3qjnlhaqq2d8"]
+
+[ext_resource type="Texture2D" uid="uid://b0oxkqe01h7ms" path="res://models/textures/box.png" id="1_ggd7e"]
+[ext_resource type="Texture2D" uid="uid://b58asuercpomy" path="res://models/textures/normalbox.png" id="2_wtxbe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oeeqx"]
+albedo_texture = ExtResource("1_ggd7e")
+normal_enabled = true
+normal_scale = -0.99
+normal_texture = ExtResource("2_wtxbe")
+uv1_scale = Vector3(3, 2, 3)
+texture_filter = 0
+
+[sub_resource type="BoxMesh" id="BoxMesh_4dwc1"]
+material = SubResource("StandardMaterial3D_oeeqx")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p1fkf"]
+
+[node name="woodenbox" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
+mass = 4.0
+metadata/objaddress = "woodenbox"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_4dwc1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_p1fkf")

@@ -160,6 +160,7 @@ const others : Dictionary = {
 	"scarecrow":preload("res://prefabs/scarecrow.tscn"),
 	"stove":preload("res://prefabs/stove.tscn"),
 	"mattress":preload("res://prefabs/mattress.tscn"),
+	"woodenbox":preload("res://prefabs/woodenbox.tscn"),
 	"wickerman1":preload("res://prefabs/wickerman.tscn"),
 }
 

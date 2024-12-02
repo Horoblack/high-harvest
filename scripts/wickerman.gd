@@ -33,7 +33,7 @@ func _ready():
 			#n.add_collision_exception_with(i)
 	
 	await get_tree().process_frame
-	props = get_meta("customproperties")
+	props = get_meta("customproperties").duplicate()
 	if(props.has("limbs")):
 		for n in limbs.size():
 			#limbs[n].position = props["limbs"][n][0]
@@ -41,6 +41,8 @@ func _ready():
 	else:
 		props["limbs"] = []
 		props["limbs"].resize(limbs.size())
+	if(props.has("active")):
+		active = props["active"]
 	set_meta("customproperties",props)
 
 func _physics_process(delta):
@@ -52,6 +54,11 @@ func _physics_process(delta):
 			props["limbs"][n] = limbs[n].rotation 
 	if(!active):
 		return
+	if(player.global_position.distance_to(global_position) < 1.8):
+		var direction = (player.global_position - global_position).normalized()
+		direction.y = .1
+		player.velocity = direction * 40
+		player.ragdoll(20)
 	movementdirection = global_position.direction_to(player.global_position)
 	raycast.target_position = raycast.to_local(global_position + Vector3.DOWN * targetheight)
 	if(raycast.is_colliding()):
