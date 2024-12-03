@@ -110,6 +110,8 @@ radius = 0.309002
 size = Vector3(0.1, 0.1, 0.245312)
 
 [node name="gramophone" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_aq57f")
 metadata/obj = ExtResource("1_rx8sf")
 

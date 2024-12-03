@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://mk0lb10wjf7q"]
+[gd_scene load_steps=11 format=4 uid="uid://mk0lb10wjf7q"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_7kwpj"]
 [ext_resource type="Material" uid="uid://b6ugoj03pwb24" path="res://models/textures/chicken/meat/chickenmeat.tres" id="2_rlncj"]
 [ext_resource type="Material" uid="uid://dxq4yqc8q6mpc" path="res://models/textures/chicken/meat/rottenchickenmeat.tres" id="3_mh0iw"]
 [ext_resource type="Resource" uid="uid://b47dkq338ryc0" path="res://invobjs/dicedchickenmeat.tres" id="4_8igte"]
+[ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="4_d3igp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpha5"]
 albedo_color = Color(0.39, 0.235365, 0.1521, 1)
@@ -47,6 +48,8 @@ size = Vector3(0.18, 0.18, 0.18)
 
 [node name="dicedchickenmeat" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_7kwpj")
 mats = Array[Material]([ExtResource("2_rlncj")])
 rotmats = Array[Material]([ExtResource("3_mh0iw")])
@@ -54,6 +57,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_cpha5")])
 burntmats = Array[Material]([SubResource("StandardMaterial3D_hwo7c")])
 fillamount = 5.0
 cookedfillamount = 8.0
+sound = ExtResource("4_d3igp")
 metadata/obj = ExtResource("4_8igte")
 
 [node name="model" type="MeshInstance3D" parent="."]

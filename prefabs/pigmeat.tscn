@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://ddg52q3co036u"]
+[gd_scene load_steps=12 format=4 uid="uid://ddg52q3co036u"]
 
 [ext_resource type="Script" path="res://scripts/meat.gd" id="1_6nxfs"]
 [ext_resource type="Material" uid="uid://blkor3oxdy0ik" path="res://models/textures/pig/meat/meat.tres" id="2_acxiv"]
 [ext_resource type="Material" uid="uid://bd86bpggulbi2" path="res://models/textures/pig/meat/rottenmeat.tres" id="3_p2vjp"]
 [ext_resource type="Resource" uid="uid://bgejg2uxtyqto" path="res://invobjs/pigmeat.tres" id="4_0ryi0"]
+[ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="4_5y81h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r47dm"]
 albedo_color = Color(0.39, 0.235365, 0.1521, 1)
@@ -51,6 +52,8 @@ height = 0.3
 radius = 0.25
 
 [node name="pigmeat" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_6nxfs")
 mats = Array[Material]([ExtResource("2_acxiv")])
 rotmats = Array[Material]([ExtResource("3_p2vjp")])
@@ -58,6 +61,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_r47dm")])
 burntmats = Array[Material]([SubResource("StandardMaterial3D_7bamf")])
 fillamount = 20.0
 cookedfillamount = 30.0
+sound = ExtResource("4_5y81h")
 metadata/obj = ExtResource("4_0ryi0")
 metadata/diced = "dicedpigmeat"
 

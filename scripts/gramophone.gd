@@ -1,8 +1,10 @@
-extends RigidBody3D
+extends basepickup
 @onready var audio: AudioStreamPlayer3D = $AudioStreamPlayer3D
 @onready var grab: grabarea = $StaticBody3D
 var data : InventoryObject
+
 func _ready() -> void:
+	super()
 	data = get_meta("obj")
 	if(data.customproperties.has("playing")):
 		audio.playing = data.customproperties["playing"]

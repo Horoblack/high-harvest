@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var grabarea = $grabarea
 
@@ -9,6 +9,7 @@ var pl : PlayerCam
 var data
 
 func _ready():
+	super()
 	grabarea.grabbed.connect(removeitem)
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()

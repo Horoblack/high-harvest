@@ -53,6 +53,8 @@ size = Vector3(0.18, 0.18, 0.18)
 
 [node name="dicedtomato" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_vhkwt")
 mats = Array[Material]([SubResource("StandardMaterial3D_2dxmf")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_l4d22")])

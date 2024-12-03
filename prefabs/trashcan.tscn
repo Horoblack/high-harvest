@@ -87,6 +87,8 @@ size = Vector3(0.3, 0.3, 0.3)
 size = Vector3(0.5, 0.1, 0.5)
 
 [node name="trashcan" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_0qa0i")
 metadata/obj = ExtResource("2_hlxc7")
 

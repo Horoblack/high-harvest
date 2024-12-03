@@ -30,7 +30,7 @@ billboard_keep_scale = true
 material = SubResource("StandardMaterial3D_1byr3")
 size = Vector2(0.5, 0.5)
 
-[node name="bloodparticles" type="GPUParticles3D"]
+[node name="waterparticles" type="GPUParticles3D"]
 emitting = false
 amount = 16
 lifetime = 0.5

@@ -154,7 +154,8 @@ shape = SubResource("ConcavePolygonShape3D_wiqvu")
 
 [node name="rightdoor" type="RigidBody3D" parent="." groups=["heavy", "pickup"]]
 transform = Transform3D(1, 0, 0, 0, 0.895712, -0.444635, 0, 0.444635, 0.895712, 1.433, 1.0437, 0.027346)
-continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="rightdoor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
@@ -179,7 +180,8 @@ skeleton = NodePath("")
 
 [node name="leftdoor" type="RigidBody3D" parent="." groups=["heavy", "pickup"]]
 transform = Transform3D(1, 0, 0, 0, 0.895712, -0.444635, 0, 0.444635, 0.895712, -0.467, 1.0437, 0.027346)
-continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 1
 
 [node name="model" type="MeshInstance3D" parent="leftdoor"]
 transform = Transform3D(1, 0, 0, 0, 0.000732481, 1, 0, -1, 0.000732481, 0, 0, 0)

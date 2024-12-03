@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://cmr0xfe7vydb7"]
+[gd_scene load_steps=9 format=4 uid="uid://cmr0xfe7vydb7"]
 
 [ext_resource type="Resource" uid="uid://dlocmfx413jaf" path="res://invobjs/key.tres" id="1_5dwtq"]
+[ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_aa4er"]
 [ext_resource type="Texture2D" uid="uid://n7eso1h4nuba" path="res://models/textures/key.png" id="1_ufyw6"]
+[ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_8ss08"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5as1"]
 albedo_color = Color(0.5, 0.5, 0.5, 1)
@@ -42,6 +44,10 @@ shadow_mesh = SubResource("ArrayMesh_lny7m")
 size = Vector3(0.1, 0.26, 0.5)
 
 [node name="key" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_aa4er")
+sound = ExtResource("2_8ss08")
 metadata/obj = ExtResource("1_5dwtq")
 
 [node name="key2" type="MeshInstance3D" parent="."]

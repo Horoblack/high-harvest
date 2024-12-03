@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 class_name shotgun
 
 @onready var anim = $anim
@@ -16,6 +16,7 @@ var open : bool = false
 @export var bulletcount : int = 20
 
 func _ready():
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("loaded")):

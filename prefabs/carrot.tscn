@@ -116,6 +116,8 @@ height = 0.6
 
 [node name="carrot" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_oeylc")

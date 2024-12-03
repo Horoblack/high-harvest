@@ -53,6 +53,8 @@ size = Vector3(0.18, 0.18, 0.18)
 
 [node name="dicedcarrot" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_713mb")
 mats = Array[Material]([SubResource("StandardMaterial3D_oto10")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_bkyuq")])

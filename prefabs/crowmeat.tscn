@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://du5d1colxps48"]
+[gd_scene load_steps=12 format=4 uid="uid://du5d1colxps48"]
 
 [ext_resource type="Script" path="res://scripts/meat.gd" id="1_i16q6"]
 [ext_resource type="Material" uid="uid://b6ugoj03pwb24" path="res://models/textures/chicken/meat/chickenmeat.tres" id="2_1i28a"]
 [ext_resource type="Material" uid="uid://dxq4yqc8q6mpc" path="res://models/textures/chicken/meat/rottenchickenmeat.tres" id="3_djpr7"]
+[ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="4_7mqfa"]
 [ext_resource type="Resource" uid="uid://dq3ws6g5kf28b" path="res://invobjs/crowmeat.tres" id="4_ca56b"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78sr3"]
@@ -52,6 +53,8 @@ radius = 0.25
 
 [node name="crowmeat" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_i16q6")
 mats = Array[Material]([ExtResource("2_1i28a")])
 rotmats = Array[Material]([ExtResource("3_djpr7")])
@@ -59,6 +62,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_78sr3")])
 burntmats = Array[Material]([SubResource("StandardMaterial3D_scors")])
 fillamount = 20.0
 cookedfillamount = 30.0
+sound = ExtResource("4_7mqfa")
 metadata/obj = ExtResource("4_ca56b")
 metadata/diced = "dicedcrowmeat"
 

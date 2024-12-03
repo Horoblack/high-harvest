@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 class_name trashcan
 
 @onready var bagmodel = $spreadbag
@@ -11,6 +11,7 @@ var fillamount : int = 0
 var bag : bool = false
 
 func _ready():
+	super()
 	grabarea.grabbed.connect(grabbag)
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()

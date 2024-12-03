@@ -18,6 +18,8 @@ material = SubResource("StandardMaterial3D_oeeqx")
 
 [node name="woodenbox" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
 mass = 4.0
+contact_monitor = true
+max_contacts_reported = 1
 metadata/objaddress = "woodenbox"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

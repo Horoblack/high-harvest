@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var waterlevel = $waterlevel
 
@@ -14,6 +14,7 @@ var cooking : bool
 var boil : float
 
 func _ready():
+	super()
 	data = get_meta("obj")
 	if(data.customproperties.has("wateramt")):
 		wateramt = data.customproperties["wateramt"]

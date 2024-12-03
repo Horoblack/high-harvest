@@ -54,6 +54,8 @@ size = Vector3(0.05, 0.05, 0.05)
 
 [node name="nail" type="RigidBody3D" groups=["pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_sjrmw")
 metadata/obj = SubResource("Resource_ajq1n")
 

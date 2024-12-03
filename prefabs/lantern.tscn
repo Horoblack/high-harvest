@@ -109,6 +109,8 @@ size = Vector3(0.04, 0.04, 0.17)
 size = Vector3(0.04, 0.17, 0.03)
 
 [node name="lantern" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_scx1e")
 onmat = SubResource("StandardMaterial3D_tavb7")
 offmat = SubResource("StandardMaterial3D_ysrrd")

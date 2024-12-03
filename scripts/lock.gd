@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var key: MeshInstance3D = $key
 @onready var topshape: CollisionShape3D = $topshape
@@ -7,6 +7,7 @@ extends RigidBody3D
 var data : InventoryObject
 
 func _ready() -> void:
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("unlocked") && data.customproperties["unlocked"]):

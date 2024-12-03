@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxleb5q7si8cb"]
+[gd_scene load_steps=9 format=3 uid="uid://cxleb5q7si8cb"]
 
 [ext_resource type="Script" path="res://scripts/water_drop.gd" id="1_1ub6p"]
+[ext_resource type="AudioStream" uid="uid://e0d3yf7cfku3" path="res://sounds/waterspill.wav" id="2_dve6p"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_7nk38"]
 radius = 0.1
@@ -65,8 +66,8 @@ _data = {
 }
 
 [node name="water drop" type="RigidBody3D"]
-max_contacts_reported = 2
 contact_monitor = true
+max_contacts_reported = 2
 script = ExtResource("1_1ub6p")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -80,5 +81,9 @@ libraries = {
 "": SubResource("AnimationLibrary_a4872")
 }
 autoplay = "dieout"
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_dve6p")
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

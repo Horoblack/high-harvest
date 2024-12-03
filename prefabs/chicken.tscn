@@ -672,6 +672,8 @@ _data = {
 }
 
 [node name="chicken" type="RigidBody3D" groups=["chicken", "pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_uvilk")

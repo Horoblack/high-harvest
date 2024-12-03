@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 const droplet = preload("res://prefabs/water_drop.tscn")
 
@@ -11,6 +11,7 @@ var maxwater : float = 20
 var data : InventoryObject
 
 func _ready():
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	set_meta("obj", data)

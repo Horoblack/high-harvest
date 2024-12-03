@@ -55,6 +55,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_oif8c")
 
 [node name="calendar" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_ebxrp")
 metadata/obj = SubResource("Resource_wcct8")
 

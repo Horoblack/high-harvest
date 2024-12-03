@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://ce2u481dtnu6y"]
+[gd_scene load_steps=10 format=4 uid="uid://ce2u481dtnu6y"]
 
 [ext_resource type="Script" path="res://scripts/wateringcan.gd" id="1_3um6k"]
+[ext_resource type="AudioStream" uid="uid://xuw1i45ki0dg" path="res://sounds/bigmetalcollision.wav" id="2_rpvow"]
 [ext_resource type="Resource" uid="uid://cp0vqognoxt5d" path="res://invobjs/wateringcan.tres" id="2_tr7cf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3bb4"]
@@ -70,9 +71,12 @@ size = Vector3(0.355713, 0.481445, 0.35498)
 size = Vector3(0.158203, 0.37207, 0.168335)
 
 [node name="watering can" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_3um6k")
+sound = ExtResource("2_rpvow")
 metadata/obj = ExtResource("2_tr7cf")
 
 [node name="model" type="MeshInstance3D" parent="."]

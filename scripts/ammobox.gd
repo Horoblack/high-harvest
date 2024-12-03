@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @export var startammo : int = 10
 var curammo : int = 0
@@ -6,6 +6,7 @@ var curammo : int = 0
 var data : InventoryObject
 
 func _ready():
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("ammo")):

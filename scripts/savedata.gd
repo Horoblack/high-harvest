@@ -74,6 +74,7 @@ func load_data():
 			"stocks": {
 					"carrot":1,
 					"tomato":1,
+					"turnip":1,
 				},
 			"seenevents": {
 				

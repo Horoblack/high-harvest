@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var shapecast: ShapeCast3D = $shapecast
 @onready var anim: AnimationPlayer = $AnimationPlayer

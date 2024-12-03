@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://dj7v7cddr5sik"]
+[gd_scene load_steps=9 format=4 uid="uid://dj7v7cddr5sik"]
 
 [ext_resource type="Script" path="res://scripts/knife.gd" id="1_04y54"]
 [ext_resource type="Resource" uid="uid://dwbgdthd0krt8" path="res://invobjs/knife.tres" id="2_6gd86"]
+[ext_resource type="AudioStream" uid="uid://xuw1i45ki0dg" path="res://sounds/bigmetalcollision.wav" id="2_7oc1n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gyq72"]
 margin = 0.06
@@ -69,7 +70,10 @@ shadow_mesh = SubResource("ArrayMesh_mnvdr")
 
 [node name="knife" type="RigidBody3D" groups=["pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_04y54")
+sound = ExtResource("2_7oc1n")
 metadata/obj = ExtResource("2_6gd86")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

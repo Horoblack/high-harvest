@@ -50,6 +50,8 @@ size = Vector3(0.18, 0.18, 0.18)
 
 [node name="dicedpotato" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_bt3ec")
 mats = Array[Material]([SubResource("StandardMaterial3D_aw8aw")])
 cookedmats = Array[Material]([SubResource("StandardMaterial3D_76ioi")])

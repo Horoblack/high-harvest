@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://btteqgx3hwmp"]
+[gd_scene load_steps=7 format=3 uid="uid://btteqgx3hwmp"]
 
+[ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_m046n"]
 [ext_resource type="Resource" uid="uid://rvuemdw4tbg5" path="res://invobjs/bouncyball.tres" id="1_xnch4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xouqx"]
@@ -22,6 +23,9 @@ height = 0.4
 [node name="bouncyball" type="RigidBody3D" groups=["pickup"]]
 mass = 0.1
 physics_material_override = SubResource("PhysicsMaterial_xouqx")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_m046n")
 metadata/obj = ExtResource("1_xnch4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

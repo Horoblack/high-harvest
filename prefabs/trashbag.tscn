@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://dh2sprvhoe42w"]
+[gd_scene load_steps=7 format=4 uid="uid://dh2sprvhoe42w"]
 
+[ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_ki6ko"]
 [ext_resource type="Resource" uid="uid://v4q37i6jkcdq" path="res://invobjs/trashbag.tres" id="1_rx4uw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odwk6"]
@@ -44,6 +45,7 @@ height = 0.592775
 
 [node name="trashbag" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+script = ExtResource("1_ki6ko")
 metadata/obj = ExtResource("1_rx4uw")
 
 [node name="fullbag" type="MeshInstance3D" parent="."]

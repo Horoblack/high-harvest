@@ -499,6 +499,7 @@ texture_filter = 2
 material = SubResource("StandardMaterial3D_gteoe")
 
 [node name="shotgun" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0

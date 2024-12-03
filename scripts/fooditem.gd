@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 class_name fooditem
 
 @onready var model = $model
@@ -26,6 +26,7 @@ func grabbed(p):
 	pl = p
 
 func _ready():
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("age")):

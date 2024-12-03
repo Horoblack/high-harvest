@@ -52,6 +52,8 @@ size = Vector3(0.18, 0.18, 0.18)
 
 [node name="dicedturnip" type="RigidBody3D" groups=["diced", "pickup"]]
 mass = 0.1
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_rsslo")
 mats = Array[Material]([SubResource("StandardMaterial3D_fg46d")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_8p5a0")])

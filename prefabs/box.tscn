@@ -99,6 +99,8 @@ size = Vector3(0.575195, 0.144775, 0.557617)
 size = Vector3(0.963135, 0.161133, 0.810547)
 
 [node name="box" type="RigidBody3D" groups=["pickup"]]
+contact_monitor = true
+max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_ppeqd")

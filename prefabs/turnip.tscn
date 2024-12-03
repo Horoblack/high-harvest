@@ -131,6 +131,8 @@ height = 0.498517
 
 [node name="turnip" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_vbp5k")
 mats = Array[Material]([SubResource("StandardMaterial3D_i2451"), SubResource("StandardMaterial3D_nsy41")])
 rotmats = Array[Material]([SubResource("StandardMaterial3D_dlnwn"), SubResource("StandardMaterial3D_pneqv")])

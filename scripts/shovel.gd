@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 var pl : PlayerCam
 @onready var anim = $AnimationPlayer

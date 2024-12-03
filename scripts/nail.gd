@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var pinjoint: JoltPinJoint3D = $PinJoint3D
 @onready var cast: RayCast3D = $RayCast3D

@@ -149,6 +149,8 @@ radius = 0.2
 
 [node name="bowl" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_5p78n")
 metadata/obj = ExtResource("1_lloje")
 

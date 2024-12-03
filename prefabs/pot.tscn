@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://bjlpb2p1shgmx"]
+[gd_scene load_steps=14 format=4 uid="uid://bjlpb2p1shgmx"]
 
 [ext_resource type="Script" path="res://scripts/pot.gd" id="1_jx5j4"]
 [ext_resource type="Resource" uid="uid://co4wr4nayuts0" path="res://invobjs/pot.tres" id="2_2kuy7"]
+[ext_resource type="AudioStream" uid="uid://xuw1i45ki0dg" path="res://sounds/bigmetalcollision.wav" id="2_rmu3a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbya8"]
 diffuse_mode = 3
@@ -91,8 +92,11 @@ radius = 0.2
 
 [node name="pot" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
+contact_monitor = true
+max_contacts_reported = 1
 angular_damp = 3.0
 script = ExtResource("1_jx5j4")
+sound = ExtResource("2_rmu3a")
 metadata/obj = ExtResource("2_2kuy7")
 
 [node name="pot" type="MeshInstance3D" parent="."]

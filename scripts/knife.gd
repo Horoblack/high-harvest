@@ -1,4 +1,4 @@
-extends RigidBody3D
+extends basepickup
 
 @onready var cast = $RayCast3D
 

@@ -1,4 +1,4 @@
-extends Node3D
+extends basepickup
 
 @export var fullmat : Material
 @export var emptymat : Material
@@ -12,6 +12,7 @@ var data : InventoryObject
 var full : bool = true
 
 func _ready():
+	super()
 	await get_tree().process_frame
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("full")):
