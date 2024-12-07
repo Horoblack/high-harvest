@@ -33,7 +33,7 @@ func act():
 		if(!flying):
 			changemode()
 		fly(targetpos - global_position)
-		if(targetpos.distance_to(global_position) < 3):
+		if(targetpos.distance_to(global_position) < 6):
 			queue_free()
 	else:
 		if(target == null):
@@ -103,7 +103,7 @@ func checkscare():
 
 func scareoff():
 	fleeing = true
-	targetpos = Vector3(randf_range(-1,1),0,randf_range(-1,1)).normalized() * 100 + Vector3.UP * 30
+	targetpos = Vector3(randf_range(-1,1),0,randf_range(-1,1)).normalized() * 100 + Vector3.UP * 40
 
 func closestcrop():
 	var crops = get_tree().get_nodes_in_group("diggable").filter(func(a): return a is crop)

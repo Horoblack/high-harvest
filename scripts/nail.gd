@@ -4,6 +4,7 @@ extends basepickup
 @onready var cast: RayCast3D = $RayCast3D
 
 func _physics_process(delta: float) -> void:
+	super(delta)
 	if(cast.is_colliding()):
 		testdepth()
 

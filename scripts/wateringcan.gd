@@ -23,6 +23,7 @@ func _ready():
 		set_meta("obj", data)
 
 func _physics_process(delta):
+	super(delta)
 	if(nozzlepos.global_basis.z.dot(Vector3.DOWN) < -0.1):
 		if(timer.is_stopped()):
 			timer.start()

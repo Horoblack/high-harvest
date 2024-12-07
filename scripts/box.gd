@@ -44,6 +44,7 @@ func _on_lidcheck_body_entered(body):
 		lid.global_position = lidcheck.global_position
 
 func _physics_process(delta):
+	super(delta)
 	if(global_basis.y.dot(Vector3.UP) < -.4 && lid == null):
 		removeitem(null)
 	

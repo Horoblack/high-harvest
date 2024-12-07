@@ -28,6 +28,7 @@ func use():
 		col.queue_free()
 
 func _physics_process(delta):
+	super(delta)
 	if(cast.is_colliding() && !anchored && linear_velocity.length() > 1):
 		var normal : Vector3 = cast.get_collision_normal()
 		if(normal.dot(-global_basis.y) > .7):

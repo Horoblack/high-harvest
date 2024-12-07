@@ -26,6 +26,7 @@ func _process(delta):
 	waterlevel.position.y = lerp(-.1,.1,wateramt/6)
 
 func _physics_process(delta):
+	super(delta)
 	if(global_basis.y.dot(Vector3.DOWN) > 0.4 && wateramt > 0):
 		dump()
 	if(cooking && boil < 30):

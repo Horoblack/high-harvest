@@ -1,7 +1,5 @@
 extends basepickup
 
-var lastspeed
-
 var fertile : bool = false
 
 var hatchtime : float = 60
@@ -10,8 +8,7 @@ const chick = preload("res://prefabs/chicken.tscn")
 const roost = preload("res://prefabs/rooster.tscn")
 const decal = preload("res://prefabs/eggdecal.tscn")
 
-func _physics_process(delta):
-	lastspeed = linear_velocity.length()
+
 
 func incubate(delta):
 	if(fertile):
@@ -29,7 +26,7 @@ func _integrate_forces( state ):
 		colnormal = state.get_contact_local_normal(0)
 
 func _on_body_entered(body):
-	var impactforce = lastspeed - linear_velocity.length()
+	var impactforce = lastspeed.length() - linear_velocity.length()
 	if(impactforce > 5):
 		var dec = decal.instantiate()
 		get_tree().current_scene.add_child(dec)
