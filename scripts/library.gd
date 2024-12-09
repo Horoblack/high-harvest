@@ -2,6 +2,7 @@ extends Node
 
 var objs : Dictionary = {
 	"shovel":load("res://prefabs/shovel.tscn"),
+	"hoe":load("res://prefabs/hoe.tscn"),
 	"potato":load("res://prefabs/potato.tscn"),
 	"dicedpotato":load("res://prefabs/dicedpotato.tscn"),
 	"carrot":load("res://prefabs/carrot.tscn"),
@@ -22,6 +23,7 @@ var objs : Dictionary = {
 	"chicken":load("res://prefabs/chicken.tscn"),
 	"rooster":load("res://prefabs/rooster.tscn"),
 	"egg":load("res://prefabs/egg.tscn"),
+	"pig":load("res://prefabs/pig.tscn"),
 	"bankstatement":load("res://prefabs/bankstatement.tscn"),
 	"storeflyer":load("res://prefabs/storeflyer.tscn"),
 	"trashcan":load("res://prefabs/trashcan.tscn"),
@@ -51,10 +53,13 @@ var objs : Dictionary = {
 	"key":load("res://prefabs/key.tscn"),
 	"pan":load("res://prefabs/pan.tscn"),
 	"pot":load("res://prefabs/pot.tscn"),
+	"totem":load("res://prefabs/totem.tscn"),
 }
 
 var invobjs : Dictionary = {
+	"bankstatement":load("res://invobjs/bankstatement.tres"),
 	"shovel":load("res://invobjs/shovel.tres"),
+	"hoe":load("res://invobjs/hoe.tres"),
 	"potato":load("res://invobjs/potato.tres"),
 	"dicedpotato":load("res://invobjs/dicedpotato.tres"),
 	"carrot":load("res://invobjs/carrot.tres"),
@@ -76,6 +81,7 @@ var invobjs : Dictionary = {
 	"chicken":load("res://invobjs/chicken.tres"),
 	"rooster":load("res://invobjs/rooster.tres"),
 	"egg":load("res://invobjs/egg.tres"),
+	"pig":load("res://invobjs/pig.tres"),
 	"trashcan":load("res://invobjs/trashcan.tres"),
 	"trashbag":load("res://invobjs/trashbag.tres"),
 	"newtrashbag":load("res://invobjs/newtrashbag.tres"),
@@ -103,6 +109,7 @@ var invobjs : Dictionary = {
 	"key":load("res://invobjs/key.tres"),
 	"pan":load("res://invobjs/pan.tres"),
 	"pot":load("res://invobjs/pot.tres"),
+	"totem":load("res://invobjs/totem.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -113,7 +120,8 @@ var purchasables : Dictionary = {
 	"shovel" = 9.0,
 	"wateringcan" = 8.0,
 	"chicken" = 17.0,
-	"rooster" = 20.0,
+	"rooster" = 30.0,
+	"pig" = 20.0,
 	"newtrashbag" = 5.0,
 	"trashcan" = 10.0,
 	#"shotgun" = 30.0,
@@ -124,6 +132,7 @@ var purchasables : Dictionary = {
 	"lantern" = 40.0,
 	"oilbottle" = 10.0,
 	"scythe" = 100.0,
+	"hoe" = 100.0,
 	"bouncyball" = 1.0,
 	"key" = 50.0,
 	"knife" = 15.0,
@@ -134,15 +143,20 @@ var sellvalues : Dictionary = {
 	"carrot" = 5.0,
 	"tomato" = 5.0,
 	"turnip" = 5.0,
-	"egg" = 5.0,
+	"egg" = 7.0,
 	"trashbag" = 1.0,
 	"ammobox" = 5.0,
 	"used ammobox" = 0.99,
-	"chickenmeat" = 10.0,
+	"chickenmeat" = 20.0,
 	"crowmeat" = 6.0,
-	"pigmeat" = 10.0,
+	"pigmeat" = 30.0,
 	"rotten meat" = 0.00,
 	"spoiled food" = 0.00,
+	"carrotseedbag" = 10.0,
+	"tomatoseedbag" = 10.0,
+	"turnipseedbag" = 10.0,
+	"usedseedbag" = 1.0,
+	"totem" = 100.0,
 }
 
 const crops : Dictionary = {
@@ -169,17 +183,21 @@ const scenes : Array = [
 	"res://scenes/cellar.tscn", #1
 ]
 
-func sell(item : String, amount : int) -> float:
+func sell(item : String) -> float:
 	if(Library.sellvalues.has(item)):
 		if(Savedata.gamedata["stocks"].has(item)):
 			var returnvalue = Library.sellvalues[item] * Savedata.gamedata["stocks"][item]
 			returnvalue = snapped(returnvalue,.01)
-			Savedata.gamedata["money"] += returnvalue * amount
-			Savedata.gamedata["stocks"][item] = clamp(Savedata.gamedata["stocks"][item] - (0.05 * amount),0.5,2)
+			Savedata.gamedata["money"] += returnvalue
+			#Savedata.gamedata["stocks"][item] = clamp(Savedata.gamedata["stocks"][item] - (0.01),0.5,2)
 			return returnvalue
 		else:
+			var returnvalue = Library.sellvalues[item]
+			Savedata.gamedata["money"] += returnvalue
 			return Library.sellvalues[item]
 	elif(Library.purchasables.has(item)):
+		var returnvalue = Library.sellvalues[item]
+		Savedata.gamedata["money"] += returnvalue
 		return Library.purchasables[item]
 	else:
 		return 0

@@ -1,5 +1,5 @@
 extends RigidBody3D
-
+class_name wickerman
 @onready var raycast = $RayCast3D
 @onready var chest = $lombar/chest
 @onready var rightfoot = $r_hip/r_upperleg/r_knee/r_lowerleg/r_ankle/r_foot
@@ -47,18 +47,20 @@ func _ready():
 
 func _physics_process(delta):
 	if(props && props["limbs"]):
+		props["active"] = active
 		for n in limbs.size():
 			#props["limbs"][n] = []
 			#props["limbs"][n].resize(2)
 			#props["limbs"][n][0] = limbs[n].position 
 			props["limbs"][n] = limbs[n].rotation 
-	if(!active):
+	if(!active || player.global_position.distance_to(global_position) > 10):
 		return
-	if(player.global_position.distance_to(global_position) < 1.8):
+	if(player.global_position.distance_to(global_position) < 2):
 		var direction = (player.global_position - global_position).normalized()
 		direction.y = .1
 		player.velocity = direction * 40
 		player.ragdoll(20)
+		apply_impulse(direction * -20)
 	movementdirection = global_position.direction_to(player.global_position)
 	raycast.target_position = raycast.to_local(global_position + Vector3.DOWN * targetheight)
 	if(raycast.is_colliding()):
@@ -87,6 +89,6 @@ func _physics_process(delta):
 		var targetchestposition = point + Vector3.UP * targetheight
 		var strength = 100 + (100 if leftfootgrounded.is_colliding() else 0) + (100 if rightfootgrounded.is_colliding() else 0)
 		chest.apply_force((targetchestposition-chest.global_position)*strength,chest.global_basis.y)
-		chest.apply_force(movementdirection * 10)
+		chest.apply_force(movementdirection * 20)
 		var targetbasis = chest.global_basis.looking_at(movementdirection)
 		chest.apply_torque(Library.calc_angular_velocity(chest.global_basis,targetbasis))

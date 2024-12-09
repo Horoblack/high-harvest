@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=4 uid="uid://b4oecj68xoyd7"]
+[gd_scene load_steps=93 format=4 uid="uid://b4oecj68xoyd7"]
 
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="1_fkk1i"]
 [ext_resource type="Script" path="res://scripts/dayManager.gd" id="2_g20cd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dyelyowetnlqn" path="res://models/textures/cellarwall.png" id="4_qxu4k"]
 [ext_resource type="Texture2D" uid="uid://p4bqwcm30wg7" path="res://models/textures/rust.png" id="4_u3u4d"]
 [ext_resource type="Script" path="res://scripts/cellardoor.gd" id="6_0w6l5"]
+[ext_resource type="Script" path="res://scripts/cellaractivation.gd" id="7_u01hk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rg4qs"]
 margin = 0.1
@@ -520,6 +521,11 @@ orientation = 0
 [sub_resource type="PlaneMesh" id="PlaneMesh_xq2re"]
 material = SubResource("StandardMaterial3D_6o64v")
 size = Vector2(92, 92)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_av1r8"]
+size = Vector3(100, 10, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yhldw"]
 
 [node name="cellar" type="Node3D"]
 
@@ -1623,4 +1629,21 @@ omni_range = 30.0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="maze/OmniLight3D2"]
 mesh = SubResource("SphereMesh_82efs")
 
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8, -52.9)
+script = ExtResource("7_u01hk")
+
+[node name="ShapeCast3D" type="ShapeCast3D" parent="Node3D"]
+enabled = false
+shape = SubResource("BoxShape3D_av1r8")
+target_position = Vector3(0, 0, 0)
+max_results = 128
+
+[node name="Area3D" type="Area3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, -37)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Area3D"]
+shape = SubResource("BoxShape3D_yhldw")
+
 [connection signal="body_entered" from="exit" to="exit" method="enter"]
+[connection signal="body_exited" from="Node3D/Area3D" to="Node3D" method="_on_area_3d_body_exited"]

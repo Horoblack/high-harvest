@@ -10,9 +10,10 @@ class_name Player
 @onready var shadowshape: CollisionShape3D = $shadow/CollisionShape3D
 @onready var normalshape: CollisionShape3D = $CollisionShape3D
 @onready var injury = $cam/CanvasLayer/injury
+@onready var gameover = $cam/CanvasLayer/injury/gameover
 
 var curspeed
-const SPEED = 160
+const SPEED = 100
 const JUMP_VELOCITY = 600
 const drag = .87
 
@@ -32,6 +33,7 @@ var ragdolled : bool = false
 @onready var ragdolltime: Timer = $ragdolltime
 
 func _ready():
+	gameover.visible = false
 	shadow.call_deferred("reparent",get_tree().current_scene)
 	add_collision_exception_with(shadow)
 	shadow.add_collision_exception_with(self)
@@ -51,6 +53,10 @@ func _physics_process(delta):
 	if(damage > 0 && damage < 100):
 		damage -= delta * 10
 	injury.color.a = damage/100
+	if(damage >= 100):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		gameover.visible = true
+	
 	if !is_on_floor():
 		velocity.y -= gravity * delta * gravvel
 		
@@ -89,7 +95,7 @@ func _physics_process(delta):
 		var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		if direction:
-			if(curspeed < SPEED):
+			if(curspeed < (SPEED if !Input.is_action_pressed("shift") else SPEED * 2)):
 				curspeed += 10
 			else:
 				curspeed -= 3
@@ -158,6 +164,7 @@ func feed(amt : float):
 	hunger = clamp(hunger,0,100)
 
 func ragdoll(dmg : float = 0):
+	Savedata.cansave += 1
 	damage += dmg
 	ragdolled = true
 	shadow.freeze = false
@@ -167,11 +174,13 @@ func ragdoll(dmg : float = 0):
 	shadow.angular_velocity = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1))
 	velocity = Vector3.ZERO
 	await get_tree().create_timer(1).timeout
-	crouchheight(true)
-	ragdolled = false
-	shadow.freeze = true
-	normalshape.disabled = false
-	shadowshape.disabled = true
+	if(damage < 100):
+		Savedata.cansave -= 1
+		crouchheight(true)
+		ragdolled = false
+		shadow.freeze = true
+		normalshape.disabled = false
+		shadowshape.disabled = true
 
 func _on_ragdolltime_timeout() -> void:
 	ragdoll()
@@ -179,3 +188,15 @@ func _on_ragdolltime_timeout() -> void:
 func heat(b):
 	if(b):
 		ragdoll(20)
+
+
+func quittomenu():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+
+func reload():
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Savedata.load_data()
+	get_tree().reload_current_scene()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://nd13bro7u5qn"]
+[gd_scene load_steps=17 format=4 uid="uid://nd13bro7u5qn"]
 
 [ext_resource type="Script" path="res://scripts/crow.gd" id="1_nf4ca"]
 [ext_resource type="Texture2D" uid="uid://dd2cabn0s8fb6" path="res://models/textures/crow.png" id="1_o3w3w"]
 [ext_resource type="Resource" uid="uid://cjity7hmo53xi" path="res://invobjs/crow.tres" id="2_3r5fn"]
+[ext_resource type="AudioStream" uid="uid://bxd4x6h3ph2i6" path="res://sounds/crow.wav" id="4_1cwtc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hpv8"]
 diffuse_mode = 3
@@ -461,5 +462,14 @@ autostart = true
 [node name="Timer2" type="Timer" parent="."]
 autostart = true
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_1cwtc")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer3D"]
+wait_time = 10.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="checkscare"]
 [connection signal="timeout" from="Timer2" to="." method="act"]
+[connection signal="timeout" from="AudioStreamPlayer3D/Timer" to="AudioStreamPlayer3D" method="play"]

@@ -46,6 +46,8 @@ func updatedata():
 	if(data == null):
 		data = get_meta("obj").duplicate()
 	data.customproperties["seedcount"] = seedcount
+	if(seedcount < 10):
+		data.customproperties["sellmod"] = "usedseedbag"
 	set_meta("obj", data)
 
 func info() -> String:

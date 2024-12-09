@@ -150,9 +150,9 @@ func letgoofheld():
 	body.remove_collision_exception_with(held)
 	held.reparent(get_tree().current_scene)
 	if(cast.is_colliding()):
-		held.global_position = cast.get_collision_point()
+		held.global_position = cast.get_collision_point() + (cast.global_basis.z*.2)
 	else:
-		held.global_position = global_position - global_basis.z
+		held.global_position = global_position - (global_basis.z*2)
 	if(held.has_method("hold")):
 		held.hold(null)
 	held.freeze = false

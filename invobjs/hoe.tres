@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://ccv70qh8gexxp"]
+
+[ext_resource type="Texture2D" uid="uid://cbxjbmd15dt2h" path="res://sprites/itemicons/hoe.png" id="1_mwt4k"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_vnxdu"]
+
+[resource]
+script = ExtResource("2_vnxdu")
+name = "hoe"
+weight = 1.0
+icon = ExtResource("1_mwt4k")
+description = "Can be used to quicky dig holes."
+objaddress = "hoe"
+customproperties = {}

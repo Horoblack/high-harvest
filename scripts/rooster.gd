@@ -16,6 +16,8 @@ extends RigidBody3D
 
 @onready var oldshape = $oldshape
 
+@onready var crowing = $crowing
+
 @export var chickthumbnail : Texture2D
 @export var midthumbnail : Texture2D
 @export var oldthumbnail : Texture2D
@@ -28,13 +30,25 @@ var agestage : int = -1
 var age : float = 0
 var data : InventoryObject
 
+
+var daymanager
+var crowed : bool = false
+func resetcrow():
+	crowed = false
+
+func crow():
+	crowed = true
+	crowing.play()
+
 func _ready():
 	await get_tree().process_frame
+	daymanager = get_tree().current_scene.get_node("%day manager")
 	data = get_meta("obj").duplicate()
 	if(data.customproperties.has("age")):
 		age = data.customproperties["age"]
 	updatedata()
 	agecheck()
+	daymanager.day.connect(resetcrow)
 
 func straighten():
 	apply_central_impulse(Vector3.UP*3)
@@ -147,6 +161,9 @@ func _on_animation_player_animation_finished(anim_name):
 		anim.play("idle")
 
 func _on_actiontimer_timeout():
+	if(agestage == 2 && !crowed && daymanager.timeofday > 600):
+		crow()
+	
 	match(state):
 		0:
 			if(!floorcast.is_colliding()):
@@ -186,7 +203,7 @@ func getclosestchicken():
 	return ch
 
 func info() -> String:
-	var ret : String = "Age: %s\nMale" % [age]
+	var ret : String = "Age: %s\nMale" % [str(age).pad_decimals(2)]
 	return ret
 
 func trigger(pl : PlayerCam):

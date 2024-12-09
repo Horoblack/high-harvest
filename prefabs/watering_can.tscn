@@ -5,9 +5,13 @@
 [ext_resource type="Resource" uid="uid://cp0vqognoxt5d" path="res://invobjs/wateringcan.tres" id="2_tr7cf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3bb4"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.34902, 0.388235, 0.360784, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pano4"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.211765, 0.239216, 0.290196, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_4ra1y"]

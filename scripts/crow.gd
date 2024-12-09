@@ -45,7 +45,9 @@ func act():
 			anim.play("peck")
 			if(flying):
 				changemode()
-			target.queue_free()
+			#target.queue_free()
+			target.curwetness *= .8
+			target.curtime *= .8
 			target = null
 		if(target != null && global_position.distance_to(target.global_position) < 10):
 			if(flying):
@@ -109,7 +111,7 @@ func closestcrop():
 	var crops = get_tree().get_nodes_in_group("diggable").filter(func(a): return a is crop)
 	var curcrop
 	for n in crops:
-		if(curcrop == null || curcrop.distance_to(global_position) > n.distance_to(global_position)):
+		if(curcrop == null || curcrop.global_position.distance_to(global_position) > n.global_position.distance_to(global_position)):
 			curcrop = n
 	return curcrop
 

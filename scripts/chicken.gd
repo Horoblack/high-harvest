@@ -240,7 +240,7 @@ func _on_eggtimer_timeout():
 	eggtimer.start(randf_range(26,39))
 
 func info() -> String:
-	var ret : String = "Age: %s\nFemale" % [age]
+	var ret : String = "Age: %s\nFemale" % [str(age).pad_decimals(2)]
 	return ret
 
 func trigger(pl : PlayerCam):

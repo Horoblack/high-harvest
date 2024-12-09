@@ -1,7 +1,11 @@
-[gd_scene load_steps=42 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=48 format=4 uid="uid://1x2qqvrpl61i"]
 
+[ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
+[ext_resource type="PackedScene" uid="uid://bi8w8ffy45ret" path="res://prefabs/table.tscn" id="1_u7r3e"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
+[ext_resource type="Shader" path="res://sky.gdshader" id="4_p21nl"]
 [ext_resource type="Script" path="res://scripts/eventmanager.gd" id="5_l1g36"]
+[ext_resource type="Texture2D" uid="uid://dipl3vtt0tsng" path="res://stars.png" id="5_qdpci"]
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
@@ -12,7 +16,16 @@
 [ext_resource type="PackedScene" uid="uid://bxfvggdjia5in" path="res://prefabs/gramophone.tscn" id="13_cyqij"]
 [ext_resource type="Script" path="res://scripts/crowspawner.gd" id="13_d7nle"]
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
-[ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://house.tscn" id="14_vicrl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
+size = Vector3(0.1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jrraj"]
+albedo_color = Color(0.33, 0.33, 0.33, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_s2lke"]
+material = SubResource("StandardMaterial3D_jrraj")
+size = Vector3(0.1, 0.1, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_7b6fw"]
 _data = {
@@ -131,15 +144,55 @@ shadow_mesh = SubResource("ArrayMesh_lgw6f")
 [sub_resource type="BoxShape3D" id="BoxShape3D_odeyq"]
 size = Vector3(0.2, 1, 4.5)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
-size = Vector3(0.1, 0.1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
+shader = ExtResource("4_p21nl")
+shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
+shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
+shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
+shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
+shader_parameter/night_top_color = Color(0, 0, 0, 1)
+shader_parameter/night_bottom_color = Color(0.00392157, 0, 0.0941176, 1)
+shader_parameter/horizon_color = Color(0.318666, 0.199505, 0.0984537, 1)
+shader_parameter/horizon_blur = 0.13
+shader_parameter/sun_color = Color(10, 8, 1, 1)
+shader_parameter/sun_sunset_color = Color(10, 0.666667, 0, 1)
+shader_parameter/sun_size = 0.1
+shader_parameter/sun_blur = 0.0
+shader_parameter/moon_color = Color(1, 0.95, 0.7, 1)
+shader_parameter/moon_size = 0.06
+shader_parameter/moon_blur = 0.01
+shader_parameter/clouds_edge_color = Color(0.8, 0.8, 0.98, 1)
+shader_parameter/clouds_top_color = Color(1, 1, 1, 1)
+shader_parameter/clouds_middle_color = Color(0.92, 0.92, 0.98, 1)
+shader_parameter/clouds_bottom_color = Color(0.83, 0.83, 0.94, 1)
+shader_parameter/clouds_speed = 2.0
+shader_parameter/clouds_direction = 0.2
+shader_parameter/clouds_scale = 1.41
+shader_parameter/clouds_cutoff = 0.65
+shader_parameter/clouds_fuzziness = 0.0
+shader_parameter/clouds_weight = 0.0
+shader_parameter/clouds_blur = 1.0
+shader_parameter/stars_speed = 0.01
+shader_parameter/stars_texture = ExtResource("5_qdpci")
+shader_parameter/overwritten_time = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fkmu"]
-albedo_color = Color(0.33, 0.33, 0.33, 1)
+[sub_resource type="Sky" id="Sky_n5ujh"]
+sky_material = SubResource("ShaderMaterial_88cxw")
 
-[sub_resource type="BoxMesh" id="BoxMesh_s2lke"]
-material = SubResource("StandardMaterial3D_6fkmu")
-size = Vector3(0.1, 0.1, 1)
+[sub_resource type="Environment" id="Environment_kgkmd"]
+background_mode = 2
+background_color = Color(0.180392, 0.501961, 0.505882, 1)
+sky = SubResource("Sky_n5ujh")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.2
+ssao_enabled = true
+ssao_radius = 0.76
+glow_strength = 0.3
+fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
+fog_sky_affect = 0.178
+volumetric_fog_density = 0.02
+volumetric_fog_sky_affect = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo085"]
 diffuse_mode = 3
@@ -213,6 +266,21 @@ timerange = Vector2(0, 2400)
 position = Vector3(-19, 0.5, -31)
 
 [node name="Node3D" type="Node3D"]
+
+[node name="table" parent="." instance=ExtResource("1_u7r3e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9, 1.4, -22.6)
+
+[node name="house" parent="." instance=ExtResource("1_0f5v3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2, 0.5, -25.3)
+
+[node name="lanternholder" type="StaticBody3D" parent="house"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 2.4, 4.6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="house/lanternholder"]
+shape = SubResource("BoxShape3D_kwhdr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="house/lanternholder"]
+mesh = SubResource("BoxMesh_s2lke")
 
 [node name="fence" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24, 0)
@@ -350,24 +418,16 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2.25)
 shape = SubResource("BoxShape3D_odeyq")
 
-[node name="lanternholder" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.5, 2.9, -17.3)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="lanternholder"]
-shape = SubResource("BoxShape3D_kwhdr")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="lanternholder"]
-mesh = SubResource("BoxMesh_s2lke")
-
 [node name="day manager" parent="." groups=["daymanager"] instance=ExtResource("3_72js4")]
 unique_name_in_owner = true
+environment = SubResource("Environment_kgkmd")
 rateoftime = 5.0
 
 [node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 0.5, -23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2, 0.5, -23)
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
@@ -380,7 +440,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_4w7f7")
 
 [node name="tap" parent="." instance=ExtResource("9_oox23")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -9, 0, -17)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.9, 0, -18)
 
 [node name="edgecircle" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -466,9 +526,6 @@ script = ExtResource("13_d7nle")
 wait_time = 60.0
 one_shot = true
 autostart = true
-
-[node name="farmhouse" parent="." instance=ExtResource("14_vicrl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0.2, -20)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

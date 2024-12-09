@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dv874f3d0dvoj"]
+
+[ext_resource type="Texture2D" uid="uid://j2vsr68crrcb" path="res://sprites/itemicons/paper.png" id="1_yf3gi"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_vopot"]
+
+[resource]
+script = ExtResource("2_vopot")
+name = "Receipt"
+weight = 0.1
+icon = ExtResource("1_yf3gi")
+description = ""
+objaddress = "Receipt"
+customproperties = {}

@@ -9,11 +9,13 @@ radius = 0.15
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.419608, 0.266667, 0.137255, 1)
+metallic_specular = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0moc4"]
 diffuse_mode = 3
 specular_mode = 2
 albedo_color = Color(0.25098, 0.14902, 0.0666667, 1)
+metallic_specular = 0.0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_mh0re"]
 _surfaces = [{

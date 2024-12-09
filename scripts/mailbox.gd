@@ -28,11 +28,14 @@ func _on_timer_timeout():
 				for i in n.buyingselection:
 					totalprice += Library.purchasables[i]
 				
-				if(Savedata.gamedata["money"] - totalprice >= -20):
+				if(Savedata.gamedata["money"] - totalprice >= 0):
 					usedturn = true
 					Savedata.gamedata["money"] -= totalprice
 					var bx : box = Library.objs["box"].instantiate()
 					ignore.append(bx)
+					var receipt : InventoryObject = Library.invobjs["bankstatement"].duplicate()
+					receipt.customproperties["text"] = "Thank you for your purchase.\nYour new balance is $%s." % Savedata.gamedata["money"]
+					bx.inventory.append(receipt)
 					for i in n.buyingselection:
 						for q in n.buyingselection[i]:
 							bx.inventory.append(Library.invobjs[i].duplicate())
@@ -54,17 +57,17 @@ func spawnletter(solditems : Array):
 		if(!itemamounts.has(n)):
 			itemamounts[n] = 0
 		itemamounts[n] += 1
-	
+	#print(itemamounts)
 	var str = "Thank you for your contribution.\n\n\n"
 	for n in itemamounts:
 		var pp = n.name.to_lower()
 		if(n.customproperties.has("sellmod")):
 			pp = n.customproperties["sellmod"]
 		
-		var amt : float = Library.sell(pp,itemamounts[n])
+		var amt : float = Library.sell(pp)
 		for b in itemamounts[n]:
-			str += "\n%s : $%.2f\n" % [pp, amt]
-		str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
+			str += "\n%s : $%.2f" % [pp, amt]
+	str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
 	
 	var letter : bankstatement = Library.objs["bankstatement"].instantiate()
 	get_tree().current_scene.add_child(letter)

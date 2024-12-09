@@ -1,18 +1,8 @@
-[gd_scene load_steps=15 format=4 uid="uid://d2fi3tglbmqdh"]
+[gd_scene load_steps=13 format=4 uid="uid://d2fi3tglbmqdh"]
 
 [ext_resource type="Script" path="res://scripts/shovel.gd" id="1_iiyd0"]
-[ext_resource type="Texture2D" uid="uid://btnuoqy4l7erp" path="res://sprites/itemicons/shovel.png" id="2_0jpl0"]
-[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_wxtv3"]
+[ext_resource type="Resource" uid="uid://b3hnag15w435e" path="res://invobjs/shovel.tres" id="2_8im7y"]
 [ext_resource type="AudioStream" uid="uid://djj5e52vixgpv" path="res://sounds/shovel.mp3" id="4_hd8fn"]
-
-[sub_resource type="Resource" id="Resource_fe5ux"]
-script = ExtResource("2_wxtv3")
-name = "shovel"
-weight = 1.0
-icon = ExtResource("2_0jpl0")
-description = "Can be used to dig holes for crops or to uproot grown crops."
-objaddress = "shovel"
-customproperties = {}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2sjbw"]
 size = Vector3(0.2, 1.7, 0.1)
@@ -170,7 +160,7 @@ _data = {
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_iiyd0")
-metadata/obj = SubResource("Resource_fe5ux")
+metadata/obj = ExtResource("2_8im7y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.05, 0)

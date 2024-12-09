@@ -6,6 +6,8 @@ var gamedata = {}
 
 var curfile = 0
 
+var cansave : int = 0
+
 func _ready():
 	load_data()
 
@@ -34,19 +36,22 @@ func load_data():
 			"timeofday": 1200,
 			"money": 50,
 			"playerscene":0,
-			"player": [Vector3(-19,0.5,-23), Vector3(0,deg_to_rad(180),0), 50,50,[], [],[]],
+			"player": [Vector3(-25.2,0.5,-23), Vector3(0,0,0), 50,50,[], [],[]],
 			"objects0": [
-				#["pickup",Vector3(-18, 2.15, -29.28), Vector3(0, 0, 0), "calendar", {  }], 
-				#["pickup",Vector3(-18, 2.4, -29.25), Vector3(0, 0, 0), "nail", {  }], 
-				#["pickup",Vector3(-11.5, 2.57, -17), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
-				#["pickup",Vector3(-27.3, 1.6, -20.7), Vector3(0, deg_to_rad(90), 0), "pillow", {  }], 
+				["pickup",Vector3(-28.1, 2.5, -25.3), Vector3(0, deg_to_rad(90), 0), "calendar", {  }], 
+				["pickup",Vector3(-28.05, 2.75, -25.3), Vector3(0, deg_to_rad(90), 0), "nail", {  }], 
+				["pickup",Vector3(-16.8, 2.57, -20.3), Vector3(0, deg_to_rad(90), 0), "lantern", {  }], 
+				["pickup",Vector3(-27.4, 1.9, -21.8), Vector3(0, deg_to_rad(180), 0), "pillow", {  }], 
+				["pickup",Vector3(-16.9, 1.2, -21.6), Vector3(deg_to_rad(15), 0, 0), "shovel", {  }], 
+				["pickup",Vector3(-20, 1.8, -22), Vector3(0, 0, 0), "wateringcan", {  }], 
+				["pickup",Vector3(-20.1, 1.85, -23), Vector3(0, deg_to_rad(90), 0), "carrotseedbag", {  }], 
 				["pickup",Vector3(-27.908, 0.923, -31.43), Vector3(deg_to_rad(-60), deg_to_rad(-90), 0), "lock", {  }], 
-				#["pickup",Vector3(-26.8, 1.6, -26.8), Vector3(0, 0, 0), "pan", {  }], 
-				#["other", "table", Vector3(-12.1, 1.4, -28), Vector3(0, 0, 0)], 
-				#["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
-				#["other", "bedframe", Vector3(-26.5, 1.1, -20.7), Vector3(0, deg_to_rad(90), 0)], 
-				#["other", "mattress", Vector3(-26.5, 1.5, -20.7), Vector3(0, deg_to_rad(90), 0)], 
-				#["other", "stove", Vector3(-27, 1, -27), Vector3(0, deg_to_rad(-90), 0),{"fuel":5.5}], 
+				["pickup",Vector3(-17.1, 1.6, -28.4), Vector3(0, 0, 0), "pan", {  }], 
+				["other", "table", Vector3(-20.9, 1.4, -22.6), Vector3(0, 0, 0)], 
+				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
+				["other", "bedframe", Vector3(-27.4, 1.2, -22.6), Vector3(0, deg_to_rad(-180), 0)], 
+				["other", "mattress", Vector3(-27.4, 1.7, -22.6), Vector3(0, deg_to_rad(-180), 0)], 
+				["other", "stove", Vector3(-16.9, 1, -28.6), Vector3(0, deg_to_rad(90), 0),{"fuel":10.0}], 
 				#["other", "wickerman1", Vector3(-5, 1.7, -5), Vector3(0, deg_to_rad(-180), 0)], 
 				],
 			"objects1": [
@@ -70,6 +75,8 @@ func load_data():
 				["other", "woodenbox", Vector3(28.5, 0.5, -21), Vector3(0, deg_to_rad(-15), 0)], 
 				["pickup",Vector3(27, 1.25, -20), Vector3(0, 0, 0), "turnip", {  }], 
 				["pickup",Vector3(40.3, 1.5, -35.4), Vector3(deg_to_rad(180), 0, 0), "knife", {  }], 
+				["other", "woodenbox", Vector3(0, 0.5, -90), Vector3(0, 0, 0)], 
+				["pickup",Vector3(0, 1.3, -90), Vector3(0, 0, 0), "totem", {  }], 
 			],
 			"stocks": {
 					"carrot":1,
@@ -80,10 +87,11 @@ func load_data():
 				
 			}
 		}
+	cansave = 0
 	return gamedata
 
 func save_data():
-	if(curfile != -1):
+	if(curfile != -1 && cansave == 0):
 		var file = FileAccess.open(SAVEFILE % curfile, FileAccess.WRITE)
 		file.store_var(gamedata)
 

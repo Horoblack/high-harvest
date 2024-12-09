@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://c166us2qqnpi2"]
+
+[ext_resource type="Texture2D" uid="uid://b65qjbfrbe0em" path="res://sprites/itemicons/totem.png" id="1_tlxj3"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_6nb0m"]
+
+[resource]
+script = ExtResource("2_6nb0m")
+name = "Totem"
+weight = 2.0
+icon = ExtResource("1_tlxj3")
+description = "Valuable sell."
+objaddress = "totem"
+customproperties = {}

@@ -1,12 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwi170efjq44q"]
+[gd_scene load_steps=8 format=3 uid="uid://cwi170efjq44q"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_uppgx"]
 [ext_resource type="Script" path="res://scripts/playercam.gd" id="2_vgmbu"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="3_w0mcb"]
 [ext_resource type="PackedScene" uid="uid://bvy82pls5kkcr" path="res://scenes/pause.tscn" id="4_1tgxg"]
+[ext_resource type="Theme" uid="uid://cbj0gkm83nlep" path="res://ui.tres" id="4_0876b"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i14eu"]
 radius = 0.45
+
+[sub_resource type="LabelSettings" id="LabelSettings_d7etg"]
+font_size = 128
+font_color = Color(0, 0, 0, 1)
 
 [node name="player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_uppgx")
@@ -316,6 +321,63 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(1, 0, 0, 0)
 
+[node name="gameover" type="Control" parent="cam/CanvasLayer/injury"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="cam/CanvasLayer/injury/gameover"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 7.0
+offset_right = 154.0
+offset_bottom = 437.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="quickloadbutton" type="Button" parent="cam/CanvasLayer/injury/gameover/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("4_0876b")
+text = "LOAD SAVE"
+
+[node name="quitbutton" type="Button" parent="cam/CanvasLayer/injury/gameover/VBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = ExtResource("4_0876b")
+text = "QUIT"
+
+[node name="Label" type="Label" parent="cam/CanvasLayer/injury/gameover"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -208.0
+offset_right = 169.5
+offset_bottom = -109.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU DIED"
+label_settings = SubResource("LabelSettings_d7etg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="coyoteTime" type="Timer" parent="."]
 
 [node name="ceilingcheck" type="RayCast3D" parent="."]
@@ -323,6 +385,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 target_position = Vector3(0, 1.8, 0)
 
 [node name="pause" parent="." instance=ExtResource("4_1tgxg")]
+mouse_filter = 2
 
 [node name="shadow" type="RigidBody3D" parent="."]
 freeze = true
@@ -337,4 +400,6 @@ disabled = true
 [node name="ragdolltime" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="pressed" from="cam/CanvasLayer/injury/gameover/VBoxContainer/quickloadbutton" to="." method="reload"]
+[connection signal="pressed" from="cam/CanvasLayer/injury/gameover/VBoxContainer/quitbutton" to="." method="quittomenu"]
 [connection signal="timeout" from="ragdolltime" to="." method="_on_ragdolltime_timeout"]

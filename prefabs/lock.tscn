@@ -126,7 +126,7 @@ size = Vector3(0.1, 0.3, 0.12)
 mass = 0.5
 continuous_cd = true
 contact_monitor = true
-max_contacts_reported = 2
+max_contacts_reported = 4
 script = ExtResource("1_ky8u5")
 metadata/obj = ExtResource("2_67b36")
 

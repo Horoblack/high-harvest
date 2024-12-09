@@ -2,6 +2,7 @@ extends Control
 
 @onready var ps = $ps
 @onready var label = $Label
+@onready var savebutton = $ps/VBoxContainer/savebutton
 
 var held : bool = false
 
@@ -17,6 +18,7 @@ func _ready():
 	ps.visible = false
 
 func _process(delta):
+	savebutton.disabled = Savedata.cansave != 0
 	label.self_modulate.a = curhold/targethold
 	if(held):
 		if(!ps.visible):

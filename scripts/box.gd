@@ -69,7 +69,7 @@ func unlidded():
 func getcurweight() -> float:
 	var ret : float = 1
 	for n : InventoryObject in inventory:
-		ret += n.weight
+		ret += (n.weight*.5)
 	return ret
 
 var removeditem
@@ -87,8 +87,9 @@ func removeitem(bod : Player):
 		updatedata()
 		add_collision_exception_with(removeditem)
 		await get_tree().create_timer(.3).timeout
-		remove_collision_exception_with(removeditem)
-		removeditem = null
+		if(removeditem != null):
+			remove_collision_exception_with(removeditem)
+			removeditem = null
 
 func updatedata():
 	if(data == null):
@@ -120,7 +121,7 @@ func serializeinventory():
 		ret.append([n.objaddress,n.customproperties])
 	return ret
 
-func deserializeinventory(t:Array[Array]):
+func deserializeinventory(t:Array):
 	var ret = []
 	for n in t:
 		var obj = Library.invobjs[n[0]].duplicate()

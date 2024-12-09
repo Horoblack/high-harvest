@@ -31,6 +31,7 @@ func _process(delta):
 		else:
 			on = false
 			updatelight()
+	data.customproperties["fuel"] = fuel
 
 func hold(pl):
 	ring.freeze = pl != null

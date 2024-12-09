@@ -19,9 +19,11 @@ func _ready():
 	model.transparency = 1
 	eyes.transparency = 1
 	spawn()
+	Savedata.cansave += 1
 
 func spawn():
 	if(distance == 10):
+		Savedata.cansave -= 1
 		queue_free()
 	audio.play()
 	var randpos = pl.basis.z * distance
