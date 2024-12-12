@@ -4,6 +4,7 @@ var objs : Dictionary = {
 	"shovel":load("res://prefabs/shovel.tscn"),
 	"hoe":load("res://prefabs/hoe.tscn"),
 	"potato":load("res://prefabs/potato.tscn"),
+	"potatoling":load("res://prefabs/potatoling.tscn"),
 	"dicedpotato":load("res://prefabs/dicedpotato.tscn"),
 	"carrot":load("res://prefabs/carrot.tscn"),
 	"carrotseed":load("res://prefabs/seedstuff/carrotseed.tscn"),

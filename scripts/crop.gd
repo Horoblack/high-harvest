@@ -20,7 +20,6 @@ var curstage : int = 0
 var curtime : float = 0
 var curwetness : float = 15
 
-
 func _process(delta):
 	if(curwetness >= 0):
 		curwetness -= delta * dryrate * .1

@@ -49,8 +49,8 @@ size = Vector2(2, 2)
 
 [node name="cropcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
 script = ExtResource("1_tqq33")
-maxgrowtime = 200.0
-dryrate = 0.1
+maxgrowtime = 150.0
+dryrate = 0.8
 stages = Array[Material]([ExtResource("2_iqihv"), ExtResource("3_tibqa"), ExtResource("4_u8qek")])
 stalk = NodePath("coveredhole/stalk")
 dropaddress = "potato"

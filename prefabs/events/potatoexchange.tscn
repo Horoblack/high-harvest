@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgh310plsokhg"]
+
+[ext_resource type="Script" path="res://scripts/potatoexchange.gd" id="1_tx0pd"]
+
+[node name="potatoexchange" type="Node3D"]
+script = ExtResource("1_tx0pd")

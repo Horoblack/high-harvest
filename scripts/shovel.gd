@@ -29,6 +29,7 @@ func dig():
 			for n in cols:
 				if(n.collider.has_method("uproot")):
 					n.collider.uproot()
+					audio.play()
 					return
 			var hol = hole.instantiate()
 			get_tree().current_scene.add_child(hol)

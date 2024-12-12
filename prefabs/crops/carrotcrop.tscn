@@ -50,7 +50,6 @@ size = Vector2(2, 2)
 [node name="carrotcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
 script = ExtResource("1_ouebp")
 maxgrowtime = 200.0
-dryrate = 0.1
 stages = Array[Material]([ExtResource("2_jn2y7"), ExtResource("3_mv0w7"), ExtResource("4_4l8h8")])
 stalk = NodePath("coveredhole/stalk")
 dropaddress = "carrot"
