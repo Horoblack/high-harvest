@@ -33,7 +33,7 @@ func _on_timer_timeout():
 					Savedata.gamedata["money"] -= totalprice
 					var bx : box = Library.objs["box"].instantiate()
 					ignore.append(bx)
-					var receipt : InventoryObject = Library.invobjs["bankstatement"].duplicate()
+					var receipt : InventoryObject = Library.invobjs["receipt"].duplicate()
 					receipt.customproperties["text"] = "Thank you for your purchase.\nYour new balance is $%s." % Savedata.gamedata["money"]
 					bx.inventory.append(receipt)
 					for i in n.buyingselection:

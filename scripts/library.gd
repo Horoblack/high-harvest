@@ -26,6 +26,8 @@ var objs : Dictionary = {
 	"egg":load("res://prefabs/egg.tscn"),
 	"pig":load("res://prefabs/pig.tscn"),
 	"bankstatement":load("res://prefabs/bankstatement.tscn"),
+	"receipt":load("res://prefabs/receipt.tscn"),
+	"note":load("res://prefabs/note.tscn"),
 	"storeflyer":load("res://prefabs/storeflyer.tscn"),
 	"trashcan":load("res://prefabs/trashcan.tscn"),
 	"trashbag":load("res://prefabs/trashbag.tscn"),
@@ -59,6 +61,8 @@ var objs : Dictionary = {
 
 var invobjs : Dictionary = {
 	"bankstatement":load("res://invobjs/bankstatement.tres"),
+	"receipt":load("res://invobjs/receipt.tres"),
+	"note":load("res://invobjs/note.tres"),
 	"shovel":load("res://invobjs/shovel.tres"),
 	"hoe":load("res://invobjs/hoe.tres"),
 	"potato":load("res://invobjs/potato.tres"),

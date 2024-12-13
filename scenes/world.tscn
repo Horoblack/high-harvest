@@ -1,7 +1,6 @@
-[gd_scene load_steps=51 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=49 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
-[ext_resource type="PackedScene" uid="uid://bi8w8ffy45ret" path="res://prefabs/table.tscn" id="1_u7r3e"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
 [ext_resource type="Shader" path="res://sky.gdshader" id="4_p21nl"]
 [ext_resource type="Script" path="res://scripts/eventmanager.gd" id="5_l1g36"]
@@ -17,7 +16,6 @@
 [ext_resource type="Script" path="res://scripts/crowspawner.gd" id="13_d7nle"]
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
-[ext_resource type="PackedScene" uid="uid://h1f87gl306xf" path="res://prefabs/potatoling.tscn" id="17_ha74g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -276,9 +274,6 @@ timerange = Vector2(0, 2400)
 position = Vector3(0, 0, 0)
 
 [node name="Node3D" type="Node3D"]
-
-[node name="table" parent="." instance=ExtResource("1_u7r3e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.9, 1.4, -22.6)
 
 [node name="house" parent="." instance=ExtResource("1_0f5v3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.2, 0.5, -25.3)
@@ -541,9 +536,6 @@ script = ExtResource("13_d7nle")
 wait_time = 60.0
 one_shot = true
 autostart = true
-
-[node name="potatoling" parent="." instance=ExtResource("17_ha74g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.6953, 0.5, -11.5012)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

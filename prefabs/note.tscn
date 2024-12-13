@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=4 uid="uid://dqyuausnlouoh"]
+
+[ext_resource type="Script" path="res://scripts/bankstatement.gd" id="1_61vb2"]
+[ext_resource type="Resource" uid="uid://cel6o03k5yygt" path="res://invobjs/note.tres" id="2_0asbs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_julhk"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k62gd"]
+_surfaces = [{
+"aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAABL7AAD//wAAEvsAAAAA//8U+wAA/////xT7AAAAAAAAAAAAAP//AAAAAAAAAAD//wIAAAD/////AgAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_la7lt"]
+resource_name = "paper_Plane"
+_surfaces = [{
+"aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
+"attribute_data": PackedByteArray("B4D3//f/9/8HgGFV9/9hVfd/9/8HAPf/939hVQcAYVU="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
+"material": SubResource("StandardMaterial3D_julhk"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAABL7/3///wAAEvv/fwAA//8U+/9//////xT7/38AAAAAAAD/////AAAAAP//AAD//wIA////////AgD///9/////f////3////9/////f/7//3/+//9//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k62gd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1omna"]
+margin = 0.1
+size = Vector3(0.375, 0.5, 0.06)
+
+[node name="paper" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_61vb2")
+metadata/obj = ExtResource("2_0asbs")
+
+[node name="paper" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_la7lt")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1omna")
+
+[node name="textstuff" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="textstuff"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="ColorRect" type="ColorRect" parent="textstuff/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="textbox" type="RichTextLabel" parent="textstuff/ColorRect/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 24.0
+offset_right = -18.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Text. This is text. Goob job."

@@ -9,5 +9,5 @@ name = "Receipt"
 weight = 0.1
 icon = ExtResource("1_yf3gi")
 description = ""
-objaddress = "Receipt"
+objaddress = "receipt"
 customproperties = {}

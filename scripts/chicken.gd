@@ -4,6 +4,7 @@ extends RigidBody3D
 @onready var actiontimer = $actiontimer
 @onready var eggtimer = $eggtimer
 @onready var floorcast = $floorcast
+@onready var audio : AudioStreamPlayer3D = $audio
 
 @onready var chickmodel = $chickmodel
 @onready var chickshape = $chickshape
@@ -20,6 +21,8 @@ extends RigidBody3D
 @export var chickthumbnail : Texture2D
 @export var midthumbnail : Texture2D
 @export var oldthumbnail : Texture2D
+
+@export var sounds : Array[AudioStream]
 
 var EGG = load("res://prefabs/egg.tscn")
 const BLOOD = preload("res://prefabs/bloodsplatter.tscn")
@@ -84,6 +87,8 @@ func jumptowards(node):
 		apply_central_impulse((dir * 2) + (global_basis.y*2))
 
 func _on_actiontimer_timeout():
+	audio.stream = sounds.pick_random()
+	audio.play()
 	match(state):
 		0:
 			if(!floorcast.is_colliding()):

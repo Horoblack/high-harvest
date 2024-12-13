@@ -15,7 +15,7 @@ func _physics_process(delta):
 		angular_velocity = Library.calc_angular_velocity(global_basis,target)*20
 		freeze = false
 		#linear_velocity = -global_basis.z * 20
-		apply_force(-global_basis.z * 40)#,Vector3(0,-.1,0))
+		apply_force(-global_basis.z * 20)#,Vector3(0,-.1,0))
 		if(lifetime < 0):
 			if(cast.get_collider().is_in_group("diggable")):
 				anim.play("bury")
