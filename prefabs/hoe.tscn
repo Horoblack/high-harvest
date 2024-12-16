@@ -1,8 +1,10 @@
-[gd_scene load_steps=13 format=4 uid="uid://dicw8cnxbw1yq"]
+[gd_scene load_steps=15 format=4 uid="uid://dicw8cnxbw1yq"]
 
 [ext_resource type="Script" path="res://scripts/hoe.gd" id="1_plg4i"]
 [ext_resource type="AudioStream" uid="uid://djj5e52vixgpv" path="res://sounds/shovel.mp3" id="1_vfuua"]
 [ext_resource type="Resource" uid="uid://ccv70qh8gexxp" path="res://invobjs/hoe.tres" id="2_kj3h4"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_tphe0"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_up7bk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7i7o5"]
 resource_name = "Material.001"
@@ -73,6 +75,21 @@ size = Vector3(0.0588379, 0.859863, 0.0576172)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5mckx"]
 size = Vector3(0.140625, 0.0341797, 0.225464)
 
+[sub_resource type="Animation" id="Animation_mq7tw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hoe:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_51rkb"]
 resource_name = "dig"
 length = 0.2
@@ -104,21 +121,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_mq7tw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("hoe:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kmarr"]
 _data = {
 "RESET": SubResource("Animation_mq7tw"),
@@ -127,6 +129,7 @@ _data = {
 
 [node name="hoe" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_plg4i")
+sounds = Array[AudioStream]([ExtResource("2_tphe0"), ExtResource("3_up7bk")])
 metadata/obj = ExtResource("2_kj3h4")
 
 [node name="hoe" type="MeshInstance3D" parent="."]

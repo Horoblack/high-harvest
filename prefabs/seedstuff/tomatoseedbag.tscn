@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://ctsbb6agp2r05"]
+[gd_scene load_steps=12 format=4 uid="uid://ctsbb6agp2r05"]
 
 [ext_resource type="Script" path="res://scripts/seedbag.gd" id="1_128tm"]
 [ext_resource type="Resource" uid="uid://cqi5q1uoyqx8i" path="res://invobjs/tomatoseedbag.tres" id="2_7q2ui"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_s0l5t"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_dt1p4"]
 [ext_resource type="Texture2D" uid="uid://dtgw5bk5dln8w" path="res://models/textures/tomato/seedbag.png" id="3_l6v6s"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="5_trjib"]
 
@@ -51,6 +53,7 @@ size = Vector3(0.34668, 0.160645, 0.139648)
 [node name="tomatoseedbag" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_128tm")
 seedaddress = "tomatoseed"
+sounds = Array[AudioStream]([ExtResource("2_s0l5t"), ExtResource("3_dt1p4")])
 metadata/obj = ExtResource("2_7q2ui")
 
 [node name="seedsack" type="MeshInstance3D" parent="."]

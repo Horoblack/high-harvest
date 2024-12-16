@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfiaem6d0fvvw"
+path="res://.godot/imported/Pinto 4.mp3-b226221fda8787e9d385d8de89fc8d57.mp3str"
+
+[deps]
+
+source_file="res://sounds/chicken/Pinto 4.mp3"
+dest_files=["res://.godot/imported/Pinto 4.mp3-b226221fda8787e9d385d8de89fc8d57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

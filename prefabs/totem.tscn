@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=4 uid="uid://bvu6byutaq80l"]
+[gd_scene load_steps=11 format=4 uid="uid://bvu6byutaq80l"]
 
 [ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_c3rn5"]
-[ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_dqmvj"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_6kbab"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_62ejf"]
 [ext_resource type="Resource" uid="uid://c166us2qqnpi2" path="res://invobjs/totem.tres" id="3_s2nq8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ospx"]
@@ -53,7 +54,7 @@ size = Vector3(0.240479, 0.0936279, 0.117432)
 
 [node name="totem" type="RigidBody3D" groups=["pickup", "totem"]]
 script = ExtResource("1_c3rn5")
-sound = ExtResource("2_dqmvj")
+sounds = Array[AudioStream]([ExtResource("2_6kbab"), ExtResource("3_62ejf")])
 metadata/obj = ExtResource("3_s2nq8")
 
 [node name="totem" type="MeshInstance3D" parent="."]

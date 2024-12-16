@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://dnqivnfoo6iju"]
+[gd_scene load_steps=14 format=4 uid="uid://dnqivnfoo6iju"]
 
 [ext_resource type="Texture2D" uid="uid://da1nj53qmlbj8" path="res://models/textures/carrot/seedbag.png" id="1_3si0l"]
 [ext_resource type="Script" path="res://scripts/seedbag.gd" id="1_kwxex"]
 [ext_resource type="Texture2D" uid="uid://q8c4kx5ncmo4" path="res://sprites/itemicons/carrotseedbag.png" id="2_0txvi"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_dd87d"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="2_dyuu2"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="3_6f22e"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_f3qib"]
 
 [sub_resource type="Resource" id="Resource_wvfsc"]
 script = ExtResource("3_6f22e")
@@ -61,6 +63,7 @@ size = Vector3(0.34668, 0.160645, 0.139648)
 [node name="carrotseedbag" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_kwxex")
 seedaddress = "carrotseed"
+sounds = Array[AudioStream]([ExtResource("2_dd87d"), ExtResource("3_f3qib")])
 metadata/obj = SubResource("Resource_wvfsc")
 
 [node name="seedsack" type="MeshInstance3D" parent="."]

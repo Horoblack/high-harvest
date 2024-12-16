@@ -56,7 +56,7 @@ mass = 0.3
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_v3rm0")
-sound = ExtResource("2_a08ty")
+sounds = Array[AudioStream]([ExtResource("2_a08ty")])
 metadata/obj = ExtResource("1_a70r3")
 
 [node name="pan" type="MeshInstance3D" parent="."]

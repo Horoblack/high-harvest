@@ -289,7 +289,8 @@ size = Vector3(2, 2, 1)
 [sub_resource type="Environment" id="Environment_upmu6"]
 background_mode = 1
 background_color = Color(0.0253638, 0.0253638, 0.0253638, 1)
-ambient_light_color = Color(0.00351917, 0.00351917, 0.00351916, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.00566115, 0.00566115, 0.00566115, 1)
 ssao_enabled = true
 ssao_radius = 2.5
 
@@ -737,7 +738,7 @@ node_b = NodePath("../StaticBody3D")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.7, 1.3, -6)
 
 [node name="exit" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 2.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 3.2)
 script = ExtResource("6_0w6l5")
 targetposition = Vector3(-29, 0, -31.4)
 targetrotation = Vector3(0, 90, 0)
@@ -1624,7 +1625,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9, -37)
 light_color = Color(0.61339, 0.61339, 0.61339, 1)
 light_energy = 2.0
 shadow_enabled = true
-omni_range = 30.0
+omni_range = 50.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="maze/OmniLight3D2"]
 mesh = SubResource("SphereMesh_82efs")

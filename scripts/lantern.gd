@@ -9,7 +9,7 @@ extends basepickup
 
 var on : bool = false
 
-var fuel : float = 20
+var fuel : float = 50
 
 var data : InventoryObject
 
@@ -43,10 +43,10 @@ func trigger(pl):
 	updatelight()
 
 func filloil():
-	fuel = 20
+	fuel = 50
 
 func info():
-	return "%s/20" % str(fuel).pad_decimals(1)
+	return "%s/50" % str(fuel).pad_decimals(1)
 
 func updatelight():
 	lantern.set_surface_override_material(1,onmat if on else offmat)

@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://dk5et4khobbbp"]
+[gd_scene load_steps=11 format=4 uid="uid://dk5et4khobbbp"]
 
 [ext_resource type="Script" path="res://scripts/boxlid.gd" id="1_1fida"]
 [ext_resource type="Texture2D" uid="uid://5ugmaj75oe1q" path="res://sprites/itemicons/lid.png" id="2_6acup"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_kes6w"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_crgyu"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="3_so65f"]
 
 [sub_resource type="Resource" id="Resource_bdsx7"]
@@ -58,6 +60,7 @@ max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_1fida")
+sounds = Array[AudioStream]([ExtResource("2_kes6w"), ExtResource("3_crgyu")])
 metadata/obj = SubResource("Resource_bdsx7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

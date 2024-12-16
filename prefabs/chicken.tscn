@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=4 uid="uid://h6i33ynhwb80"]
+[gd_scene load_steps=50 format=4 uid="uid://h6i33ynhwb80"]
 
 [ext_resource type="Texture2D" uid="uid://v76g7mg0gp6r" path="res://sprites/itemicons/chicken.png" id="1_p62lx"]
 [ext_resource type="Script" path="res://scripts/chicken.gd" id="1_uvilk"]
@@ -6,12 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://lbysxsfn7wv0" path="res://sprites/itemicons/chick.png" id="2_wi038"]
 [ext_resource type="Texture2D" uid="uid://du6xe7ft2i417" path="res://sprites/itemicons/midchick.png" id="3_svtae"]
 [ext_resource type="Texture2D" uid="uid://ymde1p7rs3mg" path="res://models/textures/chicken/chick.png" id="4_odmx3"]
+[ext_resource type="AudioStream" uid="uid://doxbfy35g8cql" path="res://sounds/chicken/Pinto 1.mp3" id="5_2pkid"]
+[ext_resource type="AudioStream" uid="uid://bwvc3fij7o2o1" path="res://sounds/chicken/Galinha1.mp3" id="5_w51yu"]
+[ext_resource type="AudioStream" uid="uid://cbaae0q17k2um" path="res://sounds/chicken/Pinto 2.mp3" id="6_eamwu"]
+[ext_resource type="AudioStream" uid="uid://b4xdulhdxwnq5" path="res://sounds/chicken/Galinha2.mp3" id="6_y4bv8"]
 [ext_resource type="Texture2D" uid="uid://ky2m2ts6efa7" path="res://models/textures/chicken/chicken.png" id="7_k1bpy"]
 [ext_resource type="Texture2D" uid="uid://bojgvuuhsf3rv" path="res://models/textures/chicken/midchick.png" id="7_k1o4b"]
+[ext_resource type="AudioStream" uid="uid://bsg2onovvj4kl" path="res://sounds/chicken/Galinha3.mp3" id="7_n1fxm"]
 [ext_resource type="Texture2D" uid="uid://bupay21g0yw3j" path="res://models/textures/chicken/oldchicken.png" id="7_vy5xf"]
+[ext_resource type="AudioStream" uid="uid://b48xiw1n27m7o" path="res://sounds/chicken/Pinto 3.mp3" id="7_yygw5"]
 [ext_resource type="Texture2D" uid="uid://c6cpr25nhd1x" path="res://models/textures/chicken/midfeathers.png" id="8_4ygbw"]
 [ext_resource type="Texture2D" uid="uid://dk23xb5s7dtya" path="res://models/textures/chicken/feathers.png" id="8_5al2o"]
 [ext_resource type="Texture2D" uid="uid://njf16nmgcqtl" path="res://models/textures/chicken/oldfeathers.png" id="8_60o3w"]
+[ext_resource type="AudioStream" uid="uid://dojtu02ox8ibp" path="res://sounds/chicken/Galinha4.mp3" id="8_a3skt"]
+[ext_resource type="AudioStream" uid="uid://dfiaem6d0fvvw" path="res://sounds/chicken/Pinto 4.mp3" id="8_yp667"]
+[ext_resource type="AudioStream" uid="uid://durr4pyvmnsig" path="res://sounds/chicken/Pinto 5.mp3" id="9_pdirm"]
+[ext_resource type="AudioStream" uid="uid://c63cf8ku5b37c" path="res://sounds/chicken/Pinto 6.mp3" id="10_f2cvc"]
 
 [sub_resource type="Resource" id="Resource_kngli"]
 script = ExtResource("2_qr207")
@@ -680,6 +690,8 @@ script = ExtResource("1_uvilk")
 chickthumbnail = ExtResource("2_wi038")
 midthumbnail = ExtResource("3_svtae")
 oldthumbnail = ExtResource("1_p62lx")
+childsounds = Array[AudioStream]([ExtResource("5_2pkid"), ExtResource("6_eamwu"), ExtResource("7_yygw5"), ExtResource("8_yp667"), ExtResource("9_pdirm"), ExtResource("10_f2cvc")])
+adultsounds = Array[AudioStream]([ExtResource("5_w51yu"), ExtResource("6_y4bv8"), ExtResource("7_n1fxm"), ExtResource("8_a3skt")])
 metadata/obj = SubResource("Resource_kngli")
 
 [node name="floorcast" type="ShapeCast3D" parent="."]

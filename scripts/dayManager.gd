@@ -2,7 +2,7 @@ extends Node
 
 @export_range(0,2400,1) var timeofday : float = 1200.0
 @export var simulate : bool = false
-@export_range(0,100,1) var rateoftime : float = .1
+@export_range(0,120,1) var rateoftime : float = .1
 @export var sunlightcurve : Curve
 @export var moonlightcurve : Curve
 

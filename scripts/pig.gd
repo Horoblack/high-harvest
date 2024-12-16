@@ -9,6 +9,9 @@ extends RigidBody3D
 @onready var oldmodel: MeshInstance3D = $adult/Skeleton3D/oldpig
 @onready var floorcast : ShapeCast3D = $floorcast
 @onready var anim = $AnimationPlayer
+@onready var audio = $audio
+
+@export var adultsounds : Array[AudioStream]
 
 const BLOOD = preload("res://prefabs/bloodsplatter.tscn")
 const BLOOD2 = preload("res://prefabs/bloodparticles.tscn")
@@ -142,6 +145,8 @@ func agecheck():
 
 var curdir = Vector3.ZERO
 func _on_actiontimer_timeout():
+	audio.stream = adultsounds.pick_random()
+	audio.play()
 	if(!floorcast.is_colliding()):
 		anim.play("idle")
 		curdir = Vector3.ZERO

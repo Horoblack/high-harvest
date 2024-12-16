@@ -1,8 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://b545uuwmnumvp"]
+[gd_scene load_steps=18 format=4 uid="uid://b545uuwmnumvp"]
 
 [ext_resource type="Script" path="res://scripts/trashcan.gd" id="1_0qa0i"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="1_gym2o"]
 [ext_resource type="Resource" uid="uid://d4es5a3jfeqxm" path="res://invobjs/trashcan.tres" id="2_hlxc7"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_oo0hr"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_h5ehk"]
 [ext_resource type="Resource" uid="uid://cm6t4uxr7ks43" path="res://invobjs/newtrashbag.tres" id="3_opflv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l3yfp"]
@@ -84,12 +86,13 @@ size = Vector3(0.667, 0.665, 0.1)
 size = Vector3(0.3, 0.3, 0.3)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xqn78"]
-size = Vector3(0.5, 0.1, 0.5)
+size = Vector3(0.5, 0.2, 0.5)
 
 [node name="trashcan" type="RigidBody3D" groups=["pickup"]]
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_0qa0i")
+sounds = Array[AudioStream]([ExtResource("2_oo0hr"), ExtResource("3_h5ehk")])
 metadata/obj = ExtResource("2_hlxc7")
 
 [node name="spreadbag" type="MeshInstance3D" parent="."]
@@ -123,12 +126,13 @@ transform = Transform3D(1, 0, 0, 0, 0.994522, 0.104528, 0, -0.104528, 0.994522, 
 shape = SubResource("BoxShape3D_nbjmh")
 
 [node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_8kr6t")
 
 [node name="grabarea" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0713, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1713, 0)
 collision_layer = 8388608
 collision_mask = 8388608
 script = ExtResource("1_gym2o")

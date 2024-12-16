@@ -1,7 +1,9 @@
-[gd_scene load_steps=17 format=4 uid="uid://4aye4jw7f20a"]
+[gd_scene load_steps=19 format=4 uid="uid://4aye4jw7f20a"]
 
 [ext_resource type="Script" path="res://scripts/box.gd" id="1_ppeqd"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_pg4ms"]
 [ext_resource type="Texture2D" uid="uid://bckg73777aun0" path="res://sprites/itemicons/box.png" id="2_wjdsx"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_jf0t6"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="3_ugije"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="4_efdvp"]
 
@@ -104,6 +106,7 @@ max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_ppeqd")
+sounds = Array[AudioStream]([ExtResource("2_pg4ms"), ExtResource("3_jf0t6")])
 metadata/obj = SubResource("Resource_voco0")
 
 [node name="box" type="MeshInstance3D" parent="."]

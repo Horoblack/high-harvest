@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://05854sotltb"]
+[gd_scene load_steps=10 format=4 uid="uid://05854sotltb"]
 
 [ext_resource type="Resource" uid="uid://wbru4oesafmt" path="res://invobjs/dice.tres" id="1_h3kh3"]
 [ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_kbrmo"]
 [ext_resource type="Texture2D" uid="uid://cw7vqjvpu0u7j" path="res://models/textures/dice.png" id="1_n3chx"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_kj2aw"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_d7qnp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3ged8"]
 diffuse_mode = 3
@@ -48,6 +50,7 @@ size = Vector3(0.18, 0.18, 0.18)
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_kbrmo")
+sounds = Array[AudioStream]([ExtResource("2_kj2aw"), ExtResource("3_d7qnp")])
 metadata/obj = ExtResource("1_h3kh3")
 
 [node name="Cube" type="MeshInstance3D" parent="."]

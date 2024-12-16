@@ -14,10 +14,17 @@ func serializeall():
 		excludehand = player.cam.held
 		var data : InventoryObject = player.cam.held.get_meta("obj")
 		playerhand = [data.objaddress,data.customproperties]
-	if(player.cam.grabbed != null && player.cam.grabbed.has_meta("obj")):
-		excludegrabbed = player.cam.grabbed
-		var data : InventoryObject = player.cam.grabbed.get_meta("obj")
-		playergrabbed = [data.objaddress,data.customproperties]
+	if(player.cam.grabbed != null):
+		var ob = player.cam.grabbed
+		if(ob is pickupproxy):
+			ob = ob.source
+		if(ob.has_meta("obj")):
+			excludegrabbed = ob
+			var data : InventoryObject = ob.get_meta("obj")
+			playergrabbed = ["obj",data.objaddress,data.customproperties]
+		elif(ob.has_meta("objaddress")):
+			excludegrabbed = ob
+			playergrabbed = ["heavy",ob.get_meta("objaddress"),ob.get_meta("customproperties",0)]
 	#var plscene = Savedata.gamedata["player"][0]
 	Savedata.gamedata["player"] = [player.global_position,player.global_rotation,player.energy,player.hunger,plinventory, playerhand,playergrabbed]
 	#list.append(["player", player.global_position, player.global_rotation, player.energy,player.hunger,plinventory, playerhand,playergrabbed])
@@ -76,13 +83,22 @@ func deserializeall():
 		player.cam.grabbed = obj
 		player.cam.holdobj()
 	if(!plinfo[6].is_empty()):
-		var obj = Library.objs[plinfo[6][0]].instantiate()
-		var data = obj.get_meta("obj").duplicate()
-		data.customproperties = plinfo[6][1]
-		obj.set_meta("obj", data)
-		get_tree().current_scene.add_child(obj)
-		obj.global_position = player.global_position + -player.global_basis.z
-		player.cam.grabobj(obj)
+		if(plinfo[6][0] == "obj"):
+			var obj = Library.objs[plinfo[6][1]].instantiate()
+			var data = obj.get_meta("obj").duplicate()
+			data.customproperties = plinfo[6][2]
+			obj.set_meta("obj", data)
+			get_tree().current_scene.add_child(obj)
+			obj.global_position = player.global_position + -player.global_basis.z
+			player.cam.grabobj(obj)
+		elif(plinfo[6][0] == "heavy"):
+			var obj = Library.others[plinfo[6][1]].instantiate()
+			#var data = obj.get_meta("obj").duplicate()
+			#data.customproperties = plinfo[6][2]
+			#obj.set_meta("obj", data)
+			get_tree().current_scene.add_child(obj)
+			obj.global_position = player.global_position + -player.global_basis.z + (Vector3.UP * 1)
+			player.cam.grabobj(obj)
 	
 	if(!Savedata.gamedata.has("objects%s"%Savedata.gamedata["playerscene"])):
 		return

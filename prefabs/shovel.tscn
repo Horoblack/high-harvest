@@ -1,7 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://d2fi3tglbmqdh"]
+[gd_scene load_steps=15 format=4 uid="uid://d2fi3tglbmqdh"]
 
 [ext_resource type="Script" path="res://scripts/shovel.gd" id="1_iiyd0"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_1tmnu"]
 [ext_resource type="Resource" uid="uid://b3hnag15w435e" path="res://invobjs/shovel.tres" id="2_8im7y"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_fsmgf"]
 [ext_resource type="AudioStream" uid="uid://djj5e52vixgpv" path="res://sounds/shovel.mp3" id="4_hd8fn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2sjbw"]
@@ -160,6 +162,7 @@ _data = {
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_iiyd0")
+sounds = Array[AudioStream]([ExtResource("2_1tmnu"), ExtResource("3_fsmgf")])
 metadata/obj = ExtResource("2_8im7y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

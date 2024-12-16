@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=4 uid="uid://chf1ubmpxkrne"]
+[gd_scene load_steps=11 format=4 uid="uid://chf1ubmpxkrne"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_oyp4s"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_jgqo8"]
 [ext_resource type="Resource" uid="uid://buwunecjbaisv" path="res://invobjs/potato.tres" id="2_ojw2h"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_ps14c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pepa8"]
 albedo_color = Color(0.67, 0.45426, 0.1072, 1)
@@ -61,6 +63,7 @@ burntmats = Array[Material]([SubResource("StandardMaterial3D_63ec4")])
 fillamount = 10.0
 cookedfillamount = 15.0
 maxage = -1.0
+sounds = Array[AudioStream]([ExtResource("2_jgqo8"), ExtResource("3_ps14c")])
 metadata/obj = ExtResource("2_ojw2h")
 metadata/diced = "dicedpotato"
 

@@ -55,7 +55,7 @@ func _process(delta):
 func _physics_process(delta):
 	for n in fires:
 		if(n.emitting):
-			fuel -= delta * .05
+			fuel -= delta * .01
 
 func filloil():
 	fuel = 20

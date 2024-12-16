@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=4 uid="uid://dobr1txwtxd8f"]
+[gd_scene load_steps=18 format=4 uid="uid://dobr1txwtxd8f"]
 
 [ext_resource type="Texture2D" uid="uid://bgj83ki73gmgs" path="res://models/textures/lock.png" id="1_8t7ww"]
 [ext_resource type="Texture2D" uid="uid://n7eso1h4nuba" path="res://models/textures/key.png" id="1_au1gs"]
 [ext_resource type="Script" path="res://scripts/lock.gd" id="1_ky8u5"]
 [ext_resource type="Resource" uid="uid://chd4fdjcx8ulu" path="res://invobjs/lock.tres" id="2_67b36"]
+[ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_fugg3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bm7lk"]
 diffuse_mode = 3
@@ -43,6 +44,8 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_yy7vn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wod2s"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.5, 0.5, 0.5, 1)
 albedo_texture = ExtResource("1_au1gs")
 texture_filter = 0
@@ -128,6 +131,7 @@ continuous_cd = true
 contact_monitor = true
 max_contacts_reported = 25
 script = ExtResource("1_ky8u5")
+sounds = Array[AudioStream]([ExtResource("2_fugg3")])
 metadata/obj = ExtResource("2_67b36")
 
 [node name="lock" type="MeshInstance3D" parent="."]

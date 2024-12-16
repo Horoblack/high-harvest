@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://bxfvggdjia5in"]
+[gd_scene load_steps=17 format=4 uid="uid://bxfvggdjia5in"]
 
 [ext_resource type="Script" path="res://scripts/gramophone.gd" id="1_aq57f"]
 [ext_resource type="Resource" uid="uid://dh5yx04ksyxsi" path="res://invobjs/gramophone.tres" id="1_rx8sf"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_tp0l8"]
 [ext_resource type="AudioStream" uid="uid://dlwu0nd6qi0ie" path="res://sounds/I'm a Member of the Midnight Crew.mp3" id="3_8v1vc"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_fhkrr"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="4_u42nt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cwyeq"]
@@ -113,6 +115,7 @@ size = Vector3(0.1, 0.1, 0.245312)
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_aq57f")
+sounds = Array[AudioStream]([ExtResource("2_tp0l8"), ExtResource("3_fhkrr")])
 metadata/obj = ExtResource("1_rx8sf")
 
 [node name="gramophone" type="MeshInstance3D" parent="."]

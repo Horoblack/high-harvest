@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://bk1o03uttjk8w"]
+[gd_scene load_steps=12 format=4 uid="uid://bk1o03uttjk8w"]
 
 [ext_resource type="Script" path="res://scripts/seedbag.gd" id="1_pmrj0"]
 [ext_resource type="Resource" uid="uid://cpa4rr7yhu1vi" path="res://invobjs/turnipseedbag.tres" id="2_ps3ih"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_un171"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_s1kh5"]
 [ext_resource type="Texture2D" uid="uid://dxpshd7og7cvy" path="res://models/textures/turnip/seedbag.png" id="4_d6g2o"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="5_niea7"]
 
@@ -51,6 +53,7 @@ size = Vector3(0.34668, 0.160645, 0.139648)
 [node name="turnipseedbag" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_pmrj0")
 seedaddress = "turnipseed"
+sounds = Array[AudioStream]([ExtResource("2_un171"), ExtResource("3_s1kh5")])
 metadata/obj = ExtResource("2_ps3ih")
 
 [node name="seedsack" type="MeshInstance3D" parent="."]

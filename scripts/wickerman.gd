@@ -92,3 +92,9 @@ func _physics_process(delta):
 		chest.apply_force(movementdirection * 20)
 		var targetbasis = chest.global_basis.looking_at(movementdirection)
 		chest.apply_torque(Library.calc_angular_velocity(chest.global_basis,targetbasis))
+
+func murder():
+	active = false
+	if(randi_range(0,1)==0):
+		await get_tree().create_timer(5).timeout
+		active = true

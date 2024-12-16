@@ -384,7 +384,6 @@ skeleton = NodePath("")
 
 [node name="JoltHingeJoint3D" type="JoltHingeJoint3D" parent="doorway"]
 limit_enabled = true
-limit_upper = 1.5708
 limit_lower = -1.5708
 limit_spring_enabled = true
 node_a = NodePath("../..")
@@ -409,7 +408,6 @@ skeleton = NodePath("")
 
 [node name="JoltHingeJoint3D2" type="JoltHingeJoint3D" parent="doorway2"]
 limit_enabled = true
-limit_upper = 1.5708
 limit_lower = -1.5708
 limit_spring_enabled = true
 limit_spring_frequency = 100.0

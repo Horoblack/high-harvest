@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=4 uid="uid://cmbvic53mh3al"]
+[gd_scene load_steps=20 format=4 uid="uid://cmbvic53mh3al"]
 
 [ext_resource type="Script" path="res://scripts/shotgun.gd" id="1_ted20"]
 [ext_resource type="Resource" uid="uid://j0m65oq2101n" path="res://invobjs/shotgun.tres" id="2_csn7c"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_udamr"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_qmpmk"]
 [ext_resource type="Texture2D" uid="uid://cuhw12pljh4ps" path="res://models/textures/shotgun/shotgun.png" id="4_p5e2p"]
 [ext_resource type="Material" uid="uid://c4dvsvdrvpiok" path="res://models/textures/shotgun/empty.tres" id="5_87grl"]
 [ext_resource type="Texture2D" uid="uid://cjy70n2ooinfi" path="res://sprites/shotgunflare.png" id="5_fnndi"]
@@ -504,6 +506,7 @@ max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_ted20")
+sounds = Array[AudioStream]([ExtResource("2_udamr"), ExtResource("3_qmpmk")])
 metadata/obj = ExtResource("2_csn7c")
 
 [node name="stockcol" type="CollisionShape3D" parent="."]

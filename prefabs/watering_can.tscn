@@ -80,7 +80,7 @@ max_contacts_reported = 1
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_3um6k")
-sound = ExtResource("2_rpvow")
+sounds = Array[AudioStream]([ExtResource("2_rpvow")])
 metadata/obj = ExtResource("2_tr7cf")
 
 [node name="model" type="MeshInstance3D" parent="."]

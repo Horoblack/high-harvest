@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=4 uid="uid://xfn2g1wqe7qh"]
+[gd_scene load_steps=16 format=4 uid="uid://xfn2g1wqe7qh"]
 
 [ext_resource type="Resource" uid="uid://bd84r322fvlup" path="res://invobjs/scythe.tres" id="1_1t0xq"]
 [ext_resource type="Script" path="res://scripts/scythe.gd" id="1_528my"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_sls4r"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_6accm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q35n6"]
 resource_name = "Material.002"
@@ -139,6 +141,7 @@ radius = 2.0
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_528my")
+sounds = Array[AudioStream]([ExtResource("2_sls4r"), ExtResource("3_6accm")])
 metadata/obj = ExtResource("1_1t0xq")
 
 [node name="model" type="MeshInstance3D" parent="."]

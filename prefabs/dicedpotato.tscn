@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://djqttan4gua03"]
+[gd_scene load_steps=10 format=4 uid="uid://djqttan4gua03"]
 
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_bt3ec"]
 [ext_resource type="Resource" uid="uid://b2v3eb73jfa0r" path="res://invobjs/dicedpotato.tres" id="2_3dd3r"]
+[ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="2_4xc68"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aw8aw"]
 diffuse_mode = 3
@@ -59,6 +60,7 @@ burntmats = Array[Material]([SubResource("StandardMaterial3D_0qdkk")])
 fillamount = 5.0
 cookedfillamount = 8.0
 maxage = -1.0
+sounds = Array[AudioStream]([ExtResource("2_4xc68")])
 metadata/obj = ExtResource("2_3dd3r")
 
 [node name="model" type="MeshInstance3D" parent="."]

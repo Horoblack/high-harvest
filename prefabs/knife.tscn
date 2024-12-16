@@ -73,7 +73,7 @@ mass = 0.1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_04y54")
-sound = ExtResource("2_7oc1n")
+sounds = Array[AudioStream]([ExtResource("2_7oc1n")])
 metadata/obj = ExtResource("2_6gd86")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

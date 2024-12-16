@@ -33,7 +33,7 @@ func load_data():
 		gamedata = {
 			"playtime":0.0,
 			"day": 0,
-			"timeofday": 700,
+			"timeofday": 600,
 			"money": 50,
 			"playerscene":0,
 			"player": [Vector3(-25.2,0.5,-23), Vector3(0,0,0), 50,50,[], [],[]],
@@ -48,8 +48,10 @@ func load_data():
 				["pickup",Vector3(-27.908, 0.923, -31.43), Vector3(deg_to_rad(-60), deg_to_rad(-90), 0), "lock", {  }], 
 				["pickup",Vector3(-17.1, 1.6, -28.4), Vector3(0, 0, 0), "pan", {  }], 
 				["pickup",Vector3(-21, 1.7, -23.5), Vector3(deg_to_rad(90), 0, 0), "note", { "text":"Can't say I understand your reasons, but welcome to your new farm, friend. \n\nAs long as you dig, plant and water, you should be fine. Remember to leave boxes with your harvest by the mail box to sell them. You're starting out with 50 bucks of pocket money to buy anything you want as well. \nGood luck." }], 
+				["pickup",Vector3(-20.2, 0.9, -22.2), Vector3(0, 0, 0), "box", {  }], 
 				["other", "table", Vector3(-20.9, 1.4, -22.6), Vector3(0, 0, 0)], 
-				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(180), 0)], 
+				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(-180), 0)], 
+				["other", "closet", Vector3(-22.75, .5, -22.2), Vector3(0, deg_to_rad(-90), 0)], 
 				["other", "bedframe", Vector3(-27.4, 1.2, -22.6), Vector3(0, deg_to_rad(-180), 0)], 
 				["other", "mattress", Vector3(-27.4, 1.7, -22.6), Vector3(0, deg_to_rad(-180), 0)], 
 				["other", "stove", Vector3(-16.9, 1, -28.6), Vector3(0, deg_to_rad(90), 0),{"fuel":10.0}], 
@@ -78,6 +80,7 @@ func load_data():
 				["pickup",Vector3(40.3, 1.5, -35.4), Vector3(deg_to_rad(180), 0, 0), "knife", {  }], 
 				["other", "woodenbox", Vector3(0, 0.5, -90), Vector3(0, 0, 0)], 
 				["pickup",Vector3(0, 1.3, -90), Vector3(0, 0, 0), "totem", {  }], 
+				["other", "scarecrow", Vector3(-12, 0.4, -75), Vector3(0, -180, 0)], 
 			],
 			"stocks": {
 					"carrot":1,

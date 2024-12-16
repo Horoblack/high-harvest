@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=4 uid="uid://2qae7y1j7pkh"]
+[gd_scene load_steps=17 format=4 uid="uid://2qae7y1j7pkh"]
 
 [ext_resource type="Texture2D" uid="uid://bxonl4ica8weg" path="res://sprites/itemicons/tomato.png" id="1_ce8ed"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_j8jgc"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_22tqa"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_ivfge"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_ctnwg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1osy"]
 albedo_color = Color(1, 0, 0, 1)
@@ -104,6 +106,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_n6i3d"), SubResour
 burntmats = Array[Material]([SubResource("StandardMaterial3D_bcduu"), SubResource("StandardMaterial3D_bcduu")])
 fillamount = 10.0
 cookedfillamount = 15.0
+sounds = Array[AudioStream]([ExtResource("2_22tqa"), ExtResource("3_ctnwg")])
 metadata/obj = SubResource("Resource_ulgwh")
 metadata/diced = "dicedtomato"
 

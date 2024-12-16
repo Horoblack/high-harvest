@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=4 uid="uid://bkdtgcbc7jorn"]
+[gd_scene load_steps=17 format=4 uid="uid://bkdtgcbc7jorn"]
 
 [ext_resource type="Texture2D" uid="uid://bdwln1evlv1jk" path="res://models/textures/carrot/carrottop.png" id="1_43whk"]
 [ext_resource type="Texture2D" uid="uid://bas342gv45aln" path="res://sprites/itemicons/carrot.png" id="1_f547w"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_oeylc"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_5onab"]
+[ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="3_sf6p1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjldv"]
 albedo_color = Color(1, 0.537255, 0, 1)
@@ -128,6 +129,7 @@ burntmats = Array[Material]([SubResource("StandardMaterial3D_fd5wr")])
 fillamount = 10.0
 cookedfillamount = 15.0
 maxage = 45.0
+sounds = Array[AudioStream]([ExtResource("3_sf6p1")])
 metadata/obj = SubResource("Resource_8ja8q")
 metadata/diced = "dicedcarrot"
 

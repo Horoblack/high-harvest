@@ -57,7 +57,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_cpha5")])
 burntmats = Array[Material]([SubResource("StandardMaterial3D_hwo7c")])
 fillamount = 5.0
 cookedfillamount = 8.0
-sound = ExtResource("4_cmi58")
+sounds = Array[AudioStream]([ExtResource("4_cmi58")])
 metadata/obj = ExtResource("4_jrkky")
 
 [node name="model" type="MeshInstance3D" parent="."]

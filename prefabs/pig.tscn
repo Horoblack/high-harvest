@@ -1,9 +1,15 @@
-[gd_scene load_steps=22 format=4 uid="uid://ci0xxl3mn4et7"]
+[gd_scene load_steps=28 format=4 uid="uid://ci0xxl3mn4et7"]
 
 [ext_resource type="Script" path="res://scripts/pig.gd" id="1_i3gw2"]
 [ext_resource type="Texture2D" uid="uid://cvhb7rpsgnbvo" path="res://models/textures/pig/adult.png" id="2_jyi1q"]
+[ext_resource type="AudioStream" uid="uid://di1pt31xbqrjm" path="res://sounds/pig/Porco1.mp3" id="2_k82gj"]
 [ext_resource type="Resource" uid="uid://d00cduvd7w4j7" path="res://invobjs/pig.tres" id="2_v262m"]
 [ext_resource type="Texture2D" uid="uid://dt7uo3jr8fekv" path="res://models/textures/pig/old.png" id="3_meo1b"]
+[ext_resource type="AudioStream" uid="uid://j1m4hv5ift7p" path="res://sounds/pig/Porco2.mp3" id="3_qjrfg"]
+[ext_resource type="AudioStream" uid="uid://dg76k264nkg4c" path="res://sounds/pig/Porco3.mp3" id="4_b54vu"]
+[ext_resource type="AudioStream" uid="uid://bsk55nb7typpl" path="res://sounds/pig/Porco4.mp3" id="5_2qfnd"]
+[ext_resource type="AudioStream" uid="uid://bqlocimrx70p2" path="res://sounds/pig/Porco5.mp3" id="6_4l5k2"]
+[ext_resource type="AudioStream" uid="uid://dhp623l7t3vyc" path="res://sounds/pig/Porco6.mp3" id="7_sgwn2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hbr6l"]
 diffuse_mode = 3
@@ -479,6 +485,7 @@ _data = {
 linear_damp = 2.0
 angular_damp = 2.0
 script = ExtResource("1_i3gw2")
+adultsounds = Array[AudioStream]([ExtResource("2_k82gj"), ExtResource("3_qjrfg"), ExtResource("4_b54vu"), ExtResource("5_2qfnd"), ExtResource("6_4l5k2"), ExtResource("7_sgwn2")])
 metadata/obj = ExtResource("2_v262m")
 
 [node name="adult" type="Node3D" parent="."]
@@ -643,6 +650,8 @@ target_position = Vector3(0, 0, 0)
 libraries = {
 "": SubResource("AnimationLibrary_878tr")
 }
+
+[node name="audio" type="AudioStreamPlayer3D" parent="."]
 
 [connection signal="timeout" from="agetimer" to="." method="_on_agetimer_timeout"]
 [connection signal="timeout" from="actiontimer" to="." method="_on_actiontimer_timeout"]

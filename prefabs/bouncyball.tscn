@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://btteqgx3hwmp"]
+[gd_scene load_steps=9 format=3 uid="uid://btteqgx3hwmp"]
 
 [ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_m046n"]
 [ext_resource type="Resource" uid="uid://rvuemdw4tbg5" path="res://invobjs/bouncyball.tres" id="1_xnch4"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_5jj1h"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_6ob1f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xouqx"]
 friction = 0.5
@@ -26,6 +28,7 @@ physics_material_override = SubResource("PhysicsMaterial_xouqx")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_m046n")
+sounds = Array[AudioStream]([ExtResource("2_5jj1h"), ExtResource("3_6ob1f")])
 metadata/obj = ExtResource("1_xnch4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

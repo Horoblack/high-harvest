@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://dh2sprvhoe42w"]
+[gd_scene load_steps=9 format=4 uid="uid://dh2sprvhoe42w"]
 
 [ext_resource type="Script" path="res://scripts/basepickup.gd" id="1_ki6ko"]
 [ext_resource type="Resource" uid="uid://v4q37i6jkcdq" path="res://invobjs/trashbag.tres" id="1_rx4uw"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_40g7n"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_kdrvu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odwk6"]
 albedo_color = Color(0.325593, 0.431166, 0.357572, 1)
@@ -46,6 +48,7 @@ height = 0.592775
 [node name="trashbag" type="RigidBody3D" groups=["pickup"]]
 mass = 0.5
 script = ExtResource("1_ki6ko")
+sounds = Array[AudioStream]([ExtResource("2_40g7n"), ExtResource("3_kdrvu")])
 metadata/obj = ExtResource("1_rx4uw")
 
 [node name="fullbag" type="MeshInstance3D" parent="."]

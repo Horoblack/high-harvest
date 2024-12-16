@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://bqdchr1mm61g2"]
+[gd_scene load_steps=10 format=4 uid="uid://bqdchr1mm61g2"]
 
 [ext_resource type="Script" path="res://scripts/nail.gd" id="1_sjrmw"]
+[ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_6p56x"]
 [ext_resource type="Texture2D" uid="uid://c7moivt68k8ln" path="res://sprites/itemicons/nail.png" id="2_e251d"]
 [ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="3_wasgg"]
 
@@ -57,6 +58,7 @@ mass = 0.1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_sjrmw")
+sounds = Array[AudioStream]([ExtResource("2_6p56x")])
 metadata/obj = SubResource("Resource_ajq1n")
 
 [node name="PinJoint3D" type="JoltPinJoint3D" parent="."]

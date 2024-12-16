@@ -731,7 +731,7 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f12df")
 
-[node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup", "serialize"]]
+[node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup", "serialize", "tooheavy"]]
 mass = 100.0
 linear_damp = 4.0
 angular_damp = 4.0
@@ -747,7 +747,7 @@ node_a = NodePath("..")
 node_b = NodePath("rightdoor")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.47175, 1.68306, -1.15465)
 
-[node name="rightdoor" type="RigidBody3D" parent="rightdoorhinge" groups=["heavy", "pickup"]]
+[node name="rightdoor" type="RigidBody3D" parent="rightdoorhinge" groups=["heavy", "pickup", "tooheavy"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mass = 5.0
 linear_damp = 10.0
@@ -771,7 +771,7 @@ node_a = NodePath("..")
 node_b = NodePath("leftdoor")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -1.472, 1.67688, -1.155)
 
-[node name="leftdoor" type="RigidBody3D" parent="leftdoorhinge" groups=["heavy", "pickup"]]
+[node name="leftdoor" type="RigidBody3D" parent="leftdoorhinge" groups=["heavy", "pickup", "tooheavy"]]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
 mass = 5.0
 linear_damp = 10.0
@@ -796,7 +796,7 @@ node_a = NodePath("..")
 node_b = NodePath("beddoor")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 1.29524, 3.75087)
 
-[node name="beddoor" type="RigidBody3D" parent="beddoorhinge" groups=["heavy", "pickup"]]
+[node name="beddoor" type="RigidBody3D" parent="beddoorhinge" groups=["heavy", "pickup", "tooheavy"]]
 transform = Transform3D(-4.37114e-08, 1.06581e-14, 1, -1.69407e-21, 1, -1.06581e-14, -1, -2.15995e-21, -4.37114e-08, 0.00550032, 0.0115373, -5.18057e-10)
 mass = 2.0
 linear_damp = 10.0

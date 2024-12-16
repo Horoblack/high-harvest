@@ -61,7 +61,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_r47dm")])
 burntmats = Array[Material]([SubResource("StandardMaterial3D_7bamf")])
 fillamount = 20.0
 cookedfillamount = 30.0
-sound = ExtResource("4_5y81h")
+sounds = Array[AudioStream]([ExtResource("4_5y81h")])
 metadata/obj = ExtResource("4_0ryi0")
 metadata/diced = "dicedpigmeat"
 

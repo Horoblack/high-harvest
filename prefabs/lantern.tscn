@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://d2skxysueuca2"]
+[gd_scene load_steps=15 format=4 uid="uid://d2skxysueuca2"]
 
 [ext_resource type="Script" path="res://scripts/lantern.gd" id="1_scx1e"]
+[ext_resource type="AudioStream" uid="uid://xuw1i45ki0dg" path="res://sounds/bigmetalcollision.wav" id="2_2afvm"]
 [ext_resource type="Resource" uid="uid://b1oafrm4we3a" path="res://invobjs/lantern.tres" id="2_ecxcw"]
 [ext_resource type="Script" path="res://scripts/pickupproxy.gd" id="4_q4ftw"]
 
@@ -114,6 +115,7 @@ max_contacts_reported = 1
 script = ExtResource("1_scx1e")
 onmat = SubResource("StandardMaterial3D_tavb7")
 offmat = SubResource("StandardMaterial3D_ysrrd")
+sounds = Array[AudioStream]([ExtResource("2_2afvm")])
 metadata/obj = ExtResource("2_ecxcw")
 
 [node name="lantern" type="MeshInstance3D" parent="."]

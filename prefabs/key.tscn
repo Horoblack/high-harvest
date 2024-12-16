@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_8ss08"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5as1"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.5, 0.5, 0.5, 1)
 albedo_texture = ExtResource("1_ufyw6")
 texture_filter = 0
@@ -47,7 +49,7 @@ size = Vector3(0.1, 0.26, 0.5)
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_aa4er")
-sound = ExtResource("2_8ss08")
+sounds = Array[AudioStream]([ExtResource("2_8ss08")])
 metadata/obj = ExtResource("1_5dwtq")
 
 [node name="key2" type="MeshInstance3D" parent="."]

@@ -37,7 +37,7 @@ func spawn():
 func _process(delta):
 	var dir = global_position.direction_to(pl.global_position)
 	if(global_position.distance_to(pl.global_position) < 1):
-		pl.ragdoll(true)
+		pl.ragdoll(50)
 		queue_free()
 	basis = basis.looking_at(-dir)
 	global_position += dir * delta * 6

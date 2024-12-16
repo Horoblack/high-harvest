@@ -39,6 +39,7 @@ project/assembly_name="hig harvest"
 pickup=""
 heavy=""
 serialize=""
+tooheavy=""
 
 [importer_defaults]
 

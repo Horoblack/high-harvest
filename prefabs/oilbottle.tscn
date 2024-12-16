@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=4 uid="uid://b50bxegvjm8w7"]
+[gd_scene load_steps=10 format=4 uid="uid://b50bxegvjm8w7"]
 
 [ext_resource type="Script" path="res://scripts/oilbottle.gd" id="1_6yyqk"]
+[ext_resource type="AudioStream" uid="uid://b3l0g55rbbm0b" path="res://sounds/smallmetalcollision.wav" id="2_65oil"]
 [ext_resource type="Resource" uid="uid://d1n6m3qjf438j" path="res://invobjs/oilbottle.tres" id="2_s685x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p86x4"]
@@ -86,6 +87,7 @@ max_contacts_reported = 3
 script = ExtResource("1_6yyqk")
 fullmat = SubResource("StandardMaterial3D_p86x4")
 emptymat = SubResource("StandardMaterial3D_l1myd")
+sounds = Array[AudioStream]([ExtResource("2_65oil")])
 metadata/obj = ExtResource("2_s685x")
 
 [node name="bottle" type="MeshInstance3D" parent="."]

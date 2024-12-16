@@ -1,9 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://bbtk1vfb0aaxg"]
+[gd_scene load_steps=18 format=4 uid="uid://bbtk1vfb0aaxg"]
 
 [ext_resource type="Texture2D" uid="uid://dpdc3bjshfceh" path="res://models/textures/turnip/colors.png" id="1_g0m62"]
 [ext_resource type="Script" path="res://scripts/fooditem.gd" id="1_vbp5k"]
 [ext_resource type="Texture2D" uid="uid://bisnq00oyoh1e" path="res://models/textures/turnip/top.png" id="2_6s1qr"]
 [ext_resource type="Resource" uid="uid://dqbwgu64o7h32" path="res://invobjs/turnip.tres" id="2_xdafr"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="4_5d8ik"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="5_6676i"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i2451"]
 diffuse_mode = 3
@@ -140,6 +142,7 @@ cookedmats = Array[Material]([SubResource("StandardMaterial3D_81mrx"), SubResour
 burntmats = Array[Material]([SubResource("StandardMaterial3D_verlc"), SubResource("StandardMaterial3D_sqk1h")])
 fillamount = 15.0
 cookedfillamount = 20.0
+sounds = Array[AudioStream]([ExtResource("4_5d8ik"), ExtResource("5_6676i")])
 metadata/obj = ExtResource("2_xdafr")
 metadata/diced = "dicedturnip"
 

@@ -50,6 +50,7 @@ size = Vector2(2, 2)
 [node name="turnipcrop" type="StaticBody3D" node_paths=PackedStringArray("stalk") groups=["diggable", "serialize"]]
 script = ExtResource("1_1ucg0")
 maxgrowtime = 200.0
+dryrate = 0.7
 stages = Array[Material]([ExtResource("2_cffqy"), ExtResource("3_t3djf"), ExtResource("4_xg4yc")])
 stalk = NodePath("coveredhole/stalk")
 dropaddress = "turnip"
