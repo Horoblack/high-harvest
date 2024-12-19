@@ -191,7 +191,7 @@ func _process(delta):
 		heldinfobox.visible = false
 	
 	var intersc = getaimcollision()
-	if(intersc.has("collider") && intersc.collider.has_method("info")):
+	if(intersc.has("collider") && intersc.collider.has_method("info") && intersc.collider.info() != null):
 		hoveredinfobox.visible = true
 		hoveredinfolabel.text = intersc.collider.info()
 	else:

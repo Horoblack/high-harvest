@@ -47,7 +47,7 @@ func load_data():
 				["pickup",Vector3(-20.1, 1.85, -23), Vector3(0, deg_to_rad(90), 0), "carrotseedbag", {  }], 
 				["pickup",Vector3(-27.908, 0.923, -31.43), Vector3(deg_to_rad(-60), deg_to_rad(-90), 0), "lock", {  }], 
 				["pickup",Vector3(-17.1, 1.6, -28.4), Vector3(0, 0, 0), "pan", {  }], 
-				["pickup",Vector3(-21, 1.7, -23.5), Vector3(deg_to_rad(90), 0, 0), "note", { "text":"Can't say I understand your reasons, but welcome to your new farm, friend. \n\nAs long as you dig, plant and water, you should be fine. Remember to leave boxes with your harvest by the mail box to sell them. You're starting out with 50 bucks of pocket money to buy anything you want as well. \nGood luck." }], 
+				["pickup",Vector3(-21, 1.7, -23.5), Vector3(deg_to_rad(90), 0, 0), "note", { "text":"Can't say I understand your reasons, but welcome to your new farm, friend. \n\nAs long as you dig, plant and water, you should be fine. Remember to leave boxes with your harvest by the mail box to sell them. You're starting out with 50 bucks of pocket money to buy anything you want as well. \n\nGood luck." }], 
 				["pickup",Vector3(-20.2, 0.9, -22.2), Vector3(0, 0, 0), "box", {  }], 
 				["other", "table", Vector3(-20.9, 1.4, -22.6), Vector3(0, 0, 0)], 
 				["other", "truck", Vector3(-32, .5, -25), Vector3(0, deg_to_rad(-180), 0)], 
