@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=54 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
+[ext_resource type="Script" path="res://friend.gd" id="10_raum2"]
 [ext_resource type="Script" path="res://scripts/eventClass.gd" id="11_c465g"]
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
@@ -16,6 +17,8 @@
 [ext_resource type="Script" path="res://scripts/crowspawner.gd" id="13_d7nle"]
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
+[ext_resource type="Shader" path="res://friend.gdshader" id="17_ipit0"]
+[ext_resource type="Texture2D" uid="uid://cnips3i0p2xwr" path="res://sprites/friend.png" id="18_cs1cs"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -193,6 +196,21 @@ fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
 fog_sky_affect = 0.178
 volumetric_fog_density = 0.02
 volumetric_fog_sky_affect = 0.5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql8as"]
+render_priority = 0
+shader = ExtResource("17_ipit0")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/texture_albedo = ExtResource("18_cs1cs")
+
+[sub_resource type="QuadMesh" id="QuadMesh_vopbi"]
+material = SubResource("ShaderMaterial_ql8as")
+size = Vector2(1, 2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo085"]
 diffuse_mode = 3
@@ -433,6 +451,12 @@ transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, 
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2, 0.5, -23)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+mesh = SubResource("QuadMesh_vopbi")
+skeleton = NodePath("../..")
+script = ExtResource("10_raum2")
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
