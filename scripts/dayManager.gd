@@ -9,6 +9,8 @@ extends Node
 @export var sun : DirectionalLight3D
 @export var moon  : DirectionalLight3D
 
+@export var stockscurve : Curve
+
 var curtick = 0
 
 var sunenergy
@@ -36,6 +38,13 @@ func passday():
 	timeofday = 0
 	Library.marketmutate()
 	Savedata.gamedata["day"] += 1
+	for n in Savedata.gamedata["stocks"]:
+		var amt = Savedata.gamedata["daysales"][n]
+		Savedata.gamedata["stocks"][n] += Savedata.gamedata["stocks"][n] * .25
+		Savedata.gamedata["stocks"][n] -= amt * .05
+		Savedata.gamedata["stocks"][n] = clamp(Savedata.gamedata["stocks"][n],0.5,2)
+	
+	Savedata.resetsales()
 	day.emit()
 
 func timetransition(t : float) -> String:

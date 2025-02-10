@@ -54,19 +54,20 @@ func spawnletter(solditems : Array):
 	flag.rotation_degrees = Vector3.ZERO
 	var itemamounts : Dictionary
 	for n : InventoryObject in solditems:
-		if(!itemamounts.has(n)):
-			itemamounts[n] = 0
-		itemamounts[n] += 1
-	#print(itemamounts)
-	var str = "Thank you for your contribution.\n\n\n"
-	for n in itemamounts:
 		var pp = n.name.to_lower()
 		if(n.customproperties.has("sellmod")):
 			pp = n.customproperties["sellmod"]
-		
-		var amt : float = Library.sell(pp)
+		if(!itemamounts.has(pp)):
+			itemamounts[pp] = 0
+		itemamounts[pp] += 1
+	#print(itemamounts)
+	var str = "Thank you for your contribution.\n\n\n"
+	for n in itemamounts:
+		var amt : float = Library.sell(n)
+		if(Savedata.gamedata.daysales.has(n)):
+			Savedata.gamedata.daysales[n] += 1
 		for b in itemamounts[n]:
-			str += "\n%s : $%.2f" % [pp, amt]
+			str += "\n%s : $%.2f" % [n, amt]
 	str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
 	
 	var letter : bankstatement = Library.objs["bankstatement"].instantiate()

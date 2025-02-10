@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c46mk07gv4nhj"
-path="res://.godot/imported/maze.png-60ddcdd111837200d7100456bb63772c.ctex"
+uid="uid://civx43hsroap8"
+path="res://.godot/imported/cabbagegrowing.png-9fea2adcb27d5542b01361a1d6439b23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://maze.png"
-dest_files=["res://.godot/imported/maze.png-60ddcdd111837200d7100456bb63772c.ctex"]
+source_file="res://models/textures/cabbage/cabbagegrowing.png"
+dest_files=["res://.godot/imported/cabbagegrowing.png-9fea2adcb27d5542b01361a1d6439b23.ctex"]
 
 [params]
 

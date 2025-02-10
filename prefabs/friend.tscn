@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpdacb24t3gh3"]
+
+[ext_resource type="Shader" path="res://friend.gdshader" id="1_n7ge5"]
+[ext_resource type="Texture2D" uid="uid://ccbnhikmujxj2" path="res://sprites/friend01.png" id="2_k81om"]
+[ext_resource type="Script" path="res://scripts/friend.gd" id="3_30qsd"]
+[ext_resource type="Texture2D" uid="uid://bknd88xnfmmyw" path="res://sprites/friend02.png" id="4_683a6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_vopbi"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql8as"]
+render_priority = 0
+shader = ExtResource("1_n7ge5")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/lod = 0.0
+shader_parameter/texture_albedo = ExtResource("2_k81om")
+
+[node name="friend" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_vopbi")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_ql8as")
+script = ExtResource("3_30qsd")
+colors = Array[Color]([Color(0.599068, 0.466966, 5.77569e-07, 1), Color(0.934345, 0.533083, 0.428876, 1), Color(0.494302, 0.638275, 0.271981, 1)])
+sprites = Array[Texture2D]([ExtResource("2_k81om"), ExtResource("4_683a6")])

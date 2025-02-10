@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bekppgq2bplwo"]
+
+[ext_resource type="Shader" path="res://friend.gdshader" id="1_tbdpy"]
+[ext_resource type="Texture2D" uid="uid://cgxuaaohrrfyh" path="res://sprites/shy.png" id="2_7j24h"]
+[ext_resource type="Script" path="res://scripts/shy.gd" id="3_6sor3"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4pnr5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lwndb"]
+render_priority = 0
+shader = ExtResource("1_tbdpy")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = null
+shader_parameter/lod = 0.0
+shader_parameter/texture_albedo = ExtResource("2_7j24h")
+
+[node name="shy" type="MeshInstance3D"]
+mesh = SubResource("QuadMesh_4pnr5")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_lwndb")
+script = ExtResource("3_6sor3")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shadow_enabled = true
+omni_range = 1.5
+omni_attenuation = -5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

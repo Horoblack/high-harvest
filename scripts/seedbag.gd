@@ -23,6 +23,9 @@ func hold(holder):
 	pl = holder
 
 func trigger(pl):
+	if(seedcount <= 0):
+		return
+	
 	if(pl.cast.is_colliding()):
 		removeitem(null, pl.cast.get_collision_point())
 	else:

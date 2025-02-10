@@ -33,3 +33,4 @@ func spawnit():
 	curobj.global_position = curevent.position
 	if(curevent.singletime):
 		Savedata.gamedata["seenevents"].append(curevent.eventname)
+	events = events.filter(func(a:eventClass): return !a.singletime || !Savedata.gamedata["seenevents"].has(a.eventname))

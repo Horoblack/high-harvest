@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cnips3i0p2xwr"
-path="res://.godot/imported/friend.png-7a4e6741b802750b6c8eba4c20dac563.ctex"
+uid="uid://c4avc1vcp3n7y"
+path="res://.godot/imported/cabbageseedbag.png-537e224f8d14b044da8e1fa5915e31a6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/friend.png"
-dest_files=["res://.godot/imported/friend.png-7a4e6741b802750b6c8eba4c20dac563.ctex"]
+source_file="res://sprites/itemicons/cabbageseedbag.png"
+dest_files=["res://.godot/imported/cabbageseedbag.png-537e224f8d14b044da8e1fa5915e31a6.ctex"]
 
 [params]
 

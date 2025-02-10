@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=52 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://lkw605adn76h" path="res://prefabs/mailbox.tscn" id="6_ek1y7"]
 [ext_resource type="PackedScene" uid="uid://cwi170efjq44q" path="res://prefabs/player.tscn" id="7_7xdn7"]
 [ext_resource type="PackedScene" uid="uid://cq2hpwy5ct4io" path="res://prefabs/tap.tscn" id="9_oox23"]
-[ext_resource type="Script" path="res://friend.gd" id="10_raum2"]
 [ext_resource type="Script" path="res://scripts/eventClass.gd" id="11_c465g"]
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
@@ -17,8 +16,7 @@
 [ext_resource type="Script" path="res://scripts/crowspawner.gd" id="13_d7nle"]
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
-[ext_resource type="Shader" path="res://friend.gdshader" id="17_ipit0"]
-[ext_resource type="Texture2D" uid="uid://cnips3i0p2xwr" path="res://sprites/friend.png" id="18_cs1cs"]
+[ext_resource type="PackedScene" uid="uid://bekppgq2bplwo" path="res://prefabs/shy.tscn" id="17_sw1mg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -197,20 +195,10 @@ fog_sky_affect = 0.178
 volumetric_fog_density = 0.02
 volumetric_fog_sky_affect = 0.5
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ql8as"]
-render_priority = 0
-shader = ExtResource("17_ipit0")
-shader_parameter/albedo = Color(1, 1, 1, 1)
-shader_parameter/point_size = 0.0
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = null
-shader_parameter/texture_albedo = ExtResource("18_cs1cs")
-
-[sub_resource type="QuadMesh" id="QuadMesh_vopbi"]
-material = SubResource("ShaderMaterial_ql8as")
-size = Vector2(1, 2)
+[sub_resource type="Curve" id="Curve_txfu1"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo085"]
 diffuse_mode = 3
@@ -288,6 +276,14 @@ script = ExtResource("11_c465g")
 eventname = "potatoexchange"
 singletime = false
 object = ExtResource("15_0p73r")
+timerange = Vector2(0, 2400)
+position = Vector3(0, 0, 0)
+
+[sub_resource type="Resource" id="Resource_4fse0"]
+script = ExtResource("11_c465g")
+eventname = "shy"
+singletime = false
+object = ExtResource("17_sw1mg")
 timerange = Vector2(0, 2400)
 position = Vector3(0, 0, 0)
 
@@ -445,18 +441,13 @@ shape = SubResource("BoxShape3D_odeyq")
 unique_name_in_owner = true
 environment = SubResource("Environment_kgkmd")
 rateoftime = 5.0
+stockscurve = SubResource("Curve_txfu1")
 
 [node name="mailbox" parent="." instance=ExtResource("6_ek1y7")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2, 0.5, -23)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
-mesh = SubResource("QuadMesh_vopbi")
-skeleton = NodePath("../..")
-script = ExtResource("10_raum2")
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 
@@ -548,7 +539,7 @@ shape = SubResource("ConcavePolygonShape3D_o3pp0")
 
 [node name="eventmanager" type="Node" parent="."]
 script = ExtResource("5_l1g36")
-events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4"), SubResource("Resource_d6yf1"), SubResource("Resource_pcdw7")])
+events = Array[ExtResource("11_c465g")]([SubResource("Resource_t1tb4"), SubResource("Resource_d6yf1"), SubResource("Resource_pcdw7"), SubResource("Resource_4fse0")])
 
 [node name="cellardoor" parent="." instance=ExtResource("14_1i0y2")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.3471, 0, -31.4158)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://boa3t5dlsr8"]
+
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="1_i5rxc"]
+[ext_resource type="Texture2D" uid="uid://b0lvt8obqla6q" path="res://sprites/itemicons/beer.png" id="1_o2fs6"]
+
+[resource]
+script = ExtResource("1_i5rxc")
+name = "Beer"
+weight = 0.5
+icon = ExtResource("1_o2fs6")
+description = "A can of beer."
+objaddress = "beer"
+customproperties = {}

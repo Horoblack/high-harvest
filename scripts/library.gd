@@ -18,6 +18,10 @@ var objs : Dictionary = {
 	"turnipseed":load("res://prefabs/seedstuff/turnipseed.tscn"),
 	"turnipseedbag":load("res://prefabs/seedstuff/turnipseedbag.tscn"),
 	"dicedturnip":load("res://prefabs/dicedturnip.tscn"),
+	"cabbage":load("res://prefabs/cabbage.tscn"),
+	"cabbageseed":load("res://prefabs/seedstuff/cabbageseed.tscn"),
+	"cabbageseedbag":load("res://prefabs/seedstuff/cabbageseedbag.tscn"),
+	"dicedcabbage":load("res://prefabs/dicedcabbage.tscn"),
 	"wateringcan":load("res://prefabs/watering_can.tscn"),
 	"box":load("res://prefabs/box.tscn"),
 	"boxlid":load("res://prefabs/lid.tscn"),
@@ -57,6 +61,8 @@ var objs : Dictionary = {
 	"pan":load("res://prefabs/pan.tscn"),
 	"pot":load("res://prefabs/pot.tscn"),
 	"totem":load("res://prefabs/totem.tscn"),
+	"sixpack":load("res://prefabs/sixpack.tscn"),
+	"beer":load("res://prefabs/beer.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -79,6 +85,10 @@ var invobjs : Dictionary = {
 	"turnipseed":load("res://invobjs/turnipseed.tres"),
 	"turnipseedbag":load("res://invobjs/turnipseedbag.tres"),
 	"dicedturnip":load("res://invobjs/dicedturnip.tres"),
+	"cabbage":load("res://invobjs/cabbage.tres"),
+	"cabbageseed":load("res://invobjs/cabbageseed.tres"),
+	"cabbageseedbag":load("res://invobjs/cabbageseedbag.tres"),
+	"dicedcabbage":load("res://invobjs/dicedcabbage.tres"),
 	"wateringcan":load("res://invobjs/wateringcan.tres"),
 	"storeflyer":load("res://invobjs/storeflyer.tres"),
 	"box":load("res://invobjs/box.tres"),
@@ -115,12 +125,15 @@ var invobjs : Dictionary = {
 	"pan":load("res://invobjs/pan.tres"),
 	"pot":load("res://invobjs/pot.tres"),
 	"totem":load("res://invobjs/totem.tres"),
+	"sixpack":load("res://invobjs/sixpack.tres"),
+	"beer":load("res://invobjs/beer.tres"),
 }
 
 var purchasables : Dictionary = {
 	"carrotseedbag" = 10.0,
 	"tomatoseedbag" = 10.0,
 	"turnipseedbag" = 10.0,
+	"cabbageseedbag" = 10.0,
 	"potato" = 5.0,
 	"shovel" = 9.0,
 	"wateringcan" = 8.0,
@@ -142,12 +155,14 @@ var purchasables : Dictionary = {
 	"key" = 50.0,
 	"knife" = 15.0,
 	"pot" = 20.0,
+	"sixpack" = 20.0,
 }
 
 var sellvalues : Dictionary = {
 	"carrot" = 5.0,
 	"tomato" = 5.0,
 	"turnip" = 5.0,
+	"cabbage" = 7.0,
 	"egg" = 7.0,
 	"trashbag" = 1.0,
 	"ammobox" = 5.0,
@@ -162,6 +177,7 @@ var sellvalues : Dictionary = {
 	"turnipseedbag" = 10.0,
 	"usedseedbag" = 1.0,
 	"totem" = 100.0,
+	"usedsixpack"= 1.0,
 }
 
 const crops : Dictionary = {
@@ -169,6 +185,7 @@ const crops : Dictionary = {
 	"carrotseed":preload("res://prefabs/crops/carrotcrop.tscn"),
 	"tomatoseed":preload("res://prefabs/crops/tomatocrop.tscn"),
 	"turnipseed":preload("res://prefabs/crops/turnipcrop.tscn"),
+	"cabbageseed":preload("res://prefabs/crops/cabbagecrop.tscn"),
 	"dicedpotato":preload("res://prefabs/crops/potatocrop.tscn"),
 }
 

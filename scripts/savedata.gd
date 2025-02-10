@@ -86,6 +86,15 @@ func load_data():
 					"carrot":1,
 					"tomato":1,
 					"turnip":1,
+					"cabbage":1,
+					"potato":1,
+				},
+			"daysales": {
+					"carrot":0,
+					"tomato":0,
+					"turnip":0,
+					"cabbage":0,
+					"potato":0,
 				},
 			"seenevents": {
 				
@@ -93,6 +102,15 @@ func load_data():
 		}
 	cansave = 0
 	return gamedata
+
+func resetsales():
+	gamedata["daysales"] = {
+					"carrot":0,
+					"tomato":0,
+					"turnip":0,
+					"cabbage":0,
+					"potato":0,
+					}
 
 func save_data():
 	if(curfile != -1 && cansave == 0):

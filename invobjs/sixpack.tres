@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bf7lychcb78vx"]
+
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="1_bxroh"]
+[ext_resource type="Texture2D" uid="uid://d3lajnywp4aep" path="res://sprites/itemicons/sixpack.png" id="1_v1px7"]
+
+[resource]
+script = ExtResource("1_bxroh")
+name = "Beer Six Pack"
+weight = 1.0
+icon = ExtResource("1_v1px7")
+description = "A pack of six beers."
+objaddress = "sixpack"
+customproperties = {}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://by4dub760le5u"]
+
+[ext_resource type="Texture2D" uid="uid://b8y1b0x5ixd7i" path="res://sprites/itemicons/cabbageseed.png" id="1_r4gig"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_j5ghr"]
+
+[resource]
+script = ExtResource("2_j5ghr")
+name = "Cabbage Seed"
+weight = 0.1
+icon = ExtResource("1_r4gig")
+description = "Plant in a hole to grow cabbages."
+objaddress = "cabbageseed"
+customproperties = {}

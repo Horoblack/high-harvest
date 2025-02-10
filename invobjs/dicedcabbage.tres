@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://brgybxr52vj3g"]
+
+[ext_resource type="Texture2D" uid="uid://dgro8ekg6w6fu" path="res://sprites/itemicons/dicedcabbage.png" id="1_22bbx"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_cm2n4"]
+
+[resource]
+script = ExtResource("2_cm2n4")
+name = "Diced cabbage"
+weight = 0.1
+icon = ExtResource("1_22bbx")
+description = "Cabbage cube."
+objaddress = "dicedcabbage"
+customproperties = {}
