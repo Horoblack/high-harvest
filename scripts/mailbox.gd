@@ -65,7 +65,7 @@ func spawnletter(solditems : Array):
 	for n in itemamounts:
 		var amt : float = Library.sell(n)
 		if(Savedata.gamedata.daysales.has(n)):
-			Savedata.gamedata.daysales[n] += 1
+			Savedata.gamedata.daysales[n] += itemamounts[n]
 		for b in itemamounts[n]:
 			str += "\n%s : $%.2f" % [n, amt]
 	str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]

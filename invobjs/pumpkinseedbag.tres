@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bajcbkq5xcuah"]
+
+[ext_resource type="Texture2D" uid="uid://bkca0iy1u7lty" path="res://sprites/itemicons/pumpkinseedbag.png" id="1_u7gql"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_mdj7p"]
+
+[resource]
+script = ExtResource("2_mdj7p")
+name = "Pumpkin seed bag"
+weight = 0.5
+icon = ExtResource("1_u7gql")
+description = "A bag full of seeds."
+objaddress = "pumpkinseedbag"
+customproperties = {}

@@ -164,7 +164,7 @@ exclude_nodes_from_collision = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379599, 0.867002, 0)
 
 [node name="lid" type="RigidBody3D" parent="." groups=["heavy", "pickup"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379599, 0.867002, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379599, 0.87111, 0)
 mass = 0.1
 gravity_scale = 0.0
 

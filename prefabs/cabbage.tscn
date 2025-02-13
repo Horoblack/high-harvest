@@ -78,6 +78,9 @@ fillamount = 16.0
 cookedfillamount = 18.0
 maxage = 25.0
 metadata/obj = ExtResource("3_24u42")
+metadata/diced = {
+"dicedcabbage": 3
+}
 
 [node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_rces4")

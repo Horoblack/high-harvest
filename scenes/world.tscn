@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=60 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
@@ -17,6 +17,14 @@
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
 [ext_resource type="PackedScene" uid="uid://bekppgq2bplwo" path="res://prefabs/shy.tscn" id="17_sw1mg"]
+[ext_resource type="PackedScene" uid="uid://d05rxqmlieox2" path="res://prefabs/seedstuff/cabbageseedbag.tscn" id="18_umpwp"]
+[ext_resource type="PackedScene" uid="uid://dnqivnfoo6iju" path="res://prefabs/seedstuff/carrotseedbag.tscn" id="19_5uoa8"]
+[ext_resource type="PackedScene" uid="uid://dk4gmi4r46tbx" path="res://prefabs/seedstuff/pumpkinseedbag.tscn" id="20_riq56"]
+[ext_resource type="PackedScene" uid="uid://ctsbb6agp2r05" path="res://prefabs/seedstuff/tomatoseedbag.tscn" id="21_pn6wp"]
+[ext_resource type="PackedScene" uid="uid://bk1o03uttjk8w" path="res://prefabs/seedstuff/turnipseedbag.tscn" id="22_mjhjw"]
+[ext_resource type="PackedScene" uid="uid://chf1ubmpxkrne" path="res://prefabs/potato.tscn" id="23_32afm"]
+[ext_resource type="PackedScene" uid="uid://2qae7y1j7pkh" path="res://prefabs/tomato.tscn" id="24_nni45"]
+[ext_resource type="PackedScene" uid="uid://nicoca2qm6gm" path="res://prefabs/cabbage.tscn" id="25_l181v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -551,6 +559,78 @@ script = ExtResource("13_d7nle")
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="cabbageseedbag" parent="." instance=ExtResource("18_umpwp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.4523, 0, -14.0433)
+
+[node name="carrotseedbag" parent="." instance=ExtResource("19_5uoa8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.4995, 0, -13.4813)
+
+[node name="pumpkinseedbag" parent="." instance=ExtResource("20_riq56")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.7068, 0, -13.3501)
+
+[node name="tomatoseedbag" parent="." instance=ExtResource("21_pn6wp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0831, 0, -13.8988)
+
+[node name="turnipseedbag" parent="." instance=ExtResource("22_mjhjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4377, 0, -14.5552)
+
+[node name="potato" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="potato2" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="potato3" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="potato4" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="potato5" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="potato6" parent="." instance=ExtResource("23_32afm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.493, 0, -10.9615)
+
+[node name="tomato" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato2" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato3" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato4" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato5" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato6" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="tomato7" parent="." instance=ExtResource("24_nni45")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.5175, 0, -11.8314)
+
+[node name="cabbage" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
+
+[node name="cabbage2" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
+
+[node name="cabbage3" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
+
+[node name="cabbage4" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
+
+[node name="cabbage5" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
+
+[node name="cabbage6" parent="." instance=ExtResource("25_l181v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.32, 0, -12.6809)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

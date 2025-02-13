@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dmm20o67vwvu4"]
+
+[ext_resource type="Texture2D" uid="uid://cbxaegc28vmtg" path="res://sprites/itemicons/pumpkinseed.png" id="1_nyxup"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_60xi2"]
+
+[resource]
+script = ExtResource("2_60xi2")
+name = "Pumpkin Seed"
+weight = 0.1
+icon = ExtResource("1_nyxup")
+description = "Plant in a hole to grow a pumpkin."
+objaddress = "pumpkinseed"
+customproperties = {}

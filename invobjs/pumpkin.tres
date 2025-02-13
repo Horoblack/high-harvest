@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://d31kekmyj0s07"]
+
+[ext_resource type="Texture2D" uid="uid://b2otk2ak4lx5j" path="res://sprites/itemicons/pumpkin.png" id="1_13p2k"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_i6il8"]
+
+[resource]
+script = ExtResource("2_i6il8")
+name = "Pumpkin"
+weight = 1.0
+icon = ExtResource("1_13p2k")
+description = "A simple pumpkin."
+objaddress = "pumpkin"
+customproperties = {}

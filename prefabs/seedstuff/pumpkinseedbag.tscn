@@ -1,15 +1,15 @@
-[gd_scene load_steps=12 format=4 uid="uid://dnqivnfoo6iju"]
+[gd_scene load_steps=12 format=4 uid="uid://dk4gmi4r46tbx"]
 
-[ext_resource type="Texture2D" uid="uid://da1nj53qmlbj8" path="res://models/textures/carrot/seedbag.png" id="1_3si0l"]
-[ext_resource type="Script" path="res://scripts/seedbag.gd" id="1_kwxex"]
-[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_dd87d"]
-[ext_resource type="Script" path="res://scripts/grabarea.gd" id="2_dyuu2"]
-[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_f3qib"]
-[ext_resource type="Resource" uid="uid://dirfcq3tbntpy" path="res://invobjs/carrotseedbag.tres" id="4_28ght"]
+[ext_resource type="Script" path="res://scripts/seedbag.gd" id="1_kr7qr"]
+[ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_g51mv"]
+[ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_xw26m"]
+[ext_resource type="Resource" uid="uid://bajcbkq5xcuah" path="res://invobjs/pumpkinseedbag.tres" id="4_gfht6"]
+[ext_resource type="Texture2D" uid="uid://cn0n7ryqpm3nk" path="res://models/textures/pumpkin/seedbag.png" id="5_aieh0"]
+[ext_resource type="Script" path="res://scripts/grabarea.gd" id="7_oky36"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n2r3p"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x5ydl"]
 specular_mode = 1
-albedo_texture = ExtResource("1_3si0l")
+albedo_texture = ExtResource("5_aieh0")
 texture_filter = 2
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_dqmem"]
@@ -26,7 +26,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ekamk"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_3yqbq"]
 resource_name = "seedbag_Cube_002"
 _surfaces = [{
 "aabb": AABB(-0.171072, -0.20536, -0.0970581, 0.342144, 0.578686, 0.196735),
@@ -35,7 +35,7 @@ _surfaces = [{
 "index_count": 132,
 "index_data": PackedByteArray("AgAJAAQAAgAHAAkABQASAAgABQAPABIAEQAOABMAEQAMAA4ACgADAA0ACgAAAAMABgALABAABgABAAsADgAZABMADgAbABkAFwAeABUAFwAgAB4ACQAVAAQACQAXABUAAwAaAA0AAwAUABoAEgAWAAgAEgAYABYAJwAzAB4AJwA5ADMAFAAjABoAFAAcACMAGAAfABYAGAAhAB8AGwAiABkAGwAlACIAKgAmACgAKgAsACYAIQAoAB8AIQAqACgAJQArACIAJQAtACsAIAAnAB4AIAApACcAMQA1AC4AMQA4ADUALAA3ACYALAA0ADcAHQAvACQAHQAyAC8AJQA2AC0AJQAwADYA"),
 "lods": [0.0460387, PackedByteArray("AgAgAAQAAgAHACAAIAAeAAQAIAAnAB4AJwAzAB4AJwA5ADMABQAhAB8ABQAPACEAIQA7AB8AOwAmAB8AEQAOACIAEQAMAA4ADgAlACIAJQArACIAJQA2ACsAJQAwADYACgADAA0ACgAAAAMAAwAjAA0AAwAcACMABgALABAABgABAAsAMQA1AC4AMQA4ADUAPAA+ADoAPAA9AD4AHQAvACQAHQAyAC8A")],
-"material": SubResource("StandardMaterial3D_n2r3p"),
+"material": SubResource("StandardMaterial3D_x5ydl"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 63,
@@ -50,14 +50,14 @@ size = Vector3(0.34668, 0.410156, 0.200195)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgw7x"]
 size = Vector3(0.34668, 0.160645, 0.139648)
 
-[node name="carrotseedbag" type="RigidBody3D" groups=["pickup"]]
-script = ExtResource("1_kwxex")
-seedaddress = "carrotseed"
-sounds = Array[AudioStream]([ExtResource("2_dd87d"), ExtResource("3_f3qib")])
-metadata/obj = ExtResource("4_28ght")
+[node name="pumpkinseedbag" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_kr7qr")
+seedaddress = "pumpkinseed"
+sounds = Array[AudioStream]([ExtResource("2_g51mv"), ExtResource("3_xw26m")])
+metadata/obj = ExtResource("4_gfht6")
 
 [node name="seedsack" type="MeshInstance3D" parent="."]
-mesh = SubResource("ArrayMesh_ekamk")
+mesh = SubResource("ArrayMesh_3yqbq")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -66,7 +66,7 @@ shape = SubResource("BoxShape3D_mkhb7")
 [node name="grabarea" type="StaticBody3D" parent="."]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("2_dyuu2")
+script = ExtResource("7_oky36")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="grabarea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.289123, 0)

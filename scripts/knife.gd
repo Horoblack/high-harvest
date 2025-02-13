@@ -19,12 +19,14 @@ func grabtrigger(bod):
 func use():
 	if(p.cast.is_colliding() && p.cast.get_collider().has_meta("diced")):
 		var col = p.cast.get_collider()
-		var dicprefab = Library.objs[col.get_meta("diced")]
-		for n in 3:
-			var dic : Node3D = dicprefab.instantiate()
-			get_tree().current_scene.add_child(dic)
-			dic.global_position = col.global_position
-			dic.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)).normalized()*.2)
+		var dat = col.get_meta("diced")
+		for i in dat:
+			var dicprefab = Library.objs[i]
+			for n in dat[i]:
+				var dic : Node3D = dicprefab.instantiate()
+				get_tree().current_scene.add_child(dic)
+				dic.global_position = col.global_position
+				dic.apply_central_impulse(Vector3(randf_range(-2,2),1,randf_range(-2,2)).normalized()*.2)
 		col.queue_free()
 
 func _physics_process(delta):

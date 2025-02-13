@@ -40,6 +40,12 @@ func _input(event):
 			letgoofheld()
 		return
 	
+	#if(event.is_action_pressed("ui_home")):
+		#print(Savedata.gamedata["stocks"])
+		#print(Savedata.gamedata["daysales"])
+	#if(event.is_action_pressed("ui_end")):
+		#body.get_node("%day manager").passday()
+	
 	if(event.is_action_pressed("grab") && cast.is_colliding()):
 		var obj = cast.get_collider()
 		if(obj.has_method("grabtrigger")):

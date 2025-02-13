@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cibc2861p3pw6"]
+
+[ext_resource type="Texture2D" uid="uid://tdlcdsnajfth" path="res://sprites/itemicons/dicedpumpkin.png" id="1_h3kj7"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_1shr2"]
+
+[resource]
+script = ExtResource("2_1shr2")
+name = "Diced pumpkin"
+weight = 0.1
+icon = ExtResource("1_h3kj7")
+description = "Pumpkin cube."
+objaddress = "dicedpumpkin"
+customproperties = {}

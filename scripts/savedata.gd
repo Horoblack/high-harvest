@@ -95,6 +95,7 @@ func load_data():
 					"turnip":0,
 					"cabbage":0,
 					"potato":0,
+					"pumpkin":0,
 				},
 			"seenevents": {
 				
@@ -110,6 +111,7 @@ func resetsales():
 					"turnip":0,
 					"cabbage":0,
 					"potato":0,
+					"pumpkin":0,
 					}
 
 func save_data():

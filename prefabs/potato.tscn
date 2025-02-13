@@ -65,7 +65,9 @@ cookedfillamount = 15.0
 maxage = -1.0
 sounds = Array[AudioStream]([ExtResource("2_jgqo8"), ExtResource("3_ps14c")])
 metadata/obj = ExtResource("2_ojw2h")
-metadata/diced = "dicedpotato"
+metadata/diced = {
+"dicedpotato": 3
+}
 
 [node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_ymnpd")
