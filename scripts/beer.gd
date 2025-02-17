@@ -34,7 +34,7 @@ func trigger(pla : PlayerCam):
 
 func drinkeffect():
 	if(pl):
-		pl.body.feed(10)
+		pl.body.feed(10, false)
 		drunk = true
 		updatedata()
 		if(randi_range(0,14) == 0):

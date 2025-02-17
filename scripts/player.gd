@@ -11,6 +11,7 @@ class_name Player
 @onready var normalshape: CollisionShape3D = $CollisionShape3D
 @onready var injury = $cam/CanvasLayer/injury
 @onready var gameover = $cam/CanvasLayer/injury/gameover
+@onready var munch = $munch
 
 var curspeed
 const SPEED = 100
@@ -159,9 +160,11 @@ func crouchheight(down : bool = true):
 	shape.position.y = .75 if down else 1
 	cam.position.y = .90 if down else 1.8
 
-func feed(amt : float):
+func feed(amt : float, crunch : bool = true):
 	hunger += amt
 	hunger = clamp(hunger,0,100)
+	if(crunch):
+		munch.play()
 
 func ragdoll(dmg : float = 0):
 	Savedata.cansave += 1

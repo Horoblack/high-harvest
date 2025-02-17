@@ -751,6 +751,7 @@ environment = SubResource("Environment_upmu6")
 
 [node name="mazecol" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -52)
+metadata/material = "stone"
 
 [node name="CollisionShape3D50" type="CollisionShape3D" parent="mazecol"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)

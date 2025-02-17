@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwi170efjq44q"]
+[gd_scene load_steps=9 format=3 uid="uid://cwi170efjq44q"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_uppgx"]
 [ext_resource type="Script" path="res://scripts/playercam.gd" id="2_vgmbu"]
 [ext_resource type="Script" path="res://scripts/inventory.gd" id="3_w0mcb"]
 [ext_resource type="PackedScene" uid="uid://bvy82pls5kkcr" path="res://scenes/pause.tscn" id="4_1tgxg"]
 [ext_resource type="Theme" uid="uid://cbj0gkm83nlep" path="res://ui.tres" id="4_0876b"]
+[ext_resource type="AudioStream" uid="uid://d18tkipd6ud8b" path="res://sounds/munch.mp3" id="6_ekwjv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i14eu"]
 radius = 0.45
@@ -399,6 +400,15 @@ disabled = true
 
 [node name="ragdolltime" type="Timer" parent="."]
 one_shot = true
+
+[node name="munch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ekwjv")
+
+[node name="groundcheck" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+target_position = Vector3(0, -0.2, 0)
+
+[node name="footstep" type="AudioStreamPlayer" parent="groundcheck"]
 
 [connection signal="pressed" from="cam/CanvasLayer/injury/gameover/VBoxContainer/quickloadbutton" to="." method="reload"]
 [connection signal="pressed" from="cam/CanvasLayer/injury/gameover/VBoxContainer/quitbutton" to="." method="quittomenu"]
