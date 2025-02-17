@@ -1,7 +1,7 @@
 extends MeshInstance3D
 
 var player
-var speed : float = .1
+var speed : float = .01
 
 @onready var timer = $Timer
 
@@ -13,8 +13,8 @@ func _ready():
 	#reparent(player)
 
 func _process(delta):
-	global_position = lerp(global_position, player.global_position + (player.basis.z) + Vector3(0,1.5,0), .08)
-	if(InfoChecker.visibletoplayer(global_position) && speed < .2):
+	global_position = lerp(global_position, player.global_position + (player.basis.z*3) + Vector3(0,1.5,0), .08)
+	if(InfoChecker.visibletoplayer(global_position) && speed < .1):
 		if(!seen):
 			seen = true
 			timer.start()
