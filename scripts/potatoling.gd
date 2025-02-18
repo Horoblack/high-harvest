@@ -10,12 +10,12 @@ const POTATOCROP = preload("res://prefabs/crops/potatocrop.tscn")
 
 func _physics_process(delta):
 	if(cast.is_colliding()):
+		sleeping = false
+		freeze = false
 		var cur = global_basis.get_euler()
 		var target = global_basis.from_euler(Vector3(0,cur.y+randomdir,0))
-		angular_velocity = Library.calc_angular_velocity(global_basis,target)*20
-		freeze = false
-		#linear_velocity = -global_basis.z * 20
-		apply_force(-global_basis.z * 20)#,Vector3(0,-.1,0))
+		angular_velocity = Library.calc_angular_velocity(global_basis,target)*30
+		apply_force(-global_basis.z * 10)
 		if(lifetime < 0):
 			if(cast.get_collider().is_in_group("diggable")):
 				anim.play("bury")

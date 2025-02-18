@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://u0fuu1pyrdg6" path="res://models/textures/potatoling.png" id="1_qhpeh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_afgma"]
-friction = 0.2
+friction = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cge14"]
 albedo_color = Color(0.67, 0.45426, 0.1072, 1)
@@ -234,7 +234,6 @@ _data = {
 [node name="potatoling" type="RigidBody3D" groups=["pickup"]]
 physics_material_override = SubResource("PhysicsMaterial_afgma")
 can_sleep = false
-linear_damp_mode = 1
 script = ExtResource("1_8ul76")
 metadata/obj = ExtResource("1_4m7nq")
 

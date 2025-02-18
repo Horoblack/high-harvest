@@ -13,7 +13,10 @@ var mat : ShaderMaterial
 var speed : float
 
 func _ready():
-	speed = randf_range(.5,2)
+	var pl = get_tree().get_first_node_in_group("player")
+	direction = pl.basis.z
+	reparent(pl)
+	speed = randf_range(1,3)
 	distance = startdistance
 	mat = get_surface_override_material(0).duplicate()
 	mat.set_shader_parameter("albedo", colors.pick_random())
@@ -27,7 +30,8 @@ func _process(delta):
 	if(!InfoChecker.visibletoplayer(global_position)):
 		distance -= delta * speed
 		distance = clampf(distance,0,99)
-		transparency = (distance+ (startdistance/4))/startdistance
-		mat.set_shader_parameter("lod", (distance/startdistance)*15)
+		#transparency = (distance+ (startdistance/4))/startdistance
+		#mat.set_shader_parameter("lod", (distance/startdistance)*15)
 		if(distance < .1):
+			get_parent().ragdoll()
 			queue_free()
