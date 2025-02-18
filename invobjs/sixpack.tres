@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("1_bxroh")
-name = "Beer Six Pack"
+name = "Six pack"
 weight = 1.0
 icon = ExtResource("1_v1px7")
 description = "A pack of six beers."

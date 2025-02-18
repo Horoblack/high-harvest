@@ -30,7 +30,7 @@ one_shot = true
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 shadow_enabled = true
-omni_range = 1.5
+omni_range = 1.0
 omni_attenuation = -5.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

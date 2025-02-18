@@ -75,6 +75,7 @@ moon = NodePath("sun/moon")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0, 7, 0)
+light_indirect_energy = 2.0
 shadow_enabled = true
 
 [node name="moon" type="DirectionalLight3D" parent="sun"]

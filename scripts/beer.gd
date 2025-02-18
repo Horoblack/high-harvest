@@ -39,8 +39,7 @@ func drinkeffect():
 		updatedata()
 		if(randi_range(0,14) == 0):
 			var fren = FRIEND.instantiate()
-			fren.direction = pl.body.basis.z
-			pl.body.add_child(fren)
+			get_tree().current_scene.add_child(fren)
 
 func updatedata():
 	if(data == null):

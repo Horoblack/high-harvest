@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=53 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="PackedScene" uid="uid://tihuvtjmxi4p" path="res://prefabs/day_manager.tscn" id="3_72js4"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
 [ext_resource type="PackedScene" uid="uid://bekppgq2bplwo" path="res://prefabs/shy.tscn" id="17_sw1mg"]
+[ext_resource type="PackedScene" uid="uid://h1f87gl306xf" path="res://prefabs/potatoling.tscn" id="19_8adgt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -188,7 +189,9 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.2
 ssao_enabled = true
-ssao_radius = 0.76
+ssao_radius = 0.68
+ssao_intensity = 2.02
+glow_enabled = true
 glow_strength = 0.3
 fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
 fog_sky_affect = 0.178
@@ -553,6 +556,9 @@ script = ExtResource("13_d7nle")
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="potatoling" parent="." instance=ExtResource("19_8adgt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.9763, 0.5, -14.2235)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]

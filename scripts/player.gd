@@ -168,6 +168,8 @@ func feed(amt : float, crunch : bool = true):
 
 func ragdoll(dmg : float = 0):
 	Savedata.cansave += 1
+	cam.letgoofgrabbed()
+	cam.letgoofheld()
 	damage += dmg
 	ragdolled = true
 	shadow.freeze = false
@@ -176,7 +178,7 @@ func ragdoll(dmg : float = 0):
 	shadow.linear_velocity = -global_basis.z*3 if velocity.is_zero_approx() else velocity*3
 	shadow.angular_velocity = Vector3(randf_range(-1,1),randf_range(-1,1),randf_range(-1,1))
 	velocity = Vector3.ZERO
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(3).timeout
 	if(damage < 100):
 		Savedata.cansave -= 1
 		crouchheight(true)
