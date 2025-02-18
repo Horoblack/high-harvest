@@ -3,6 +3,9 @@ extends basepickup
 @onready var pinjoint: JoltPinJoint3D = $PinJoint3D
 @onready var cast: RayCast3D = $RayCast3D
 
+func _ready() -> void:
+	cast.add_exception(get_tree().get_first_node_in_group("player"))
+
 func _physics_process(delta: float) -> void:
 	super(delta)
 	if(cast.is_colliding()):

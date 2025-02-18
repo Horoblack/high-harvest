@@ -1,0 +1,156 @@
+[gd_scene load_steps=16 format=4 uid="uid://c8wtkgpmpyog0"]
+
+[ext_resource type="Script" path="res://scripts/farmersguide.gd" id="1_odc0f"]
+[ext_resource type="Resource" uid="uid://d88aeksmshux" path="res://invobjs/farmersguide.tres" id="1_x8lf7"]
+[ext_resource type="Texture2D" uid="uid://btsjp7t7gi3r5" path="res://sprites/farmers guide/cover.png" id="3_o2fid"]
+[ext_resource type="Texture2D" uid="uid://d2xt2cqj6ryyi" path="res://sprites/farmers guide/page 1.png" id="3_qnqvp"]
+[ext_resource type="Texture2D" uid="uid://cvb2srjb0vrgd" path="res://sprites/arrow.png" id="3_wtfdy"]
+[ext_resource type="Texture2D" uid="uid://bn0o4xk15a0c1" path="res://sprites/farmers guide/page 2.png" id="4_dcc74"]
+[ext_resource type="Texture2D" uid="uid://bp0pspwyfjubr" path="res://sprites/farmers guide/page 3.png" id="5_kpmmi"]
+[ext_resource type="Texture2D" uid="uid://bvdqv6h8gmjtq" path="res://sprites/farmers guide/page 4.png" id="6_5ciwv"]
+[ext_resource type="Texture2D" uid="uid://dhttylu5h124d" path="res://sprites/farmers guide/back.png" id="7_01gbb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fkst3"]
+albedo_texture = ExtResource("3_o2fid")
+uv1_scale = Vector3(2, 1.44, 1)
+uv1_offset = Vector3(0, -0.45, 0)
+texture_filter = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k62gd"]
+_surfaces = [{
+"aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAABL7AAD//wAAEvsAAAAA//8U+wAA/////xT7AAAAAAAAAAAAAP//AAAAAAAAAAD//wIAAAD/////AgAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ft6hy"]
+resource_name = "paper_Plane"
+_surfaces = [{
+"aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
+"attribute_data": PackedByteArray("B4D3//f/9/8HgGFV9/9hVfd/9/8HAPf/939hVQcAYVU="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
+"material": SubResource("StandardMaterial3D_fkst3"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAABL7/3///wAAEvv/fwAA//8U+/9//////xT7/38AAAAAAAD/////AAAAAP//AAD//wIA////////AgD///9/////f////3////9/////f/7//3/+//9//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k62gd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ubm82"]
+uv1_scale = Vector3(2, 1.44, 1)
+uv1_offset = Vector3(0, -0.45, 0)
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5oquf"]
+resource_name = "paper_Plane"
+_surfaces = [{
+"aabb": AABB(-0.1875, -0.25, -0.000254874, 0.375, 0.5, 0.000519726),
+"attribute_data": PackedByteArray("B4D3//f/9/8HgGFV9/9hVfd/9/8HAPf/939hVQcAYVU="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAADAAEAAAACAAMABAAHAAYABAAFAAcA"),
+"material": SubResource("StandardMaterial3D_ubm82"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAABL7/3///wAAEvv/fwAA//8U+/9//////xT7/38AAAAAAAD/////AAAAAP//AAD//wIA////////AgD///9/////f////3////9/////f/7//3/+//9//v//f/7/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_k62gd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1omna"]
+margin = 0.1
+size = Vector3(0.375, 0.5, 0.06)
+
+[node name="paper" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_odc0f")
+imgs = Array[Texture2D]([ExtResource("3_o2fid"), ExtResource("3_qnqvp"), ExtResource("4_dcc74"), ExtResource("5_kpmmi"), ExtResource("6_5ciwv"), ExtResource("7_01gbb")])
+metadata/obj = ExtResource("1_x8lf7")
+
+[node name="paper" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_ft6hy")
+skeleton = NodePath("")
+
+[node name="paper2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.001)
+mesh = SubResource("ArrayMesh_5oquf")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_1omna")
+
+[node name="textstuff" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="textstuff"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.392157)
+
+[node name="TextureRect" type="TextureRect" parent="textstuff/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -340.0
+offset_top = -491.0
+offset_right = 340.0
+offset_bottom = 491.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_o2fid")
+
+[node name="left" type="TextureButton" parent="textstuff/ColorRect"]
+modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -520.0
+offset_top = -40.0
+offset_right = -392.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture_normal = ExtResource("3_wtfdy")
+stretch_mode = 5
+flip_h = true
+
+[node name="right" type="TextureButton" parent="textstuff/ColorRect"]
+modulate = Color(1, 1, 1, 0.486275)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 390.0
+offset_top = -40.0
+offset_right = 518.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(64, 64)
+texture_normal = ExtResource("3_wtfdy")
+stretch_mode = 5
+
+[connection signal="pressed" from="textstuff/ColorRect/left" to="." method="flip" binds= [false]]
+[connection signal="pressed" from="textstuff/ColorRect/right" to="." method="flip" binds= [true]]

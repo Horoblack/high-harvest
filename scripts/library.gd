@@ -1,6 +1,7 @@
 extends Node
 
 var objs : Dictionary = {
+	"farmersguide":load("res://prefabs/farmers guide.tscn"),
 	"shovel":load("res://prefabs/shovel.tscn"),
 	"hoe":load("res://prefabs/hoe.tscn"),
 	"potato":load("res://prefabs/potato.tscn"),
@@ -71,6 +72,7 @@ var objs : Dictionary = {
 
 var invobjs : Dictionary = {
 	"bankstatement":load("res://invobjs/bankstatement.tres"),
+	"farmersguide":load("res://invobjs/farmersguide.tres"),
 	"receipt":load("res://invobjs/receipt.tres"),
 	"note":load("res://invobjs/note.tres"),
 	"shovel":load("res://invobjs/shovel.tres"),

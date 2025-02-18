@@ -408,7 +408,7 @@ skeleton = NodePath("")
 
 [node name="JoltHingeJoint3D2" type="JoltHingeJoint3D" parent="doorway2"]
 limit_enabled = true
-limit_lower = -1.5708
+limit_upper = 1.5708
 limit_spring_enabled = true
 limit_spring_frequency = 100.0
 limit_spring_damping = 4.0
