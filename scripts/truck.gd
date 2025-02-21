@@ -104,7 +104,7 @@ func getacceleration(cast : RayCast3D):
 			#var carspeed = global_basis.z.dot(linear_velocity)
 			#var normspeed = clamp(abs(carspeed), 0,1)
 			#var torque = clamp(normspeed,0.5, 1) * accelinput
-			apply_force(dir * accelinput * 5000, (cast.global_position - global_position))
+			apply_force(dir * accelinput * 6000, (cast.global_position - global_position))
 			#apply_central_force(dir*torque*1000)
 
 func brake(cast : RayCast3D, delta):

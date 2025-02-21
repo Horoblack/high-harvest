@@ -163,10 +163,11 @@ pause={
 3d_render/layer_1="stuff"
 3d_render/layer_2="floorings"
 3d_physics/layer_4="bloodsplatters"
+3d_physics/layer_5="edgecircle"
 
 [physics]
 
-common/physics_ticks_per_second=120
+common/physics_ticks_per_second=240
 common/physics_jitter_fix=0.1
 3d/physics_engine="JoltPhysics3D"
 3d/default_gravity=30.0

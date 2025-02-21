@@ -14,8 +14,8 @@ class_name Player
 @onready var munch = $munch
 
 var curspeed
-const SPEED = 100
-const JUMP_VELOCITY = 600
+const SPEED = 180
+const JUMP_VELOCITY = 800
 const drag = .87
 
 var curjumpvel : float

@@ -977,11 +977,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75, 0.874033, -3.75)
 visible = false
 light_energy = 15.0
 shadow_enabled = true
-spot_range = 30.0
+spot_range = 50.0
 
 [node name="front right light" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75, 0.874, -3.75)
 visible = false
 light_energy = 15.0
 shadow_enabled = true
-spot_range = 30.0
+spot_range = 50.0

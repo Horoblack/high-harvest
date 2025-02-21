@@ -18,6 +18,7 @@ func testdepth():
 	cast.force_raycast_update()
 	if(!cast.is_colliding()):
 		cast.clear_exceptions()
+		cast.add_exception(get_tree().get_first_node_in_group("player"))
 		return
 	var col2 = cast.get_collider()
 	reparent(col2)
@@ -29,10 +30,15 @@ func testdepth():
 
 func trigger(pl):
 	if(pl.cast.is_colliding()):
+		cast.enabled = true
 		var point = pl.cast.get_collision_point()
 		global_position = point
 		pl.letgoofheld()
 	
+
+func holdtrigger(bod):
+	cast.enabled = false
+
 func grabtrigger(bod):
 	for n in get_collision_exceptions():
 		remove_collision_exception_with(n)

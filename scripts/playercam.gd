@@ -61,6 +61,13 @@ func _input(event):
 		letgoofgrabbed()
 	if(event.is_action_pressed("hold")):
 		holdobj()
+		if(held):
+			var obj = held
+			if(obj.has_method("holdtrigger")):
+				obj.holdtrigger(body)
+			if(obj is pickupproxy):
+				if(obj.source.has_method("holdtrigger")):
+					obj.source.holdtrigger(body)
 	if(event.is_action_pressed("store")):
 		if(grabbed != null):
 			var intent = grabbed
