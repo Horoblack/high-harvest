@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cmbvic53mh3al"]
+[gd_scene load_steps=22 format=4 uid="uid://cmbvic53mh3al"]
 
 [ext_resource type="Script" path="res://scripts/shotgun.gd" id="1_ted20"]
 [ext_resource type="Resource" uid="uid://j0m65oq2101n" path="res://invobjs/shotgun.tres" id="2_csn7c"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://cuhw12pljh4ps" path="res://models/textures/shotgun/shotgun.png" id="4_p5e2p"]
 [ext_resource type="Material" uid="uid://c4dvsvdrvpiok" path="res://models/textures/shotgun/empty.tres" id="5_87grl"]
 [ext_resource type="Texture2D" uid="uid://cjy70n2ooinfi" path="res://sprites/shotgunflare.png" id="5_fnndi"]
+[ext_resource type="AudioStream" uid="uid://jo8ijedluvm0" path="res://sounds/Shotgun tiro.mp3" id="8_8f3rs"]
+[ext_resource type="AudioStream" uid="uid://dl6g3b3n3qke0" path="res://sounds/Shotgun reload.mp3" id="9_yeig6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bp6pp"]
 size = Vector3(0.0410156, 0.145557, 0.56192)
@@ -15,6 +17,8 @@ size = Vector3(0.0410156, 0.145557, 0.56192)
 size = Vector3(0.0410156, 0.104578, 1.14218)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7utlr"]
+diffuse_mode = 3
+specular_mode = 1
 albedo_texture = ExtResource("4_p5e2p")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_163yh"]
@@ -482,6 +486,34 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector3(2.73271e-26, 0.000340318, -0.484295), Vector3(2.73271e-26, 0.459929, -0.168792), Vector3(2.73271e-26, 0.432729, -0.23887), Vector3(2.73271e-26, 0.432729, -0.23887), Vector3(2.73271e-26, 0.000340318, -0.484295), Vector3(2.73271e-26, 0.000340318, -0.484295)]
 }
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("shot")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("reload")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vpr4h"]
 _data = {
@@ -561,3 +593,9 @@ spot_range = 2.0
 
 [node name="bulletpos" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="shot" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_8f3rs")
+
+[node name="reload" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_yeig6")

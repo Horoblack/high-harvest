@@ -34,7 +34,7 @@ func trigger(pl):
 		var point = pl.cast.get_collision_point()
 		global_position = point
 		pl.letgoofheld()
-	
+
 
 func holdtrigger(bod):
 	cast.enabled = false

@@ -48,6 +48,8 @@ func _input(event):
 	
 	if(event.is_action_pressed("grab") && cast.is_colliding()):
 		var obj = cast.get_collider()
+		if(obj == null):
+			return
 		if(obj.has_method("grabtrigger")):
 			obj.grabtrigger(body)
 		if(obj is pickupproxy):

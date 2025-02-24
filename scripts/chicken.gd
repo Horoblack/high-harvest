@@ -88,13 +88,14 @@ func jumptowards(node):
 		apply_central_impulse((dir * 2) + (global_basis.y*2))
 
 func _on_actiontimer_timeout():
-	match agestage:
-		0:
-			audio.stream = adultsounds.pick_random()
-			audio.play()
-		1,2,3,4:
-			audio.stream = childsounds.pick_random()
-			audio.play()
+	if(randi_range(0,10) == 0):
+		match agestage:
+			0:
+				audio.stream = childsounds.pick_random()
+				audio.play()
+			1,2,3,4:
+				audio.stream = adultsounds.pick_random()
+				audio.play()
 	match(state):
 		0:
 			if(!floorcast.is_colliding()):
