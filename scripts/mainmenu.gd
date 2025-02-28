@@ -2,8 +2,6 @@ extends Control
 
 @onready var mainscreen = $mainscreen
 @onready var savescreen = $saves
-@onready var controls: Control = $controls
-
 
 const NEWGAME = preload("res://prefabs/uistuff/newgame_ui.tscn")
 const SAVESLOT = preload("res://prefabs/uistuff/save_slot_ui.tscn")
@@ -53,6 +51,3 @@ func quitbutton():
 func backtomain():
 	mainscreen.visible = true
 	savescreen.visible = false
-
-func showcontrols():
-	controls.visible = !controls.visible
