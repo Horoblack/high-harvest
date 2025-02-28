@@ -131,6 +131,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_3gxdc")
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ttwb3"]
+margin = 0.2
 points = PackedVector3Array(0.037619, 0.346733, 0.212555, 0.037619, 0.453303, 0.106236, 0, 0.346733, 0.212555, 0.037619, 0, 0.212555, 0, 0.453303, 0.106236, 0.037619, 0.471103, -4.1604e-05, 0, 0, 0.212555, 0.037619, 0, -0.212555, 0, 0.471103, -4.1604e-05, 0.037619, 0.453303, -0.106319, 0, 0, -0.212555, 0.037619, 0.346733, -0.212555, 0, 0.453303, -0.106319, 0, 0.346733, -0.212555)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1mjb"]
@@ -155,18 +156,20 @@ skeleton = NodePath("")
 
 [node name="hinge" type="JoltHingeJoint3D" parent="."]
 limit_enabled = true
-limit_upper = 3.14159
+limit_upper = 1.5708
 limit_spring_enabled = true
 limit_spring_frequency = 100.0
+limit_spring_damping = 10.0
 node_a = NodePath("../body")
 node_b = NodePath("../lid")
-exclude_nodes_from_collision = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379599, 0.867002, 0)
 
 [node name="lid" type="RigidBody3D" parent="." groups=["heavy", "pickup"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.379599, 0.87111, 0)
 mass = 0.1
 gravity_scale = 0.0
+linear_damp = 0.5
+angular_damp = 0.5
 
 [node name="lid" type="MeshInstance3D" parent="lid"]
 mesh = SubResource("ArrayMesh_eg2cp")

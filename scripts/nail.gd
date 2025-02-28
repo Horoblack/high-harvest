@@ -8,10 +8,16 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	super(delta)
+	if(get_node_or_null(pinjoint.node_a) != null && get_node(pinjoint.node_a).is_in_group("held")):
+		grabtrigger(null)
+		
+	
 	if(cast.is_colliding()):
 		testdepth()
 
 func testdepth():
+	if(get_tree().get_first_node_in_group("held") != null):
+		cast.add_exception(get_tree().get_first_node_in_group("held"))
 	var col1 : PhysicsBody3D = cast.get_collider()
 	cast.add_exception(col1)
 	cast.target_position = Vector3.FORWARD * .2

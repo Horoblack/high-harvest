@@ -127,6 +127,7 @@ func holdobj():
 	if(intent != null && !intent.is_in_group("heavy") && held == null):
 		heldinfobox.visible = true
 		held = intent
+		held.add_to_group("held")
 		body.add_collision_exception_with(held)
 		grabbed = null
 		held.reparent(heldpos)
@@ -162,6 +163,7 @@ func letgoofgrabbed():
 		grabbed = null
 
 func letgoofheld():
+	held.remove_from_group("held")
 	body.remove_collision_exception_with(held)
 	held.reparent(get_tree().current_scene)
 	if(cast.is_colliding()):
