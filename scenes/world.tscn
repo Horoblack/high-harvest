@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=64 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="Texture2D" uid="uid://bnnr1ajrh2xdk" path="res://models/textures/noise32.png" id="1_jqp18"]
@@ -19,8 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
 [ext_resource type="PackedScene" uid="uid://bekppgq2bplwo" path="res://prefabs/shy.tscn" id="17_sw1mg"]
-[ext_resource type="PackedScene" uid="uid://cuvoaydo3b52p" path="res://prefabs/ammobox.tscn" id="19_yws08"]
-[ext_resource type="PackedScene" uid="uid://cmbvic53mh3al" path="res://prefabs/shotgun.tscn" id="20_c5a7e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -618,12 +616,6 @@ script = ExtResource("13_d7nle")
 wait_time = 60.0
 one_shot = true
 autostart = true
-
-[node name="ammobox" parent="." instance=ExtResource("19_yws08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.7994, -4.76837e-07, -13.3511)
-
-[node name="shotgun" parent="." instance=ExtResource("20_c5a7e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2046, 0, -13.9155)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]
