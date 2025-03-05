@@ -68,6 +68,7 @@ var objs : Dictionary = {
 	"totem":load("res://prefabs/totem.tscn"),
 	"sixpack":load("res://prefabs/sixpack.tscn"),
 	"beer":load("res://prefabs/beer.tscn"),
+	"veggiemanbox":load("res://prefabs/veggiemanbox.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -137,6 +138,7 @@ var invobjs : Dictionary = {
 	"totem":load("res://invobjs/totem.tres"),
 	"sixpack":load("res://invobjs/sixpack.tres"),
 	"beer":load("res://invobjs/beer.tres"),
+	"veggiemanbox":load("res://invobjs/veggiemanbox.tscn"),
 }
 
 var purchasables : Dictionary = {

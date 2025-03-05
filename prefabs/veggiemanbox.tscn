@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=4 uid="uid://cpxdeeupiw1q7"]
+
+[ext_resource type="Script" path="res://scripts/veggiemanbox.gd" id="1_gah7u"]
+[ext_resource type="Texture2D" uid="uid://bmosl1ymsy4nm" path="res://models/textures/veggieman.png" id="1_ihulw"]
+[ext_resource type="Resource" uid="uid://1n75850t4fam" path="res://invobjs/veggiemanbox.tres" id="2_jpgin"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdrg7"]
+albedo_texture = ExtResource("1_ihulw")
+texture_filter = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_s5v2o"]
+_surfaces = [{
+"aabb": AABB(-0.194405, -0.3, -0.194405, 0.388809, 0.6, 0.388809),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP////8AAAAAAAAAAAAAAAD//wAAAAD//wAA//8AAP///////wAA//8AAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o27pt"]
+resource_name = "veggieman_Cube_002"
+_surfaces = [{
+"aabb": AABB(-0.194405, -0.3, -0.194405, 0.388809, 0.6, 0.388809),
+"attribute_data": PackedByteArray("tU+IzLVPiMwCA9V/tU/Vf7VP1X+1T9V/tU9vAbVPO/4CAyJOtU8iTrVPIk61TyJOaIGIzGiBiMwbztV/aIHVf2iB1X9ogdV/aIFvAWiBO/4bziJOaIEiTmiBIk5ogSJO"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_cdrg7"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP//AIAAAAAA////vwAAAAD//1TVAAD/////AIAAAP//////vwAA/////1TVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//wAA//8AAP//AAD/vwAA//8AAFTV//8AAP//AID//wAA////v///AAD//1TV////////AID/////////v////////1TV//8AAAAA/////wAAAAD/v///AAAAAFTV/////wAA////////AAD/v/////8AAFTV/3///wAA/39U1VTV/3///////39U1VTV////fwAA/39U1VTV////f////39U1VTV/3///wAA/3+qqlVV/3///////3+qqlVV////fwAA/3+qqlVV////f////3+qqlVV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_s5v2o")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_je0pn"]
+size = Vector3(0.388672, 0.592773, 0.390625)
+
+[node name="veggieman box" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_gah7u")
+metadata/obj = ExtResource("2_jpgin")
+
+[node name="box" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_o27pt")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_je0pn")

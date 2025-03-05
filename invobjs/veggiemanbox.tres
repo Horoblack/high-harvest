@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://1n75850t4fam"]
+
+[ext_resource type="Texture2D" uid="uid://dnlrv8axhibdu" path="res://sprites/itemicons/veggiemanbox.png" id="1_2vedt"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_w76uq"]
+
+[resource]
+script = ExtResource("2_w76uq")
+name = "Veggieman box"
+weight = 1.0
+icon = ExtResource("1_2vedt")
+description = "A box of veggieman parts."
+objaddress = "veggiemanbox"
+customproperties = {}
