@@ -175,6 +175,7 @@ var purchasables : Dictionary = {
 	"knife" = 15.0,
 	"pot" = 20.0,
 	"sixpack" = 20.0,
+	"veggiemanbox" = 10.0,
 }
 
 var sellvalues : Dictionary = {
