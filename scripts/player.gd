@@ -15,7 +15,7 @@ class_name Player
 
 var curspeed
 const SPEED = 180
-const JUMP_VELOCITY = 800
+const JUMP_VELOCITY = 500
 const drag = .87
 
 var curjumpvel : float
@@ -61,12 +61,12 @@ func _physics_process(delta):
 	if !is_on_floor():
 		velocity.y -= gravity * delta * gravvel
 		
-		if(gravvel < 7):
-			gravvel += delta * gravvel * 10
+		if(gravvel < 15):
+			gravvel += delta * gravvel * 7
 		
 		if(curjumpvel > 0):
 			if(Input.is_action_pressed("ui_accept")):
-				curjumpvel -= delta * 3000
+				curjumpvel -= delta * 1000
 			else:
 				curjumpvel = 0
 	else:
