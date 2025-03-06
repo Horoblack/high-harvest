@@ -43,6 +43,7 @@ size = Vector3(0.388672, 0.592773, 0.390625)
 
 [node name="veggieman box" type="RigidBody3D" groups=["pickup"]]
 script = ExtResource("1_gah7u")
+contents = Array[String](["veggiemaneye", "veggiemaneye", "veggiemanleg", "veggiemanleg", "veggiemanarm", "veggiemanarm"])
 metadata/obj = ExtResource("2_jpgin")
 
 [node name="box" type="MeshInstance3D" parent="."]

@@ -63,7 +63,7 @@ func _input(event):
 		letgoofgrabbed()
 	if(event.is_action_pressed("hold")):
 		holdobj()
-		if(held):
+		if(held != null && !held.is_queued_for_deletion()):
 			var obj = held
 			if(obj.has_method("holdtrigger")):
 				obj.holdtrigger(body)

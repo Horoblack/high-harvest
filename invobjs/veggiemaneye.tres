@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://citfkwg0h0lej"]
+
+[ext_resource type="Texture2D" uid="uid://dyi6ma1nvglyn" path="res://sprites/itemicons/veggiemaneye.png" id="1_1gwha"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_5cqro"]
+
+[resource]
+script = ExtResource("2_5cqro")
+name = "Veggieman eye"
+weight = 0.1
+icon = ExtResource("1_1gwha")
+description = "A veggieman toy kit eye. You can stick it on a vegetable to make a friend."
+objaddress = "veggiemaneye"
+customproperties = {}

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://4rodhidqwhsq"]
+
+[ext_resource type="Texture2D" uid="uid://b1f14abvwtb7h" path="res://sprites/itemicons/veggiemanarm.png" id="1_2i6b3"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_g15ok"]
+
+[resource]
+script = ExtResource("2_g15ok")
+name = "Veggieman arm"
+weight = 0.1
+icon = ExtResource("1_2i6b3")
+description = "A veggieman toy kit arm. You can stick it on a vegetable to make a friend."
+objaddress = "veggiemanarm"
+customproperties = {}

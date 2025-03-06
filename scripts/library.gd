@@ -69,6 +69,9 @@ var objs : Dictionary = {
 	"sixpack":load("res://prefabs/sixpack.tscn"),
 	"beer":load("res://prefabs/beer.tscn"),
 	"veggiemanbox":load("res://prefabs/veggiemanbox.tscn"),
+	"veggiemaneye":load("res://prefabs/veggiemaneye.tscn"),
+	"veggiemanarm":load("res://prefabs/veggiemanarm.tscn"),
+	"veggiemanleg":load("res://prefabs/veggiemanleg.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -139,6 +142,9 @@ var invobjs : Dictionary = {
 	"sixpack":load("res://invobjs/sixpack.tres"),
 	"beer":load("res://invobjs/beer.tres"),
 	"veggiemanbox":load("res://invobjs/veggiemanbox.tres"),
+	"veggiemaneye":load("res://invobjs/veggiemaneye.tres"),
+	"veggiemanarm":load("res://invobjs/veggiemanarm.tres"),
+	"veggiemanleg":load("res://invobjs/veggiemanleg.tres"),
 }
 
 var purchasables : Dictionary = {

@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://bwhimx0830jv6" path="res://prefabs/cellardoor.tscn" id="14_1i0y2"]
 [ext_resource type="PackedScene" uid="uid://bgh310plsokhg" path="res://prefabs/events/potatoexchange.tscn" id="15_0p73r"]
 [ext_resource type="PackedScene" uid="uid://bekppgq2bplwo" path="res://prefabs/shy.tscn" id="17_sw1mg"]
-[ext_resource type="PackedScene" uid="uid://bwyleikyo647i" path="res://prefabs/veggiemaneye.tscn" id="20_fsk8c"]
 [ext_resource type="PackedScene" uid="uid://chf1ubmpxkrne" path="res://prefabs/potato.tscn" id="21_4er6l"]
+[ext_resource type="PackedScene" uid="uid://cpxdeeupiw1q7" path="res://prefabs/veggiemanbox.tscn" id="22_3pk35"]
 [ext_resource type="PackedScene" uid="uid://nicoca2qm6gm" path="res://prefabs/cabbage.tscn" id="22_52x2q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
@@ -620,23 +620,17 @@ wait_time = 60.0
 one_shot = true
 autostart = true
 
-[node name="veggieman eye" parent="." instance=ExtResource("20_fsk8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3213, 1.1, -19.1926)
-
-[node name="veggieman eye2" parent="." instance=ExtResource("20_fsk8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5441, 1.1, -18.9733)
-
-[node name="veggieman eye3" parent="." instance=ExtResource("20_fsk8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3213, 1.1, -18.9733)
-
-[node name="veggieman eye4" parent="." instance=ExtResource("20_fsk8c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3213, 1.1, -18.7466)
-
 [node name="potato" parent="." instance=ExtResource("21_4er6l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.1935, 0.9, -18.486)
 
 [node name="cabbage" parent="." instance=ExtResource("22_52x2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2104, 0.9, -19.5477)
+
+[node name="veggieman box" parent="." instance=ExtResource("22_3pk35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7754, 1.5, -19.5537)
+
+[node name="veggieman box2" parent="." instance=ExtResource("22_3pk35")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.7754, 1.5, -18.5537)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]
