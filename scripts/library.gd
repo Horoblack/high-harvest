@@ -138,7 +138,7 @@ var invobjs : Dictionary = {
 	"totem":load("res://invobjs/totem.tres"),
 	"sixpack":load("res://invobjs/sixpack.tres"),
 	"beer":load("res://invobjs/beer.tres"),
-	"veggiemanbox":load("res://invobjs/veggiemanbox.tscn"),
+	"veggiemanbox":load("res://invobjs/veggiemanbox.tres"),
 }
 
 var purchasables : Dictionary = {

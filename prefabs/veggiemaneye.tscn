@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://bwyleikyo647i"]
+[gd_scene load_steps=7 format=4 uid="uid://bwyleikyo647i"]
 
 [ext_resource type="Texture2D" uid="uid://bmosl1ymsy4nm" path="res://models/textures/veggieman.png" id="1_8o52b"]
+[ext_resource type="Script" path="res://scripts/veggiemandecal.gd" id="1_xg44y"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pf33u"]
 albedo_texture = ExtResource("1_8o52b")
@@ -38,8 +39,23 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_l06j0")
 
-[node name="veggieman eye" type="Node3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7gph4"]
+margin = 0.2
+size = Vector3(0.07, 0.07, 0.0320703)
+
+[node name="veggieman eye" type="RigidBody3D" groups=["pickup"]]
+freeze_mode = 1
+script = ExtResource("1_xg44y")
 
 [node name="eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_runo0")
 skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0199415)
+shape = SubResource("BoxShape3D_7gph4")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0268303)
+target_position = Vector3(0, 0, -0.05)
