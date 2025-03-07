@@ -42,6 +42,7 @@ sky_material = SubResource("ShaderMaterial_88cxw")
 [sub_resource type="Environment" id="Environment_il6hq"]
 background_mode = 2
 background_color = Color(0.180392, 0.501961, 0.505882, 1)
+background_energy_multiplier = 0.1
 sky = SubResource("Sky_n5ujh")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
@@ -75,6 +76,7 @@ moon = NodePath("sun/moon")
 
 [node name="sun" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965925, 0, -0.965925, 0.258819, 0, 7, 0)
+light_energy = 2.0
 light_indirect_energy = 2.0
 shadow_enabled = true
 
@@ -82,4 +84,5 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0)
 light_color = Color(2.31028e-06, 0.373134, 0.505084, 1)
 light_energy = 0.1
+light_indirect_energy = 0.1
 shadow_enabled = true

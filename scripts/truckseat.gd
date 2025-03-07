@@ -21,3 +21,6 @@ func _input(event):
 		#remove_child(seated)
 		seated.frozen = false
 		seated = null
+
+func info():
+	return "Sit down?"

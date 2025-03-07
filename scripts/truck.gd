@@ -18,6 +18,20 @@ var accelinput : float
 
 var lightson : bool = false
 
+var properties : Dictionary
+
+func _ready() -> void:
+	await get_tree().process_frame
+	if(has_meta("customproperties")):
+		properties = get_meta("customproperties")
+	if(properties.has("lights")):
+		lightson = properties["lights"]
+		fllight.visible = lightson
+		frlight.visible = lightson
+	if(properties.has("seated") && properties["seated"]):
+		#print("bwop")
+		leftseat.grabtrigger(get_tree().get_first_node_in_group("player"))
+
 func _input(event):
 	if(leftseat.seated):
 		if(event.is_action_pressed("rightclick")):
@@ -30,15 +44,15 @@ func _physics_process(delta):
 		accelinput = Input.get_axis("ui_down", "ui_up")
 		var steerinput = Input.get_axis("ui_left", "ui_right")
 		if(steerinput < -0.1):
-			fl_tire_cast.rotation_degrees.y = 30
-			fr_tire_cast.rotation_degrees.y = 30
-			wheel_fl.rotation_degrees.y = 30
-			wheel_fr.rotation_degrees.y = 30
+			fl_tire_cast.rotation_degrees.y = 25
+			fr_tire_cast.rotation_degrees.y = 25
+			wheel_fl.rotation_degrees.y = 25
+			wheel_fr.rotation_degrees.y = 26
 		elif(steerinput > 0.1):
-			fl_tire_cast.rotation_degrees.y = -30
-			fr_tire_cast.rotation_degrees.y = -30
-			wheel_fl.rotation_degrees.y = -30
-			wheel_fr.rotation_degrees.y = -30
+			fl_tire_cast.rotation_degrees.y = -25
+			fr_tire_cast.rotation_degrees.y = -25
+			wheel_fl.rotation_degrees.y = -25
+			wheel_fr.rotation_degrees.y = -25
 		else:
 			fl_tire_cast.rotation_degrees.y = 0
 			fr_tire_cast.rotation_degrees.y = 0
@@ -77,7 +91,7 @@ func getsuspension(cast : RayCast3D, wheel):
 		
 		var vel = dir.dot(tirevel)
 		
-		var force : float = (-offset * 3500) - (vel * 300)
+		var force : float = (-offset * 4500) - (vel * 300)
 		dir.x = 0 if abs(dir.x)<.01 else dir.x
 		dir.z = 0 if abs(dir.z)<.01 else dir.z
 		apply_force(dir * force, (cast.global_position - global_position))
@@ -94,7 +108,7 @@ func getsteering(cast : RayCast3D, wheel, delta):
 		
 		var accel = change / delta
 		
-		apply_force(dir * 10 * accel, (cast.global_position - global_position))
+		apply_force(dir * 20 * accel, (cast.global_position - global_position))
 		#apply_central_force(dir * 5 * accel)
 
 func getacceleration(cast : RayCast3D):
@@ -104,7 +118,7 @@ func getacceleration(cast : RayCast3D):
 			#var carspeed = global_basis.z.dot(linear_velocity)
 			#var normspeed = clamp(abs(carspeed), 0,1)
 			#var torque = clamp(normspeed,0.5, 1) * accelinput
-			apply_force(dir * accelinput * 6000, (cast.global_position - global_position))
+			apply_force(dir * accelinput * 5000, (cast.global_position - global_position))
 			#apply_central_force(dir*torque*1000)
 
 func brake(cast : RayCast3D, delta):

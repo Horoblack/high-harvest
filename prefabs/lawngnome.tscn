@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://du0p6ngs264l5"]
+[gd_scene load_steps=8 format=4 uid="uid://du0p6ngs264l5"]
 
+[ext_resource type="Resource" uid="uid://dnurlr6cm0vdk" path="res://invobjs/lawngnome.tres" id="1_5588x"]
 [ext_resource type="Texture2D" uid="uid://c6b4vc2b7s6qg" path="res://models/textures/lawn gnome.png" id="1_fe2w5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyltw"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("1_fe2w5")
 texture_filter = 2
 
@@ -48,7 +51,11 @@ bind/4/pose = Transform3D(7.54979e-08, 0, 1, 0, -1, 0, 1, 0, -7.54979e-08, 2.700
 height = 0.848474
 radius = 0.163772
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1c8g"]
+size = Vector3(0.423828, 0.141113, 0.0742188)
+
 [node name="gnome" type="RigidBody3D" groups=["pickup"]]
+metadata/obj = ExtResource("1_5588x")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "L.arm"
@@ -94,3 +101,7 @@ skin = SubResource("Skin_s1r7m")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.181946, 0)
 shape = SubResource("CylinderShape3D_3ruic")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00103779, 0)
+shape = SubResource("BoxShape3D_v1c8g")

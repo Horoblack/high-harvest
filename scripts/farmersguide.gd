@@ -39,3 +39,7 @@ func _input(event):
 		plref.camfrozen = false
 		textstuff.visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func info():
+	return "Just hold [E] and press [Q] then press [LMB]! So easy even a donkey could do it!"

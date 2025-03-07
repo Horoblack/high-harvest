@@ -72,6 +72,7 @@ var objs : Dictionary = {
 	"veggiemaneye":load("res://prefabs/veggiemaneye.tscn"),
 	"veggiemanarm":load("res://prefabs/veggiemanarm.tscn"),
 	"veggiemanleg":load("res://prefabs/veggiemanleg.tscn"),
+	"lawngnome":load("res://prefabs/lawngnome.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -145,6 +146,7 @@ var invobjs : Dictionary = {
 	"veggiemaneye":load("res://invobjs/veggiemaneye.tres"),
 	"veggiemanarm":load("res://invobjs/veggiemanarm.tres"),
 	"veggiemanleg":load("res://invobjs/veggiemanleg.tres"),
+	"lawngnome":load("res://invobjs/lawngnome.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -176,6 +178,7 @@ var purchasables : Dictionary = {
 	"pot" = 20.0,
 	"sixpack" = 20.0,
 	"veggiemanbox" = 10.0,
+	"lawngnome" = 5.0,
 }
 
 var sellvalues : Dictionary = {

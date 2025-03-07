@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dnurlr6cm0vdk"]
+
+[ext_resource type="Texture2D" uid="uid://bcmj83mwh0wns" path="res://sprites/itemicons/lawngnome.png" id="1_3umod"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_2p4hl"]
+
+[resource]
+script = ExtResource("2_2p4hl")
+name = "Lawn Gnome"
+weight = 1.0
+icon = ExtResource("1_3umod")
+description = "A decoration gnome."
+objaddress = "lawngnome"
+customproperties = {}
