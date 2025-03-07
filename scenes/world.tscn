@@ -548,7 +548,7 @@ stockscurve = SubResource("Curve_txfu1")
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -42, 0, -11)
 
 [node name="player" parent="." instance=ExtResource("7_7xdn7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.2, 0.5, -23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0.5, 180)
 
 [node name="floor" type="StaticBody3D" parent="." groups=["diggable"]]
 metadata/material = "dirt"
