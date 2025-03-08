@@ -33,7 +33,7 @@ func load_data():
 		gamedata = {
 			"playtime":0.0,
 			"day": 0,
-			"timeofday": 500,
+			"timeofday": 900,
 			"money": 50,
 			"playerscene":0,
 			"player": [Vector3(-45,0.5,180), Vector3(0,0,0), 50,50,[], [],[]],

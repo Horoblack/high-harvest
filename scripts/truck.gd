@@ -23,7 +23,8 @@ var properties : Dictionary
 func _ready() -> void:
 	await get_tree().process_frame
 	if(has_meta("customproperties")):
-		properties = get_meta("customproperties")
+		properties = get_meta("customproperties").duplicate()
+		#print(properties)
 	if(properties.has("lights")):
 		lightson = properties["lights"]
 		fllight.visible = lightson
@@ -31,6 +32,8 @@ func _ready() -> void:
 	if(properties.has("seated") && properties["seated"]):
 		#print("bwop")
 		leftseat.grabtrigger(get_tree().get_first_node_in_group("player"))
+	properties["seated"] = false
+	set_meta("customproperties", properties)
 
 func _input(event):
 	if(leftseat.seated):
@@ -40,9 +43,6 @@ func _input(event):
 			frlight.visible = lightson
 
 func _physics_process(delta):
-	properties["seated"] = leftseat.seated
-	properties["lights"] = lightson
-	set_meta("customproperties", properties)
 	if(leftseat.seated):
 		accelinput = Input.get_axis("ui_down", "ui_up")
 		var steerinput = Input.get_axis("ui_left", "ui_right")

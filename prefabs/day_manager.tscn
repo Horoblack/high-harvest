@@ -61,7 +61,7 @@ point_count = 3
 
 [sub_resource type="Curve" id="Curve_x85pj"]
 max_value = 0.5
-_data = [Vector2(0, 0.298969), 0.0, 0.0, 0, 0, Vector2(0.197987, 0), 0.0, 0.0, 0, 0, Vector2(0.802013, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.298969), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.298969), 0.0, 0.0, 0, 0, Vector2(0.334572, 0), 0.0, 0.0, 0, 0, Vector2(0.665427, 0), 0.0, 0.0, 0, 0, Vector2(1, 0.298969), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="day manager" type="WorldEnvironment" node_paths=PackedStringArray("sun", "moon")]

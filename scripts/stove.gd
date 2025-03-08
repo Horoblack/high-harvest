@@ -23,7 +23,7 @@ func _ready():
 	button04.grabbed.connect(togglefire.bind(3))
 	await get_tree().process_frame
 	if(has_meta("customproperties")):
-		properties = get_meta("customproperties")
+		properties = get_meta("customproperties").duplicate()
 	if(properties.has("fuel")):
 		fuel = properties["fuel"]
 

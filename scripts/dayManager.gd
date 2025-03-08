@@ -1,4 +1,4 @@
-extends Node
+extends WorldEnvironment
 
 @export_range(0,2400,1) var timeofday : float = 1200.0
 @export var simulate : bool = false
@@ -10,6 +10,13 @@ extends Node
 @export var moon  : DirectionalLight3D
 
 @export var stockscurve : Curve
+
+@export_category("RAIN")
+@export var israining : bool = false
+@export var cloudlerp : Vector2 = Vector2(0.5, 0.2)
+@export var topgradient : Gradient
+@export var bottomgradient : Gradient
+var currain : float = 0
 
 var curtick = 0
 
@@ -27,11 +34,24 @@ func _process(delta):
 	Savedata.gamedata["timeofday"] = timeofday
 	Savedata.gamedata["playtime"] += delta
 	
+	#var mat : ShaderMaterial
+	#mat.set_shader_parameter()
+	environment.sky.sky_material.set_shader_parameter("day_top_color",topgradient.sample(currain))
+	environment.sky.sky_material.set_shader_parameter("day_bottom_color",bottomgradient.sample(currain))
+	environment.sky.sky_material.set_shader_parameter("clouds_cutoff",lerp(cloudlerp.x,cloudlerp.y,currain))
+	if(israining):
+		currain = lerp(currain,1.0,delta)
+		#currain = clamp(currain+(delta*.1), 0,1)
+	else:
+		currain = lerp(currain,0.0,delta)
+		#currain = clamp(currain-(delta*.1), 0,1)
+	
 	if(sun != null):
 		sun.light_energy = sunlightcurve.sample(timeofday/2400)
 		sun.rotation_degrees.x = lerp(90,-270, timeofday / 2400)
 	if(moon != null):
 		moon.light_energy = moonlightcurve.sample(timeofday/2400)
+		environment.volumetric_fog_density = moonlightcurve.sample(timeofday/2400)*.2
 
 signal day
 func passday():
