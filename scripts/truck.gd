@@ -40,6 +40,9 @@ func _input(event):
 			frlight.visible = lightson
 
 func _physics_process(delta):
+	properties["seated"] = leftseat.seated
+	properties["lights"] = lightson
+	set_meta("customproperties", properties)
 	if(leftseat.seated):
 		accelinput = Input.get_axis("ui_down", "ui_up")
 		var steerinput = Input.get_axis("ui_left", "ui_right")

@@ -39,6 +39,7 @@ func _process(delta):
 	if(global_position.distance_to(pl.global_position) < 1):
 		pl.ragdoll(50)
 		queue_free()
+		Savedata.cansave -= 1
 	basis = basis.looking_at(-dir)
 	global_position += dir * delta * 6
 	if(active):

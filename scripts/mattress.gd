@@ -5,8 +5,6 @@ extends RigidBody3D
 
 var player : Player
 
-var time : float = 0
-
 var man
 
 func _ready():
@@ -23,11 +21,9 @@ func _input(event):
 
 func _process(delta):
 	if(colorfilter.visible):
-		time += delta
-		label.text = man.timetransition(time)
+		label.text = ("%02.0f" % (man.timeofday/100)) + (":00")
 
 func _on_grabarea_grabbed(bod):
-	time = 0
 	player = bod
 	player.frozen = true
 	colorfilter.visible = true

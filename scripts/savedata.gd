@@ -49,7 +49,7 @@ func load_data():
 				["pickup",Vector3(-17.1, 1.6, -28.4), Vector3(0, 0, 0), "pan", {  }], 
 				["pickup",Vector3(-49.6, 1.62, 175), Vector3(deg_to_rad(-90), deg_to_rad(-90), 0), "farmersguide", { }], 
 				["pickup",Vector3(-49.25, 1.6, 175.05), Vector3(deg_to_rad(-90), 0, 0), "note", { "text":"DEED OF LAND AGREEMENT\n\nThrough this document we pronounce ██████████ the owner of ██████ farm, located on ████████, ████████." }], 
-				["pickup",Vector3(-22.25, 2.55, -27.3), Vector3(0, deg_to_rad(-90), 0), "nail", { }], 
+				#["pickup",Vector3(-22.25, 2.55, -27.3), Vector3(0, deg_to_rad(-90), 0), "nail", { }], 
 				["pickup",Vector3(-20.2, 0.9, -22.2), Vector3(0, 0, 0), "box", {  }], 
 				["other", "table", Vector3(-20.9, 1.4, -22.6), Vector3(0, 0, 0)], 
 				["other", "truck", Vector3(-50, .5, 175), Vector3(0, 0, 0), {"seated":true, "lights":true}], 

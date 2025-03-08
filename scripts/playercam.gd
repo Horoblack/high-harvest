@@ -163,6 +163,9 @@ func letgoofgrabbed():
 		grabbed = null
 
 func letgoofheld():
+	if(held == null):
+		return #GO FUCK YORUERBYUBDFUI
+	
 	held.remove_from_group("held")
 	body.remove_collision_exception_with(held)
 	held.reparent(get_tree().current_scene)

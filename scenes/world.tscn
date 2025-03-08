@@ -155,7 +155,7 @@ size = Vector3(0.2, 1, 4.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_88cxw"]
 shader = ExtResource("4_p21nl")
-shader_parameter/day_top_color = Color(4.42803e-06, 0.924537, 0.626243, 1)
+shader_parameter/day_top_color = Color(0.740317, 0.846195, 3.85046e-07, 1)
 shader_parameter/day_bottom_color = Color(0.999628, 0.666297, 0.258759, 1)
 shader_parameter/sunset_top_color = Color(0.7, 0.75, 1, 1)
 shader_parameter/sunset_bottom_color = Color(1, 0.501961, 0.141176, 1)
@@ -198,12 +198,13 @@ ambient_light_energy = 0.1
 ssao_enabled = true
 ssao_radius = 0.68
 ssao_intensity = 2.02
-glow_enabled = true
 glow_strength = 0.3
 fog_light_color = Color(0.392157, 0.478431, 0.490196, 1)
+fog_density = 0.0895
 fog_sky_affect = 0.178
-volumetric_fog_density = 0.02
-volumetric_fog_sky_affect = 0.5
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_sky_affect = 0.909
 
 [sub_resource type="Curve" id="Curve_txfu1"]
 min_value = -1.0
