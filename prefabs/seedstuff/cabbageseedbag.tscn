@@ -8,7 +8,8 @@
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="6_yog4p"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oq32x"]
-specular_mode = 1
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("5_igfdv")
 texture_filter = 2
 

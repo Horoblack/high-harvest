@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://cmcruo77xku1g"]
+
+[ext_resource type="Texture2D" uid="uid://dn1eu5tnhtian" path="res://sprites/itemicons/plaque.png" id="1_1yt2r"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_dkfq5"]
+
+[resource]
+script = ExtResource("2_dkfq5")
+name = "Plaque"
+weight = 1.0
+icon = ExtResource("1_1yt2r")
+description = "A plaque to commemorate paying your debt."
+objaddress = "plaque"
+customproperties = {}

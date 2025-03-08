@@ -1,5 +1,7 @@
 extends Node
 
+var debt : int = 52
+
 var objs : Dictionary = {
 	"farmersguide":load("res://prefabs/farmers guide.tscn"),
 	"shovel":load("res://prefabs/shovel.tscn"),
@@ -73,6 +75,7 @@ var objs : Dictionary = {
 	"veggiemanarm":load("res://prefabs/veggiemanarm.tscn"),
 	"veggiemanleg":load("res://prefabs/veggiemanleg.tscn"),
 	"lawngnome":load("res://prefabs/lawngnome.tscn"),
+	"plaque":load("res://prefabs/plaque.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -147,6 +150,7 @@ var invobjs : Dictionary = {
 	"veggiemanarm":load("res://invobjs/veggiemanarm.tres"),
 	"veggiemanleg":load("res://invobjs/veggiemanleg.tres"),
 	"lawngnome":load("res://invobjs/lawngnome.tres"),
+	"plaque":load("res://invobjs/plaque.tres"),
 }
 
 var purchasables : Dictionary = {
@@ -242,10 +246,12 @@ func sell(item : String) -> float:
 		else:
 			var returnvalue = Library.sellvalues[item]
 			Savedata.gamedata["money"] += returnvalue
+			Savedata.gamedata["totalmoney"] += returnvalue
 			return Library.sellvalues[item]
 	elif(Library.purchasables.has(item)):
 		var returnvalue = Library.sellvalues[item]
 		Savedata.gamedata["money"] += returnvalue
+		Savedata.gamedata["totalmoney"] += returnvalue
 		return Library.purchasables[item]
 	else:
 		return 0
@@ -279,3 +285,9 @@ func calc_angular_velocity(from_basis: Basis, to_basis: Basis) -> Vector3:
 	var axis = Vector3(qt.x, qt.y, qt.z) / sqrt(1-qt.w*qt.w)
 
 	return axis * angle
+
+func timetransition(t : float) -> String:
+	var minute = str(floor(t/60)).pad_zeros(2).pad_decimals(0)
+	var hour = str(floor(floor(t/60)/60)).pad_zeros(2).pad_decimals(0)
+	var seconds = str(fmod(t, 60)).pad_zeros(2).pad_decimals(0)
+	return hour + ":" + minute + ":" + seconds

@@ -11,17 +11,11 @@ func refresh():
 	label.text = "SAVE " + str(file+1)
 	var data = Savedata.loadonce(file)
 	if(data != null):
-		label2.text = timetransition(data["playtime"])
+		label2.text = "%s\n$%.2f" % [Library.timetransition(data["playtime"]),data["money"]]
 
 func deletesave():
 	Savedata.delete_data(file)
 	queue_free()
-
-func timetransition(t : float) -> String:
-	var minute = str(floor(t/60)).pad_zeros(2).pad_decimals(0)
-	var hour = str(floor(floor(t/60)/60)).pad_zeros(2).pad_decimals(0)
-	var seconds = str(fmod(t, 60)).pad_zeros(2).pad_decimals(0)
-	return hour + ":" + minute + ":" + seconds
 
 signal clicked(fil)
 func _on_gui_input(event):

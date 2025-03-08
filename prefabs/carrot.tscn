@@ -7,6 +7,8 @@
 [ext_resource type="AudioStream" uid="uid://cqn2txsmicguq" path="res://sounds/meatcollision.wav" id="3_sf6p1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xjldv"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(1, 0.537255, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8h165"]
@@ -20,6 +22,8 @@ albedo_texture = ExtResource("1_43whk")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s4d7a"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(1, 0.716667, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3pl63"]
@@ -34,6 +38,8 @@ albedo_texture = ExtResource("1_43whk")
 texture_filter = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l5yn0"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(1, 0.283333, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hg1tu"]

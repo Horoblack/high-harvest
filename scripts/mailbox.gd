@@ -68,7 +68,24 @@ func spawnletter(solditems : Array):
 			Savedata.gamedata.daysales[n] += itemamounts[n]
 		for b in itemamounts[n]:
 			str += "\n%s : $%.2f" % [n, amt]
-	str += "\n\nYour new total balance is: $%.2f" % Savedata.gamedata["money"]
+	str += "\n\nYour new total balance is: $%.2f\n" % Savedata.gamedata["money"]
+	if(!Savedata.gamedata["debtpaid"] && Savedata.gamedata["money"] >= Library.debt):
+		Savedata.gamedata["debtpaid"] = true
+		Savedata.gamedata["money"] -= Library.debt
+		var bx : box = Library.objs["box"].instantiate()
+		ignore.append(bx)
+		var receipt : InventoryObject = Library.invobjs["receipt"].duplicate()
+		receipt.customproperties["text"] = "Your debt is paid. A commemorative plaque has been issued."
+		bx.inventory.append(receipt)
+		var obj = Library.invobjs["plaque"].duplicate()
+		obj.customproperties["timeplayed"] = Savedata.gamedata["playtime"]
+		obj.customproperties["moneyearned"] = Savedata.gamedata["totalmoney"]
+		bx.inventory.append(obj)
+		get_tree().current_scene.add_child(bx)
+		bx.global_position = boxspawn.global_position
+		bx.global_rotation = boxspawn.global_rotation
+	if(!Savedata.gamedata["debtpaid"]):
+		str += ("Your total debt is %f. " % Library.debt)
 	
 	var letter : bankstatement = Library.objs["bankstatement"].instantiate()
 	get_tree().current_scene.add_child(letter)

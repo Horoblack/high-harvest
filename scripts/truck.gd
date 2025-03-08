@@ -94,7 +94,7 @@ func getsuspension(cast : RayCast3D, wheel):
 		
 		var vel = dir.dot(tirevel)
 		
-		var force : float = (-offset * 4500) - (vel * 300)
+		var force : float = (-offset * 45000) - (vel * 3000)
 		dir.x = 0 if abs(dir.x)<.01 else dir.x
 		dir.z = 0 if abs(dir.z)<.01 else dir.z
 		apply_force(dir * force, (cast.global_position - global_position))
@@ -121,7 +121,7 @@ func getacceleration(cast : RayCast3D):
 			#var carspeed = global_basis.z.dot(linear_velocity)
 			#var normspeed = clamp(abs(carspeed), 0,1)
 			#var torque = clamp(normspeed,0.5, 1) * accelinput
-			apply_force(dir * accelinput * 5000, (cast.global_position - global_position))
+			apply_force(dir * accelinput * 50000, (cast.global_position - global_position))
 			#apply_central_force(dir*torque*1000)
 
 func brake(cast : RayCast3D, delta):

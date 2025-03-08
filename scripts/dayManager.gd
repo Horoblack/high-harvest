@@ -12,6 +12,8 @@ extends WorldEnvironment
 @export var stockscurve : Curve
 
 @export_category("RAIN")
+@export var rainobj : Node3D
+
 @export var israining : bool = false
 @export var cloudlerp : Vector2 = Vector2(0.5, 0.2)
 @export var topgradient : Gradient
@@ -25,6 +27,10 @@ var moonenergy
 
 func _ready() -> void:
 	timeofday = Savedata.gamedata["timeofday"]
+	if(rainobj != null):
+		rainobj.call_deferred("reparent",get_tree().get_first_node_in_group("player"))
+		await get_tree().process_frame
+		rainobj.position = Vector3.ZERO
 
 func _process(delta):
 	if(simulate):
@@ -34,16 +40,16 @@ func _process(delta):
 	Savedata.gamedata["timeofday"] = timeofday
 	Savedata.gamedata["playtime"] += delta
 	
-	#var mat : ShaderMaterial
-	#mat.set_shader_parameter()
+	if(rainobj != null):
+		rainobj.amount_ratio = snapped(currain, .1)
 	environment.sky.sky_material.set_shader_parameter("day_top_color",topgradient.sample(currain))
 	environment.sky.sky_material.set_shader_parameter("day_bottom_color",bottomgradient.sample(currain))
 	environment.sky.sky_material.set_shader_parameter("clouds_cutoff",lerp(cloudlerp.x,cloudlerp.y,currain))
 	if(israining):
-		currain = lerp(currain,1.0,delta)
+		currain = lerp(currain,1.0,delta*.3)
 		#currain = clamp(currain+(delta*.1), 0,1)
 	else:
-		currain = lerp(currain,0.0,delta)
+		currain = lerp(currain,0.0,delta*.3)
 		#currain = clamp(currain-(delta*.1), 0,1)
 	
 	if(sun != null):

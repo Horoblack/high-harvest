@@ -31,10 +31,12 @@ func load_data():
 		gamedata = file.get_var()
 	else:
 		gamedata = {
+			"debtpaid":false,
 			"playtime":0.0,
 			"day": 0,
-			"timeofday": 900,
+			"timeofday": 500,
 			"money": 50,
+			"totalmoney":0,
 			"playerscene":0,
 			"player": [Vector3(-45,0.5,180), Vector3(0,0,0), 50,50,[], [],[]],
 			"objects0": [
@@ -48,7 +50,7 @@ func load_data():
 				["pickup",Vector3(-27.908, 0.923, -31.43), Vector3(deg_to_rad(-60), deg_to_rad(-90), 0), "lock", {  }], 
 				["pickup",Vector3(-17.1, 1.6, -28.4), Vector3(0, 0, 0), "pan", {  }], 
 				["pickup",Vector3(-49.6, 1.62, 175), Vector3(deg_to_rad(-90), deg_to_rad(-90), 0), "farmersguide", { }], 
-				["pickup",Vector3(-49.25, 1.6, 175.05), Vector3(deg_to_rad(-90), 0, 0), "note", { "text":"DEED OF LAND AGREEMENT\n\nThrough this document we pronounce ██████████ the owner of ██████ farm, located on ████████, ████████." }], 
+				["pickup",Vector3(-49.25, 1.6, 175.05), Vector3(deg_to_rad(-90), 0, 0), "note", { "text":"DEED OF LAND AGREEMENT\n\nThrough this document we pronounce ██████████ the owner of ██████ farm, located on ████████, ████████, in exchange for $%.2f to be paid in labor at the farm." % Library.debt }], 
 				#["pickup",Vector3(-22.25, 2.55, -27.3), Vector3(0, deg_to_rad(-90), 0), "nail", { }], 
 				["pickup",Vector3(-20.2, 0.9, -22.2), Vector3(0, 0, 0), "box", {  }], 
 				["other", "table", Vector3(-20.9, 1.4, -22.6), Vector3(0, 0, 0)], 
@@ -108,13 +110,13 @@ func load_data():
 
 func resetsales():
 	gamedata["daysales"] = {
-					"carrot":0,
-					"tomato":0,
-					"turnip":0,
-					"cabbage":0,
-					"potato":0,
-					"pumpkin":0,
-					}
+	"carrot":0,
+	"tomato":0,
+	"turnip":0,
+	"cabbage":0,
+	"potato":0,
+	"pumpkin":0,
+	}
 
 func save_data():
 	if(curfile != -1 && cansave == 0):

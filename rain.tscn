@@ -24,10 +24,11 @@ size = 0.1
 sections = 2
 
 [node name="Node3D" type="GPUParticles3D"]
-amount = 600
+cast_shadow = 0
+amount = 300
 lifetime = 2.0
-preprocess = 1.0
-visibility_aabb = AABB(-40, -40, -40, 80, 80, 80)
+visibility_aabb = AABB(-80, -80, -80, 160, 160, 160)
+transform_align = 3
 trail_enabled = true
 trail_lifetime = 1.0
 process_material = SubResource("ParticleProcessMaterial_l4km3")

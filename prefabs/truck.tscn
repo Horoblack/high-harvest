@@ -732,7 +732,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f12df")
 
 [node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup", "serialize", "tooheavy"]]
-mass = 100.0
+mass = 1000.0
 center_of_mass_mode = 1
 linear_damp = 4.0
 angular_damp = 4.0
