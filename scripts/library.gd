@@ -76,6 +76,7 @@ var objs : Dictionary = {
 	"veggiemanleg":load("res://prefabs/veggiemanleg.tscn"),
 	"lawngnome":load("res://prefabs/lawngnome.tscn"),
 	"plaque":load("res://prefabs/plaque.tscn"),
+	"candle":load("res://prefabs/candle.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -151,6 +152,7 @@ var invobjs : Dictionary = {
 	"veggiemanleg":load("res://invobjs/veggiemanleg.tres"),
 	"lawngnome":load("res://invobjs/lawngnome.tres"),
 	"plaque":load("res://invobjs/plaque.tres"),
+	"candle":load("res://invobjs/candle.tres"),
 }
 
 var purchasables : Dictionary = {

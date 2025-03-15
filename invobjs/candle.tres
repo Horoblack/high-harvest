@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://eewykmp04e30"]
+
+[ext_resource type="Texture2D" uid="uid://dirk7kkk2xaj3" path="res://sprites/itemicons/candle.png" id="1_kte55"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_nr5xm"]
+
+[resource]
+script = ExtResource("2_nr5xm")
+name = "Candle"
+weight = 0.5
+icon = ExtResource("1_kte55")
+description = "A candle to light up the night. Weak light but lasts long."
+objaddress = "candle"
+customproperties = {}

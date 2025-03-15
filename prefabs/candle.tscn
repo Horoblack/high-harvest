@@ -1,0 +1,115 @@
+[gd_scene load_steps=15 format=4 uid="uid://ir4j1qt3jl0y"]
+
+[ext_resource type="Texture2D" uid="uid://dinkchlapj6b6" path="res://models/textures/candlewick.png" id="1_412kr"]
+[ext_resource type="Script" path="res://scripts/candle.gd" id="1_73250"]
+[ext_resource type="Resource" uid="uid://eewykmp04e30" path="res://invobjs/candle.tres" id="2_0almc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_najtw"]
+albedo_color = Color(0.81, 0.81, 0.5265, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_67ry6"]
+_surfaces = [{
+"aabb": AABB(-0.109539, -0.220242, -0.109539, 0.219077, 0.440484, 0.219078),
+"format": 34896613377,
+"index_count": 84,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgAJAAcABgAIAAkACAALAAkACAAKAAsACgANAAsACgAMAA0ABQABAAMAAQANAA8ADQAJAAsACQAFAAcABQANAAEADQAFAAkADAAPAA0ADAAOAA8ADgABAA8ADgAAAAEADgACAAAAAgAGAAQABgAKAAgACgAOAAwADgAGAAIABgAOAAoA"),
+"lods": [0.0407179, PackedByteArray("AAAFAAEAAAACAAUAAgAGAAUABgAJAAUABgAIAAkACAAKAAkACgANAAkACgAOAA0ADgABAA0ADgAAAAEABQANAAEADQAFAAkADgACAAAADgAGAAIABgAOAAoABgAKAAgA"), 0.0837704, PackedByteArray("AAAFAAEAAAAGAAUABgANAAUABgAKAA0ABQANAAEACgABAA0ACgAAAAEACgAGAAAA"), 0.144586, PackedByteArray("AAANAAEAAAAKAA0ACgABAA0ACgAAAAEA")],
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("/38AAAAAAAD/f///AAAAAIHaAAB9JQAAgdr//30lAAD//wAA/38AAP//////fwAAgdoAAIHaAACB2v//gdoAAP9/AAD//wAA/3//////AAB9JQAAgdoAAH0l//+B2gAAAAAAAP9/AAAAAP///38AAH0lAAB9JQAAfSX//30lAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5f344"]
+resource_name = "candle_Cylinder"
+_surfaces = [{
+"aabb": AABB(-0.109539, -0.220242, -0.109539, 0.219077, 0.440484, 0.219078),
+"attribute_data": PackedByteArray("AAD/f////3//v46CAAAAAP//AAD/P46CcOuNlP/f/39xa42U/98AAG/9/7//v/9/cH3/v/+/AABw63Dr/5//f3FrcOv/nwAA/3//f/+/b/3/fwAA/z9v/Y2UcOv/X/9/jhRw6/9fAACOgv+//z//f48C/7//PwAAjZSNlP8f/3+OFI2U/x8AAAAA/38AAAAA/1//f/8/AAAAAP9/////fwAAAAD//wAA/78AAP+/AAD/n/9//5//f/9f/3//X/9//z8AAP///38AAAAA//8AAP/f/3//vwAA/78AAP+f/3//n/9//38AAP9/AAD/X/9//1//f/8/AAD/PwAA/x//f/8f/38="),
+"format": 34896613399,
+"index_count": 84,
+"index_data": PackedByteArray("AQAJAAQAAQAHAAkABwANAAkABwALAA0ACwARAA0ACwAPABEADwAUABEADwASABQAEgAZABQAEgAXABkAFwAdABkAFwAbAB0ADAAFAAgABQAcACAAHAAVABgAFQAMABAADAAcAAUAHAAMABUAGwAhAB0AGwAfACEAHwADACEAHwAAAAMAHgAGAAIABgAOAAoADgAWABMAFgAeABoAHgAOAAYADgAeABYA"),
+"lods": [0.0407179, PackedByteArray("MQA1ADMAMQA0ADUANAA3AA0AOAA5ADYAOAASADkAEgA7ADkAOwA9ADoAPAA/AD0APwAyAD4AQAAAADIADAAcAAUAHAAMABUAHgAGAAIAHgAOAAYADgAeABYADgAWABMA"), 0.0837704, PackedByteArray("JwAqACkAJwAsACoALQAwACsALQAuADAADAAcAAUALwAoAB0ALwAmACgAFgAOAAIA"), 0.144586, PackedByteArray("AQAdAAQAAQAXAB0AJAAjACUAJAAiACMA")],
+"material": SubResource("StandardMaterial3D_najtw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 65,
+"vertex_data": PackedByteArray("/38AAAAA////fwAAAAD///9/AAAAAP8//3///wAA////f///AAD///9///8AAP+/gdoAAH0l/z+B2gAAfSX/34Ha//99Jf+/gdr//30l/9///wAA/3//P///AAD/f/+///////9//7///////3//v4HaAACB2v8/gdoAAIHa/5+B2v//gdr/v4Ha//+B2v+f/38AAP//AID/fwAA////P/9//////wCA/3///////799JQAAgdr/P30lAACB2v+ffSX//4Ha/799Jf//gdr/nwAAAAD/f/8/AAAAAP9//78AAP///3//vwAA////f/+/fSUAAH0l/z99JQAAfSX/330l//99Jf+/fSX//30l/9//fwAAAAC26P9///8AAAzsfSUAAIHaVbYAAP///38fw/9/AAAAAEfu/38AAAAAye3/f///AAB06v9///8AABjw//////9/k8v//////38urYHaAACB2rq1gdoAAIHa3JZ9JQAAgdqbl30lAACB2h+5AAD///9/r6v/fwAAAADI8/9///8AAPP0/3///wAAfviB2gAAfSXm2///////f5PP//////9/EbOB2gAAgdoCsIHaAACB2j6c/3//////qYX/f/////90kn0lAACB2hubfSUAAIHaWq8AAP///3+SuAAA////f+LNfSUAAH0l4th9JQAAfSUm6P9/////f///AAD/f/9/////f///////fwAA/3//fwAA/v//f/9/AAAAAP9//38AAP///3//fwAAAAD/f/9/AAD+//9//38AAP9///8AAP9//3///////38AAP9//3////7//3//f///AAD/f/9///////9//3///wAA/3//f////v//f/9/////f////3////9/////f////3////9/AAD/f////38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////fwAA/3////9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_67ry6")
+
+[sub_resource type="Gradient" id="Gradient_8l1sa"]
+offsets = PackedFloat32Array(0, 0.0903614, 0.542169, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.633333, 0, 1, 1, 0.655333, 0.06, 1, 0.29219, 0.29219, 0.29219, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3daqe"]
+gradient = SubResource("Gradient_8l1sa")
+
+[sub_resource type="Curve" id="Curve_50wli"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.345361, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fgh4i"]
+curve = SubResource("Curve_50wli")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gg13i"]
+direction = Vector3(0, 1, 0)
+spread = 180.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+gravity = Vector3(0, 3, 0)
+scale_curve = SubResource("CurveTexture_fgh4i")
+color_ramp = SubResource("GradientTexture1D_3daqe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wiy4q"]
+shading_mode = 0
+vertex_color_use_as_albedo = true
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_e850p"]
+material = SubResource("StandardMaterial3D_wiy4q")
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b6hwx"]
+height = 0.45
+radius = 0.1
+
+[node name="candle" type="RigidBody3D" groups=["pickup"]]
+script = ExtResource("1_73250")
+metadata/obj = ExtResource("2_0almc")
+
+[node name="candle" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_5f344")
+skeleton = NodePath("")
+
+[node name="wickpos" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="wickpos"]
+texture = ExtResource("1_412kr")
+
+[node name="Sprite3D2" type="Sprite3D" parent="wickpos"]
+transform = Transform3D(0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, 0.258819, 0, 0, 0)
+texture = ExtResource("1_412kr")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="wickpos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0302591, 0)
+cast_shadow = 0
+amount = 2
+lifetime = 0.2
+process_material = SubResource("ParticleProcessMaterial_gg13i")
+draw_pass_1 = SubResource("QuadMesh_e850p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="wickpos"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0342083, 0)
+light_color = Color(1, 0.787732, 0.602212, 1)
+light_energy = 0.4
+omni_range = 15.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_b6hwx")
