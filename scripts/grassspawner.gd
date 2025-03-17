@@ -14,20 +14,22 @@ func _ready() -> void:
 	#spawnamount = 50
 	#amt = list.size()
 	amt = spawnamount
-	amt = 1
+	#amt = 100
 	multimesh.instance_count = amt
 	#multimesh.buffer.clear()
 	#multimesh.instance_count = 0
 	
 	#STILL GENERATING INSIDE THE AABB. FIX OR DIE
+	multimesh = multimesh.duplicate()
 	for n in amt:
 		var trans : Transform3D
 		trans.basis = global_basis
-		trans.origin = Vector3(randi_range(-size.x/2,size.x/2),0,randi_range(-size.y/2,size.y/2))
-		#while aabb1.has_point(global_position+trans.origin) || aabb2.has_point(global_position+trans.origin):
-			#trans.origin = Vector3(randi_range(-size.x/2,size.x/2),0,randi_range(-size.y/2,size.y/2))
+		var x = randi_range(-size.x/2,size.x/2)
+		var y = randi_range(-size.y/2,size.y/2)
+		#print(Vector3(x,0,y))
+		trans.origin = Vector3(x,0,y)
+		while aabb1.has_point(global_position+trans.origin) || aabb2.has_point(global_position+trans.origin):
+			trans.origin = Vector3(randi_range(-size.x/2,size.x/2),0,randi_range(-size.y/2,size.y/2))
 		
-		#trans.origin = Vector3(1,1,1)
+		#trans.origin = Vector3(-30,1,23)
 		multimesh.set_instance_transform(n, trans)
-		print(get_parent().name, trans.origin)
-		print(get_parent().name, multimesh.get_instance_transform(n).origin)

@@ -25,6 +25,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if(vinylobj):
 		vinylobj.global_basis = vinylcheck.global_basis
+		vinylobj.global_position = vinylcheck.global_position
 		if(audio.playing):
 			vinylcheck.rotation.y += delta
 	if(lidtime > 0):
@@ -36,12 +37,13 @@ func trigger(pl):
 	set_meta("obj",data)
 
 func _on_vinylcheck_body_entered(body: Node3D) -> void:
+	#print(body)
 	if(body is vinyl && vinylobj == null && lidtime <= 0):
-		curvinyl = body.get_meta("obj").objaddress
 		body.unlid.connect(unlidded)
+		curvinyl = body.get_meta("obj").objaddress
 		vinylobj = body
+		#vinylobj.reparent(vinylcheck)
 		vinylobj.freeze = true
-		vinylobj.reparent(self)
 		add_collision_exception_with(vinylobj)
 		vinylobj.global_position = vinylcheck.global_position
 		audio.stream = vinylobj.song
@@ -52,7 +54,7 @@ var lidtime : float = 0
 func unlidded():
 	if(vinylobj):
 		lidtime = .2
-		vinylobj.reparent(get_tree().current_scene)
+		#vinylobj.reparent(get_tree().current_scene)
 		remove_collision_exception_with(vinylobj)
 		vinylobj.unlid.disconnect(unlidded)
 		vinylobj.freeze = false
