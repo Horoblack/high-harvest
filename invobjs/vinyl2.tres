@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://bfok1a2kxe3fw"]
+
+[ext_resource type="Texture2D" uid="uid://c2m8fc88ll0if" path="res://sprites/itemicons/vinyl.png" id="1_2tb3g"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_3nqqg"]
+
+[resource]
+script = ExtResource("2_3nqqg")
+name = "\"Clair de Lune\" Vinyl"
+weight = 0.5
+icon = ExtResource("1_2tb3g")
+description = "A vinyl with the song \"Clair de Lune\"."
+objaddress = "vinyl2"
+customproperties = {}

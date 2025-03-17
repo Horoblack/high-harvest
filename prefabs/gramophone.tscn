@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=4 uid="uid://bxfvggdjia5in"]
+[gd_scene load_steps=16 format=4 uid="uid://bxfvggdjia5in"]
 
 [ext_resource type="Script" path="res://scripts/gramophone.gd" id="1_aq57f"]
 [ext_resource type="Resource" uid="uid://dh5yx04ksyxsi" path="res://invobjs/gramophone.tres" id="1_rx8sf"]
 [ext_resource type="AudioStream" uid="uid://cthkhkr5ri4u" path="res://sounds/collision.wav" id="2_tp0l8"]
-[ext_resource type="AudioStream" uid="uid://dlwu0nd6qi0ie" path="res://sounds/I'm a Member of the Midnight Crew.mp3" id="3_8v1vc"]
 [ext_resource type="AudioStream" uid="uid://cl4lj6u6so6b4" path="res://sounds/collision2.wav" id="3_fhkrr"]
 [ext_resource type="Script" path="res://scripts/grabarea.gd" id="4_u42nt"]
 
@@ -96,10 +95,6 @@ shadow_mesh = SubResource("ArrayMesh_olyia")
 height = 0.265092
 radius = 0.343554
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_j51yl"]
-height = 0.265092
-radius = 0.1
-
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_b1gwu"]
 height = 0.36982
 radius = 0.1
@@ -109,7 +104,11 @@ height = 0.193512
 radius = 0.309002
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q2rt3"]
-size = Vector3(0.1, 0.1, 0.245312)
+size = Vector3(0.1, 0.0675781, 0.172949)
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_kav3s"]
+height = 0.04
+radius = 0.3
 
 [node name="gramophone" type="RigidBody3D" groups=["pickup"]]
 contact_monitor = true
@@ -126,10 +125,6 @@ skeleton = NodePath("")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0641004, 0)
 shape = SubResource("CylinderShape3D_l08hd")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1859, -0.25)
-shape = SubResource("CylinderShape3D_j51yl")
-
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
 transform = Transform3D(0.914049, 0.280245, 0.293219, 0.101816, 0.54124, -0.834681, -0.392617, 0.792794, 0.466186, 0.0782327, 0.49729, -0.105771)
 shape = SubResource("CylinderShape3D_b1gwu")
@@ -139,15 +134,22 @@ transform = Transform3D(0.942104, 0.323894, 0.0867872, 0.0309271, 0.173785, -0.9
 shape = SubResource("CylinderShape3D_sf36n")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("3_8v1vc")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16159, 0.182237, -0.0286691)
 collision_mask = 0
 script = ExtResource("4_u42nt")
+hovertext = "Play"
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -0.0188048, 0, -0.0701806)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -0.00944033, 0.0162109, -0.0352319)
 shape = SubResource("BoxShape3D_q2rt3")
 
+[node name="vinylcheck" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="vinylcheck"]
+shape = SubResource("CylinderShape3D_kav3s")
+
 [connection signal="grabbed" from="StaticBody3D" to="." method="trigger"]
+[connection signal="body_entered" from="vinylcheck" to="." method="_on_vinylcheck_body_entered"]

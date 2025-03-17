@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dd2pxhuxbd42h"
+path="res://.godot/imported/CLAUDE DEBUSSY_  CLAIR DE LUNE.mp3-365f3d7bcdd8ffe72fba3a02c8beb5c3.mp3str"
+
+[deps]
+
+source_file="res://sounds/CLAUDE DEBUSSY_  CLAIR DE LUNE.mp3"
+dest_files=["res://.godot/imported/CLAUDE DEBUSSY_  CLAIR DE LUNE.mp3-365f3d7bcdd8ffe72fba3a02c8beb5c3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

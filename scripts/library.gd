@@ -1,6 +1,6 @@
 extends Node
 
-var debt : int = 52
+var debt : int = 5000
 
 var objs : Dictionary = {
 	"farmersguide":load("res://prefabs/farmers guide.tscn"),
@@ -77,6 +77,8 @@ var objs : Dictionary = {
 	"lawngnome":load("res://prefabs/lawngnome.tscn"),
 	"plaque":load("res://prefabs/plaque.tscn"),
 	"candle":load("res://prefabs/candle.tscn"),
+	"vinyl1":load("res://prefabs/vinyl1.tscn"),
+	"vinyl2":load("res://prefabs/vinyl2.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -153,6 +155,8 @@ var invobjs : Dictionary = {
 	"lawngnome":load("res://invobjs/lawngnome.tres"),
 	"plaque":load("res://invobjs/plaque.tres"),
 	"candle":load("res://invobjs/candle.tres"),
+	"vinyl1":load("res://invobjs/vinyl1.tres"),
+	"vinyl2":load("res://invobjs/vinyl2.tres"),
 }
 
 var purchasables : Dictionary = {

@@ -7,6 +7,7 @@
 
 
 shader_type spatial;
+render_mode cull_disabled;
 
 // Water color and foam color
 uniform vec4 WATER_COL : source_color = vec4(0.04, 0.38, 0.88, 1.0);
@@ -24,8 +25,8 @@ uniform vec2 water_size = vec2(128.0, 128.0);
 
 // Uniforms for transparency and depth effects
 
-uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_nearest_mipmap;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_nearest_mipmap;
 uniform float water_transparency = 0.8; // Adjust this to control overall water transparency
 uniform float water_depth_factor = 0.1; // Adjust this to control how quickly water becomes opaque with depth
 

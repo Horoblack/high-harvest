@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://c1rli6xvpq5bt"]
+
+[ext_resource type="Texture2D" uid="uid://c2m8fc88ll0if" path="res://sprites/itemicons/vinyl.png" id="1_0dku3"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_5yqir"]
+
+[resource]
+script = ExtResource("2_5yqir")
+name = "\"Midnight Crew\" Vinyl"
+weight = 0.5
+icon = ExtResource("1_0dku3")
+description = "A vinyl with the song \"Make Her a Member of the Midnight Crew\"."
+objaddress = "vinyl1"
+customproperties = {}

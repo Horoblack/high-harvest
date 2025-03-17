@@ -56,6 +56,9 @@ func _input(event):
 
 var gravvel : float = .1
 func _physics_process(delta):
+	if(underwater):
+		damage += delta*10
+	
 	waterfilter.visible = underwater
 	if(damage > 0 && damage < 100):
 		damage -= delta * 10
@@ -64,8 +67,8 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		gameover.visible = true
 	
-	if !isonfloor() && !underwater:
-		velocity.y -= gravity * delta * gravvel
+	if !isonfloor():
+		velocity.y -= gravity * delta * gravvel * (1 if !underwater else .1)
 		
 		if(gravvel < 15):
 			gravvel += delta * gravvel * 7

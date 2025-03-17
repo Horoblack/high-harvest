@@ -1,14 +1,26 @@
+@tool
+
 extends MultiMeshInstance3D
 
-var aabb1 : AABB = AABB(Vector3(-40.0,-2,-40.0), Vector3(80.0,4,80.0))
-var aabb2 : AABB = AABB(Vector3(40.0,-2,70.0), Vector3(50.0,4,80.0))
+var aabb1 : AABB = AABB(Vector3(-40.0,-10,-40.0), Vector3(80.0,20,80.0))
+var aabb2 : AABB = AABB(Vector3(40.0,-10,70.0), Vector3(60.0,20,80.0))
 
 @export var list : Array
+@export var spawnamount : int = 200
+@export var size : Vector2 = Vector2(300,500)
 func _ready() -> void:
-	multimesh.instance_count = list.size()
-	for n in list.size():
-		#var pos = Vector3.ZERO
-		#while aabb1.has_point(pos) || aabb2.has_point(pos):
-		#	pos = Vector3(randi_range(-320,320),0,randi_range(-400,400))
-		#list.append(pos)
-		multimesh.set_instance_transform(n, Transform3D(Basis(), list[n]))
+	#print(aabb1.has_point(Vector3(3,0,12)))
+	var amt
+	#amt = list.size()
+	amt = spawnamount
+	multimesh.instance_count = amt
+	#multimesh.buffer.clear()
+	#multimesh.instance_count = 0
+	
+	#STILL GENERATING INSIDE THE AABB. FIX OR DIE
+	for n in amt:
+		var trans : Transform3D
+		trans.origin = Vector3(randi_range(-size.x/2,size.x/2),0,randi_range(-size.y/2,size.y/2))
+		while aabb1.has_point(global_position+trans.origin) || aabb2.has_point(global_position+trans.origin):
+			trans.origin = Vector3(randi_range(-size.x/2,size.x/2),0,randi_range(-size.y/2,size.y/2))
+		multimesh.set_instance_transform(n, trans)
