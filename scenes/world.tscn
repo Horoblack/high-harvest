@@ -12,6 +12,7 @@
 [ext_resource type="Shader" path="res://water.gdshader" id="10_e26b0"]
 [ext_resource type="Script" path="res://scripts/eventClass.gd" id="11_c465g"]
 [ext_resource type="Script" path="res://scripts/fence.gd" id="11_ffdrj"]
+[ext_resource type="Script" path="res://scripts/water.gd" id="11_xxv4s"]
 [ext_resource type="Texture2D" uid="uid://vx4fy6dygq0x" path="res://models/textures/grass.png" id="12_knnhw"]
 [ext_resource type="PackedScene" uid="uid://dtu7p8202h2mb" path="res://prefabs/spidermonster.tscn" id="12_qwtm0"]
 [ext_resource type="PackedScene" uid="uid://bxfvggdjia5in" path="res://prefabs/gramophone.tscn" id="13_cyqij"]
@@ -346,32 +347,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_5bj7r")
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ryu62"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_4lwqy"]
-noise = SubResource("FastNoiseLite_ryu62")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnr25"]
 render_priority = 0
 shader = ExtResource("10_e26b0")
-shader_parameter/beer_factor = 0.8
-shader_parameter/foam_distance = 0.01
-shader_parameter/foam_max_distance = 10.0
-shader_parameter/foam_min_distance = 4.0
-shader_parameter/foam_color = Color(0.333333, 0.756863, 1, 1)
-shader_parameter/surface_noise_tiling = Vector2(1, 4)
-shader_parameter/surface_noise_scroll = Vector3(0.03, 0.03, 0)
-shader_parameter/surface_noise_cutoff = 0.876
-shader_parameter/surface_distortion_amount = 0.655
-shader_parameter/_DepthGradientShallow = Color(0.325, 0.807, 0.971, 0.725)
-shader_parameter/_DepthGradientDeep = Color(0.086, 0.407, 1, 0.749)
-shader_parameter/_DepthMaxDistance = 1.0
-shader_parameter/_DepthFactor = 1.0
-shader_parameter/surfaceNoise = SubResource("NoiseTexture2D_4lwqy")
+shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
+shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
+shader_parameter/FOAM_COL = Color(0.368627, 0.764706, 0.780392, 1)
+shader_parameter/distortion_speed = 1.0
+shader_parameter/tile = Vector2(10, 10)
+shader_parameter/wave_speed = 1.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 0.5
+shader_parameter/time_offset = 0.0
+shader_parameter/water_size = Vector2(128, 128)
+shader_parameter/water_transparency = 0.8
+shader_parameter/water_depth_factor = 10.0
+shader_parameter/foam_width = 5.515
+shader_parameter/foam_edge_softness = 0.05
+shader_parameter/foam_smoothness = 0.03
+shader_parameter/foam_distortion_speed = 0.5
+shader_parameter/foam_distortion_amount = 0.1
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_s5tly"]
 material = SubResource("ShaderMaterial_wnr25")
 size = Vector2(70, 80)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_us1n8"]
+size = Vector3(60, 6, 80)
 
 [sub_resource type="Resource" id="Resource_t1tb4"]
 script = ExtResource("11_c465g")
@@ -663,9 +665,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 mesh = SubResource("ArrayMesh_t2vft")
 skeleton = NodePath("")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0821, -3.66574, 111.7)
+[node name="water" type="MeshInstance3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.082, -3, 112.836)
 mesh = SubResource("PlaneMesh_s5tly")
+
+[node name="Area3D" type="Area3D" parent="floor/water"]
+script = ExtResource("11_xxv4s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/water/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8, 0)
+shape = SubResource("BoxShape3D_us1n8")
 
 [node name="tap" parent="." instance=ExtResource("9_oox23")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -14.9, 0, -18)
@@ -709,4 +718,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 1, -19.9818)
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path3" to="fence/path3" method="_on_curve_changed"]
+[connection signal="body_entered" from="floor/water/Area3D" to="floor/water/Area3D" method="_on_body_entered"]
+[connection signal="body_exited" from="floor/water/Area3D" to="floor/water/Area3D" method="_on_body_exited"]
 [connection signal="timeout" from="crowspawner/Timer" to="crowspawner" method="_on_timer_timeout"]

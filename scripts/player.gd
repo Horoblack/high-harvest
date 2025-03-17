@@ -5,6 +5,7 @@ class_name Player
 @onready var cam = $cam
 @onready var shape = $CollisionShape3D
 @onready var ceilingcheck = $ceilingcheck
+@onready var groundcheck: ShapeCast3D = $groundcheck
 @onready var stats: RichTextLabel = $cam/CanvasLayer/stats
 @onready var shadow: RigidBody3D = $shadow
 @onready var shadowshape: CollisionShape3D = $shadow/CollisionShape3D
@@ -12,17 +13,21 @@ class_name Player
 @onready var injury = $cam/CanvasLayer/injury
 @onready var gameover = $cam/CanvasLayer/injury/gameover
 @onready var munch = $munch
+@onready var waterfilter: ColorRect = $cam/CanvasLayer/waterfilter
+
+@onready var footstep: AudioStreamPlayer = $groundcheck/footstep
+
 
 var curspeed
 const SPEED = 180
-const JUMP_VELOCITY = 500
+const JUMP_VELOCITY = 200
 const drag = .87
 
 var curjumpvel : float
 
 var wasonfloor
 var frozen : bool = false
-var npcspeak : bool = false
+var underwater : bool = false
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -51,6 +56,7 @@ func _input(event):
 
 var gravvel : float = .1
 func _physics_process(delta):
+	waterfilter.visible = underwater
 	if(damage > 0 && damage < 100):
 		damage -= delta * 10
 	injury.color.a = damage/100
@@ -58,7 +64,7 @@ func _physics_process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		gameover.visible = true
 	
-	if !is_on_floor():
+	if !isonfloor() && !underwater:
 		velocity.y -= gravity * delta * gravvel
 		
 		if(gravvel < 15):
@@ -81,7 +87,7 @@ func _physics_process(delta):
 	
 	if(!frozen && !ragdolled):
 		# handle jump
-		if Input.is_action_just_pressed("jump") && (is_on_floor() || !coyote_time.is_stopped()):
+		if Input.is_action_just_pressed("jump") && (isonfloor() || !coyote_time.is_stopped() || underwater):
 			curjumpvel = JUMP_VELOCITY
 			coyote_time.stop()
 		
@@ -124,7 +130,7 @@ func _physics_process(delta):
 	
 	velocity *= drag
 	
-	wasonfloor = is_on_floor()
+	wasonfloor = isonfloor()
 	if(!ragdolled):
 		move_and_slide()
 		shadow.global_position = global_position
@@ -132,7 +138,7 @@ func _physics_process(delta):
 	else:
 		global_position = shadow.global_position
 		global_basis = shadow.global_basis
-	if wasonfloor && !is_on_floor():
+	if wasonfloor && !isonfloor():
 		coyote_time.start()
 	for col_idx in get_slide_collision_count():
 		var col := get_slide_collision(col_idx)
@@ -194,7 +200,6 @@ func heat(b):
 	if(b):
 		ragdoll(20)
 
-
 func quittomenu():
 	get_tree().paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -205,3 +210,6 @@ func reload():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	Savedata.load_data()
 	get_tree().reload_current_scene()
+
+func isonfloor():
+	return groundcheck.is_colliding() && (cam.grabbed == null || groundcheck.get_collider(0) != cam.grabbed)
