@@ -14,6 +14,8 @@ extends RigidBody3D
 @onready var fllight = $"front left light"
 @onready var frlight = $"front right light"
 
+@onready var loadarea : Area3D = $loadarea
+
 var accelinput : float
 
 var lightson : bool = false
@@ -43,6 +45,10 @@ func _input(event):
 			frlight.visible = lightson
 
 func _physics_process(delta):
+	for n in loadobjs:
+		#print(n)
+		n.apply_force(linear_velocity*2)
+	
 	if(leftseat.seated):
 		accelinput = Input.get_axis("ui_down", "ui_up")
 		var steerinput = Input.get_axis("ui_left", "ui_right")
@@ -138,3 +144,12 @@ func brake(cast : RayCast3D, delta):
 
 func get_point_velocity (point :Vector3)->Vector3:
 	return linear_velocity + angular_velocity.cross(point - global_transform.origin)
+
+
+var loadobjs : Array
+func _on_load_body_entered(body):
+	if body != self && body is RigidBody3D:
+		loadobjs.append(body)
+
+func _on_load_body_exited(body):
+	loadobjs.erase(body)

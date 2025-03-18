@@ -1,8 +1,11 @@
-[gd_scene load_steps=57 format=4 uid="uid://ks7cknofd1u4"]
+[gd_scene load_steps=59 format=4 uid="uid://ks7cknofd1u4"]
 
 [ext_resource type="Script" path="res://scripts/truckseat.gd" id="1_0bds0"]
 [ext_resource type="Script" path="res://scripts/truck.gd" id="1_mpxah"]
 [ext_resource type="Script" path="res://scripts/doorlock.gd" id="2_utnhq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ckj7o"]
+rough = true
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xxeo2"]
 points = PackedVector3Array(0.0631347, 1.36548, 1.89791, 0.0631347, 1.36548, 0.680877, -0.0631357, 1.36548, 1.89791, 0.0631347, 0.306006, 1.89791, -0.0631357, 1.36548, 0.680877, 0.0631347, 0.306006, -2.38419e-07, -0.0631357, 0.306006, 1.89791, 0.0631347, -0.961176, 1.89772, -0.0631357, 0.306006, -2.38419e-07, 0.0631347, -0.961176, -2.38419e-07, -0.0631357, -0.961176, 1.89772, -0.0631357, -0.961176, -2.38419e-07)
@@ -80,7 +83,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_c4fe2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0phb5"]
-size = Vector3(2.56055, 0.68457, 0.198975)
+size = Vector3(2.56055, 0.68457, 0.231445)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_708lc"]
 _surfaces = [{
@@ -731,8 +734,12 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_f12df")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mhk1k"]
+size = Vector3(2.5, 2, 4.9)
+
 [node name="farm truck" type="RigidBody3D" groups=["heavy", "pickup", "serialize", "tooheavy"]]
 mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_ckj7o")
 center_of_mass_mode = 1
 linear_damp = 4.0
 angular_damp = 4.0
@@ -805,7 +812,7 @@ angular_damp = 10.0
 script = ExtResource("2_utnhq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="beddoorhinge/beddoor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.47033e-22, 0.346191, -0.10579)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.346191, -0.10579)
 shape = SubResource("BoxShape3D_0phb5")
 
 [node name="beddoor" type="MeshInstance3D" parent="beddoorhinge/beddoor"]
@@ -991,3 +998,14 @@ visible = false
 light_energy = 15.0
 shadow_enabled = true
 spot_range = 50.0
+
+[node name="loadarea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 2.2)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="loadarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.95)
+shape = SubResource("BoxShape3D_mhk1k")
+
+[connection signal="body_entered" from="loadarea" to="." method="_on_load_body_entered"]
+[connection signal="body_exited" from="loadarea" to="." method="_on_load_body_exited"]

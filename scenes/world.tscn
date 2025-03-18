@@ -1,4 +1,4 @@
-[gd_scene load_steps=148 format=4 uid="uid://1x2qqvrpl61i"]
+[gd_scene load_steps=146 format=4 uid="uid://1x2qqvrpl61i"]
 
 [ext_resource type="PackedScene" uid="uid://b4jtleag6oj6" path="res://prefabs/house.tscn" id="1_0f5v3"]
 [ext_resource type="Texture2D" uid="uid://bnnr1ajrh2xdk" path="res://models/textures/noise32.png" id="1_jqp18"]
@@ -26,8 +26,6 @@
 [ext_resource type="PackedScene" uid="uid://d3x0ay88gqq7o" path="res://rain.tscn" id="24_230u1"]
 [ext_resource type="Texture2D" uid="uid://c71nlgr4htpc" path="res://models/textures/bush.png" id="25_kt1r8"]
 [ext_resource type="Texture2D" uid="uid://bhsrb7wqgfmfq" path="res://models/textures/stone.png" id="27_pf1fq"]
-[ext_resource type="PackedScene" uid="uid://cmnlvumf4kdj2" path="res://prefabs/vinyl1.tscn" id="28_gi3yo"]
-[ext_resource type="PackedScene" uid="uid://dqvypn6d4oc8h" path="res://prefabs/vinyl2.tscn" id="29_xscct"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kwhdr"]
 size = Vector3(0.1, 0.1, 1)
@@ -355,9 +353,9 @@ shadow_mesh = SubResource("ArrayMesh_5bj7r")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wnr25"]
 render_priority = 0
 shader = ExtResource("10_e26b0")
-shader_parameter/WATER_COL = Color(0.04, 0.38, 0.88, 1)
-shader_parameter/WATER2_COL = Color(0.04, 0.35, 0.78, 1)
-shader_parameter/FOAM_COL = Color(0.368627, 0.764706, 0.780392, 1)
+shader_parameter/WATER_COL = Color(0, 0.507745, 0.221883, 1)
+shader_parameter/WATER2_COL = Color(5.05373e-07, 0.465486, 0.219208, 1)
+shader_parameter/FOAM_COL = Color(0.183449, 0.519774, 0.403607, 1)
 shader_parameter/distortion_speed = 1.0
 shader_parameter/tile = Vector2(10, 10)
 shader_parameter/wave_speed = 1.0
@@ -367,7 +365,7 @@ shader_parameter/time_offset = 0.0
 shader_parameter/water_size = Vector2(128, 128)
 shader_parameter/water_transparency = 0.8
 shader_parameter/water_depth_factor = 10.0
-shader_parameter/foam_width = 5.515
+shader_parameter/foam_width = 10.0
 shader_parameter/foam_edge_softness = 0.05
 shader_parameter/foam_smoothness = 0.03
 shader_parameter/foam_distortion_speed = 0.5
@@ -1604,15 +1602,6 @@ multimesh = SubResource("MultiMesh_x1u8n")
 [node name="rockspawner" type="MultiMeshInstance3D" parent="multimeshes/instance15"]
 custom_aabb = AABB(-50, -4, -50, 100, 8, 100)
 multimesh = SubResource("MultiMesh_jbh3p")
-
-[node name="gramophone" parent="." instance=ExtResource("13_cyqij")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.2657, -1.90735e-06, 164.103)
-
-[node name="vinyl" parent="." instance=ExtResource("28_gi3yo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -39.7797, 0, 165.014)
-
-[node name="vinyl2" parent="." instance=ExtResource("29_xscct")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.0036, 0, 165.21)
 
 [connection signal="curve_changed" from="fence/path" to="fence/path" method="_on_curve_changed"]
 [connection signal="curve_changed" from="fence/path2" to="fence/path2" method="_on_curve_changed"]
