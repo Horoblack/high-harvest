@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dftywjhjwqky4"]
+
+[ext_resource type="Texture2D" uid="uid://bnrbi1pditaty" path="res://sprites/itemicons/fish1.png" id="1_sk2kk"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_1cveq"]
+
+[resource]
+script = ExtResource("2_1cveq")
+name = "Fish"
+weight = 1.0
+icon = ExtResource("1_sk2kk")
+description = "A fish."
+objaddress = "fish1"
+customproperties = {}

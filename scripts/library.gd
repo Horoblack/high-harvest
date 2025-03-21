@@ -80,6 +80,7 @@ var objs : Dictionary = {
 	"fishingrod":load("res://prefabs/fishingrod.tscn"),
 	"vinyl1":load("res://prefabs/vinyl1.tscn"),
 	"vinyl2":load("res://prefabs/vinyl2.tscn"),
+	"fish1":load("res://prefabs/fish1.tscn"),
 }
 
 var invobjs : Dictionary = {
@@ -159,6 +160,7 @@ var invobjs : Dictionary = {
 	"fishingrod":load("res://invobjs/fishingrod.tres"),
 	"vinyl1":load("res://invobjs/vinyl1.tres"),
 	"vinyl2":load("res://invobjs/vinyl2.tres"),
+	"fish1":load("res://invobjs/fish1.tres"),
 }
 
 var purchasables : Dictionary = {
