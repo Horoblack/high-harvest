@@ -77,6 +77,7 @@ var objs : Dictionary = {
 	"lawngnome":load("res://prefabs/lawngnome.tscn"),
 	"plaque":load("res://prefabs/plaque.tscn"),
 	"candle":load("res://prefabs/candle.tscn"),
+	"fishingrod":load("res://prefabs/fishingrod.tscn"),
 	"vinyl1":load("res://prefabs/vinyl1.tscn"),
 	"vinyl2":load("res://prefabs/vinyl2.tscn"),
 }
@@ -155,6 +156,7 @@ var invobjs : Dictionary = {
 	"lawngnome":load("res://invobjs/lawngnome.tres"),
 	"plaque":load("res://invobjs/plaque.tres"),
 	"candle":load("res://invobjs/candle.tres"),
+	"fishingrod":load("res://invobjs/fishingrod.tres"),
 	"vinyl1":load("res://invobjs/vinyl1.tres"),
 	"vinyl2":load("res://invobjs/vinyl2.tres"),
 }

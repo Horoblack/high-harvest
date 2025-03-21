@@ -137,7 +137,7 @@ func holdobj():
 		held.rotation = Vector3.ZERO
 		held.freeze = true
 		for n in held.find_children("*", "CollisionShape3D", true, false):
-			if(n.get_parent() is RigidBody3D):
+			if(n.get_parent() is RigidBody3D && !n.get_parent().is_in_group("disableimmune")):
 				n.disabled = true
 	elif(held != null && (!held.has_method("candrop") || held.candrop() == true)):
 		letgoofheld()

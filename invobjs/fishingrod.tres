@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="InventoryObject" load_steps=3 format=3 uid="uid://dff82fu5e586d"]
+
+[ext_resource type="Texture2D" uid="uid://cmpq1fdmdhfsj" path="res://sprites/itemicons/fishing rod.png" id="1_38m86"]
+[ext_resource type="Script" path="res://scripts/InventoryObject.gd" id="2_cqhs7"]
+
+[resource]
+script = ExtResource("2_cqhs7")
+name = "Fishing Rod"
+weight = 1.0
+icon = ExtResource("1_38m86")
+description = "To fish."
+objaddress = "fishingrod"
+customproperties = {}
