@@ -2,7 +2,8 @@ extends basepickup
 
 @onready var rod: MeshInstance3D = $rod
 @onready var bobber: RigidBody3D = $rod/bobber
-@onready var linerender: MeshInstance3D = $rod/linerender
+@onready var linerender: MeshInstance3D = $linerender
+@onready var rendpoint: Node3D = $rod/rendpoint
 
 var throwing : bool = false
 
@@ -10,18 +11,20 @@ var throwlength : float = 0
 
 var resetting : bool = false
 
+var castout : bool = false
+
 func _ready() -> void:
 	super()
 	add_collision_exception_with(bobber)
 
 func trigger(bod):
-	if(throwing || resetting):
+	if(throwing || resetting || castout):
 		return
 	
 	throwing = true
 
 func _physics_process(delta: float) -> void:
-	linerender.points[1] = rod.to_local(bobber.global_position)
+	linerender.SetPoints([rendpoint.global_position,bobber.global_position])
 	super(delta)
 	if(throwing):
 		if(!Input.is_action_pressed("leftclick")):
@@ -41,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	rod.rotation_degrees.x = lerp(0,25,throwlength/1)
 
 func cast():
+	castout = true
 	bobber.reparent(get_tree().current_scene)
 	bobber.freeze = false
 	bobber.sleeping = false
@@ -50,5 +54,6 @@ func sectrigger(bod):
 	bobber.reparent(rod)
 	bobber.freeze = true
 	await get_tree().process_frame
+	castout = false
 	bobber.position = Vector3(0,1.05,-.1)
 	bobber.basis = Basis()
