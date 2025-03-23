@@ -42,9 +42,9 @@ func _process(delta):
 	
 	if(rainobj != null):
 		rainobj.amount_ratio = snapped(currain, .1)
-	environment.sky.sky_material.set_shader_parameter("day_top_color",topgradient.sample(currain))
-	environment.sky.sky_material.set_shader_parameter("day_bottom_color",bottomgradient.sample(currain))
-	environment.sky.sky_material.set_shader_parameter("clouds_cutoff",lerp(cloudlerp.x,cloudlerp.y,currain))
+		environment.sky.sky_material.set_shader_parameter("day_top_color",topgradient.sample(currain))
+		environment.sky.sky_material.set_shader_parameter("day_bottom_color",bottomgradient.sample(currain))
+		environment.sky.sky_material.set_shader_parameter("clouds_cutoff",lerp(cloudlerp.x,cloudlerp.y,currain))
 	if(israining):
 		currain = lerp(currain,1.0,delta*.3)
 		#currain = clamp(currain+(delta*.1), 0,1)

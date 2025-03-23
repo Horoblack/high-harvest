@@ -5,6 +5,8 @@
 [ext_resource type="Resource" uid="uid://eewykmp04e30" path="res://invobjs/candle.tres" id="2_0almc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_najtw"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.81, 0.81, 0.5265, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_67ry6"]
@@ -109,6 +111,7 @@ draw_pass_1 = SubResource("QuadMesh_e850p")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0342083, 0)
 light_color = Color(1, 0.787732, 0.602212, 1)
 light_energy = 0.4
+light_indirect_energy = 2.0
 omni_range = 15.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

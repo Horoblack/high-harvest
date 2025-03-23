@@ -122,7 +122,7 @@ func serializeinventory():
 	return ret
 
 func deserializeinventory(t:Array):
-	var ret = []
+	var ret : Array[InventoryObject] = []
 	for n in t:
 		var obj = Library.invobjs[n[0]].duplicate()
 		obj.customproperties = n[1]

@@ -148,7 +148,7 @@ metadata/diced = {
 "dicedturnip": 3
 }
 
-[node name="turnip" type="MeshInstance3D" parent="."]
+[node name="model" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_vcixa")
 skeleton = NodePath("")
 

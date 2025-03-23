@@ -230,12 +230,13 @@ colors = PackedColorArray(1, 0.666667, 0.258824, 1, 0, 0.337255, 0.447059, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jo085"]
 diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.423529, 0.270588, 0.141176, 1)
 albedo_texture = ExtResource("1_jqp18")
 uv1_scale = Vector3(100, 100, 100)
 texture_filter = 2
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_m3eaj"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_pkukt"]
 _surfaces = [{
 "aabb": AABB(-250, -11.248, -300, 500, 11.248, 600),
 "format": 34896613377,
@@ -249,11 +250,11 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_oqmtr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_p8nxj"]
 resource_name = "ground_Plane"
 _surfaces = [{
 "aabb": AABB(-250, -11.248, -300, 500, 11.248, 600),
-"attribute_data": PackedByteArray("BQD5/6iq+f8FAAUAqKoFADJ0RKQydOPDr4nmviKLRKT9clOrPHJjsi9yJr2Ii3u4m4xjslaMU6sFAAJABQD/fwUA/L+oqvy/qKr/f6iqAkD2eOLHsn7vx5iEV8RmhT2hqn84oO55PaGuKvn/VlX5//9/+f//fwUAVlUFAK4qBQCyidC3IIhCvcJ6F6TOg+DBm4qksmCKp6zkdamm8HnixM5+7cTzdZG6Y3divx2Dtb/BhtG7pojRrcqHxah8e5umY3fFqIZ20a38dd6yE4g6t9iI3rJAemG6yXresg57vKzMej3C5X5HwrCDm6aWf+Cli4NPuMh+v7pjhN6yln/esh6EvKyWf1+s5HV+wZ9/OqMwdMa7W4mppn2EF6TedKesO3Skss5+7cTkdamm"),
+"attribute_data": PackedByteArray("BQDy/Y7O+f/aAJEBcMwFABB6vqR1ejO9wIxguTuNbaSpeDKq5HeLrzp4z7d5jnK0T4+tr+2OGaoFAAlkEgBupj8ANsjRz/nGGdDko4HOq13XflzAxoNcwKCIp71oiLWhm4PfoMp+zKG+Ot39x2Up/vCRxP7tj0oBq2TTAWQ5IwJWjMOz5Ir1t7R/JKR1h5a7Bo2ir7eM2qr0e22mj3/KvXGD1r3NfGu18n3NuEqG+bjsiDy2SIr7q3+JeKi4gOim431lqBp9B6yofMSv8InlsnuKsa/nfze1NoDAr2mASKtegLq6P4PDuqOG3qasg1mmnoassymDcrU3h7WvtoO7r/eGRauxgwWrLnxAu6ODX6Nretm2XYtHppeHC6S7eumqIHqlr3GD1r30e22m"),
 "format": 34896613399,
 "index_count": 384,
 "index_data": PackedByteArray("KAArACMAKAA5ACsACAACAAQACAAOAAIAFAAAAAUAFAAaAAAACwABAAYACwARAAEAFwADAAcAFwAdAAMABwATAA0ABwADABMADQASAAwADQATABIADAARAAsADAASABEABQAQAAoABQAAABAACgAPAAkACgAQAA8ACQAOAAgACQAPAA4AJgAxAEcAJgAwADEAJwA5ACgAJwA4ADkAQgA4ACcAQgAqADgAIgAwACYAIgAvADAAJAAtACUAJAA0AC0AJQAuAEUAJQAtAC4AIAA0ACQAIAAzADQAIwAsACEAIwArACwAQwAvACIAQwA7AC8AIQAzACAAIQAsADMARAAqAEIARAApACoARgA7AEMARgA6ADsABAAfABkABAACAB8AGQAeABgAGQAfAB4AGAAdABcAGAAeAB0ABgAcABYABgABABwAFgAbABUAFgAcABsAFQAaABQAFQAbABoASAApAEQASAAyACkARQA6AEYARQAuADoARwAyAEgARwAxADIAQAAuAC0AQAA6AC4AKwAzACwAKwA8ADMAPAA0ADMAPAA+ADQAPgAtADQAPgBAAC0AMgA3ADYAMgAxADcANgBBAD8ANgA3AEEAPwBAAD4APwBBAEAAKQA2ADUAKQAyADYANQA/AD0ANQA2AD8APQA+ADwAPQA/AD4AKgA1ADgAKgApADUAOAA9ADkAOAA1AD0AOQA8ACsAOQA9ADwAMQAvADcAMQAwAC8ANwA7AEEANwAvADsAQQA6AEAAQQA7ADoACABIAAkACABHAEgABwBGABcABwBFAEYACQBEAAoACQBIAEQAFwBDABgAFwBGAEMACgBCAAUACgBEAEIABgAgAAsABgAhACAAGAAiABkAGABDACIAFgAhAAYAFgAjACEACwAkAAwACwAgACQADQBFAAcADQAlAEUADAAlAA0ADAAkACUAGQAmAAQAGQAiACYABQAnABQABQBCACcAFAAoABUAFAAnACgABABHAAgABAAmAEcAFQAjABYAFQAoACMA"),
@@ -262,10 +263,10 @@ _surfaces = [{
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 75,
-"vertex_data": PackedByteArray("AAD/////DcD+//////8UwAAA//8AAKHA/v///wAAdcCol///2qKAtqiX//82vfTMJq3//w25hMyZrv//2qKttXSW//+9qFe+s5X//5+uwcCmlf//mLfSxgCv//+0s9rHE7D//5+utcLOr///vajbvQAA///jYLbCAAD//42jgcAAAP//1MYcwP/////Uxm7A/////42jpMH/////42BIxm2c//+KwAvRKaL//5XAr9IPqP//lr0n0t2o//9UoAWsIaP//3ufx6pknf//VKDsq6pK//////+//3///////79Utf//////v1S1//8AAP+//3///wAA/7+qSv//AAD/vyeu/39hsyDSbqz/f1y4+tnEnf9/WaGlnbGn/3+VvGDhJ6//f6eua8znrv9/LamaxW2Y/3+zo7Kx3pz/f1S/TuM0ov9/X79R5auYAACmteDDN5oAAPm5zcnWpgAAQ7razcGqAADFtjjKzKwAADeqj8DfqwAAsKVcuKGeAAC/o3OwN5oAALClfbhKmQAAN6rmv7WYAAC/riXBLawAAKey3cUBrQAAv66Fw0ydAAB8tf+/4J0AAL+u/78qngAAP6n/v+OdAACIvKvPTKIAAJG8g9B1pwAAv6OKsAujAAAYowWvTacAAKCz/78togAAz7X/vzaoAAC/rv+/C6MAAL+u/7/rpwAAP6n/vwujAADrqP+/bZj/fzu8x9kao/9/j6CpmI6W/38Bt8HPyK3/f7OjNrJxqP9/WaHqnU6X/38tqT/Em5b/f6euYsg0ov9/X79vzG2Y/3+zo8i2oPtCd3H1RoUf80Bmc+lFi17bjWwu375x7eoapmjix6I4zNBd/MwSYH7S2mnm47ev39yYsXbVarO16W1TP/SAaNv5t3P86QCLwtqdkhrFcZ0v8lp6J/UUjcDuhp2P8sqX4v+Yfy7oh3L+//5/af9KgDb/Y4D5//R/9P8EgOX/DIBP3KbCr99LulDKnWja5ZisuNoPxoXZesgnt91abuaGcSz0DZUh1pNoAN0BavnsO5tt6NulD+s2qgXuYaoP7FF5tdT/bZvVdWto1SxqCuliqGHpaKr+//9//v//f/7//3+s8DJ1QvVEjkb5hpPG/waA/v//f/7//3/+//9/////f/7//3////9/vcqFY8v/Jn9rvXJeQdwkyCzpirVVtoJY2bebWo3+gpACxRNj")
+"vertex_data": PackedByteArray("AAD//////7/+////////vwAA//8AAP+//v///wAAA8Col///2qIXtqiX//82vZTNJq3//w257c2Zrv//2qL6tXSW//+9qIW/s5X//5+uZcKmlf//mLfbxwCv//+0s63JE7D//5+u7sTOr///vajMvwAA///jYADAAAD//42j/78AAP//1Mb/v//////Uxv+//////42j/7//////42ARwG2c//+KwCHRKaL//5XA9NIPqP//lr0m092o//9UoPmrIaP//3ufx6pknf//VKD5q6pK//////+//3///////79Utf////8AwFS1//8AAP+//3///wAA/7+qSv//AAD/vyeu/39hs/HTbqz/f1y4xdvEnf9/WaE/nbGn/3+VvNXiJ6//f6euks3nrv9/LamFxW2Y/3+zo/ax3pz/f1S/n+M0ov9/X7+V5auYAACmtfnEN5oAAPm5FMvWpgAAQ7rDzsGqAADFtpvLzKwAADeqFsDfqwAAsKVNt6GeAAC/oymwN5oAALClZrdKmQAAN6o+v7WYAAC/rivBLawAAKey0cYBrQAAv67dw0ydAAB8tQDA4J0AAL+u/78qngAAP6n/v+OdAACIvOXPTKIAAJG8u9B1pwAAv6NRsAujAAAYowWvTacAAKCz/78togAAz7X/vzaoAAC/rv+/C6MAAL+u/7/rpwAAP6n/vwujAADrqP+/bZj/fzu8mtsao/9/j6CpmI6W/38Bt3PRyK3/f7OjYLFxqP9/WaFcnU6X/38tqbDEm5b/f6euVck0ov9/X79jzG2Y/3+zo/y2ev7BgHj/836n/yuA8/qFgtfbdGkB4FN1WfJbpC3nf6OZzCdjos2sZhHTqm0o616uhucwsBficbKM/TiBFf70gP39AIHX/pOAjv63gCX27ISy8vN7BP7uidb27Zrb8XGXAv9lgNnnMXP3//F/W/+4fuT+yn3x/QaB0P6WgNf/sH/u31bBUORMuGPLGmdS7Eap5txgxV3ZhMgkt2tbWOjwdNr32pK31tdtud6uctP2pJjI8CCksOhUquro0anD7QB1PNURaX3VNGhq1Udq/+2xpwnrParU/RSBQ/9dgND/oX9Q8qh6evtLjA32RpKE/yCA+f8CgM3+mIAX/3OAOf9igCP/bYC1/ySA88zWaN3+RIByvqBhetoXyA/nC7SItlhZT7hNXN/+oG/hxJ9j")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_m3eaj")
+shadow_mesh = SubResource("ArrayMesh_pkukt")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_yii05"]
 margin = 0.1
@@ -465,6 +466,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("25_kt1r8")
 texture_filter = 2
 
@@ -473,6 +476,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.77084, 0.770839, 0.770839, 1)
 albedo_texture = ExtResource("25_kt1r8")
 uv1_offset = Vector3(0.5, 0.5, 0.5)
@@ -483,6 +488,8 @@ transparency = 2
 alpha_scissor_threshold = 0.5
 alpha_antialiasing_mode = 0
 cull_mode = 2
+diffuse_mode = 3
+specular_mode = 2
 albedo_color = Color(0.529067, 0.529067, 0.529067, 1)
 albedo_texture = ExtResource("25_kt1r8")
 uv1_offset = Vector3(0.75, 0.75, 0.75)
@@ -572,6 +579,8 @@ mesh = SubResource("ArrayMesh_7r4w6")
 buffer = PackedFloat32Array(1, 0, 0, -46, 0, 1, 0, 0, 0, 0, 1, -47, 1, 0, 0, 49, 0, 1, 0, 0, 0, 0, 1, -14, 1, 0, 0, 42, 0, 1, 0, 0, 0, 0, 1, 18, 1, 0, 0, -27, 0, 1, 0, 0, 0, 0, 1, -46, 1, 0, 0, 22, 0, 1, 0, 0, 0, 0, 1, 42, 1, 0, 0, -17, 0, 1, 0, 0, 0, 0, 1, -50, 1, 0, 0, 44, 0, 1, 0, 0, 0, 0, 1, -28, 1, 0, 0, -46, 0, 1, 0, 0, 0, 0, 1, 49, 1, 0, 0, 11, 0, 1, 0, 0, 0, 0, 1, -42, 1, 0, 0, -48, 0, 1, 0, 0, 0, 0, 1, -15, 1, 0, 0, 3, 0, 1, 0, 0, 0, 0, 1, 46, 1, 0, 0, 16, 0, 1, 0, 0, 0, 0, 1, -47, 1, 0, 0, -48, 0, 1, 0, 0, 0, 0, 1, 13, 1, 0, 0, 42, 0, 1, 0, 0, 0, 0, 1, -37, 1, 0, 0, 43, 0, 1, 0, 0, 0, 0, 1, 2, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 42, 1, 0, 0, -50, 0, 1, 0, 0, 0, 0, 1, 46, 1, 0, 0, 16, 0, 1, 0, 0, 0, 0, 1, 43, 1, 0, 0, -44, 0, 1, 0, 0, 0, 0, 1, 43, 1, 0, 0, -44, 0, 1, 0, 0, 0, 0, 1, -45, 1, 0, 0, -30, 0, 1, 0, 0, 0, 0, 1, -48, 1, 0, 0, 41, 0, 1, 0, 0, 0, 0, 1, -5, 1, 0, 0, 35, 0, 1, 0, 0, 0, 0, 1, -47, 1, 0, 0, 23, 0, 1, 0, 0, 0, 0, 1, -46, 1, 0, 0, 44, 0, 1, 0, 0, 0, 0, 1, -12)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lmiro"]
+diffuse_mode = 3
+specular_mode = 2
 albedo_texture = ExtResource("27_pf1fq")
 texture_filter = 2
 
@@ -1083,7 +1092,7 @@ limit_enabled = true
 limit_upper = 1.5708
 limit_lower = -1.5708
 motor_target_velocity = 0.174533
-node_a = NodePath("..")
+node_b = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="gate" type="MeshInstance3D" parent="fence/fencegate"]
@@ -1125,7 +1134,7 @@ limit_enabled = true
 limit_upper = 1.5708
 limit_lower = -1.5708
 motor_target_velocity = 0.174533
-node_a = NodePath("..")
+node_b = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="gate" type="MeshInstance3D" parent="fence/fencegate3"]
@@ -1146,7 +1155,7 @@ limit_enabled = true
 limit_upper = 1.5708
 limit_lower = -1.5708
 motor_target_velocity = 0.174533
-node_a = NodePath("..")
+node_b = NodePath("..")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 
 [node name="gate" type="MeshInstance3D" parent="fence/fencegate4"]
@@ -1178,7 +1187,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 0.5, 180)
 metadata/material = "dirt"
 
 [node name="ground" type="MeshInstance3D" parent="floor"]
-mesh = SubResource("ArrayMesh_oqmtr")
+mesh = SubResource("ArrayMesh_p8nxj")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="floor"]
